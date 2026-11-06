@@ -13,7 +13,8 @@ Usage:
 Environment (all optional):
   GOATCOUNTER_CODE   e.g. "foggypress"; adds the download counter script
   GOATCOUNTER_TOKEN  API token; pulls download counts for the Popular sort
-  SITE_DOMAIN        e.g. "foggypress.com"; writes the CNAME file
+  SITE_DOMAIN        e.g. "foggypress.com"; writes the CNAME file. Without it, a
+                     GitHub Actions build prefixes links with /<repo-name>/.
 """
 import argparse, datetime, html, json, os, re, shutil, sys, urllib.parse, urllib.request
 from pathlib import Path
@@ -93,6 +94,9 @@ class Site:
         self.downloads = fetch_downloads(self.gc_code, os.environ.get('GOATCOUNTER_TOKEN', '').strip())
         self.today = datetime.date.today().isoformat()
         self.problems = []
+        # Without a custom domain, GitHub Pages serves the site under /<repo-name>/.
+        repo = os.environ.get('GITHUB_REPOSITORY', '')
+        self.base = '' if os.environ.get('SITE_DOMAIN', '').strip() or not repo else '/' + repo.split('/')[-1]
 
     # ---- data ----
     def prepare(self):
@@ -161,6 +165,8 @@ class Site:
 </body>
 </html>
 '''
+        if self.base:
+            doc = re.sub(r'(href|src)="/(?!/)', lambda m: f'{m.group(1)}="{self.base}/', doc)
         dest = self.out / path
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(doc)

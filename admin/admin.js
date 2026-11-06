@@ -74,7 +74,7 @@
     });
   }
   function loadStats() {
-    return fetch('/admin/stats.json', {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : null; }).then(function (s) { if (s) stats = s; }).catch(function () {});
+    return fetch('stats.json', {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : null; }).then(function (s) { if (s) stats = s; }).catch(function () {});
   }
 
   // ---- helpers over data ----
