@@ -45,7 +45,7 @@ jobs:
           GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'foggypress.com' }}
-          WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY }}
+          WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY || '560bbd06-0bf6-47ce-b04d-f68df6a5ff16' }}
         run: python build/build.py --files files --out _site
 
       - uses: actions/upload-pages-artifact@v3
