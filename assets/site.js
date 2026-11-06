@@ -40,3 +40,32 @@
   more.addEventListener('click', function () { shown += per; draw(); });
   draw();
 })();
+
+// Contact form on the About page: sends through Web3Forms after the hCaptcha check.
+(function () {
+  var f = document.getElementById('contact');
+  if (!f || !f.dataset.key) return;
+  var status = document.getElementById('cf-status');
+  var say = function (msg, cls) { status.textContent = msg; status.className = 'formnote' + (cls ? ' ' + cls : ''); };
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var el = f.elements, name = el['name'].value.trim(), email = el['email'].value.trim(), msg = el['message'].value.trim();
+    if (!name || !email || !msg) { say('Please fill in your name, email and message.', 'bad'); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { say('That email address doesn’t look right. Please check it.', 'bad'); return; }
+    var cap = f.querySelector('[name="h-captcha-response"]');
+    if (!cap || !cap.value) { say('Please tick “I am human” before sending.', 'bad'); return; }
+    var btn = f.querySelector('button[type=submit]'); btn.disabled = true; say('Sending…');
+    var data = new FormData(f);
+    data.append('access_key', f.dataset.key);
+    data.append('subject', 'Foggy Press website: message from ' + name);
+    data.append('from_name', 'Foggy Press website');
+    fetch('https://api.web3forms.com/submit', {method: 'POST', body: data})
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j.success) { f.reset(); if (window.hcaptcha) hcaptcha.reset(); say('Thank you. Your message has been sent.', 'ok'); }
+        else { say('Your message didn’t send: ' + (j.message || 'please try again.'), 'bad'); if (window.hcaptcha) hcaptcha.reset(); }
+      })
+      .catch(function () { say('Your message didn’t send. Please check your connection and try again.', 'bad'); })
+      .then(function () { btn.disabled = false; });
+  });
+})();

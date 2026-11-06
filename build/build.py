@@ -230,7 +230,27 @@ class Site:
             body = markdown.markdown(text)
         except Exception:
             body = ''.join(f'<p>{esc(p)}</p>' for p in text.split('\n\n') if p.strip())
-        self.page('about/index.html', 'About · Foggy Press', f'<div class="ph"><span class="crumb"><a href="/">Home</a></span><h1>About Foggy Press</h1></div><div class="prose">{body}</div>', 'about')
+        self.page('about/index.html', 'About · Foggy Press', f'<div class="ph"><span class="crumb"><a href="/">Home</a></span><h1>About Foggy Press</h1></div><div class="prose">{body}</div>{self.contact_form()}', 'about')
+
+    def contact_form(self):
+        """Feedback form. Messages are delivered by Web3Forms to the email address its access key was made for;
+        the address never appears in the page. hCaptcha supplies the 'I am not a robot' check."""
+        key = os.environ.get('WEB3FORMS_KEY', '').strip()
+        off = '' if key else ' disabled'
+        note = '' if key else '<p class="formnote" id="cf-status">The form will open shortly.</p>'
+        return f'''<section class="contact" aria-labelledby="cf-h">
+<h2 id="cf-h">Please send us questions or feedback!</h2>
+<form id="contact" class="cform" data-key="{esc(key)}" novalidate>
+  <div class="fld"><label for="cf-name">Your name</label><input id="cf-name" name="name" type="text" autocomplete="name" required{off}></div>
+  <div class="fld"><label for="cf-email">Your email</label><input id="cf-email" name="email" type="email" autocomplete="email" required{off}></div>
+  <div class="fld"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" rows="6" required{off}></textarea></div>
+  <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div class="h-captcha" data-captcha="true"></div>
+  <div class="cf-row"><button class="btn" type="submit"{off}>Send message</button></div>
+  {note or '<p class="formnote" id="cf-status" role="status"></p>'}
+</form></section>
+{'<script src="https://js.hcaptcha.com/1/api.js" async defer></script>' if key else ''}'''
+
 
     def not_found(self):
         self.page('404.html', 'Not found · Foggy Press', '<div class="ph"><h1>Not found</h1><p class="sub">That page isn’t here. <a href="/" style="color:var(--accent)">Go to the home page</a>.</p></div>')

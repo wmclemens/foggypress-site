@@ -112,3 +112,17 @@ main{grid-area:main;min-width:0}
 .prose h2{font-size:1.15rem;margin-top:.75rem}
 .prose a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* contact form (About page) */
+.contact{max-width:38rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--ink);display:grid;gap:1.1rem}
+.contact h2{font-size:1.3rem;letter-spacing:-.02em}
+.cform{display:grid;gap:1rem}
+.cform .fld{display:grid;gap:.35rem}
+.cform label{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cform input,.cform textarea{font:inherit;font-size:.95rem;color:var(--ink);background:var(--surface);border:1px solid var(--line-2);border-radius:6px;padding:.6rem .7rem;width:100%}
+.cform textarea{resize:vertical;min-height:8rem}
+.cform input:focus,.cform textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.cform .hp{display:none}
+.formnote{font-size:.88rem;color:var(--muted)}
+.formnote.ok{color:var(--accent)}
+.formnote.bad{color:var(--bad)}
