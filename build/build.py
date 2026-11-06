@@ -245,7 +245,7 @@ class Site:
   <div class="fld"><label for="cf-email">Your email</label><input id="cf-email" name="email" type="email" autocomplete="email" required{off}></div>
   <div class="fld"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" rows="6" required{off}></textarea></div>
   <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-  <div class="h-captcha" data-captcha="true"></div>
+  <div class="h-captcha" data-captcha="true" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
   <div class="cf-row"><button class="btn" type="submit"{off}>Send message</button></div>
   {note or '<p class="formnote" id="cf-status" role="status"></p>'}
 </form></section>
