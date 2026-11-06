@@ -15,6 +15,21 @@
   var authorName = function (b) { return (b.author_first + ' ' + b.author_last).trim(); };
   var num = function (n) { return n == null ? '' : Number(n).toLocaleString('en-US'); };
 
+  var yearNum = function (y) { var m = String(y || '').match(/(\d+)/); if (!m) return Infinity; var n = +m[1]; return /BC/.test(y) ? -n : n; };
+  var sortedTags = function (b) { return (b.tags || []).slice().sort(function (x, y) { return x.localeCompare(y); }); };
+  var catSort = {key: 'author_last', dir: 1}, tagSort = {key: 'name', dir: 1}, oneTagSort = {key: 'title', dir: 1};
+  // A clickable column heading: click sorts by it, click again reverses.
+  function th(label, key, state, cls) {
+    var on = state.key === key;
+    return '<th' + (cls ? ' class="' + cls + '"' : '') + ' aria-sort="' + (on ? (state.dir > 0 ? 'ascending' : 'descending') : 'none') + '"><button type="button" class="sortbtn' + (on ? ' on' : '') + '" data-sortkey="' + key + '">' + label + '<span class="arr">' + (on ? (state.dir > 0 ? '▲' : '▼') : '↕') + '</span></button></th>';
+  }
+  function wireSort(el, state, redraw) {
+    el.querySelectorAll('[data-sortkey]').forEach(function (b) {
+      b.onclick = function () { var k = b.dataset.sortkey; if (state.key === k) state.dir = -state.dir; else { state.key = k; state.dir = 1; } redraw(); };
+    });
+  }
+  function cmp(a, b) { if (a === b) return 0; if (a === '' || a == null) return 1; if (b === '' || b == null) return -1; return typeof a === 'number' && typeof b === 'number' ? a - b : String(a).localeCompare(String(b), undefined, {sensitivity: 'base'}); }
+
   var token = null, user = null;
   var data = {books: null, booksSha: null, tags: null, tagsSha: null};
   var stats = {books: {}, unlisted: [], problems: []};
@@ -111,16 +126,25 @@
     var probs = (stats.problems || []).length ? '<div class="banner"><strong>The last build could not find these PDFs:</strong><ul>' + stats.problems.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></div>' : '';
     $('#app').innerHTML = tabs('books') + banner + probs +
       '<div class="tools"><input id="q" type="search" placeholder="Search title, author or tag" aria-label="Search the catalog" value="' + esc(q) + '"><a class="btn sm" href="#new">New record</a><span class="mono count" id="count"></span></div>' +
-      '<div class="tbl-wrap"><table><thead><tr><th>Author last</th><th>Author first</th><th>Title</th><th>Original</th><th>Foggy Press</th><th>Downloads</th><th>Pages</th><th>Tags</th></tr></thead><tbody id="rows"></tbody></table></div>' +
+      '<div class="tbl-wrap"><table><thead id="chead"></thead><tbody id="rows"></tbody></table></div>' +
       (stats.built ? '<p class="note" style="margin-top:.75rem">Pages and downloads as of the last site build, ' + esc(stats.built.replace('T', ' ')) + ' UTC.</p>' : '');
     var draw = function () {
       var s = q.trim().toLowerCase();
       var list = data.books.filter(function (b) { return !s || [b.author_last, b.author_first, b.title, b.translator].concat(b.tags || []).join(' ').toLowerCase().indexOf(s) >= 0; });
+      var val = {
+        author_last: function (b) { return b.author_last; }, author_first: function (b) { return b.author_first; },
+        title: function (b) { return sortTitle(b.title); }, original_date: function (b) { var n = yearNum(b.original_date); return n === Infinity ? '' : n; },
+        foggy_press_date: function (b) { return b.foggy_press_date || ''; }, downloads: function (b) { return dlOf(b); },
+        pages: function (b) { return st(b).pages == null ? '' : st(b).pages; }, tags: function (b) { return sortedTags(b).join(', '); }
+      }[catSort.key];
+      list.sort(function (a, b) { var r = cmp(val(a), val(b)); return (r * catSort.dir) || cmp(a.author_last + a.author_first + sortTitle(a.title), b.author_last + b.author_first + sortTitle(b.title)); });
+      $('#chead').innerHTML = '<tr>' + th('Author last', 'author_last', catSort) + th('Author first', 'author_first', catSort) + th('Title', 'title', catSort) + th('Original', 'original_date', catSort) + th('Foggy Press', 'foggy_press_date', catSort) + th('Downloads', 'downloads', catSort) + th('Pages', 'pages', catSort) + th('Tags', 'tags', catSort) + '</tr>';
+      wireSort($('#chead'), catSort, draw);
       $('#count').textContent = list.length + ' of ' + data.books.length + ' records · ' + data.books.filter(isLive).length + ' live';
       $('#rows').innerHTML = list.map(function (b) {
         return '<tr class="go" data-id="' + esc(b.id) + '" tabindex="0"><td>' + esc(b.author_last) + '</td><td>' + esc(b.author_first) + '</td><td>' + esc(b.title) + '</td><td class="num">' + esc(b.original_date) + '</td>' +
           '<td class="num">' + (b.foggy_press_date ? esc(b.foggy_press_date) : '<span class="pill warn">Hidden</span>') + '</td><td class="num">' + num(dlOf(b)) + '</td><td class="num">' + num(st(b).pages) + '</td>' +
-          '<td><div class="chips">' + (b.tags || []).map(function (t) { return '<span class="chip">' + esc(t) + '</span>'; }).join('') + '</div></td></tr>';
+          '<td><div class="chips">' + sortedTags(b).map(function (t) { return '<span class="chip">' + esc(t) + '</span>'; }).join('') + '</div></td></tr>';
       }).join('');
     };
     $('#q').oninput = function (e) { q = e.target.value; draw(); };
@@ -161,8 +185,8 @@
     if (isNew) $('#f-title').addEventListener('input', function () { if (!$('#f-id').dataset.touched) $('#f-id').value = slugify($('#f-title').value); });
     $('#f-id').addEventListener('input', function () { $('#f-id').dataset.touched = '1'; });
 
-    var draft = (b.tags || []).slice(), created = [];
-    var chips = function () { $('#tagchips').innerHTML = draft.map(function (t, i) { return '<span class="chip">' + esc(t) + '<button type="button" data-rm="' + i + '" aria-label="Remove ' + esc(t) + '">×</button></span>'; }).join(''); };
+    var draft = sortedTags(b), created = [];
+    var chips = function () { draft.sort(function (x, y) { return x.localeCompare(y); }); $('#tagchips').innerHTML = draft.map(function (t, i) { return '<span class="chip">' + esc(t) + '<button type="button" data-rm="' + i + '" aria-label="Remove ' + esc(t) + '">×</button></span>'; }).join(''); };
     chips();
     var inp = $('#tagin'), sg = $('#sugg'), opts = [], on = 0;
     var all = function () { return tagNames().concat(created); };
@@ -202,7 +226,7 @@
       var rec = {};
       ['id', 'author_last', 'author_first', 'title', 'translator', 'original_date', 'foggy_press_date', 'github_dir', 'github_pdf'].forEach(function (k) { rec[k] = $('#f-' + k).value.trim(); });
       rec.id = slugify(rec.id || rec.title);
-      rec.tags = draft.slice();
+      rec.tags = draft.slice().sort(function (x, y) { return x.localeCompare(y); });
       var note = $('#savenote');
       if (!rec.title) { note.innerHTML = '<span class="err">Add a title first.</span>'; return; }
       if (!rec.github_pdf) { note.innerHTML = '<span class="err">Add the GitHub PDF link: the site copies the PDF from there.</span>'; return; }
@@ -231,14 +255,16 @@
   }
 
   function vTags() {
-    var ts = data.tags.slice().sort(function (a, b) { return a.name.localeCompare(b.name); });
-    var nf = ts.filter(function (t) { return t.featured; }).length;
+    var ts = data.tags.map(function (t) { var bs = booksWith(t.name), live = bs.filter(isLive); return {t: t, books: bs.length, live: live.length, dl: live.reduce(function (s, b) { return s + dlOf(b); }, 0)}; });
+    var tv = {name: function (r) { return r.t.name; }, books: function (r) { return r.books; }, live: function (r) { return r.live; }, downloads: function (r) { return r.dl; }, featured: function (r) { return r.t.featured ? 0 : 1; }}[tagSort.key];
+    ts.sort(function (a, b) { return (cmp(tv(a), tv(b)) * tagSort.dir) || cmp(a.t.name, b.t.name); });
+    var nf = data.tags.filter(function (t) { return t.featured; }).length;
     $('#app').innerHTML = tabs('tags') +
       '<div class="tools"><input id="nt" type="text" placeholder="New tag name" aria-label="New tag name" style="width:min(16rem,100%)"><button class="btn sm" id="addtag" type="button">Add tag</button><span class="mono count">' + ts.length + ' tags · ' + nf + ' of ' + FEATURED_MAX + ' featured</span></div>' +
-      '<div class="tbl-wrap"><table><thead><tr><th>Tag</th><th>Books</th><th>Live</th><th>Downloads</th><th>Featured on home page</th></tr></thead><tbody>' +
-      ts.map(function (t) {
-        var bs = booksWith(t.name), live = bs.filter(isLive);
-        return '<tr class="go" data-slug="' + slugify(t.name) + '" tabindex="0"><td style="font-weight:500">' + esc(t.name) + '</td><td class="num">' + bs.length + '</td><td class="num">' + live.length + '</td><td class="num">' + num(live.reduce(function (s, b) { return s + dlOf(b); }, 0)) + '</td>' +
+      '<div class="tbl-wrap"><table><thead id="thead"><tr>' + th('Tag', 'name', tagSort) + th('Books', 'books', tagSort) + th('Live', 'live', tagSort) + th('Downloads', 'downloads', tagSort) + th('Featured on home page', 'featured', tagSort) + '</tr></thead><tbody>' +
+      ts.map(function (r) {
+        var t = r.t;
+        return '<tr class="go" data-slug="' + slugify(t.name) + '" tabindex="0"><td style="font-weight:500">' + esc(t.name) + '</td><td class="num">' + r.books + '</td><td class="num">' + r.live + '</td><td class="num">' + num(r.dl) + '</td>' +
           '<td><button class="star" type="button" data-feat="' + esc(t.name) + '" aria-pressed="' + !!t.featured + '">' + (t.featured ? '★ Featured' : '☆ Feature') + '</button></td></tr>';
       }).join('') + '</tbody></table></div>';
     $('#addtag').onclick = function () {
@@ -248,6 +274,7 @@
       saveTags('Add tag ' + v).then(function () { toast('Added “' + v + '”. Open it to tag books.'); route(); }).catch(function (e) { data.tags.pop(); failed(e); });
     };
     $('#nt').onkeydown = function (e) { if (e.key === 'Enter') $('#addtag').click(); };
+    wireSort($('#thead'), tagSort, vTags);
     wireFeature();
     $('#app').querySelector('tbody').onclick = function (e) { if (e.target.closest('button')) return; var r = e.target.closest('tr[data-slug]'); if (r) location.hash = 'tag-' + r.dataset.slug; };
     $('#app').querySelector('tbody').onkeydown = function (e) { var r = e.target.closest('tr[data-slug]'); if (r && e.key === 'Enter' && !e.target.closest('button')) location.hash = 'tag-' + r.dataset.slug; };
@@ -269,16 +296,18 @@
   function vTag(slug) {
     var t = tagBySlug(slug);
     if (!t) { $('#app').innerHTML = tabs('tags') + '<p class="note" style="padding:2rem 0">No such tag. <a href="#tags">Back to the tag file</a></p>'; return; }
-    var list = booksWith(t.name).sort(function (a, b) { return sortTitle(a.title).localeCompare(sortTitle(b.title)); });
+    var ov = {title: function (b) { return sortTitle(b.title); }, author: function (b) { return b.author_last + ' ' + b.author_first; }, downloads: function (b) { return dlOf(b); }, status: function (b) { return isLive(b) ? 0 : 1; }}[oneTagSort.key];
+    var list = booksWith(t.name).sort(function (a, b) { return (cmp(ov(a), ov(b)) * oneTagSort.dir) || cmp(sortTitle(a.title), sortTitle(b.title)); });
     $('#app').innerHTML = tabs('tags') +
       '<div style="padding-top:1.25rem;display:grid;gap:.5rem"><span class="crumb"><a href="#tags">Tag file</a> / ' + esc(t.name) + '</span>' +
       '<div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><h1 style="font-size:2rem">' + esc(t.name) + '</h1><button class="star" type="button" data-feat="' + esc(t.name) + '" aria-pressed="' + !!t.featured + '">' + (t.featured ? '★ Featured' : '☆ Feature') + '</button></div></div>' +
       '<div class="form" style="padding-top:1rem"><div class="fld"><label for="addbook">Add books to this tag</label><div class="picker" style="padding:.25rem"><input id="addbook" type="text" placeholder="Type a title or author" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="bsugg"><div class="sugg" id="bsugg" hidden></div></div></div>' +
       '<div class="fld"><label for="rn">Rename tag</label><div style="display:flex;gap:.5rem"><input id="rn" type="text" value="' + esc(t.name) + '"><button class="btn ghost sm" id="rename" type="button">Rename</button></div></div></div>' +
-      '<div class="tbl-wrap" style="margin-top:1.25rem"><table><thead><tr><th>Title</th><th>Author</th><th>Downloads</th><th>Status</th><th></th></tr></thead><tbody>' +
+      '<div class="tbl-wrap" style="margin-top:1.25rem"><table><thead id="thead"><tr>' + th('Title', 'title', oneTagSort) + th('Author', 'author', oneTagSort) + th('Downloads', 'downloads', oneTagSort) + th('Status', 'status', oneTagSort) + '<th></th></tr></thead><tbody>' +
       (list.map(function (b) { return '<tr><td>' + esc(b.title) + '</td><td>' + esc(authorName(b)) + '</td><td class="num">' + num(dlOf(b)) + '</td><td>' + (isLive(b) ? '<span class="pill">Live</span>' : '<span class="pill warn">Hidden</span>') + '</td><td><button class="star" type="button" data-untag="' + esc(b.id) + '">Remove</button></td></tr>'; }).join('') ||
         '<tr><td colspan="5">No books have this tag yet.</td></tr>') + '</tbody></table></div>' +
       '<div class="saverow"><span class="confirm" id="tdelwrap"><button class="star danger" id="tdel" type="button">Delete tag</button></span></div>';
+    wireSort($('#thead'), oneTagSort, function () { vTag(slug); });
     wireFeature();
     var inp = $('#addbook'), sg = $('#bsugg'), opts = [];
     var tagBook = function (b) {

@@ -178,7 +178,7 @@ class Site:
             pages = f" · {b['_pages']} pp" if b.get('_pages') else ''
             out.append(f'''<li class="rec"><a href="/pdf/{esc(b['id'])}.pdf" data-goatcounter-click="pdf-{esc(b['id'])}" data-goatcounter-title="{esc(b['title'])}">
 <span class="t">{esc(b['title'])}</span>
-<span class="m"><span class="mono">{esc(b.get('original_date'))}{pages}</span><span class="pdf">PDF · {fmt_dl(b['_downloads'])}</span></span>
+<span class="m"><span class="mono">{esc(b.get('original_date'))}{pages}</span><span class="pdf">PDF</span></span>
 <span class="a">{esc(author_name(b))}{tr}</span></a></li>''')
         return '<ul class="recs">' + ''.join(out) + '</ul>'
 
@@ -189,10 +189,10 @@ class Site:
             bs = sorted(self.by_tag[t['name']], key=lambda b: (-b['_downloads'], sort_title(b['title'])))
             n = len(bs)
             more = f'More: all {n} titles →' if n > 3 else 'Open collection →'
-            fhtml.append(f'''<a class="ft" href="/tag/{t['slug']}/"><div class="top"><span class="mono i">{i+1:02d}</span><span class="mono c">{n} {'title' if n == 1 else 'titles'} · {fmt_dl(self.tag_dl(t['name']))}</span></div>
+            fhtml.append(f'''<a class="ft" href="/tag/{t['slug']}/"><div class="top"><span class="mono i">{i+1:02d}</span><span class="mono c">{n} {'title' if n == 1 else 'titles'}</span></div>
 <h3>{esc(t['name'])}</h3><ul>{''.join(f'<li>{esc(b["title"])}</li>' for b in bs[:3])}</ul><span class="fmore">{more}</span></a>''')
         alltags = sorted([t for t in self.tags if self.by_tag[t['name']]], key=lambda t: t['name'].lower())
-        tiles = ''.join(f'''<a class="ct" href="/tag/{t['slug']}/" data-name="{esc(t['name'].lower())}" data-dl="{self.tag_dl(t['name'])}"><span class="nm">{esc(t['name'])}</span><span class="row mono"><span>{len(self.by_tag[t['name']])} {'title' if len(self.by_tag[t['name']]) == 1 else 'titles'}</span><span class="dl">{fmt_dl(self.tag_dl(t['name']))}</span></span></a>''' for t in alltags)
+        tiles = ''.join(f'''<a class="ct" href="/tag/{t['slug']}/" data-name="{esc(t['name'].lower())}" data-dl="{self.tag_dl(t['name'])}"><span class="nm">{esc(t['name'])}</span><span class="row mono"><span>{len(self.by_tag[t['name']])} {'title' if len(self.by_tag[t['name']]) == 1 else 'titles'}</span></span></a>''' for t in alltags)
         featsec = f'''<section class="sec"><div class="sec-h"><h2>Featured collections</h2><span class="eyebrow">{len(self.live)} books · free PDFs</span></div><div class="feat">{''.join(fhtml)}</div></section>''' if feat else ''
         body = f'''{featsec}
 <section class="sec"><div class="sec-h"><h2>All collections</h2>
@@ -215,12 +215,12 @@ class Site:
         by_title = sorted(self.live, key=lambda b: sort_title(b['title']).lower())
         self.page('titles/index.html', 'By title · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By title</h1><p class="sub">{len(self.live)} books, A to Z, ignoring “The”, “A” and “An”. Click a book to open its PDF.</p></div>{self.recs(by_title)}''', 'titles')
         ts = sorted([t for t in self.tags if self.by_tag[t['name']]], key=lambda t: t['name'].lower())
-        links = ''.join(f'<a href="/tag/{t["slug"]}/"><span>{esc(t["name"])}</span><span class="mono">{len(self.by_tag[t["name"]])} · {fmt_dl(self.tag_dl(t["name"]))}</span></a>' for t in ts)
+        links = ''.join(f'<a href="/tag/{t["slug"]}/"><span>{esc(t["name"])}</span><span class="mono">{len(self.by_tag[t["name"]])}</span></a>' for t in ts)
         self.page('tags/index.html', 'By tag · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By tag</h1><p class="sub">Every tag is a collection. {len(ts)} tags.</p></div><div class="taglist">{links}</div>''', 'tags')
         for t in ts:
             bs = sorted(self.by_tag[t['name']], key=lambda b: (b['author_last'].lower(), sort_title(b['title'])))
             n = len(bs)
-            self.page(f'tag/{t["slug"]}/index.html', f'{t["name"]} · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/tags/">Collections</a></span><h1>{esc(t['name'])}</h1><p class="sub">{n} {'book' if n == 1 else 'books'} · {self.tag_dl(t['name']):,} downloads{' · Featured collection' if t.get('featured') else ''}</p></div>{self.recs(bs)}''', '')
+            self.page(f'tag/{t["slug"]}/index.html', f'{t["name"]} · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/tags/">Collections</a></span><h1>{esc(t['name'])}</h1><p class="sub">{n} {'book' if n == 1 else 'books'}{' · Featured collection' if t.get('featured') else ''}</p></div>{self.recs(bs)}''', '')
 
     def about(self):
         src = ROOT / 'content/about.md'
