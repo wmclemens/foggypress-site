@@ -55,7 +55,7 @@
     var cap = f.querySelector('[name="h-captcha-response"]');
     if (!cap || !cap.value) { say('Please tick “I am human” before sending.', 'bad'); return; }
     var btn = f.querySelector('button[type=submit]'); btn.disabled = true; say('Sending…');
-    var data = new FormData(f);
+    var data = new FormData(f); data.delete('g-recaptcha-response'); // hCaptcha adds this copy; Web3Forms would read it as reCAPTCHA (a paid feature)
     data.append('access_key', f.dataset.key);
     data.append('subject', 'Foggy Press website: message from ' + name);
     data.append('from_name', 'Foggy Press website');
