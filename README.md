@@ -1,0 +1,38 @@
+# foggypress-site
+
+The website for Foggy Press: free, printable public-domain books at [foggypress.com](https://foggypress.com).
+
+Everything is built from scratch from the files in this repo. The book PDFs themselves live in the private `foggy-press-files` repo; the build copies in only the books that are live.
+
+## What's here
+
+- `catalog/books.json`: one record per book: author last and first name, title, translator, original publish date, Foggy Press publish date, GitHub directory and PDF links, and tags.
+- `catalog/tags.json`: the tag file: every tag, and whether it is one of the three featured collections.
+- `content/about.md`: the About page.
+- `admin/`: the admin pages at foggypress.com/admin, for editing the catalog and tags.
+- `assets/`: the site's stylesheet and script.
+- `build/build.py`: turns the catalog into the website.
+- `.github/workflows/build.yml`: builds and publishes the site.
+
+## How a book goes live
+
+A book appears on the site when its record has a Foggy Press publish date that is today or earlier and its PDF exists in `foggy-press-files`. Leave the date empty to keep a book hidden.
+
+The site rebuilds on every change to this repo (including every save in admin), once a day, and whenever you press **Run workflow** under Actions → Build and publish site.
+
+## Settings the build uses
+
+| Where | Name | What |
+|---|---|---|
+| Secrets | `FILES_TOKEN` | Fine-grained token, read-only Contents on `foggy-press-files`. Required. |
+| Secrets | `GOATCOUNTER_TOKEN` | GoatCounter API token, for download counts. Optional. |
+| Variables | `GOATCOUNTER_CODE` | GoatCounter site code, e.g. `foggypress`. Optional. |
+| Variables | `SITE_DOMAIN` | `foggypress.com` once DNS points here. Optional. |
+
+## Build locally
+
+```
+pip install pypdf markdown
+python build/build.py --files ../foggy-press-files
+python -m http.server -d _site 8000
+```

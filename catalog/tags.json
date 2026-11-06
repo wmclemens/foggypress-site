@@ -1,0 +1,166 @@
+[
+  {
+    "name": "Adventure",
+    "featured": false
+  },
+  {
+    "name": "American",
+    "featured": false
+  },
+  {
+    "name": "Ancient World",
+    "featured": false
+  },
+  {
+    "name": "Black Voices",
+    "featured": false
+  },
+  {
+    "name": "British",
+    "featured": false
+  },
+  {
+    "name": "Canadian",
+    "featured": false
+  },
+  {
+    "name": "Children's",
+    "featured": false
+  },
+  {
+    "name": "Chinese",
+    "featured": false
+  },
+  {
+    "name": "Comedy & Satire",
+    "featured": false
+  },
+  {
+    "name": "Coming of Age",
+    "featured": false
+  },
+  {
+    "name": "Drama",
+    "featured": false
+  },
+  {
+    "name": "Economics",
+    "featured": false
+  },
+  {
+    "name": "Epic",
+    "featured": false
+  },
+  {
+    "name": "Essays",
+    "featured": false
+  },
+  {
+    "name": "Fantasy & Fairy Tales",
+    "featured": false
+  },
+  {
+    "name": "French",
+    "featured": false
+  },
+  {
+    "name": "German",
+    "featured": false
+  },
+  {
+    "name": "Gothic & Horror",
+    "featured": true
+  },
+  {
+    "name": "History",
+    "featured": false
+  },
+  {
+    "name": "Irish",
+    "featured": false
+  },
+  {
+    "name": "Italian",
+    "featured": false
+  },
+  {
+    "name": "Love & Marriage",
+    "featured": false
+  },
+  {
+    "name": "Medieval",
+    "featured": false
+  },
+  {
+    "name": "Memoir",
+    "featured": false
+  },
+  {
+    "name": "Music",
+    "featured": false
+  },
+  {
+    "name": "Mystery & Detection",
+    "featured": false
+  },
+  {
+    "name": "Novels",
+    "featured": false
+  },
+  {
+    "name": "Philosophy",
+    "featured": true
+  },
+  {
+    "name": "Poetry",
+    "featured": false
+  },
+  {
+    "name": "Politics & Society",
+    "featured": false
+  },
+  {
+    "name": "Religion",
+    "featured": false
+  },
+  {
+    "name": "Russian",
+    "featured": false
+  },
+  {
+    "name": "Science",
+    "featured": false
+  },
+  {
+    "name": "Science Fiction",
+    "featured": false
+  },
+  {
+    "name": "Sea & Ships",
+    "featured": true
+  },
+  {
+    "name": "Short Reads",
+    "featured": false
+  },
+  {
+    "name": "Spanish",
+    "featured": false
+  },
+  {
+    "name": "Stories",
+    "featured": false
+  },
+  {
+    "name": "Translated",
+    "featured": false
+  },
+  {
+    "name": "Victorian",
+    "featured": false
+  },
+  {
+    "name": "Women Writers",
+    "featured": false
+  }
+]

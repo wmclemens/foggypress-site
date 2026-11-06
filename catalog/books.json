@@ -1,0 +1,1544 @@
+[
+  {
+    "id": "little-women",
+    "author_last": "Alcott",
+    "author_first": "Louisa May",
+    "title": "Little Women",
+    "translator": "",
+    "original_date": "1868–69",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/alcott-louisa-may/little-women",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/alcott-louisa-may/little-women/output/Alcott%2C%20Louisa%20May%3A%20Little%20Women.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Women Writers",
+      "Coming of Age"
+    ]
+  },
+  {
+    "id": "beowulf",
+    "author_last": "Anonymous",
+    "author_first": "",
+    "title": "Beowulf",
+    "translator": "J. Lesslie Hall",
+    "original_date": "c. 700–1000",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/anonymous/beowulf",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/anonymous/beowulf/output/Anonymous%3A%20Beowulf.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Epic",
+      "Medieval",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-confessions-of-st-augustine",
+    "author_last": "Augustine",
+    "author_first": "Saint",
+    "title": "The Confessions of Saint Augustine",
+    "translator": "Edward Bouverie Pusey",
+    "original_date": "c. 400",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/augustine-saint/the-confessions-of-st-augustine",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/augustine-saint/the-confessions-of-st-augustine/output/Augustine%2C%20Saint%3A%20The%20Confessions%20of%20Saint%20Augustine.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Religion",
+      "Memoir",
+      "Ancient World",
+      "Translated"
+    ]
+  },
+  {
+    "id": "meditations",
+    "author_last": "Aurelius",
+    "author_first": "Marcus",
+    "title": "Meditations",
+    "translator": "Meric Casaubon",
+    "original_date": "c. 180",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/aurelius-marcus/meditations",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/aurelius-marcus/meditations/output/Aurelius%2C%20Marcus%3A%20Meditations.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Ancient World",
+      "Translated"
+    ]
+  },
+  {
+    "id": "emma",
+    "author_last": "Austen",
+    "author_first": "Jane",
+    "title": "Emma",
+    "translator": "",
+    "original_date": "1815",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/austen-jane/emma",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/austen-jane/emma/output/Austen%2C%20Jane%3A%20Emma.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Women Writers",
+      "Love & Marriage",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "pride-and-prejudice",
+    "author_last": "Austen",
+    "author_first": "Jane",
+    "title": "Pride and Prejudice",
+    "translator": "",
+    "original_date": "1813",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/austen-jane/pride-and-prejudice",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/austen-jane/pride-and-prejudice/output/Austen%2C%20Jane%3A%20Pride%20and%20Prejudice.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Women Writers",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "sense-and-sensibility",
+    "author_last": "Austen",
+    "author_first": "Jane",
+    "title": "Sense and Sensibility",
+    "translator": "",
+    "original_date": "1811",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/austen-jane/sense-and-sensibility",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/austen-jane/sense-and-sensibility/output/Austen%2C%20Jane%3A%20Sense%20and%20Sensibility.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Women Writers",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "peter-pan",
+    "author_last": "Barrie",
+    "author_first": "J. M.",
+    "title": "Peter Pan",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/barrie-j-m/peter-pan",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/barrie-j-m/peter-pan/output/Barrie%2C%20J.%20M.%3A%20Peter%20Pan.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Fantasy & Fairy Tales",
+      "British"
+    ]
+  },
+  {
+    "id": "the-wonderful-wizard-of-oz",
+    "author_last": "Baum",
+    "author_first": "L. Frank",
+    "title": "The Wonderful Wizard of Oz",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/baum-l-frank/the-wonderful-wizard-of-oz",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/baum-l-frank/the-wonderful-wizard-of-oz/output/Baum%2C%20L.%20Frank%3A%20The%20Wonderful%20Wizard%20of%20Oz.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Fantasy & Fairy Tales",
+      "American"
+    ]
+  },
+  {
+    "id": "the-new-testament",
+    "author_last": "Bible",
+    "author_first": "",
+    "title": "The New Testament (King James Version)",
+    "translator": "",
+    "original_date": "1611",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/bible/the-new-testament",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/bible/the-new-testament/output/The%20New%20Testament%20%28King%20James%20Version%29.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Religion",
+      "Ancient World"
+    ]
+  },
+  {
+    "id": "the-old-testament",
+    "author_last": "Bible",
+    "author_first": "",
+    "title": "The Old Testament (King James Version)",
+    "translator": "",
+    "original_date": "1611",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/bible/the-old-testament",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/bible/the-old-testament/output/The%20Old%20Testament%20%28King%20James%20Version%29.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Religion",
+      "Ancient World"
+    ]
+  },
+  {
+    "id": "jane-eyre",
+    "author_last": "Brontë",
+    "author_first": "Charlotte",
+    "title": "Jane Eyre",
+    "translator": "",
+    "original_date": "1847",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/bronte-charlotte/jane-eyre",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/bronte-charlotte/jane-eyre/output/Bront%C3%AB%2C%20Charlotte%3A%20Jane%20Eyre.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Women Writers",
+      "Gothic & Horror",
+      "Coming of Age"
+    ]
+  },
+  {
+    "id": "wuthering-heights",
+    "author_last": "Brontë",
+    "author_first": "Emily",
+    "title": "Wuthering Heights",
+    "translator": "",
+    "original_date": "1847",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/bronte-emily/wuthering-heights",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/bronte-emily/wuthering-heights/output/Bront%C3%AB%2C%20Emily%3A%20Wuthering%20Heights.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Women Writers",
+      "Gothic & Horror",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "alices-adventures-in-wonderland",
+    "author_last": "Carroll",
+    "author_first": "Lewis",
+    "title": "Alice’s Adventures in Wonderland",
+    "translator": "",
+    "original_date": "1865",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/carroll-lewis/alices-adventures-in-wonderland",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/carroll-lewis/alices-adventures-in-wonderland/output/Carroll%2C%20Lewis%3A%20Alice%E2%80%99s%20Adventures%20in%20Wonderland.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Fantasy & Fairy Tales",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "through-the-looking-glass",
+    "author_last": "Carroll",
+    "author_first": "Lewis",
+    "title": "Through the Looking-Glass, and What Alice Found There",
+    "translator": "",
+    "original_date": "1871",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/carroll-lewis/through-the-looking-glass",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/carroll-lewis/through-the-looking-glass/output/Carroll%2C%20Lewis%3A%20Through%20the%20Looking-Glass%2C%20and%20What%20Alice%20Found%20There.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Fantasy & Fairy Tales",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "don-quixote",
+    "author_last": "Cervantes Saavedra",
+    "author_first": "Miguel de",
+    "title": "Don Quixote",
+    "translator": "John Ormsby",
+    "original_date": "1605–15",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/cervantes-saavedra-miguel-de/don-quixote",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/cervantes-saavedra-miguel-de/don-quixote/output/Cervantes%20Saavedra%2C%20Miguel%20de%3A%20Don%20Quixote.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Spanish",
+      "Adventure",
+      "Comedy & Satire",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-king-in-yellow",
+    "author_last": "Chambers",
+    "author_first": "Robert W.",
+    "title": "The King in Yellow",
+    "translator": "",
+    "original_date": "1895",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/chambers-robert-w/the-king-in-yellow",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/chambers-robert-w/the-king-in-yellow/output/Chambers%2C%20Robert%20W.%3A%20The%20King%20in%20Yellow.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American",
+      "Gothic & Horror"
+    ]
+  },
+  {
+    "id": "the-alexiad",
+    "author_last": "Comnena",
+    "author_first": "Anna",
+    "title": "The Alexiad",
+    "translator": "Elizabeth A. S. Dawes",
+    "original_date": "c. 1148",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/comnena-anna/the-alexiad",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/comnena-anna/the-alexiad/output/Comnena%2C%20Anna%3A%20The%20Alexiad.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "Women Writers",
+      "Translated"
+    ]
+  },
+  {
+    "id": "heart-of-darkness",
+    "author_last": "Conrad",
+    "author_first": "Joseph",
+    "title": "Heart of Darkness",
+    "translator": "",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/conrad-joseph/heart-of-darkness",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/conrad-joseph/heart-of-darkness/output/Conrad%2C%20Joseph%3A%20Heart%20of%20Darkness.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Sea & Ships",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "two-years-before-the-mast",
+    "author_last": "Dana",
+    "author_first": "Richard Henry",
+    "title": "Two Years Before the Mast",
+    "translator": "",
+    "original_date": "1840",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dana-richard-henry/two-years-before-the-mast",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dana-richard-henry/two-years-before-the-mast/output/Dana%2C%20Richard%20Henry%3A%20Two%20Years%20Before%20the%20Mast.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "Sea & Ships",
+      "Adventure"
+    ]
+  },
+  {
+    "id": "the-divine-comedy",
+    "author_last": "Dante Alighieri",
+    "author_first": "",
+    "title": "The Divine Comedy",
+    "translator": "Henry Francis Cary",
+    "original_date": "c. 1320",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dante-alighieri/the-divine-comedy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dante-alighieri/the-divine-comedy/output/Dante%20Alighieri%3A%20The%20Divine%20Comedy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Epic",
+      "Medieval",
+      "Religion",
+      "Italian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "on-the-origin-of-species",
+    "author_last": "Darwin",
+    "author_first": "Charles",
+    "title": "On the Origin of Species",
+    "translator": "",
+    "original_date": "1859",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/darwin-charles/on-the-origin-of-species",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/darwin-charles/on-the-origin-of-species/output/Darwin%2C%20Charles%3A%20On%20the%20Origin%20of%20Species.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "a-christmas-carol",
+    "author_last": "Dickens",
+    "author_first": "Charles",
+    "title": "A Christmas Carol",
+    "translator": "",
+    "original_date": "1843",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dickens-charles/a-christmas-carol",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dickens-charles/a-christmas-carol/output/Dickens%2C%20Charles%3A%20A%20Christmas%20Carol.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Victorian",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "a-tale-of-two-cities",
+    "author_last": "Dickens",
+    "author_first": "Charles",
+    "title": "A Tale of Two Cities",
+    "translator": "",
+    "original_date": "1859",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dickens-charles/a-tale-of-two-cities",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dickens-charles/a-tale-of-two-cities/output/Dickens%2C%20Charles%3A%20A%20Tale%20of%20Two%20Cities.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Victorian",
+      "History"
+    ]
+  },
+  {
+    "id": "great-expectations",
+    "author_last": "Dickens",
+    "author_first": "Charles",
+    "title": "Great Expectations",
+    "translator": "",
+    "original_date": "1861",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dickens-charles/great-expectations",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dickens-charles/great-expectations/output/Dickens%2C%20Charles%3A%20Great%20Expectations.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Victorian",
+      "Coming of Age"
+    ]
+  },
+  {
+    "id": "crime-and-punishment",
+    "author_last": "Dostoyevsky",
+    "author_first": "Fyodor",
+    "title": "Crime and Punishment",
+    "translator": "Constance Garnett",
+    "original_date": "1866",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dostoyevsky-fyodor/crime-and-punishment",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dostoyevsky-fyodor/crime-and-punishment/output/Dostoyevsky%2C%20Fyodor%3A%20Crime%20and%20Punishment.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Russian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-brothers-karamazov",
+    "author_last": "Dostoyevsky",
+    "author_first": "Fyodor",
+    "title": "The Brothers Karamazov",
+    "translator": "Constance Garnett",
+    "original_date": "1880",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dostoyevsky-fyodor/the-brothers-karamazov",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dostoyevsky-fyodor/the-brothers-karamazov/output/Dostoyevsky%2C%20Fyodor%3A%20The%20Brothers%20Karamazov.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Russian",
+      "Religion",
+      "Translated"
+    ]
+  },
+  {
+    "id": "white-nights-and-other-stories",
+    "author_last": "Dostoyevsky",
+    "author_first": "Fyodor",
+    "title": "White Nights and Other Stories",
+    "translator": "Constance Garnett",
+    "original_date": "1918",
+    "foggy_press_date": "",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dostoyevsky-fyodor/white-nights-and-other-stories",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dostoyevsky-fyodor/white-nights-and-other-stories/output/Dostoyevsky%2C%20Fyodor%3A%20White%20Nights%20and%20Other%20Stories.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "Russian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "narrative-of-the-life-of-frederick-douglass",
+    "author_last": "Douglass",
+    "author_first": "Frederick",
+    "title": "Narrative of the Life of Frederick Douglass, an American Slave",
+    "translator": "",
+    "original_date": "1845",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/douglass-frederick/narrative-of-the-life-of-frederick-douglass",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/douglass-frederick/narrative-of-the-life-of-frederick-douglass/output/Douglass%2C%20Frederick%3A%20Narrative%20of%20the%20Life%20of%20Frederick%20Douglass%2C%20an%20American%20Slave.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "Black Voices",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "a-study-in-scarlet",
+    "author_last": "Doyle",
+    "author_first": "Arthur Conan",
+    "title": "A Study in Scarlet",
+    "translator": "",
+    "original_date": "1887",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/doyle-arthur-conan/a-study-in-scarlet",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/doyle-arthur-conan/a-study-in-scarlet/output/Doyle%2C%20Arthur%20Conan%3A%20A%20Study%20in%20Scarlet.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Mystery & Detection",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-adventures-of-sherlock-holmes",
+    "author_last": "Doyle",
+    "author_first": "Arthur Conan",
+    "title": "The Adventures of Sherlock Holmes",
+    "translator": "",
+    "original_date": "1892",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/doyle-arthur-conan/the-adventures-of-sherlock-holmes",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/doyle-arthur-conan/the-adventures-of-sherlock-holmes/output/Doyle%2C%20Arthur%20Conan%3A%20The%20Adventures%20of%20Sherlock%20Holmes.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "British",
+      "Mystery & Detection"
+    ]
+  },
+  {
+    "id": "the-hound-of-the-baskervilles",
+    "author_last": "Doyle",
+    "author_first": "Arthur Conan",
+    "title": "The Hound of the Baskervilles",
+    "translator": "",
+    "original_date": "1902",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/doyle-arthur-conan/the-hound-of-the-baskervilles",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/doyle-arthur-conan/the-hound-of-the-baskervilles/output/Doyle%2C%20Arthur%20Conan%3A%20The%20Hound%20of%20the%20Baskervilles.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Mystery & Detection",
+      "Gothic & Horror"
+    ]
+  },
+  {
+    "id": "the-souls-of-black-folk",
+    "author_last": "Du Bois",
+    "author_first": "W. E. B.",
+    "title": "The Souls of Black Folk",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/du-bois-w-e-b/the-souls-of-black-folk",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/du-bois-w-e-b/the-souls-of-black-folk/output/Du%20Bois%2C%20W.%20E.%20B.%3A%20The%20Souls%20of%20Black%20Folk.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "American",
+      "Black Voices",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "the-count-of-monte-cristo",
+    "author_last": "Dumas",
+    "author_first": "Alexandre",
+    "title": "The Count of Monte Cristo",
+    "translator": "",
+    "original_date": "1844–46",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dumas-alexandre/the-count-of-monte-cristo",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dumas-alexandre/the-count-of-monte-cristo/output/Dumas%2C%20Alexandre%3A%20The%20Count%20of%20Monte%20Cristo.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "French",
+      "Adventure",
+      "Translated"
+    ]
+  },
+  {
+    "id": "twenty-years-after",
+    "author_last": "Dumas",
+    "author_first": "Alexandre",
+    "title": "Twenty Years After",
+    "translator": "",
+    "original_date": "1845",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dumas-alexandre/twenty-years-after",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dumas-alexandre/twenty-years-after/output/Dumas%2C%20Alexandre%3A%20Twenty%20Years%20After.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "French",
+      "Adventure",
+      "History",
+      "Translated"
+    ]
+  },
+  {
+    "id": "middlemarch",
+    "author_last": "Eliot",
+    "author_first": "George",
+    "title": "Middlemarch",
+    "translator": "",
+    "original_date": "1871–72",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/eliot-george/middlemarch",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/eliot-george/middlemarch/output/Eliot%2C%20George%3A%20Middlemarch.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Victorian",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-history-of-tom-jones-a-foundling",
+    "author_last": "Fielding",
+    "author_first": "Henry",
+    "title": "The History of Tom Jones, a Foundling",
+    "translator": "",
+    "original_date": "1749",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/fielding-henry/the-history-of-tom-jones-a-foundling",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/fielding-henry/the-history-of-tom-jones-a-foundling/output/Fielding%2C%20Henry%3A%20The%20History%20of%20Tom%20Jones%2C%20a%20Foundling.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Comedy & Satire",
+      "Adventure"
+    ]
+  },
+  {
+    "id": "the-great-gatsby",
+    "author_last": "Fitzgerald",
+    "author_first": "F. Scott",
+    "title": "The Great Gatsby",
+    "translator": "",
+    "original_date": "1925",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/fitzgerald-f-scott/the-great-gatsby",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/fitzgerald-f-scott/the-great-gatsby/output/Fitzgerald%2C%20F.%20Scott%3A%20The%20Great%20Gatsby.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "a-room-with-a-view",
+    "author_last": "Forster",
+    "author_first": "E. M.",
+    "title": "A Room with a View",
+    "translator": "",
+    "original_date": "1908",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/forster-e-m/a-room-with-a-view",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/forster-e-m/a-room-with-a-view/output/Forster%2C%20E.%20M.%3A%20A%20Room%20with%20a%20View.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Love & Marriage",
+      "Italian"
+    ]
+  },
+  {
+    "id": "autobiography-of-benjamin-franklin",
+    "author_last": "Franklin",
+    "author_first": "Benjamin",
+    "title": "Autobiography of Benjamin Franklin",
+    "translator": "",
+    "original_date": "1791",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/franklin-benjamin/autobiography-of-benjamin-franklin",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/franklin-benjamin/autobiography-of-benjamin-franklin/output/Franklin%2C%20Benjamin%3A%20Autobiography%20of%20Benjamin%20Franklin.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "cranford",
+    "author_last": "Gaskell",
+    "author_first": "Elizabeth Cleghorn",
+    "title": "Cranford",
+    "translator": "",
+    "original_date": "1853",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/gaskell-elizabeth-cleghorn/cranford",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/gaskell-elizabeth-cleghorn/cranford/output/Gaskell%2C%20Elizabeth%20Cleghorn%3A%20Cranford.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Victorian",
+      "Women Writers",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "the-yellow-wallpaper",
+    "author_last": "Gilman",
+    "author_first": "Charlotte Perkins",
+    "title": "The Yellow Wallpaper",
+    "translator": "",
+    "original_date": "1892",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/gilman-charlotte-perkins/the-yellow-wallpaper",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/gilman-charlotte-perkins/the-yellow-wallpaper/output/Gilman%2C%20Charlotte%20Perkins%3A%20The%20Yellow%20Wallpaper.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American",
+      "Women Writers",
+      "Gothic & Horror",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "grimms-fairy-tales",
+    "author_last": "Grimm",
+    "author_first": "Jacob and Wilhelm",
+    "title": "Grimms’ Fairy Tales",
+    "translator": "",
+    "original_date": "1812",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/grimm-jacob-and-wilhelm/grimms-fairy-tales",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/grimm-jacob-and-wilhelm/grimms-fairy-tales/output/Grimm%2C%20Jacob%20and%20Wilhelm%3A%20Grimms%E2%80%99%20Fairy%20Tales.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "Fantasy & Fairy Tales",
+      "Children's",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-scarlet-letter",
+    "author_last": "Hawthorne",
+    "author_first": "Nathaniel",
+    "title": "The Scarlet Letter",
+    "translator": "",
+    "original_date": "1850",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/hawthorne-nathaniel/the-scarlet-letter",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/hawthorne-nathaniel/the-scarlet-letter/output/Hawthorne%2C%20Nathaniel%3A%20The%20Scarlet%20Letter.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Religion"
+    ]
+  },
+  {
+    "id": "leviathan",
+    "author_last": "Hobbes",
+    "author_first": "Thomas",
+    "title": "Leviathan",
+    "translator": "",
+    "original_date": "1651",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/hobbes-thomas/leviathan",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/hobbes-thomas/leviathan/output/Hobbes%2C%20Thomas%3A%20Leviathan.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Politics & Society",
+      "British"
+    ]
+  },
+  {
+    "id": "the-odyssey",
+    "author_last": "Homer",
+    "author_first": "",
+    "title": "The Odyssey",
+    "translator": "Samuel Butler",
+    "original_date": "c. 700 BC",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/homer/the-odyssey",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/homer/the-odyssey/output/Homer%3A%20The%20Odyssey.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Epic",
+      "Ancient World",
+      "Sea & Ships",
+      "Translated"
+    ]
+  },
+  {
+    "id": "les-miserables",
+    "author_last": "Hugo",
+    "author_first": "Victor",
+    "title": "Les Misérables",
+    "translator": "Isabel F. Hapgood",
+    "original_date": "1862",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/hugo-victor/les-miserables",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/hugo-victor/les-miserables/output/Hugo%2C%20Victor%3A%20Les%20Mis%C3%A9rables.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "French",
+      "History",
+      "Translated"
+    ]
+  },
+  {
+    "id": "a-dolls-house",
+    "author_last": "Ibsen",
+    "author_first": "Henrik",
+    "title": "A Doll’s House",
+    "translator": "R. Farquharson Sharp",
+    "original_date": "1879",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/ibsen-henrik/a-dolls-house",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/ibsen-henrik/a-dolls-house/output/Ibsen%2C%20Henrik%3A%20A%20Doll%E2%80%99s%20House.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "Love & Marriage",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-legend-of-sleepy-hollow",
+    "author_last": "Irving",
+    "author_first": "Washington",
+    "title": "The Legend of Sleepy Hollow",
+    "translator": "",
+    "original_date": "1820",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/irving-washington/the-legend-of-sleepy-hollow",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/irving-washington/the-legend-of-sleepy-hollow/output/Irving%2C%20Washington%3A%20The%20Legend%20of%20Sleepy%20Hollow.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American",
+      "Gothic & Horror",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "dubliners",
+    "author_last": "Joyce",
+    "author_first": "James",
+    "title": "Dubliners",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/joyce-james/dubliners",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/joyce-james/dubliners/output/Joyce%2C%20James%3A%20Dubliners.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "Irish"
+    ]
+  },
+  {
+    "id": "ulysses",
+    "author_last": "Joyce",
+    "author_first": "James",
+    "title": "Ulysses",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/joyce-james/ulysses",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/joyce-james/ulysses/output/Joyce%2C%20James%3A%20Ulysses.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Irish"
+    ]
+  },
+  {
+    "id": "metamorphosis",
+    "author_last": "Kafka",
+    "author_first": "Franz",
+    "title": "Metamorphosis",
+    "translator": "David Wyllie",
+    "original_date": "1915",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/kafka-franz/metamorphosis",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/kafka-franz/metamorphosis/output/Kafka%2C%20Franz%3A%20Metamorphosis.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "German",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "carmilla",
+    "author_last": "Le Fanu",
+    "author_first": "Joseph Sheridan",
+    "title": "Carmilla",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/le-fanu-joseph-sheridan/carmilla",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/le-fanu-joseph-sheridan/carmilla/output/Le%20Fanu%2C%20Joseph%20Sheridan%3A%20Carmilla.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Irish",
+      "Gothic & Horror",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "second-treatise-of-government",
+    "author_last": "Locke",
+    "author_first": "John",
+    "title": "Second Treatise of Government",
+    "translator": "",
+    "original_date": "1689",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/locke-john/second-treatise-of-government",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/locke-john/second-treatise-of-government/output/Locke%2C%20John%3A%20Second%20Treatise%20of%20Government.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Politics & Society",
+      "British"
+    ]
+  },
+  {
+    "id": "the-prince",
+    "author_last": "Machiavelli",
+    "author_first": "Niccolò",
+    "title": "The Prince",
+    "translator": "W. K. Marriott",
+    "original_date": "1532",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/machiavelli-niccolo/the-prince",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/machiavelli-niccolo/the-prince/output/Machiavelli%2C%20Niccol%C3%B2%3A%20The%20Prince.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Politics & Society",
+      "Italian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "spoon-river-anthology",
+    "author_last": "Masters",
+    "author_first": "Edgar Lee",
+    "title": "Spoon River Anthology",
+    "translator": "",
+    "original_date": "1915",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/masters-edgar-lee/spoon-river-anthology",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/masters-edgar-lee/spoon-river-anthology/output/Masters%2C%20Edgar%20Lee%3A%20Spoon%20River%20Anthology.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "American"
+    ]
+  },
+  {
+    "id": "moby-dick",
+    "author_last": "Melville",
+    "author_first": "Herman",
+    "title": "Moby-Dick; or, The Whale",
+    "translator": "",
+    "original_date": "1851",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/melville-herman/moby-dick",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/melville-herman/moby-dick/output/Melville%2C%20Herman%3A%20Moby-Dick%3B%20or%2C%20The%20Whale.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Sea & Ships",
+      "Adventure"
+    ]
+  },
+  {
+    "id": "on-liberty",
+    "author_last": "Mill",
+    "author_first": "John Stuart",
+    "title": "On Liberty",
+    "translator": "",
+    "original_date": "1859",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/mill-john-stuart/on-liberty",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/mill-john-stuart/on-liberty/output/Mill%2C%20John%20Stuart%3A%20On%20Liberty.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Politics & Society",
+      "British"
+    ]
+  },
+  {
+    "id": "anne-of-green-gables",
+    "author_last": "Montgomery",
+    "author_first": "L. M.",
+    "title": "Anne of Green Gables",
+    "translator": "",
+    "original_date": "1908",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/montgomery-l-m/anne-of-green-gables",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/montgomery-l-m/anne-of-green-gables/output/Montgomery%2C%20L.%20M.%3A%20Anne%20of%20Green%20Gables.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Canadian",
+      "Women Writers",
+      "Children's",
+      "Coming of Age"
+    ]
+  },
+  {
+    "id": "the-blue-castle",
+    "author_last": "Montgomery",
+    "author_first": "L. M.",
+    "title": "The Blue Castle",
+    "translator": "",
+    "original_date": "1926",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/montgomery-l-m/the-blue-castle",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/montgomery-l-m/the-blue-castle/output/Montgomery%2C%20L.%20M.%3A%20The%20Blue%20Castle.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Canadian",
+      "Women Writers",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "beyond-good-and-evil",
+    "author_last": "Nietzsche",
+    "author_first": "Friedrich",
+    "title": "Beyond Good and Evil",
+    "translator": "Helen Zimmern",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/nietzsche-friedrich/beyond-good-and-evil",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/nietzsche-friedrich/beyond-good-and-evil/output/Nietzsche%2C%20Friedrich%3A%20Beyond%20Good%20and%20Evil.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "thus-spake-zarathustra",
+    "author_last": "Nietzsche",
+    "author_first": "Friedrich",
+    "title": "Thus Spake Zarathustra: A Book for All and None",
+    "translator": "Thomas Common",
+    "original_date": "1883–85",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/nietzsche-friedrich/thus-spake-zarathustra",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/nietzsche-friedrich/thus-spake-zarathustra/output/Nietzsche%2C%20Friedrich%3A%20Thus%20Spake%20Zarathustra%3A%20A%20Book%20for%20All%20and%20None.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-republic",
+    "author_last": "Plato",
+    "author_first": "",
+    "title": "The Republic",
+    "translator": "Benjamin Jowett",
+    "original_date": "c. 375 BC",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/plato/the-republic",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/plato/the-republic/output/Plato%3A%20The%20Republic.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Politics & Society",
+      "Ancient World",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-works-of-edgar-allan-poe-volume-1",
+    "author_last": "Poe",
+    "author_first": "Edgar Allan",
+    "title": "The Works of Edgar Allan Poe, Volume 1",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-1/output/Poe%2C%20Edgar%20Allan%3A%20The%20Works%20of%20Edgar%20Allan%20Poe%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American",
+      "Gothic & Horror",
+      "Mystery & Detection"
+    ]
+  },
+  {
+    "id": "the-works-of-edgar-allan-poe-volume-2",
+    "author_last": "Poe",
+    "author_first": "Edgar Allan",
+    "title": "The Works of Edgar Allan Poe, Volume 2",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-2",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-2/output/Poe%2C%20Edgar%20Allan%3A%20The%20Works%20of%20Edgar%20Allan%20Poe%2C%20Volume%202.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American",
+      "Gothic & Horror"
+    ]
+  },
+  {
+    "id": "the-works-of-edgar-allan-poe-volume-3",
+    "author_last": "Poe",
+    "author_first": "Edgar Allan",
+    "title": "The Works of Edgar Allan Poe, Volume 3",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-3",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-3/output/Poe%2C%20Edgar%20Allan%3A%20The%20Works%20of%20Edgar%20Allan%20Poe%2C%20Volume%203.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American",
+      "Gothic & Horror"
+    ]
+  },
+  {
+    "id": "the-works-of-edgar-allan-poe-volume-4",
+    "author_last": "Poe",
+    "author_first": "Edgar Allan",
+    "title": "The Works of Edgar Allan Poe, Volume 4",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-4",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-4/output/Poe%2C%20Edgar%20Allan%3A%20The%20Works%20of%20Edgar%20Allan%20Poe%2C%20Volume%204.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American",
+      "Gothic & Horror"
+    ]
+  },
+  {
+    "id": "the-works-of-edgar-allan-poe-volume-5",
+    "author_last": "Poe",
+    "author_first": "Edgar Allan",
+    "title": "The Works of Edgar Allan Poe, Volume 5",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-5",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/poe-edgar-allan/the-works-of-edgar-allan-poe-volume-5/output/Poe%2C%20Edgar%20Allan%3A%20The%20Works%20of%20Edgar%20Allan%20Poe%2C%20Volume%205.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Essays",
+      "American"
+    ]
+  },
+  {
+    "id": "frankenstein",
+    "author_last": "Shelley",
+    "author_first": "Mary Wollstonecraft",
+    "title": "Frankenstein; or, The Modern Prometheus",
+    "translator": "",
+    "original_date": "1818",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/shelley-mary-wollstonecraft/frankenstein",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/shelley-mary-wollstonecraft/frankenstein/output/Shelley%2C%20Mary%20Wollstonecraft%3A%20Frankenstein%3B%20or%2C%20The%20Modern%20Prometheus.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Women Writers",
+      "Gothic & Horror",
+      "Science Fiction"
+    ]
+  },
+  {
+    "id": "the-wealth-of-nations",
+    "author_last": "Smith",
+    "author_first": "Adam",
+    "title": "An Inquiry into the Nature and Causes of the Wealth of Nations",
+    "translator": "",
+    "original_date": "1776",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/smith-adam/the-wealth-of-nations",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/smith-adam/the-wealth-of-nations/output/Smith%2C%20Adam%3A%20An%20Inquiry%20into%20the%20Nature%20and%20Causes%20of%20the%20Wealth%20of%20Nations.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "Politics & Society",
+      "British"
+    ]
+  },
+  {
+    "id": "the-adventures-of-ferdinand-count-fathom",
+    "author_last": "Smollett",
+    "author_first": "Tobias",
+    "title": "The Adventures of Ferdinand Count Fathom",
+    "translator": "",
+    "original_date": "1753",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/smollett-tobias/the-adventures-of-ferdinand-count-fathom",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/smollett-tobias/the-adventures-of-ferdinand-count-fathom/output/Smollett%2C%20Tobias%3A%20The%20Adventures%20of%20Ferdinand%20Count%20Fathom.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "the-adventures-of-roderick-random",
+    "author_last": "Smollett",
+    "author_first": "Tobias",
+    "title": "The Adventures of Roderick Random",
+    "translator": "",
+    "original_date": "1748",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/smollett-tobias/the-adventures-of-roderick-random",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/smollett-tobias/the-adventures-of-roderick-random/output/Smollett%2C%20Tobias%3A%20The%20Adventures%20of%20Roderick%20Random.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Sea & Ships",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "the-expedition-of-humphry-clinker",
+    "author_last": "Smollett",
+    "author_first": "Tobias",
+    "title": "The Expedition of Humphry Clinker",
+    "translator": "",
+    "original_date": "1771",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/smollett-tobias/the-expedition-of-humphry-clinker",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/smollett-tobias/the-expedition-of-humphry-clinker/output/Smollett%2C%20Tobias%3A%20The%20Expedition%20of%20Humphry%20Clinker.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "the-strange-case-of-dr-jekyll-and-mr-hyde",
+    "author_last": "Stevenson",
+    "author_first": "Robert Louis",
+    "title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+    "translator": "",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/stevenson-robert-louis/the-strange-case-of-dr-jekyll-and-mr-hyde",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/stevenson-robert-louis/the-strange-case-of-dr-jekyll-and-mr-hyde/output/Stevenson%2C%20Robert%20Louis%3A%20The%20Strange%20Case%20of%20Dr.%20Jekyll%20and%20Mr.%20Hyde.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Victorian",
+      "Gothic & Horror",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "treasure-island",
+    "author_last": "Stevenson",
+    "author_first": "Robert Louis",
+    "title": "Treasure Island",
+    "translator": "",
+    "original_date": "1883",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/stevenson-robert-louis/treasure-island",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/stevenson-robert-louis/treasure-island/output/Stevenson%2C%20Robert%20Louis%3A%20Treasure%20Island.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Sea & Ships",
+      "Adventure",
+      "Children's"
+    ]
+  },
+  {
+    "id": "dracula",
+    "author_last": "Stoker",
+    "author_first": "Bram",
+    "title": "Dracula",
+    "translator": "",
+    "original_date": "1897",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/stoker-bram/dracula",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/stoker-bram/dracula/output/Stoker%2C%20Bram%3A%20Dracula.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Irish",
+      "Gothic & Horror"
+    ]
+  },
+  {
+    "id": "the-art-of-war",
+    "author_last": "Sun Tzu",
+    "author_first": "",
+    "title": "The Art of War",
+    "translator": "Lionel Giles",
+    "original_date": "c. 500 BC",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/sun-tzu/the-art-of-war",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/sun-tzu/the-art-of-war/output/Sun%20Tzu%3A%20The%20Art%20of%20War.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Ancient World",
+      "Chinese",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-international-development-of-china",
+    "author_last": "Sun Yat-sen",
+    "author_first": "",
+    "title": "The International Development of China",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/sun-yat-sen/the-international-development-of-china",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/sun-yat-sen/the-international-development-of-china/output/Sun%20Yat-sen%3A%20The%20International%20Development%20of%20China.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "Politics & Society",
+      "Chinese"
+    ]
+  },
+  {
+    "id": "a-modest-proposal",
+    "author_last": "Swift",
+    "author_first": "Jonathan",
+    "title": "A Modest Proposal",
+    "translator": "",
+    "original_date": "1729",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/swift-jonathan/a-modest-proposal",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/swift-jonathan/a-modest-proposal/output/Swift%2C%20Jonathan%3A%20A%20Modest%20Proposal.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "Irish",
+      "Comedy & Satire",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "gullivers-travels",
+    "author_last": "Swift",
+    "author_first": "Jonathan",
+    "title": "Gulliver’s Travels into Several Remote Nations of the World",
+    "translator": "",
+    "original_date": "1726",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/swift-jonathan/gullivers-travels",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/swift-jonathan/gullivers-travels/output/Swift%2C%20Jonathan%3A%20Gulliver%E2%80%99s%20Travels%20into%20Several%20Remote%20Nations%20of%20the%20World.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Irish",
+      "Comedy & Satire",
+      "Adventure",
+      "Sea & Ships"
+    ]
+  },
+  {
+    "id": "walden-and-on-the-duty-of-civil-disobedience",
+    "author_last": "Thoreau",
+    "author_first": "Henry David",
+    "title": "Walden, and On the Duty of Civil Disobedience",
+    "translator": "",
+    "original_date": "1854",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/thoreau-henry-david/walden-and-on-the-duty-of-civil-disobedience",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/thoreau-henry-david/walden-and-on-the-duty-of-civil-disobedience/output/Thoreau%2C%20Henry%20David%3A%20Walden%2C%20and%20On%20the%20Duty%20of%20Civil%20Disobedience.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "Memoir",
+      "American",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "anna-karenina",
+    "author_last": "Tolstoy",
+    "author_first": "Leo",
+    "title": "Anna Karenina",
+    "translator": "Constance Garnett",
+    "original_date": "1878",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/tolstoy-leo/anna-karenina",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/tolstoy-leo/anna-karenina/output/Tolstoy%2C%20Leo%3A%20Anna%20Karenina.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Russian",
+      "Love & Marriage",
+      "Translated"
+    ]
+  },
+  {
+    "id": "war-and-peace",
+    "author_last": "Tolstoy",
+    "author_first": "Leo",
+    "title": "War and Peace",
+    "translator": "Louise and Aylmer Maude",
+    "original_date": "1869",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/tolstoy-leo/war-and-peace",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/tolstoy-leo/war-and-peace/output/Tolstoy%2C%20Leo%3A%20War%20and%20Peace.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Russian",
+      "History",
+      "Translated"
+    ]
+  },
+  {
+    "id": "adventures-of-huckleberry-finn",
+    "author_last": "Twain",
+    "author_first": "Mark",
+    "title": "Adventures of Huckleberry Finn",
+    "translator": "",
+    "original_date": "1884",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/twain-mark/adventures-of-huckleberry-finn",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/twain-mark/adventures-of-huckleberry-finn/output/Twain%2C%20Mark%3A%20Adventures%20of%20Huckleberry%20Finn.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Adventure",
+      "Coming of Age"
+    ]
+  },
+  {
+    "id": "the-adventures-of-tom-sawyer",
+    "author_last": "Twain",
+    "author_first": "Mark",
+    "title": "The Adventures of Tom Sawyer",
+    "translator": "",
+    "original_date": "1876",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/twain-mark/the-adventures-of-tom-sawyer",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/twain-mark/the-adventures-of-tom-sawyer/output/Twain%2C%20Mark%3A%20The%20Adventures%20of%20Tom%20Sawyer.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Children's",
+      "Coming of Age"
+    ]
+  },
+  {
+    "id": "the-enchanted-april",
+    "author_last": "Von Arnim",
+    "author_first": "Elizabeth",
+    "title": "The Enchanted April",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/von-arnim-elizabeth/the-enchanted-april",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/von-arnim-elizabeth/the-enchanted-april/output/Von%20Arnim%2C%20Elizabeth%3A%20The%20Enchanted%20April.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Women Writers",
+      "Italian"
+    ]
+  },
+  {
+    "id": "my-life",
+    "author_last": "Wagner",
+    "author_first": "Richard",
+    "title": "My Life",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wagner-richard/my-life",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wagner-richard/my-life/output/Wagner%2C%20Richard%3A%20My%20Life.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "Music",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-time-machine",
+    "author_last": "Wells",
+    "author_first": "H. G.",
+    "title": "The Time Machine",
+    "translator": "",
+    "original_date": "1895",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wells-h-g/the-time-machine",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wells-h-g/the-time-machine/output/Wells%2C%20H.%20G.%3A%20The%20Time%20Machine.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Science Fiction",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-war-of-the-worlds",
+    "author_last": "Wells",
+    "author_first": "H. G.",
+    "title": "The War of the Worlds",
+    "translator": "",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wells-h-g/the-war-of-the-worlds",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wells-h-g/the-war-of-the-worlds/output/Wells%2C%20H.%20G.%3A%20The%20War%20of%20the%20Worlds.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Science Fiction"
+    ]
+  },
+  {
+    "id": "the-importance-of-being-earnest",
+    "author_last": "Wilde",
+    "author_first": "Oscar",
+    "title": "The Importance of Being Earnest",
+    "translator": "",
+    "original_date": "1895",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wilde-oscar/the-importance-of-being-earnest",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wilde-oscar/the-importance-of-being-earnest/output/Wilde%2C%20Oscar%3A%20The%20Importance%20of%20Being%20Earnest.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "Irish",
+      "Comedy & Satire",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-picture-of-dorian-gray",
+    "author_last": "Wilde",
+    "author_first": "Oscar",
+    "title": "The Picture of Dorian Gray",
+    "translator": "",
+    "original_date": "1890",
+    "foggy_press_date": "2026-11-06",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wilde-oscar/the-picture-of-dorian-gray",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wilde-oscar/the-picture-of-dorian-gray/output/Wilde%2C%20Oscar%3A%20The%20Picture%20of%20Dorian%20Gray.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Irish",
+      "Gothic & Horror"
+    ]
+  },
+  {
+    "id": "tractatus-logico-philosophicus",
+    "author_last": "Wittgenstein",
+    "author_first": "Ludwig",
+    "title": "Tractatus Logico-Philosophicus",
+    "translator": "C. K. Ogden",
+    "original_date": "1921",
+    "foggy_press_date": "",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wittgenstein-ludwig/tractatus-logico-philosophicus",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wittgenstein-ludwig/tractatus-logico-philosophicus/output/Wittgenstein%2C%20Ludwig%3A%20Tractatus%20Logico-Philosophicus.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "German",
+      "Translated",
+      "Short Reads"
+    ]
+  }
+]
