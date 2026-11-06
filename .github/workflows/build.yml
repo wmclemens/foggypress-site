@@ -44,7 +44,7 @@ jobs:
         env:
           GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
-          SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
+          SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'foggypress.com' }}
           WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY }}
         run: python build/build.py --files files --out _site
 
