@@ -2,8 +2,9 @@
 """Build the Foggy Press website.
 
 Reads catalog/books.json and catalog/tags.json, copies the PDF of every live
-book out of a checkout of the private foggy-press-files repo, and writes a
-static site to _site/.
+book out of a checkout of the private foggy-press-files repo, makes its
+read-online page from the web edition beside the PDF (output/html/, made by
+pipeline/web/ in that repo), and writes a static site to _site/.
 
 A book is live when its foggy_press_date is set, is today or earlier, and its
 PDF exists in the files checkout.
@@ -113,6 +114,9 @@ class Site:
             rel = pdf_repo_path(b.get('github_pdf'))
             src = self.files / rel if rel else None
             b['_src'] = src
+            # the web edition: books/<author>/<title>/output/html/<title>.html
+            hp = src.parent / 'html' / (src.parent.parent.name + '.html') if src else None
+            b['_html'] = hp if hp and hp.exists() else None
             b['_downloads'] = self.downloads.get(f"pdf-{b['id']}", 0)
             if src and src.exists():
                 b['_mb'] = round(src.stat().st_size / 1e6, 2)
@@ -176,11 +180,74 @@ class Site:
         for b in books:
             tr = f" · tr. {esc(b['translator'])}" if b.get('translator') else ''
             pages = f" · {b['_pages']} pp" if b.get('_pages') else ''
-            out.append(f'''<li class="rec"><a href="/pdf/{esc(b['id'])}.pdf" data-goatcounter-click="pdf-{esc(b['id'])}" data-goatcounter-title="{esc(b['title'])}">
-<span class="t">{esc(b['title'])}</span>
-<span class="m"><span class="mono">{esc(b.get('original_date'))}{pages}</span><span class="pdf">PDF</span></span>
-<span class="a">{esc(author_name(b))}{tr}</span></a></li>''')
+            pdf = (f'<a class="act" href="/pdf/{esc(b["id"])}.pdf" data-goatcounter-click="pdf-{esc(b["id"])}" '
+                   f'data-goatcounter-title="{esc(b["title"])}">Print this book</a>')
+            if b.get('_html'):
+                main = f'/read/{esc(b["id"])}/'
+                acts = f'<a class="act" href="{main}">Read online</a>{pdf}'
+            else:
+                main = f'/pdf/{esc(b["id"])}.pdf'
+                acts = pdf
+            out.append(f'''<li class="rec"><a class="main" href="{main}"><span class="t">{esc(b['title'])}</span>
+<span class="a">{esc(author_name(b))}{tr}</span></a>
+<span class="m mono">{esc(b.get('original_date'))}{pages}</span>
+<span class="acts">{acts}</span></li>''')
         return '<ul class="recs">' + ''.join(out) + '</ul>'
+
+    def reader(self, b):
+        """/read/<id>/: the book's web edition in a plain reading page, with a link to the PDF"""
+        src = b['_html'].read_text(encoding='utf-8')
+        m = re.search(r'<article class="book".*</article>', src, re.S)
+        if not m:
+            self.problems.append(f"{b['id']}: web edition has no <article>")
+            return
+        art = m.group(0)
+        dest = self.out / 'read' / b['id']
+        dest.mkdir(parents=True, exist_ok=True)
+
+        def pic(mm):
+            # pictures are copied beside the page, under img/
+            p = (b['_html'].parent / urllib.parse.unquote(mm.group(1))).resolve()
+            if not p.is_file():
+                self.problems.append(f"{b['id']}: picture missing ({mm.group(1)})")
+                return mm.group(0)
+            (dest / 'img').mkdir(exist_ok=True)
+            shutil.copyfile(p, dest / 'img' / p.name)
+            return f'src="img/{urllib.parse.quote(p.name)}"'
+        art = re.sub(r'src="(?!https?:|/)([^"]+)"', pic, art)
+        gc = ''
+        if self.gc_code:
+            gc = f'<script data-goatcounter="https://{esc(self.gc_code)}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+        pdf = f'/pdf/{esc(b["id"])}.pdf'
+        click = f'data-goatcounter-click="pdf-{esc(b["id"])}" data-goatcounter-title="{esc(b["title"])}"'
+        doc = f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{esc(b['title'])} · Read online · Foggy Press</title>
+<meta name="description" content="Read {esc(b['title'])}{' by ' + esc(author_name(b)) if author_name(b) else ''} online, free, from Foggy Press.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/book.css">
+<script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
+</head>
+<body class="reading">
+<nav class="readbar" aria-label="Foggy Press">
+  <a class="rb-home" href="/">Foggy Press</a>
+  <span class="rb-acts"><a class="rb-pdf" href="{pdf}" {click}>Print this book</a><button class="theme" id="theme" type="button">Dark mode</button></span>
+</nav>
+{art}
+<footer class="readfoot mono"><a href="/">Foggy Press</a><span>Public-domain books, free to read and print</span><a href="{pdf}" {click}>Print this book (PDF)</a></footer>
+<script src="/assets/site.js" defer></script>
+{gc}
+</body>
+</html>
+'''
+        if self.base:
+            doc = re.sub(r'(href|src)="/(?!/)', lambda mm: f'{mm.group(1)}="{self.base}/', doc)
+        (dest / 'index.html').write_text(doc, encoding='utf-8')
 
     def home(self):
         feat = [t for t in self.tags if t.get('featured') and self.by_tag[t['name']]][:FEATURED_MAX]
@@ -211,9 +278,9 @@ class Site:
                 parts.append(f'<div class="letter">{esc(letter)}</div>')
                 cur = letter
             parts.append(self.recs([b]))
-        self.page('authors/index.html', 'By author · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By author</h1><p class="sub">{len(self.live)} books, A to Z by the author’s last name. Click a book to open its PDF.</p></div>{''.join(parts)}''', 'authors')
+        self.page('authors/index.html', 'By author · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By author</h1><p class="sub">{len(self.live)} books, A to Z by the author’s last name. Read any book online, or print it from its PDF.</p></div>{''.join(parts)}''', 'authors')
         by_title = sorted(self.live, key=lambda b: sort_title(b['title']).lower())
-        self.page('titles/index.html', 'By title · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By title</h1><p class="sub">{len(self.live)} books, A to Z, ignoring “The”, “A” and “An”. Click a book to open its PDF.</p></div>{self.recs(by_title)}''', 'titles')
+        self.page('titles/index.html', 'By title · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By title</h1><p class="sub">{len(self.live)} books, A to Z, ignoring “The”, “A” and “An”. Read any book online, or print it from its PDF.</p></div>{self.recs(by_title)}''', 'titles')
         ts = sorted([t for t in self.tags if self.by_tag[t['name']]], key=lambda t: t['name'].lower())
         links = ''.join(f'<a href="/tag/{t["slug"]}/"><span>{esc(t["name"])}</span><span class="mono">{len(self.by_tag[t["name"]])}</span></a>' for t in ts)
         self.page('tags/index.html', 'By tag · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By tag</h1><p class="sub">Every tag is a collection. {len(ts)} tags.</p></div><div class="taglist">{links}</div>''', 'tags')
@@ -261,6 +328,12 @@ class Site:
         (self.out / 'pdf').mkdir(parents=True, exist_ok=True)
         for b in self.live:
             shutil.copyfile(b['_src'], self.out / 'pdf' / f"{b['id']}.pdf")
+        css = self.files / 'pipeline' / 'web' / 'book.css'
+        if css.exists():
+            shutil.copyfile(css, self.out / 'assets' / 'book.css')
+        for b in self.live:
+            if b.get('_html'):
+                self.reader(b)
         (self.out / 'robots.txt').write_text('User-agent: *\nDisallow: /admin/\n')
         dom = os.environ.get('SITE_DOMAIN', '').strip()
         if dom:

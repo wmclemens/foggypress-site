@@ -32,6 +32,9 @@ jobs:
           path: files
           sparse-checkout: |
             books/*/*/output/*.pdf
+            books/*/*/output/html/
+            books/*/*/output/latex/images/
+            pipeline/web/book.css
           sparse-checkout-cone-mode: false
 
       - uses: actions/setup-python@v5

@@ -97,12 +97,33 @@ main{grid-area:main;min-width:0}
 .crumb{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
 .crumb a:hover{color:var(--accent)}
 .recs{list-style:none;margin:0;padding:0}
-.rec a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem 1.5rem;align-items:baseline;padding:.8rem 0;border-bottom:1px solid var(--line)}
-.rec a:hover .t{color:var(--accent)}
+.rec{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"main m" "main acts";gap:.35rem 1.5rem;align-items:baseline;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.rec .main{grid-area:main;display:grid;gap:.2rem;min-width:0}
+.rec .main:hover .t{color:var(--accent)}
 .rec .t{font-size:1.02rem;font-weight:500;letter-spacing:-.01em}
 .rec .a{color:var(--muted);font-size:.9rem}
-.rec .m{grid-row:span 2;text-align:right;color:var(--faint);white-space:nowrap;display:grid;gap:.15rem;justify-items:end}
-.rec .pdf{color:var(--accent);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+.rec .m{grid-area:m;text-align:right;color:var(--faint);white-space:nowrap}
+.rec .acts{grid-area:acts;display:flex;gap:1rem;justify-content:flex-end;white-space:nowrap}
+.rec .act{color:var(--accent);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+.rec .act:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){
+  .rec{grid-template-columns:minmax(0,1fr);grid-template-areas:"main" "m" "acts";gap:.3rem}
+  .rec .m{text-align:left}
+  .rec .acts{justify-content:flex-start;gap:0;margin-top:.2rem}
+  .rec .act{padding:.35rem .8rem;border:1px solid var(--line-2);border-radius:999px;margin-right:.5rem}
+}
+
+/* read-online pages (/read/<id>/): the book's own styles are in book.css */
+body.reading{padding:0}
+.readbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:.7rem max(16px,env(safe-area-inset-right,0px)) .7rem max(16px,env(safe-area-inset-left,0px));
+  background:var(--bg);border-bottom:1px solid var(--line);font-family:var(--sans)}
+.readbar .rb-home{font-weight:600;letter-spacing:-.02em}
+.readbar .rb-acts{display:flex;gap:1.1rem;align-items:center}
+.readbar .rb-pdf{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--accent)}
+.readbar .rb-pdf:hover{text-decoration:underline;text-underline-offset:3px}
+.readfoot{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:center;padding:2rem 16px 3rem;border-top:1px solid var(--line);color:var(--muted)}
+.readfoot a{color:var(--accent)}
 .letter{font-family:var(--mono);font-size:.75rem;color:var(--accent);padding:1.5rem 0 .35rem;border-bottom:1px solid var(--line-2);letter-spacing:.06em}
 .taglist{columns:14rem 3;column-gap:2.5rem;padding-top:1rem}
 .taglist a{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid var(--line);break-inside:avoid}
