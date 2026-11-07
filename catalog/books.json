@@ -1889,5 +1889,23 @@
       "Women Writers",
       "Politics & Society"
     ]
+  },
+  {
+    "id": "science-and-the-bible",
+    "author_last": "Dana",
+    "author_first": "James Dwight",
+    "title": "Science and the Bible",
+    "translator": "",
+    "original_date": "1856",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/dana-james-dwight/science-and-the-bible",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/dana-james-dwight/science-and-the-bible/output/Dana%2C%20James%20Dwight%3A%20Science%20and%20the%20Bible.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Religion",
+      "Essays",
+      "American",
+      "Short Reads"
+    ]
   }
 ]
