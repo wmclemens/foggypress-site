@@ -18,6 +18,10 @@ Everything is built from scratch from the files in this repo. The book PDFs them
 
 Every book has two links: **Read online** opens `/read/<id>/`, the book's web edition, and **Print this book** opens its PDF. The web edition is made in `foggy-press-files` from the book's final LaTeX (`pipeline/web/`), so it has the same text as the PDF; the build wraps it in a plain reading page and copies its pictures. A book without a web edition links straight to its PDF.
 
+## Descriptions
+
+Each record shows a one-sentence description, also used at the top of its read-online page. It lives in the book's README in `foggy-press-files`, under `## Description`; edit it there and the site shows the new text after its next build (daily, or **Run workflow**).
+
 ## How a book goes live
 
 A book appears on the site when its record has a Foggy Press publish date that is today or earlier and its PDF exists in `foggy-press-files`. Leave the date empty to keep a book hidden.

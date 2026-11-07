@@ -32,6 +32,7 @@ jobs:
           path: files
           sparse-checkout: |
             books/*/*/output/*.pdf
+            books/*/*/README.md
             books/*/*/output/html/
             books/*/*/output/latex/images/
             pipeline/web/book.css

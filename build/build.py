@@ -49,6 +49,19 @@ def pdf_repo_path(link):
     return urllib.parse.unquote(m.group(1)) if m else None
 
 
+def readme_description(path):
+    """the one-sentence description under "## Description" in the book's README (Will edits it there)"""
+    try:
+        text = path.read_text(encoding='utf-8')
+    except OSError:
+        return ''
+    m = re.search(r'^## Description[ \t]*\n(.*?)(?=^#|\Z)', text, re.S | re.M)
+    if not m:
+        return ''
+    body = re.sub(r'<!--.*?-->', '', m.group(1), flags=re.S)
+    return ' '.join(body.split())
+
+
 def pdf_pages(path):
     try:
         from pypdf import PdfReader
@@ -117,6 +130,7 @@ class Site:
             # the web edition: books/<author>/<title>/output/html/<title>.html
             hp = src.parent / 'html' / (src.parent.parent.name + '.html') if src else None
             b['_html'] = hp if hp and hp.exists() else None
+            b['_desc'] = readme_description(src.parent.parent / 'README.md') if src else ''
             b['_downloads'] = self.downloads.get(f"pdf-{b['id']}", 0)
             if src and src.exists():
                 b['_mb'] = round(src.stat().st_size / 1e6, 2)
@@ -189,7 +203,7 @@ class Site:
                 main = f'/pdf/{esc(b["id"])}.pdf'
                 acts = pdf
             out.append(f'''<li class="rec"><a class="main" href="{main}"><span class="t">{esc(b['title'])}</span>
-<span class="a">{esc(author_name(b))}{tr}</span></a>
+<span class="a">{esc(author_name(b))}{tr}</span>{f'<span class="d">{esc(b["_desc"])}</span>' if b.get('_desc') else ''}</a>
 <span class="m mono">{esc(b.get('original_date'))}{pages}</span>
 <span class="acts">{acts}</span></li>''')
         return '<ul class="recs">' + ''.join(out) + '</ul>'
@@ -202,6 +216,8 @@ class Site:
             self.problems.append(f"{b['id']}: web edition has no <article>")
             return
         art = m.group(0)
+        if b.get('_desc'):
+            art = art.replace('</header>', f'<p class="desc">{esc(b["_desc"])}</p></header>', 1)
         dest = self.out / 'read' / b['id']
         dest.mkdir(parents=True, exist_ok=True)
 
@@ -226,7 +242,7 @@ class Site:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(b['title'])} · Read online · Foggy Press</title>
-<meta name="description" content="Read {esc(b['title'])}{' by ' + esc(author_name(b)) if author_name(b) else ''} online, free, from Foggy Press.">
+<meta name="description" content="{esc(b.get('_desc')) or 'Read ' + esc(b['title']) + ' online, free, from Foggy Press.'}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/style.css">

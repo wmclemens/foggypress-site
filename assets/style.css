@@ -102,6 +102,7 @@ main{grid-area:main;min-width:0}
 .rec .main:hover .t{color:var(--accent)}
 .rec .t{font-size:1.02rem;font-weight:500;letter-spacing:-.01em}
 .rec .a{color:var(--muted);font-size:.9rem}
+.rec .d{color:var(--muted);font-size:.86rem;line-height:1.45;max-width:46rem;margin-top:.15rem}
 .rec .m{grid-area:m;text-align:right;color:var(--faint);white-space:nowrap}
 .rec .acts{grid-area:acts;display:flex;gap:1rem;justify-content:flex-end;white-space:nowrap}
 .rec .act{color:var(--accent);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
@@ -147,3 +148,4 @@ body.reading{padding:0}
 .formnote{font-size:.88rem;color:var(--muted)}
 .formnote.ok{color:var(--accent)}
 .formnote.bad{color:var(--bad)}
+.reading .book-head .desc{font-family:var(--sans);font-size:.95rem;line-height:1.5;color:var(--ink);margin-top:.9rem}
