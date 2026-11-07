@@ -1907,5 +1907,202 @@
       "American",
       "Short Reads"
     ]
+  },
+  {
+    "id": "a-brief-account-of-the-destruction-of-the-indies",
+    "author_last": "Las Casas",
+    "author_first": "Bartolomé de",
+    "title": "A Brief Account of the Destruction of the Indies",
+    "translator": "",
+    "original_date": "1552",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/las-casas-bartolome-de/a-brief-account-of-the-destruction-of-the-indies",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/las-casas-bartolome-de/a-brief-account-of-the-destruction-of-the-indies/output/Las%20Casas%2C%20Bartolom%C3%A9%20de%3A%20A%20Brief%20Account%20of%20the%20Destruction%20of%20the%20Indies.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Spanish",
+      "Translated",
+      "Religion",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-exploring-expedition-to-the-rocky-mountains",
+    "author_last": "Frémont",
+    "author_first": "John Charles",
+    "title": "The Exploring Expedition to the Rocky Mountains, Oregon and California",
+    "translator": "",
+    "original_date": "1845",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/fremont-john-charles/the-exploring-expedition-to-the-rocky-mountains",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/fremont-john-charles/the-exploring-expedition-to-the-rocky-mountains/output/Fr%C3%A9mont%2C%20John%20Charles%3A%20The%20Exploring%20Expedition%20to%20the%20Rocky%20Mountains%2C%20Oregon%20and%20California.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Adventure",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "geology-and-revelation",
+    "author_last": "Molloy",
+    "author_first": "Gerald",
+    "title": "Geology and Revelation",
+    "translator": "",
+    "original_date": "1870",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/molloy-gerald/geology-and-revelation",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/molloy-gerald/geology-and-revelation/output/Molloy%2C%20Gerald%3A%20Geology%20and%20Revelation.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Religion",
+      "Irish"
+    ]
+  },
+  {
+    "id": "autobiography-of-andrew-carnegie",
+    "author_last": "Carnegie",
+    "author_first": "Andrew",
+    "title": "Autobiography of Andrew Carnegie",
+    "translator": "",
+    "original_date": "1920",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/carnegie-andrew/autobiography-of-andrew-carnegie",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/carnegie-andrew/autobiography-of-andrew-carnegie/output/Carnegie%2C%20Andrew%3A%20Autobiography%20of%20Andrew%20Carnegie.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "Economics"
+    ]
+  },
+  {
+    "id": "theodore-roosevelt-an-autobiography",
+    "author_last": "Roosevelt",
+    "author_first": "Theodore",
+    "title": "Theodore Roosevelt: An Autobiography",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/roosevelt-theodore/theodore-roosevelt-an-autobiography",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/roosevelt-theodore/theodore-roosevelt-an-autobiography/output/Roosevelt%2C%20Theodore%3A%20An%20Autobiography.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "Politics & Society",
+      "History"
+    ]
+  },
+  {
+    "id": "the-history-of-the-standard-oil-company",
+    "author_last": "Tarbell",
+    "author_first": "Ida M.",
+    "title": "The History of the Standard Oil Company",
+    "translator": "",
+    "original_date": "1904",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/tarbell-ida-m/the-history-of-the-standard-oil-company",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/tarbell-ida-m/the-history-of-the-standard-oil-company/output/Tarbell%2C%20Ida%20M.%3A%20The%20History%20of%20the%20Standard%20Oil%20Company.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Economics",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-life-of-george-washington",
+    "author_last": "Marshall",
+    "author_first": "John",
+    "title": "The Life of George Washington",
+    "translator": "",
+    "original_date": "1804–07",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/marshall-john/the-life-of-george-washington",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/marshall-john/the-life-of-george-washington/output/Marshall%2C%20John%3A%20The%20Life%20of%20George%20Washington.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "fifty-years-in-wall-street",
+    "author_last": "Clews",
+    "author_first": "Henry",
+    "title": "Fifty Years in Wall Street",
+    "translator": "",
+    "original_date": "1908",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/clews-henry/fifty-years-in-wall-street",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/clews-henry/fifty-years-in-wall-street/output/Clews%2C%20Henry%3A%20Fifty%20Years%20in%20Wall%20Street.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "Economics"
+    ]
+  },
+  {
+    "id": "the-loyalists-of-america-and-their-times",
+    "author_last": "Ryerson",
+    "author_first": "Egerton",
+    "title": "The Loyalists of America and Their Times",
+    "translator": "",
+    "original_date": "1880",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/ryerson-egerton/the-loyalists-of-america-and-their-times",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/ryerson-egerton/the-loyalists-of-america-and-their-times/output/Ryerson%2C%20Egerton%3A%20The%20Loyalists%20of%20America%20and%20Their%20Times.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Canadian",
+      "American"
+    ]
+  },
+  {
+    "id": "the-papers-and-writings-of-abraham-lincoln",
+    "author_last": "Lincoln",
+    "author_first": "Abraham",
+    "title": "The Papers and Writings of Abraham Lincoln",
+    "translator": "",
+    "original_date": "1832–65",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/lincoln-abraham/the-papers-and-writings-of-abraham-lincoln",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/lincoln-abraham/the-papers-and-writings-of-abraham-lincoln/output/Lincoln%2C%20Abraham%3A%20The%20Papers%20and%20Writings%20of%20Abraham%20Lincoln.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Politics & Society",
+      "Essays"
+    ]
+  },
+  {
+    "id": "incidents-of-the-war",
+    "author_last": "Burnett",
+    "author_first": "Alf",
+    "title": "Incidents of the War: Humorous, Pathetic, and Descriptive",
+    "translator": "",
+    "original_date": "1863",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/burnett-alf/incidents-of-the-war",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/burnett-alf/incidents-of-the-war/output/Burnett%2C%20Alf%3A%20Incidents%20of%20the%20War.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Stories",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "stonewall-jackson-and-the-american-civil-war",
+    "author_last": "Henderson",
+    "author_first": "G. F. R.",
+    "title": "Stonewall Jackson and the American Civil War",
+    "translator": "",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/henderson-g-f-r/stonewall-jackson-and-the-american-civil-war",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/henderson-g-f-r/stonewall-jackson-and-the-american-civil-war/output/Henderson%2C%20G.%20F.%20R.%3A%20Stonewall%20Jackson%20and%20the%20American%20Civil%20War.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British"
+    ]
   }
 ]
