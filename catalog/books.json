@@ -1777,31 +1777,15 @@
     ]
   },
   {
-    "id": "democracy-in-america-volume-1",
+    "id": "democracy-in-america",
     "author_last": "Tocqueville",
     "author_first": "Alexis de",
-    "title": "Democracy in America, Volume 1",
+    "title": "Democracy in America",
     "translator": "Henry Reeve",
-    "original_date": "1835",
+    "original_date": "1835–40",
     "foggy_press_date": "2026-11-07",
-    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/tocqueville-alexis-de/democracy-in-america-volume-1",
-    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/tocqueville-alexis-de/democracy-in-america-volume-1/output/Tocqueville%2C%20Alexis%20de%3A%20Democracy%20in%20America%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
-    "tags": [
-      "Politics & Society",
-      "French",
-      "Translated"
-    ]
-  },
-  {
-    "id": "democracy-in-america-volume-2",
-    "author_last": "Tocqueville",
-    "author_first": "Alexis de",
-    "title": "Democracy in America, Volume 2",
-    "translator": "Henry Reeve",
-    "original_date": "1840",
-    "foggy_press_date": "2026-11-07",
-    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/tocqueville-alexis-de/democracy-in-america-volume-2",
-    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/tocqueville-alexis-de/democracy-in-america-volume-2/output/Tocqueville%2C%20Alexis%20de%3A%20Democracy%20in%20America%2C%20Volume%202.%20Foggy%20Press%2C%202026.pdf",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/tocqueville-alexis-de/democracy-in-america",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/tocqueville-alexis-de/democracy-in-america/output/Tocqueville%2C%20Alexis%20de%3A%20Democracy%20in%20America.%20Foggy%20Press%2C%202026.pdf",
     "tags": [
       "Politics & Society",
       "French",
