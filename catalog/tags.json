@@ -73,11 +73,11 @@
   },
   {
     "name": "Harvard Humanities 10",
-    "featured": false
+    "featured": true
   },
   {
     "name": "History",
-    "featured": true
+    "featured": false
   },
   {
     "name": "Irish",

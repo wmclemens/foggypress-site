@@ -2130,15 +2130,15 @@
     ]
   },
   {
-    "id": "the-oresteia",
+    "id": "the-house-of-atreus",
     "author_last": "Aeschylus",
     "author_first": "",
-    "title": "The Oresteia",
+    "title": "The House of Atreus",
     "translator": "E. D. A. Morshead",
     "original_date": "458 BC",
     "foggy_press_date": "2026-11-07",
-    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/aeschylus/the-oresteia",
-    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/aeschylus/the-oresteia/output/Aeschylus%3A%20The%20Oresteia.%20Foggy%20Press%2C%202026.pdf",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/aeschylus/the-house-of-atreus",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/aeschylus/the-house-of-atreus/output/Aeschylus%3A%20The%20House%20of%20Atreus.%20Foggy%20Press%2C%202026.pdf",
     "tags": [
       "Drama",
       "Ancient World",
@@ -2181,15 +2181,15 @@
     ]
   },
   {
-    "id": "theological-political-treatise",
+    "id": "a-theologico-political-treatise",
     "author_last": "Spinoza",
     "author_first": "Benedictus de",
-    "title": "Theological-Political Treatise",
+    "title": "A Theologico-Political Treatise",
     "translator": "R. H. M. Elwes",
     "original_date": "1670",
     "foggy_press_date": "2026-11-07",
-    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/spinoza-benedictus-de/theological-political-treatise",
-    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/spinoza-benedictus-de/theological-political-treatise/output/Spinoza%2C%20Benedictus%20de%3A%20Theological-Political%20Treatise.%20Foggy%20Press%2C%202026.pdf",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/spinoza-benedictus-de/a-theologico-political-treatise",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/spinoza-benedictus-de/a-theologico-political-treatise/output/Spinoza%2C%20Benedictus%20de%3A%20A%20Theologico-Political%20Treatise.%20Foggy%20Press%2C%202026.pdf",
     "tags": [
       "Philosophy",
       "Religion",
@@ -2215,15 +2215,15 @@
     ]
   },
   {
-    "id": "on-the-genealogy-of-morality",
+    "id": "the-genealogy-of-morals",
     "author_last": "Nietzsche",
     "author_first": "Friedrich",
-    "title": "On the Genealogy of Morality",
+    "title": "The Genealogy of Morals",
     "translator": "Horace B. Samuel",
     "original_date": "1887",
     "foggy_press_date": "2026-11-07",
-    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/nietzsche-friedrich/on-the-genealogy-of-morality",
-    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/nietzsche-friedrich/on-the-genealogy-of-morality/output/Nietzsche%2C%20Friedrich%3A%20On%20the%20Genealogy%20of%20Morality.%20Foggy%20Press%2C%202026.pdf",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/nietzsche-friedrich/the-genealogy-of-morals",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/nietzsche-friedrich/the-genealogy-of-morals/output/Nietzsche%2C%20Friedrich%3A%20The%20Genealogy%20of%20Morals.%20Foggy%20Press%2C%202026.pdf",
     "tags": [
       "Philosophy",
       "German",
