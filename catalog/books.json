@@ -1540,5 +1540,370 @@
       "Translated",
       "Short Reads"
     ]
+  },
+  {
+    "id": "the-constitution-of-the-united-states",
+    "author_last": "United States",
+    "author_first": "",
+    "title": "The Constitution of the United States of America",
+    "translator": "",
+    "original_date": "1787",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/united-states/the-constitution-of-the-united-states",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/united-states/the-constitution-of-the-united-states/output/The%20Constitution%20of%20the%20United%20States%20of%20America.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Politics & Society",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "common-sense",
+    "author_last": "Paine",
+    "author_first": "Thomas",
+    "title": "Common Sense",
+    "translator": "",
+    "original_date": "1776",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/paine-thomas/common-sense",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/paine-thomas/common-sense/output/Paine%2C%20Thomas%3A%20Common%20Sense.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American",
+      "History",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "southern-horrors",
+    "author_last": "Wells-Barnett",
+    "author_first": "Ida B.",
+    "title": "Southern Horrors: Lynch Law in All Its Phases",
+    "translator": "",
+    "original_date": "1892",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wells-barnett-ida-b/southern-horrors",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wells-barnett-ida-b/southern-horrors/output/Wells-Barnett%2C%20Ida%20B.%3A%20Southern%20Horrors.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American",
+      "Black Voices",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-red-record",
+    "author_last": "Wells-Barnett",
+    "author_first": "Ida B.",
+    "title": "The Red Record",
+    "translator": "",
+    "original_date": "1895",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wells-barnett-ida-b/the-red-record",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wells-barnett-ida-b/the-red-record/output/Wells-Barnett%2C%20Ida%20B.%3A%20The%20Red%20Record.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American",
+      "Black Voices",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-red-badge-of-courage",
+    "author_last": "Crane",
+    "author_first": "Stephen",
+    "title": "The Red Badge of Courage",
+    "translator": "",
+    "original_date": "1895",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/crane-stephen/the-red-badge-of-courage",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/crane-stephen/the-red-badge-of-courage/output/Crane%2C%20Stephen%3A%20The%20Red%20Badge%20of%20Courage.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "up-from-slavery",
+    "author_last": "Washington",
+    "author_first": "Booker T.",
+    "title": "Up from Slavery",
+    "translator": "",
+    "original_date": "1901",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/washington-booker-t/up-from-slavery",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/washington-booker-t/up-from-slavery/output/Washington%2C%20Booker%20T.%3A%20Up%20from%20Slavery.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "Black Voices"
+    ]
+  },
+  {
+    "id": "narrative-of-the-captivity-and-restoration-of-mrs-mary-rowlandson",
+    "author_last": "Rowlandson",
+    "author_first": "Mary",
+    "title": "Narrative of the Captivity and Restoration of Mrs. Mary Rowlandson",
+    "translator": "",
+    "original_date": "1682",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/rowlandson-mary/narrative-of-the-captivity-and-restoration-of-mrs-mary-rowlandson",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/rowlandson-mary/narrative-of-the-captivity-and-restoration-of-mrs-mary-rowlandson/output/Rowlandson%2C%20Mary%3A%20Narrative%20of%20the%20Captivity%20and%20Restoration%20of%20Mrs.%20Mary%20Rowlandson.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "History",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "two-years-in-the-forbidden-city",
+    "author_last": "Der Ling",
+    "author_first": "Princess",
+    "title": "Two Years in the Forbidden City",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/der-ling-princess/two-years-in-the-forbidden-city",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/der-ling-princess/two-years-in-the-forbidden-city/output/Der%20Ling%2C%20Princess%3A%20Two%20Years%20in%20the%20Forbidden%20City.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "Chinese",
+      "History",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "my-bondage-and-my-freedom",
+    "author_last": "Douglass",
+    "author_first": "Frederick",
+    "title": "My Bondage and My Freedom",
+    "translator": "",
+    "original_date": "1855",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/douglass-frederick/my-bondage-and-my-freedom",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/douglass-frederick/my-bondage-and-my-freedom/output/Douglass%2C%20Frederick%3A%20My%20Bondage%20and%20My%20Freedom.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "Black Voices"
+    ]
+  },
+  {
+    "id": "twelve-years-a-slave",
+    "author_last": "Northup",
+    "author_first": "Solomon",
+    "title": "Twelve Years a Slave",
+    "translator": "",
+    "original_date": "1853",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/northup-solomon/twelve-years-a-slave",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/northup-solomon/twelve-years-a-slave/output/Northup%2C%20Solomon%3A%20Twelve%20Years%20a%20Slave.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "Black Voices"
+    ]
+  },
+  {
+    "id": "plymouth-memories-of-an-octogenarian",
+    "author_last": "Davis",
+    "author_first": "William T.",
+    "title": "Plymouth Memories of an Octogenarian",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/davis-william-t/plymouth-memories-of-an-octogenarian",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/davis-william-t/plymouth-memories-of-an-octogenarian/output/Davis%2C%20William%20T.%3A%20Plymouth%20Memories%20of%20an%20Octogenarian.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "the-argonauts-of-california",
+    "author_last": "Haskins",
+    "author_first": "C. W.",
+    "title": "The Argonauts of California",
+    "translator": "",
+    "original_date": "1890",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/haskins-c-w/the-argonauts-of-california",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/haskins-c-w/the-argonauts-of-california/output/Haskins%2C%20C.%20W.%3A%20The%20Argonauts%20of%20California.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "History",
+      "Adventure"
+    ]
+  },
+  {
+    "id": "the-federalist-papers",
+    "author_last": "Hamilton",
+    "author_first": "Alexander, James Madison and John Jay",
+    "title": "The Federalist Papers",
+    "translator": "",
+    "original_date": "1787–88",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/hamilton-alexander/the-federalist-papers",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/hamilton-alexander/the-federalist-papers/output/Hamilton%2C%20Alexander%2C%20James%20Madison%20and%20John%20Jay%3A%20The%20Federalist%20Papers.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American",
+      "History",
+      "Essays"
+    ]
+  },
+  {
+    "id": "personal-memoirs-of-u-s-grant",
+    "author_last": "Grant",
+    "author_first": "Ulysses S.",
+    "title": "Personal Memoirs of U. S. Grant",
+    "translator": "",
+    "original_date": "1885–86",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/grant-ulysses-s/personal-memoirs-of-u-s-grant",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/grant-ulysses-s/personal-memoirs-of-u-s-grant/output/Grant%2C%20Ulysses%20S.%3A%20Personal%20Memoirs%20of%20U.%20S.%20Grant.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "democracy-in-america-volume-1",
+    "author_last": "Tocqueville",
+    "author_first": "Alexis de",
+    "title": "Democracy in America, Volume 1",
+    "translator": "Henry Reeve",
+    "original_date": "1835",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/tocqueville-alexis-de/democracy-in-america-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/tocqueville-alexis-de/democracy-in-america-volume-1/output/Tocqueville%2C%20Alexis%20de%3A%20Democracy%20in%20America%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "democracy-in-america-volume-2",
+    "author_last": "Tocqueville",
+    "author_first": "Alexis de",
+    "title": "Democracy in America, Volume 2",
+    "translator": "Henry Reeve",
+    "original_date": "1840",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/tocqueville-alexis-de/democracy-in-america-volume-2",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/tocqueville-alexis-de/democracy-in-america-volume-2/output/Tocqueville%2C%20Alexis%20de%3A%20Democracy%20in%20America%2C%20Volume%202.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-frontier-in-american-history",
+    "author_last": "Turner",
+    "author_first": "Frederick Jackson",
+    "title": "The Frontier in American History",
+    "translator": "",
+    "original_date": "1920",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/turner-frederick-jackson/the-frontier-in-american-history",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/turner-frederick-jackson/the-frontier-in-american-history/output/Turner%2C%20Frederick%20Jackson%3A%20The%20Frontier%20in%20American%20History.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Essays"
+    ]
+  },
+  {
+    "id": "of-plimoth-plantation",
+    "author_last": "Bradford",
+    "author_first": "William",
+    "title": "Of Plimoth Plantation",
+    "translator": "",
+    "original_date": "1651",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/bradford-william/of-plimoth-plantation",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/bradford-william/of-plimoth-plantation/output/Bradford%2C%20William%3A%20Of%20Plimoth%20Plantation.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Religion"
+    ]
+  },
+  {
+    "id": "myths-of-the-cherokee",
+    "author_last": "Mooney",
+    "author_first": "James",
+    "title": "Myths of the Cherokee",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/mooney-james/myths-of-the-cherokee",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/mooney-james/myths-of-the-cherokee/output/Mooney%2C%20James%3A%20Myths%20of%20the%20Cherokee.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Stories",
+      "Religion"
+    ]
+  },
+  {
+    "id": "the-journals-of-lewis-and-clark",
+    "author_last": "Lewis",
+    "author_first": "Meriwether and William Clark",
+    "title": "The Journals of Lewis and Clark",
+    "translator": "",
+    "original_date": "1804–06",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/lewis-meriwether/the-journals-of-lewis-and-clark",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/lewis-meriwether/the-journals-of-lewis-and-clark/output/Lewis%2C%20Meriwether%20and%20William%20Clark%3A%20The%20Journals%20of%20Lewis%20and%20Clark.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Adventure",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "the-book-of-the-national-parks",
+    "author_last": "Yard",
+    "author_first": "Robert Sterling",
+    "title": "The Book of the National Parks",
+    "translator": "",
+    "original_date": "1919",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/yard-robert-sterling/the-book-of-the-national-parks",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/yard-robert-sterling/the-book-of-the-national-parks/output/Yard%2C%20Robert%20Sterling%3A%20The%20Book%20of%20the%20National%20Parks.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science"
+    ]
+  },
+  {
+    "id": "susan-b-anthony",
+    "author_last": "Lutz",
+    "author_first": "Alma",
+    "title": "Susan B. Anthony: Rebel, Crusader, Humanitarian",
+    "translator": "",
+    "original_date": "1959",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/lutz-alma/susan-b-anthony",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/lutz-alma/susan-b-anthony/output/Lutz%2C%20Alma%3A%20Susan%20B.%20Anthony.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Women Writers",
+      "Politics & Society"
+    ]
   }
 ]
