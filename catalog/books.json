@@ -81,7 +81,8 @@
       "British",
       "Women Writers",
       "Love & Marriage",
-      "Comedy & Satire"
+      "Comedy & Satire",
+      "Harvard Humanities 10"
     ]
   },
   {
@@ -351,7 +352,8 @@
       "Medieval",
       "Religion",
       "Italian",
-      "Translated"
+      "Translated",
+      "Harvard Humanities 10"
     ]
   },
   {
@@ -772,7 +774,8 @@
       "Epic",
       "Ancient World",
       "Sea & Ships",
-      "Translated"
+      "Translated",
+      "Harvard Humanities 10"
     ]
   },
   {
@@ -853,7 +856,8 @@
     "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/joyce-james/ulysses/output/Joyce%2C%20James%3A%20Ulysses.%20Foggy%20Press%2C%202026.pdf",
     "tags": [
       "Novels",
-      "Irish"
+      "Irish",
+      "Harvard Humanities 10"
     ]
   },
   {
@@ -1151,7 +1155,8 @@
       "British",
       "Women Writers",
       "Gothic & Horror",
-      "Science Fiction"
+      "Science Fiction",
+      "Harvard Humanities 10"
     ]
   },
   {
@@ -1167,7 +1172,8 @@
     "tags": [
       "Economics",
       "Politics & Society",
-      "British"
+      "British",
+      "Harvard Humanities 10"
     ]
   },
   {
@@ -2103,6 +2109,248 @@
     "tags": [
       "History",
       "British"
+    ]
+  },
+  {
+    "id": "the-iliad",
+    "author_last": "Homer",
+    "author_first": "",
+    "title": "The Iliad",
+    "translator": "Samuel Butler",
+    "original_date": "c. 750 BC",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/homer/the-iliad",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/homer/the-iliad/output/Homer%3A%20The%20Iliad.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Epic",
+      "Ancient World",
+      "Translated",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "the-oresteia",
+    "author_last": "Aeschylus",
+    "author_first": "",
+    "title": "The Oresteia",
+    "translator": "E. D. A. Morshead",
+    "original_date": "458 BC",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/aeschylus/the-oresteia",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/aeschylus/the-oresteia/output/Aeschylus%3A%20The%20Oresteia.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "Ancient World",
+      "Translated",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "montaigne-essays",
+    "author_last": "Montaigne",
+    "author_first": "Michel de",
+    "title": "Essays",
+    "translator": "Charles Cotton",
+    "original_date": "1580–1595",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/montaigne-michel-de/essays",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/montaigne-michel-de/essays/output/Montaigne%2C%20Michel%20de%3A%20Essays.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "Philosophy",
+      "French",
+      "Translated",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "hamlet",
+    "author_last": "Shakespeare",
+    "author_first": "William",
+    "title": "Hamlet",
+    "translator": "",
+    "original_date": "c. 1600",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/shakespeare-william/hamlet",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/shakespeare-william/hamlet/output/Shakespeare%2C%20William%3A%20Hamlet.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "British",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "theological-political-treatise",
+    "author_last": "Spinoza",
+    "author_first": "Benedictus de",
+    "title": "Theological-Political Treatise",
+    "translator": "R. H. M. Elwes",
+    "original_date": "1670",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/spinoza-benedictus-de/theological-political-treatise",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/spinoza-benedictus-de/theological-political-treatise/output/Spinoza%2C%20Benedictus%20de%3A%20Theological-Political%20Treatise.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Religion",
+      "Politics & Society",
+      "Translated",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "leaves-of-grass",
+    "author_last": "Whitman",
+    "author_first": "Walt",
+    "title": "Leaves of Grass",
+    "translator": "",
+    "original_date": "1855–1892",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/whitman-walt/leaves-of-grass",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/whitman-walt/leaves-of-grass/output/Whitman%2C%20Walt%3A%20Leaves%20of%20Grass.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "American",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "on-the-genealogy-of-morality",
+    "author_last": "Nietzsche",
+    "author_first": "Friedrich",
+    "title": "On the Genealogy of Morality",
+    "translator": "Horace B. Samuel",
+    "original_date": "1887",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/nietzsche-friedrich/on-the-genealogy-of-morality",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/nietzsche-friedrich/on-the-genealogy-of-morality/output/Nietzsche%2C%20Friedrich%3A%20On%20the%20Genealogy%20of%20Morality.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "German",
+      "Translated",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "the-waste-land",
+    "author_last": "Eliot",
+    "author_first": "T. S.",
+    "title": "The Waste Land",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/eliot-t-s/the-waste-land",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/eliot-t-s/the-waste-land/output/Eliot%2C%20T.%20S.%3A%20The%20Waste%20Land.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Short Reads",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "various-essays-and-stories",
+    "author_last": "Woolf",
+    "author_first": "Virginia",
+    "title": "Various Essays & Stories",
+    "translator": "",
+    "original_date": "1921–1929",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/woolf-virginia/various-essays-and-stories",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/woolf-virginia/various-essays-and-stories/output/Woolf%2C%20Virginia%3A%20Various%20Essays%20%26%20Stories.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "Stories",
+      "British",
+      "Women Writers",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "the-house-of-mirth",
+    "author_last": "Wharton",
+    "author_first": "Edith",
+    "title": "The House of Mirth",
+    "translator": "",
+    "original_date": "1905",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wharton-edith/the-house-of-mirth",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wharton-edith/the-house-of-mirth/output/Wharton%2C%20Edith%3A%20The%20House%20of%20Mirth.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Women Writers",
+      "Love & Marriage",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "letters-on-the-aesthetic-education-of-man",
+    "author_last": "Schiller",
+    "author_first": "Friedrich",
+    "title": "Letters on the Aesthetic Education of Man",
+    "translator": "",
+    "original_date": "1795",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/schiller-friedrich/letters-on-the-aesthetic-education-of-man",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/schiller-friedrich/letters-on-the-aesthetic-education-of-man/output/Schiller%2C%20Friedrich%3A%20Letters%20on%20the%20Aesthetic%20Education%20of%20Man.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "German",
+      "Translated",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "the-decameron",
+    "author_last": "Boccaccio",
+    "author_first": "Giovanni",
+    "title": "The Decameron",
+    "translator": "John Payne",
+    "original_date": "c. 1353",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/boccaccio-giovanni/the-decameron",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/boccaccio-giovanni/the-decameron/output/Boccaccio%2C%20Giovanni%3A%20The%20Decameron.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "Medieval",
+      "Italian",
+      "Translated",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "daphnis-and-chloe",
+    "author_last": "Longus",
+    "author_first": "",
+    "title": "Daphnis and Chloe",
+    "translator": "Rowland Smith",
+    "original_date": "2nd century AD",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/longus/daphnis-and-chloe",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/longus/daphnis-and-chloe/output/Longus%3A%20Daphnis%20and%20Chloe.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Ancient World",
+      "Love & Marriage",
+      "Translated",
+      "Harvard Humanities 10"
+    ]
+  },
+  {
+    "id": "the-symposium",
+    "author_last": "Plato",
+    "author_first": "",
+    "title": "The Symposium",
+    "translator": "Benjamin Jowett",
+    "original_date": "c. 385 BC",
+    "foggy_press_date": "2026-11-07",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/plato/the-symposium",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/plato/the-symposium/output/Plato%3A%20The%20Symposium.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Ancient World",
+      "Translated",
+      "Harvard Humanities 10"
     ]
   }
 ]
