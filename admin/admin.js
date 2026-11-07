@@ -99,6 +99,7 @@
   var st = function (b) { return stats.books[b.id] || {}; };
   var isLive = function (b) { var s = st(b); return s.live != null ? s.live : !!b.foggy_press_date; };
   var dlOf = function (b) { return st(b).downloads || 0; };
+  var vwOf = function (b) { return st(b).views || 0; };
 
   // ---- views ----
   function tabs(cur) {
@@ -134,16 +135,16 @@
       var val = {
         author_last: function (b) { return b.author_last; }, author_first: function (b) { return b.author_first; },
         title: function (b) { return sortTitle(b.title); }, original_date: function (b) { var n = yearNum(b.original_date); return n === Infinity ? '' : n; },
-        foggy_press_date: function (b) { return b.foggy_press_date || ''; }, downloads: function (b) { return dlOf(b); },
+        foggy_press_date: function (b) { return b.foggy_press_date || ''; }, downloads: function (b) { return dlOf(b); }, views: function (b) { return vwOf(b); },
         pages: function (b) { return st(b).pages == null ? '' : st(b).pages; }, tags: function (b) { return sortedTags(b).join(', '); }
       }[catSort.key];
       list.sort(function (a, b) { var r = cmp(val(a), val(b)); return (r * catSort.dir) || cmp(a.author_last + a.author_first + sortTitle(a.title), b.author_last + b.author_first + sortTitle(b.title)); });
-      $('#chead').innerHTML = '<tr>' + th('Author last', 'author_last', catSort) + th('Author first', 'author_first', catSort) + th('Title', 'title', catSort) + th('Original', 'original_date', catSort) + th('Foggy Press', 'foggy_press_date', catSort) + th('Downloads', 'downloads', catSort) + th('Pages', 'pages', catSort) + th('Tags', 'tags', catSort) + '</tr>';
+      $('#chead').innerHTML = '<tr>' + th('Author last', 'author_last', catSort) + th('Author first', 'author_first', catSort) + th('Title', 'title', catSort) + th('Original', 'original_date', catSort) + th('Foggy Press', 'foggy_press_date', catSort) + th('Downloads', 'downloads', catSort) + th('Online views', 'views', catSort) + th('Pages', 'pages', catSort) + th('Tags', 'tags', catSort) + '</tr>';
       wireSort($('#chead'), catSort, draw);
       $('#count').textContent = list.length + ' of ' + data.books.length + ' records · ' + data.books.filter(isLive).length + ' live';
       $('#rows').innerHTML = list.map(function (b) {
         return '<tr class="go" data-id="' + esc(b.id) + '" tabindex="0"><td>' + esc(b.author_last) + '</td><td>' + esc(b.author_first) + '</td><td>' + esc(b.title) + '</td><td class="num">' + esc(b.original_date) + '</td>' +
-          '<td class="num">' + (b.foggy_press_date ? esc(b.foggy_press_date) : '<span class="pill warn">Hidden</span>') + '</td><td class="num">' + num(dlOf(b)) + '</td><td class="num">' + num(st(b).pages) + '</td>' +
+          '<td class="num">' + (b.foggy_press_date ? esc(b.foggy_press_date) : '<span class="pill warn">Hidden</span>') + '</td><td class="num">' + num(dlOf(b)) + '</td><td class="num">' + num(vwOf(b)) + '</td><td class="num">' + num(st(b).pages) + '</td>' +
           '<td><div class="chips">' + sortedTags(b).map(function (t) { return '<span class="chip">' + esc(t) + '</span>'; }).join('') + '</div></td></tr>';
       }).join('');
     };
@@ -166,7 +167,7 @@
     var s = st(b);
     $('#app').innerHTML = tabs('books') +
       '<div style="padding-top:1.25rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap"><span class="crumb"><a href="#">Book catalog</a> / ' + (isNew ? 'New record' : 'Edit record') + '</span>' +
-      (isNew ? '' : '<span class="mono" style="color:var(--muted)">' + (isLive(b) ? '<span class="pill">Live</span>' : '<span class="pill warn">Not live</span>') + ' · ' + num(s.pages) + ' pages · ' + num(dlOf(b)) + ' downloads</span>') + '</div>' +
+      (isNew ? '' : '<span class="mono" style="color:var(--muted)">' + (isLive(b) ? '<span class="pill">Live</span>' : '<span class="pill warn">Not live</span>') + ' · ' + num(s.pages) + ' pages · ' + num(dlOf(b)) + ' downloads · ' + num(vwOf(b)) + ' online views</span>') + '</div>' +
       '<div class="form">' +
       f('author_last', 'Author last name') + f('author_first', 'Author first name') +
       f('title', 'Title', 'text', '', true) +

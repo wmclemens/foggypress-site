@@ -132,6 +132,8 @@ class Site:
             b['_html'] = hp if hp and hp.exists() else None
             b['_desc'] = readme_description(src.parent.parent / 'README.md') if src else ''
             b['_downloads'] = self.downloads.get(f"pdf-{b['id']}", 0)
+            # visits to the read-online page (GoatCounter records it as an ordinary page view)
+            b['_views'] = sum(self.downloads.get(f"/read/{b['id']}{t}", 0) for t in ('/', '', '/index.html'))
             if src and src.exists():
                 b['_mb'] = round(src.stat().st_size / 1e6, 2)
                 b['_pages'] = pdf_pages(src)
@@ -374,7 +376,7 @@ class Site:
                              'title': m.group(2) if m else p.stem,
                              'github_dir': 'https://github.com/wmclemens/foggy-press-files/tree/main/' + urllib.parse.quote(p.parent.parent.relative_to(self.files).as_posix()),
                              'github_pdf': 'https://github.com/wmclemens/foggy-press-files/blob/main/' + urllib.parse.quote(rel)})
-        stats = {b['id']: {'pages': b['_pages'], 'mb': b['_mb'], 'downloads': b['_downloads'], 'live': b in self.live} for b in self.books}
+        stats = {b['id']: {'pages': b['_pages'], 'mb': b['_mb'], 'downloads': b['_downloads'], 'views': b['_views'], 'live': b in self.live} for b in self.books}
         (self.out / 'admin').mkdir(parents=True, exist_ok=True)
         (self.out / 'admin/stats.json').write_text(json.dumps({'built': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'books': stats, 'unlisted': unlisted, 'problems': self.problems}, ensure_ascii=False))
 
