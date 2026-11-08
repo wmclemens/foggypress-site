@@ -343,6 +343,10 @@ class Site:
     def copy_assets(self):
         for d in ('assets', 'admin'):
             shutil.copytree(ROOT / d, self.out / d, dirs_exist_ok=True)
+        # stamp the admin page's script and styles with the build time, so browsers fetch the new ones after each build
+        v = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d%H%M')
+        ai = self.out / 'admin' / 'index.html'
+        ai.write_text(re.sub(r'(href|src)="((?:\.\./assets/style|admin)\.(?:css|js))"', lambda m: f'{m.group(1)}="{m.group(2)}?v={v}"', ai.read_text()))
         (self.out / 'pdf').mkdir(parents=True, exist_ok=True)
         for b in self.live:
             shutil.copyfile(b['_src'], self.out / 'pdf' / f"{b['id']}.pdf")
