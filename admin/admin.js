@@ -373,8 +373,14 @@
       $('#who').textContent = 'Signed in as ' + user; $('#who').hidden = false; $('#signout').hidden = false;
       return Promise.all([loadData(), loadStats()]);
     }).then(route).catch(function (e) {
-      setToken(null); token = null;
-      vSignIn(e.status === 401 ? 'GitHub didn’t accept that token. Check it was copied in full and hasn’t expired.' : e.message);
+      // only a refused token signs you out; anything else (a network blip, a page mid-update) keeps you signed in
+      if (e.status === 401 || e.status === 403 || fresh) {
+        setToken(null); token = null;
+        vSignIn(e.status === 401 ? 'GitHub didn’t accept that token. Check it was copied in full and hasn’t expired.' : e.message);
+      } else {
+        $('#app').innerHTML = '<p class="note err" style="padding:2rem 0">Couldn’t load the catalog just now (' + esc(e.message || 'network error') + '). You’re still signed in. <button class="btn sm ghost" type="button" id="retry">Try again</button></p>';
+        $('#retry').onclick = function () { start(false); };
+      }
     });
   }
 
