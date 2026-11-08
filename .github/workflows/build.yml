@@ -46,7 +46,7 @@ jobs:
 
       - name: Build
         env:
-          GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
+          GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE || 'wmc' }}
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'foggypress.com' }}
           WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY || '560bbd06-0bf6-47ce-b04d-f68df6a5ff16' }}
