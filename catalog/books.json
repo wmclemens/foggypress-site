@@ -2352,5 +2352,477 @@
       "Translated",
       "Harvard Humanities 10"
     ]
+  },
+  {
+    "id": "from-manassas-to-appomattox",
+    "author_last": "Longstreet",
+    "author_first": "James",
+    "title": "From Manassas to Appomattox: Memoirs of the Civil War in America",
+    "translator": "",
+    "original_date": "1896",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/longstreet-james/from-manassas-to-appomattox",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/longstreet-james/from-manassas-to-appomattox/output/Longstreet%2C%20James%3A%20From%20Manassas%20to%20Appomattox.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Memoir",
+      "American"
+    ]
+  },
+  {
+    "id": "george-washington-or-life-in-america-one-hundred-years-ago",
+    "author_last": "Abbott",
+    "author_first": "John S. C.",
+    "title": "George Washington; or, Life in America One Hundred Years Ago",
+    "translator": "",
+    "original_date": "1875",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/abbott-john-s-c/george-washington-or-life-in-america-one-hundred-years-ago",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/abbott-john-s-c/george-washington-or-life-in-america-one-hundred-years-ago/output/Abbott%2C%20John%20S.%20C.%3A%20George%20Washington%3B%20or%2C%20Life%20in%20America%20One%20Hundred%20Years%20Ago.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "george-washington",
+    "author_last": "Lodge",
+    "author_first": "Henry Cabot",
+    "title": "George Washington",
+    "translator": "",
+    "original_date": "1889",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/lodge-henry-cabot/george-washington",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/lodge-henry-cabot/george-washington/output/Lodge%2C%20Henry%20Cabot%3A%20George%20Washington.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "hernando-cortez",
+    "author_last": "Abbott",
+    "author_first": "John S. C.",
+    "title": "Hernando Cortez",
+    "translator": "",
+    "original_date": "1855",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/abbott-john-s-c/hernando-cortez",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/abbott-john-s-c/hernando-cortez/output/Abbott%2C%20John%20S.%20C.%3A%20Hernando%20Cortez.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "in-the-ranks-of-the-c-i-v",
+    "author_last": "Childers",
+    "author_first": "Erskine",
+    "title": "In the Ranks of the C.I.V.: A Narrative and Diary of Personal Experiences with the C.I.V. Battery (Honourable Artillery Company) in South Africa",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/childers-erskine/in-the-ranks-of-the-c-i-v",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/childers-erskine/in-the-ranks-of-the-c-i-v/output/Childers%2C%20Erskine%3A%20In%20the%20Ranks%20of%20the%20C.I.V..%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Memoir",
+      "British"
+    ]
+  },
+  {
+    "id": "japan-an-attempt-at-interpretation",
+    "author_last": "Hearn",
+    "author_first": "Lafcadio",
+    "title": "Japan: An Attempt at Interpretation",
+    "translator": "",
+    "original_date": "1904",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/hearn-lafcadio/japan-an-attempt-at-interpretation",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/hearn-lafcadio/japan-an-attempt-at-interpretation/output/Hearn%2C%20Lafcadio%3A%20Japan%3A%20An%20Attempt%20at%20Interpretation.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Religion",
+      "Essays",
+      "History"
+    ]
+  },
+  {
+    "id": "memoirs-of-general-william-t-sherman",
+    "author_last": "Sherman",
+    "author_first": "William T.",
+    "title": "Memoirs of General William T. Sherman",
+    "translator": "",
+    "original_date": "1875",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/sherman-william-t/memoirs-of-general-william-t-sherman",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/sherman-william-t/memoirs-of-general-william-t-sherman/output/Sherman%2C%20William%20T.%3A%20Memoirs%20of%20General%20William%20T.%20Sherman.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Memoir",
+      "American"
+    ]
+  },
+  {
+    "id": "miles-standish-the-puritan-captain",
+    "author_last": "Abbott",
+    "author_first": "John S. C.",
+    "title": "Miles Standish, the Puritan Captain",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/abbott-john-s-c/miles-standish-the-puritan-captain",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/abbott-john-s-c/miles-standish-the-puritan-captain/output/Abbott%2C%20John%20S.%20C.%3A%20Miles%20Standish%2C%20the%20Puritan%20Captain.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "mr-buchanans-administration-on-the-eve-of-the-rebellion",
+    "author_last": "Buchanan",
+    "author_first": "James",
+    "title": "Mr. Buchanan’s Administration on the Eve of the Rebellion",
+    "translator": "",
+    "original_date": "1866",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/buchanan-james/mr-buchanans-administration-on-the-eve-of-the-rebellion",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/buchanan-james/mr-buchanans-administration-on-the-eve-of-the-rebellion/output/Buchanan%2C%20James%3A%20Mr.%20Buchanan%E2%80%99s%20Administration%20on%20the%20Eve%20of%20the%20Rebellion.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Memoir",
+      "American",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "palestine",
+    "author_last": "Conder",
+    "author_first": "C. R.",
+    "title": "Palestine",
+    "translator": "",
+    "original_date": "1889",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/conder-c-r/palestine",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/conder-c-r/palestine/output/Conder%2C%20C.%20R.%3A%20Palestine.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "British",
+      "Religion"
+    ]
+  },
+  {
+    "id": "shinto-the-ancient-religion-of-japan",
+    "author_last": "Aston",
+    "author_first": "W. G.",
+    "title": "Shinto: The Ancient Religion of Japan",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/aston-w-g/shinto-the-ancient-religion-of-japan",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/aston-w-g/shinto-the-ancient-religion-of-japan/output/Aston%2C%20W.%20G.%3A%20Shinto%3A%20The%20Ancient%20Religion%20of%20Japan.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Religion",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "slavery-in-pennsylvania",
+    "author_last": "Turner",
+    "author_first": "Edward Raymond",
+    "title": "Slavery in Pennsylvania",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/turner-edward-raymond/slavery-in-pennsylvania",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/turner-edward-raymond/slavery-in-pennsylvania/output/Turner%2C%20Edward%20Raymond%3A%20Slavery%20in%20Pennsylvania.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Black Voices",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "south",
+    "author_last": "Shackleton",
+    "author_first": "Ernest",
+    "title": "South: The Story of Shackleton’s Last Expedition, 1914–1917",
+    "translator": "",
+    "original_date": "1919",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/shackleton-ernest/south",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/shackleton-ernest/south/output/Shackleton%2C%20Ernest%3A%20South.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Adventure",
+      "Memoir",
+      "Sea & Ships",
+      "British",
+      "Travel"
+    ]
+  },
+  {
+    "id": "syria-the-desert-and-the-sown",
+    "author_last": "Bell",
+    "author_first": "Gertrude Lowthian",
+    "title": "Syria: The Desert & the Sown",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/bell-gertrude-lowthian/syria-the-desert-and-the-sown",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/bell-gertrude-lowthian/syria-the-desert-and-the-sown/output/Bell%2C%20Gertrude%20Lowthian%3A%20Syria%3A%20The%20Desert%20%26%20the%20Sown.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "British",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "tent-work-in-palestine",
+    "author_last": "Conder",
+    "author_first": "C. R.",
+    "title": "Tent Work in Palestine: A Record of Discovery and Adventure",
+    "translator": "",
+    "original_date": "1878",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/conder-c-r/tent-work-in-palestine",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/conder-c-r/tent-work-in-palestine/output/Conder%2C%20C.%20R.%3A%20Tent%20Work%20in%20Palestine%3A%20A%20Record%20of%20Discovery%20and%20Adventure.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "the-cabots-and-the-discovery-of-america",
+    "author_last": "Hodges",
+    "author_first": "Elizabeth",
+    "title": "The Cabots and the Discovery of America",
+    "translator": "",
+    "original_date": "1897",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/hodges-elizabeth/the-cabots-and-the-discovery-of-america",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/hodges-elizabeth/the-cabots-and-the-discovery-of-america/output/Hodges%2C%20Elizabeth%3A%20The%20Cabots%20and%20the%20Discovery%20of%20America.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Women Writers",
+      "Short Reads",
+      "Sea & Ships"
+    ]
+  },
+  {
+    "id": "the-city-of-jerusalem",
+    "author_last": "Conder",
+    "author_first": "C. R.",
+    "title": "The City of Jerusalem",
+    "translator": "",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/conder-c-r/the-city-of-jerusalem",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/conder-c-r/the-city-of-jerusalem/output/Conder%2C%20C.%20R.%3A%20The%20City%20of%20Jerusalem.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "British"
+    ]
+  },
+  {
+    "id": "the-education-of-henry-adams",
+    "author_last": "Adams",
+    "author_first": "Henry",
+    "title": "The Education of Henry Adams",
+    "translator": "",
+    "original_date": "1918",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/adams-henry/the-education-of-henry-adams",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/adams-henry/the-education-of-henry-adams/output/Adams%2C%20Henry%3A%20The%20Education%20of%20Henry%20Adams.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Memoir",
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "the-empire-of-austria",
+    "author_last": "Abbott",
+    "author_first": "John S. C.",
+    "title": "The Empire of Austria; Its Rise and Present Power",
+    "translator": "",
+    "original_date": "1859",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/abbott-john-s-c/the-empire-of-austria",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/abbott-john-s-c/the-empire-of-austria/output/Abbott%2C%20John%20S.%20C.%3A%20The%20Empire%20of%20Austria%3B%20Its%20Rise%20and%20Present%20Power.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "the-framework-of-home-rule",
+    "author_last": "Childers",
+    "author_first": "Erskine",
+    "title": "The Framework of Home Rule",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/childers-erskine/the-framework-of-home-rule",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/childers-erskine/the-framework-of-home-rule/output/Childers%2C%20Erskine%3A%20The%20Framework%20of%20Home%20Rule.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "Irish",
+      "History"
+    ]
+  },
+  {
+    "id": "the-h-a-c-in-south-africa",
+    "author_last": "Childers",
+    "author_first": "Erskine",
+    "title": "The H.A.C. in South Africa: A Record of the Services Rendered in the South African War by Members of the Honourable Artillery Company",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/childers-erskine/the-h-a-c-in-south-africa",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/childers-erskine/the-h-a-c-in-south-africa/output/Childers%2C%20Erskine%3A%20The%20H.A.C.%20in%20South%20Africa.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "the-history-of-christianity",
+    "author_last": "Abbott",
+    "author_first": "John S. C.",
+    "title": "The History of Christianity",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/abbott-john-s-c/the-history-of-christianity",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/abbott-john-s-c/the-history-of-christianity/output/Abbott%2C%20John%20S.%20C.%3A%20The%20History%20of%20Christianity.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Religion",
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "the-northmen-columbus-and-cabot",
+    "author_last": "Olson and Bourne",
+    "author_first": "Julius E. and Edward Gaylord (editors)",
+    "title": "The Northmen, Columbus and Cabot, 985–1503",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/olson-julius-e-and-bourne-edward-gaylord/the-northmen-columbus-and-cabot",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/olson-julius-e-and-bourne-edward-gaylord/the-northmen-columbus-and-cabot/output/Olson%2C%20Julius%20E.%20and%20Bourne%2C%20Edward%20Gaylord%3A%20The%20Northmen%2C%20Columbus%20and%20Cabot%2C%20985%E2%80%931503.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Sea & Ships",
+      "Medieval"
+    ]
+  },
+  {
+    "id": "the-requisition",
+    "author_last": "Palacios Rubios",
+    "author_first": "Juan López de",
+    "title": "The Requisition: El Requerimiento of 1513",
+    "translator": "Arthur Helps",
+    "original_date": "1513",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/palacios-rubios-juan-lopez-de/the-requisition",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/palacios-rubios-juan-lopez-de/the-requisition/output/Palacios%20Rubios%2C%20Juan%20L%C3%B3pez%20de%3A%20The%20Requisition.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Spanish",
+      "Translated",
+      "Short Reads",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "the-riddle-of-the-sands",
+    "author_last": "Childers",
+    "author_first": "Erskine",
+    "title": "The Riddle of the Sands: A Record of Secret Service Recently Achieved",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/childers-erskine/the-riddle-of-the-sands",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/childers-erskine/the-riddle-of-the-sands/output/Childers%2C%20Erskine%3A%20The%20Riddle%20of%20the%20Sands.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "Adventure",
+      "Sea & Ships",
+      "British"
+    ]
+  },
+  {
+    "id": "the-rise-and-fall-of-the-confederate-government",
+    "author_last": "Davis",
+    "author_first": "Jefferson",
+    "title": "The Rise and Fall of the Confederate Government",
+    "translator": "",
+    "original_date": "1881",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/davis-jefferson/the-rise-and-fall-of-the-confederate-government",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/davis-jefferson/the-rise-and-fall-of-the-confederate-government/output/Davis%2C%20Jefferson%3A%20The%20Rise%20and%20Fall%20of%20the%20Confederate%20Government.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Memoir",
+      "American",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "the-true-travels-adventures-and-observations-of-captain-john-smith",
+    "author_last": "Smith",
+    "author_first": "John",
+    "title": "The True Travels, Adventures, and Observations of Captain John Smith",
+    "translator": "",
+    "original_date": "1630",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/smith-john/the-true-travels-adventures-and-observations-of-captain-john-smith",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/smith-john/the-true-travels-adventures-and-observations-of-captain-john-smith/output/Smith%2C%20John%3A%20The%20True%20Travels%2C%20Adventures%2C%20and%20Observations%20of%20Captain%20John%20Smith.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Adventure",
+      "Memoir",
+      "History",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "travels-in-arabia",
+    "author_last": "Burckhardt",
+    "author_first": "John Lewis",
+    "title": "Travels in Arabia",
+    "translator": "",
+    "original_date": "1829",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/burckhardt-john-lewis/travels-in-arabia",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/burckhardt-john-lewis/travels-in-arabia/output/Burckhardt%2C%20John%20Lewis%3A%20Travels%20in%20Arabia.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "Religion",
+      "Translated"
+    ]
+  },
+  {
+    "id": "travels-in-syria-and-the-holy-land",
+    "author_last": "Burckhardt",
+    "author_first": "John Lewis",
+    "title": "Travels in Syria and the Holy Land",
+    "translator": "",
+    "original_date": "1822",
+    "foggy_press_date": "2026-11-08",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/burckhardt-john-lewis/travels-in-syria-and-the-holy-land",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/burckhardt-john-lewis/travels-in-syria-and-the-holy-land/output/Burckhardt%2C%20John%20Lewis%3A%20Travels%20in%20Syria%20and%20the%20Holy%20Land.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "Translated"
+    ]
   }
 ]
