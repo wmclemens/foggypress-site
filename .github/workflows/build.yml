@@ -42,7 +42,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pypdf markdown
+      - run: pip install pypdf markdown pillow
 
       - name: Build
         env:

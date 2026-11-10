@@ -98,6 +98,29 @@ def fmt_dl(n):
     return f'↓ {n:,}'
 
 
+
+def web_picture(src, dst, longest=900):
+    """a read-online picture: the print copies run to 2000+ px and over 1 MB each, which pushed the
+    Pages site past its size limit (10 Nov 2026); here they are cut to screen size"""
+    try:
+        from PIL import Image
+        im = Image.open(src)
+        im.load()
+    except Exception:
+        shutil.copyfile(src, dst)
+        return
+    if max(im.size) > longest:
+        im.thumbnail((longest, longest))
+    ext = dst.suffix.lower()
+    if ext in ('.jpg', '.jpeg'):
+        im.convert('L').save(dst, quality=65, optimize=True, progressive=True)     # house style: pictures are grayscale
+    elif ext == '.png':
+        (im.convert('LA') if 'A' in im.mode or 'transparency' in im.info else im.convert('L')).save(dst, optimize=True)
+    else:
+        shutil.copyfile(src, dst)
+    if dst.stat().st_size > src.stat().st_size:
+        shutil.copyfile(src, dst)
+
 class Site:
     def __init__(self, files_dir, out):
         self.files = Path(files_dir)
@@ -230,7 +253,7 @@ class Site:
                 self.problems.append(f"{b['id']}: picture missing ({mm.group(1)})")
                 return mm.group(0)
             (dest / 'img').mkdir(exist_ok=True)
-            shutil.copyfile(p, dest / 'img' / p.name)
+            web_picture(p, dest / 'img' / p.name)
             return f'src="img/{urllib.parse.quote(p.name)}"'
         art = re.sub(r'src="(?!https?:|/)([^"]+)"', pic, art)
         gc = ''
