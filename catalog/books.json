@@ -2841,5 +2841,65 @@
       "British",
       "Women Writers"
     ]
+  },
+  {
+    "id": "the-generalship-of-ulysses-s-grant",
+    "author_last": "Fuller",
+    "author_first": "J. F. C.",
+    "title": "The Generalship of Ulysses S. Grant",
+    "translator": "",
+    "original_date": "1929",
+    "foggy_press_date": "",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/fuller-j-f-c/the-generalship-of-ulysses-s-grant",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/fuller-j-f-c/the-generalship-of-ulysses-s-grant/output/Fuller%2C%20J.%20F.%20C.%3A%20The%20Generalship%20of%20Ulysses%20S.%20Grant.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "ulysses-s-grant-his-life-and-character",
+    "author_last": "Garland",
+    "author_first": "Hamlin",
+    "title": "Ulysses S. Grant: His Life and Character",
+    "translator": "",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-10",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/garland-hamlin/ulysses-s-grant-his-life-and-character",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/garland-hamlin/ulysses-s-grant-his-life-and-character/output/Garland%2C%20Hamlin%3A%20Ulysses%20S.%20Grant%3A%20His%20Life%20and%20Character.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "ulysses-s-grant-coolidge",
+    "author_last": "Coolidge",
+    "author_first": "Louis A.",
+    "title": "Ulysses S. Grant",
+    "translator": "",
+    "original_date": "1917",
+    "foggy_press_date": "2026-11-10",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/coolidge-louis-a/ulysses-s-grant-coolidge",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/coolidge-louis-a/ulysses-s-grant-coolidge/output/Coolidge%2C%20Louis%20A.%3A%20Ulysses%20S.%20Grant.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "ulysses-s-grant-wister",
+    "author_last": "Wister",
+    "author_first": "Owen",
+    "title": "Ulysses S. Grant",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-10",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/wister-owen/ulysses-s-grant-wister",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/wister-owen/ulysses-s-grant-wister/output/Wister%2C%20Owen%3A%20Ulysses%20S.%20Grant.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
   }
 ]
