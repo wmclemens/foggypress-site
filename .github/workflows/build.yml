@@ -21,6 +21,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -44,8 +46,38 @@ jobs:
 
       - run: pip install pypdf markdown pillow
 
+      # PDFs go to Cloudflare R2 (served at files.foggypress.com) once the three R2
+      # secrets exist; until then this is skipped and the site keeps its own /pdf/ copies.
+      - name: Upload PDFs to Cloudflare R2
+        id: r2
+        if: env.R2_ACCESS_KEY_ID != ''
+        env:
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_BUCKET: ${{ vars.R2_BUCKET || 'foggypress-books' }}
+          PDF_BASE: ${{ vars.PDF_BASE || 'https://files.foggypress.com' }}
+        run: |
+          python build/build.py --files files --stage-pdfs _pdfs
+          curl -fsSL https://rclone.org/install.sh | sudo bash > /dev/null
+          export RCLONE_CONFIG_R2_TYPE=s3 RCLONE_CONFIG_R2_PROVIDER=Cloudflare \
+                 RCLONE_CONFIG_R2_ACCESS_KEY_ID="$R2_ACCESS_KEY_ID" \
+                 RCLONE_CONFIG_R2_SECRET_ACCESS_KEY="$R2_SECRET_ACCESS_KEY" \
+                 RCLONE_CONFIG_R2_ENDPOINT="https://$R2_ACCOUNT_ID.r2.cloudflarestorage.com" \
+                 RCLONE_CONFIG_R2_NO_CHECK_BUCKET=true
+          # --checksum: upload only new or changed PDFs; sync also removes PDFs of books taken off the site
+          rclone sync _pdfs "r2:$R2_BUCKET" --checksum --transfers 8 --stats-one-line -v
+          # switch the site's links to R2 only if a PDF is really reachable there
+          pdfs=(_pdfs/*.pdf); one=$(basename "${pdfs[0]}")
+          if curl -fsSI "$PDF_BASE/$one" > /dev/null; then
+            echo "pdf_base=$PDF_BASE" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::$PDF_BASE/$one is not reachable yet; keeping PDFs on GitHub Pages this run"
+          fi
+
       - name: Build
         env:
+          PDF_BASE: ${{ steps.r2.outputs.pdf_base }}
           GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE || 'wmc' }}
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'foggypress.com' }}

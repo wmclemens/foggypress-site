@@ -16,6 +16,12 @@ Environment (all optional):
   GOATCOUNTER_TOKEN  API token; pulls download counts for the Popular sort
   SITE_DOMAIN        e.g. "foggypress.com"; writes the CNAME file. Without it, a
                      GitHub Actions build prefixes links with /<repo-name>/.
+  PDF_BASE           e.g. "https://files.foggypress.com"; PDFs are served from
+                     there (Cloudflare R2) instead of being copied into the site
+                     under /pdf/. Without it, the site keeps its own copies.
+
+  python build/build.py --files ../foggy-press-files --stage-pdfs _pdfs
+    only copies each live book's PDF to _pdfs/<id>.pdf, for upload to R2.
 """
 import argparse, datetime, html, json, os, re, shutil, sys, urllib.parse, urllib.request
 from pathlib import Path
@@ -134,6 +140,12 @@ class Site:
         # Without a custom domain, GitHub Pages serves the site under /<repo-name>/.
         repo = os.environ.get('GITHUB_REPOSITORY', '')
         self.base = '' if os.environ.get('SITE_DOMAIN', '').strip() or not repo else '/' + repo.split('/')[-1]
+        self.pdf_base = os.environ.get('PDF_BASE', '').strip().rstrip('/')
+
+    def pdf_url(self, b):
+        """Where visitors get a book's PDF: R2 (files.foggypress.com) when PDF_BASE is set, else the site's own /pdf/ copy."""
+        name = f"{urllib.parse.quote(b['id'])}.pdf"
+        return f'{self.pdf_base}/{name}' if self.pdf_base else f'/pdf/{name}'
 
     # ---- data ----
     def prepare(self):
@@ -219,13 +231,13 @@ class Site:
         for b in books:
             tr = f" · tr. {esc(b['translator'])}" if b.get('translator') else ''
             pages = f" · {b['_pages']} pp" if b.get('_pages') else ''
-            pdf = (f'<a class="act" href="/pdf/{esc(b["id"])}.pdf" data-goatcounter-click="pdf-{esc(b["id"])}" '
+            pdf = (f'<a class="act" href="{esc(self.pdf_url(b))}" data-goatcounter-click="pdf-{esc(b["id"])}" '
                    f'data-goatcounter-title="{esc(b["title"])}">Print this book</a>')
             if b.get('_html'):
                 main = f'/read/{esc(b["id"])}/'
                 acts = f'<a class="act" href="{main}">Read online</a>{pdf}'
             else:
-                main = f'/pdf/{esc(b["id"])}.pdf'
+                main = esc(self.pdf_url(b))
                 acts = pdf
             out.append(f'''<li class="rec"><a class="main" href="{main}"><span class="t">{esc(b['title'])}</span>
 <span class="a">{esc(author_name(b))}{tr}</span>{f'<span class="d">{esc(b["_desc"])}</span>' if b.get('_desc') else ''}</a>
@@ -259,7 +271,7 @@ class Site:
         gc = ''
         if self.gc_code:
             gc = f'<script data-goatcounter="https://{esc(self.gc_code)}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
-        pdf = f'/pdf/{esc(b["id"])}.pdf'
+        pdf = esc(self.pdf_url(b))
         click = f'data-goatcounter-click="pdf-{esc(b["id"])}" data-goatcounter-title="{esc(b["title"])}"'
         doc = f'''<!doctype html>
 <html lang="en">
@@ -370,9 +382,8 @@ class Site:
         v = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d%H%M')
         ai = self.out / 'admin' / 'index.html'
         ai.write_text(re.sub(r'(href|src)="((?:\.\./assets/style|admin)\.(?:css|js))"', lambda m: f'{m.group(1)}="{m.group(2)}?v={v}"', ai.read_text()))
-        (self.out / 'pdf').mkdir(parents=True, exist_ok=True)
-        for b in self.live:
-            shutil.copyfile(b['_src'], self.out / 'pdf' / f"{b['id']}.pdf")
+        if not self.pdf_base:  # with PDF_BASE set, the PDFs live in R2 and stay out of the Pages site (1 GB cap)
+            self.stage_pdfs(self.out / 'pdf')
         css = self.files / 'pipeline' / 'web' / 'book.css'
         if css.exists():
             shutil.copyfile(css, self.out / 'assets' / 'book.css')
@@ -407,6 +418,12 @@ class Site:
         (self.out / 'admin').mkdir(parents=True, exist_ok=True)
         (self.out / 'admin/stats.json').write_text(json.dumps({'built': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'books': stats, 'unlisted': unlisted, 'problems': self.problems}, ensure_ascii=False))
 
+    def stage_pdfs(self, dest):
+        dest = Path(dest)
+        dest.mkdir(parents=True, exist_ok=True)
+        for b in self.live:
+            shutil.copyfile(b['_src'], dest / f"{b['id']}.pdf")
+
     def build(self):
         if self.out.exists():
             shutil.rmtree(self.out)
@@ -424,5 +441,12 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--files', required=True, help='checkout of foggy-press-files')
     ap.add_argument('--out', default=str(ROOT / '_site'))
+    ap.add_argument('--stage-pdfs', metavar='DIR', help='only copy live PDFs to DIR/<id>.pdf (for the R2 upload) and stop')
     a = ap.parse_args()
-    Site(a.files, a.out).build()
+    site = Site(a.files, a.out)
+    if a.stage_pdfs:
+        site.prepare()
+        site.stage_pdfs(a.stage_pdfs)
+        print(f'Staged {len(site.live)} PDFs in {a.stage_pdfs}.')
+    else:
+        site.build()
