@@ -68,7 +68,7 @@ jobs:
           # --checksum: upload only new or changed PDFs; sync also removes PDFs of books taken off the site
           rclone sync _pdfs "r2:$R2_BUCKET" --checksum --transfers 8 --stats-one-line -v
           # switch the site's links to R2 only if a PDF is really reachable there
-          one=$(ls _pdfs | head -n 1)
+          pdfs=(_pdfs/*.pdf); one=$(basename "${pdfs[0]}")
           if curl -fsSI "$PDF_BASE/$one" > /dev/null; then
             echo "pdf_base=$PDF_BASE" >> "$GITHUB_OUTPUT"
           else
