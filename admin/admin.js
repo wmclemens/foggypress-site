@@ -173,7 +173,7 @@
       f('title', 'Title', 'text', '', true) +
       f('translator', 'Translator', 'text', 'Optional') + f('original_date', 'Original publish date', 'text', 'Free text: 1851, 1868–69, c. 375 BC') +
       f('foggy_press_date', 'Foggy Press publish date', 'date', 'Leave empty to keep the book off the site') +
-      f('id', 'Web address', 'text', isNew ? 'Used in links: /pdf/<id>.pdf. Filled from the title.' : 'Changing this breaks old links and resets the book’s download count.') +
+      f('id', 'Web address', 'text', isNew ? 'Used in links: /read/<id>/ and the PDF file name <id>.pdf. Filled from the title.' : 'Changing this breaks old links and resets the book’s download count.') +
       f('github_dir', 'GitHub directory link', 'url', '', true) +
       f('github_pdf', 'GitHub PDF link', 'url', 'Admin only. Visitors get the site’s own copy of this PDF.', true) +
       '<div class="fld full"><label for="tagin">Tags</label><div class="picker" id="picker"><span class="chips" id="tagchips"></span>' +
