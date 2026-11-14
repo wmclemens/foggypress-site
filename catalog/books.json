@@ -3922,5 +3922,21 @@
       "History",
       "American"
     ]
+  },
+  {
+    "id": "works-04-the-native-races-4-antiquities",
+    "author_last": "Bancroft",
+    "author_first": "Hubert Howe",
+    "title": "Volume 4 of 39: The Native Races, Vol. 4: Antiquities",
+    "translator": "",
+    "original_date": "1883",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/bancroft-hubert-howe/works-04-the-native-races-4-antiquities",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/bancroft-hubert-howe/works-04-the-native-races-4-antiquities/output/Bancroft%2C%20Hubert%20Howe%3A%20Volume%204%20of%2039%3A%20The%20Native%20Races%2C%20Vol.%204%3A%20Antiquities.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "H.H. Bancroft",
+      "History",
+      "American"
+    ]
   }
 ]
