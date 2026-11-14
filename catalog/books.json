@@ -336,7 +336,8 @@
       "Memoir",
       "American",
       "Sea & Ships",
-      "Adventure"
+      "Adventure",
+      "California"
     ]
   },
   {
@@ -1751,7 +1752,8 @@
       "Memoir",
       "American",
       "History",
-      "Adventure"
+      "Adventure",
+      "California"
     ]
   },
   {
@@ -1951,7 +1953,8 @@
       "History",
       "American",
       "Adventure",
-      "Memoir"
+      "Memoir",
+      "California"
     ]
   },
   {
@@ -2910,6 +2913,293 @@
     "tags": [
       "History",
       "American"
+    ]
+  },
+  {
+    "id": "the-land-of-gold-reality-versus-fiction",
+    "author_last": "Helper",
+    "author_first": "Hinton Rowan",
+    "title": "The Land of Gold: Reality versus Fiction",
+    "translator": "",
+    "original_date": "1855",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/helper-hinton-rowan/the-land-of-gold-reality-versus-fiction",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/helper-hinton-rowan/the-land-of-gold-reality-versus-fiction/output/Helper%2C%20Hinton%20Rowan%3A%20The%20Land%20of%20Gold%3A%20Reality%20versus%20Fiction.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "History",
+      "Memoir",
+      "American",
+      "Travel"
+    ]
+  },
+  {
+    "id": "three-years-in-california",
+    "author_last": "Borthwick",
+    "author_first": "J. D.",
+    "title": "Three Years in California",
+    "translator": "",
+    "original_date": "1857",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/borthwick-j-d/three-years-in-california",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/borthwick-j-d/three-years-in-california/output/Borthwick%2C%20J.%20D.%3A%20Three%20Years%20in%20California.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "Travel",
+      "British"
+    ]
+  },
+  {
+    "id": "sixteen-months-at-the-gold-diggings",
+    "author_last": "Woods",
+    "author_first": "Daniel B.",
+    "title": "Sixteen Months at the Gold Diggings",
+    "translator": "",
+    "original_date": "1851",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/woods-daniel-b/sixteen-months-at-the-gold-diggings",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/woods-daniel-b/sixteen-months-at-the-gold-diggings/output/Woods%2C%20Daniel%20B.%3A%20Sixteen%20Months%20at%20the%20Gold%20Diggings.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "American"
+    ]
+  },
+  {
+    "id": "the-land-of-gold-or-three-years-in-california",
+    "author_last": "Colton",
+    "author_first": "Walter",
+    "title": "The Land of Gold; or, Three Years in California",
+    "translator": "",
+    "original_date": "1850",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/colton-walter/the-land-of-gold-or-three-years-in-california",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/colton-walter/the-land-of-gold-or-three-years-in-california/output/Colton%2C%20Walter%3A%20The%20Land%20of%20Gold%3B%20or%2C%20Three%20Years%20in%20California.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "the-shirley-letters",
+    "author_last": "Clappe",
+    "author_first": "Louise Amelia Knapp Smith",
+    "title": "The Shirley Letters from California Mines in 1851–52",
+    "translator": "",
+    "original_date": "1854–55",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/clappe-louise-amelia-knapp-smith/the-shirley-letters",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/clappe-louise-amelia-knapp-smith/the-shirley-letters/output/Clappe%2C%20Louise%20Amelia%20Knapp%20Smith%3A%20The%20Shirley%20Letters%20from%20California%20Mines%20in%201851%E2%80%9352.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "Women Writers",
+      "American"
+    ]
+  },
+  {
+    "id": "the-adventures-of-a-forty-niner",
+    "author_last": "Knower",
+    "author_first": "Daniel",
+    "title": "The Adventures of a Forty-niner",
+    "translator": "",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/knower-daniel/the-adventures-of-a-forty-niner",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/knower-daniel/the-adventures-of-a-forty-niner/output/Knower%2C%20Daniel%3A%20The%20Adventures%20of%20a%20Forty-niner.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "death-valley-in-49",
+    "author_last": "Manly",
+    "author_first": "William Lewis",
+    "title": "Death Valley in ’49",
+    "translator": "",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/manly-william-lewis/death-valley-in-49",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/manly-william-lewis/death-valley-in-49/output/Manly%2C%20William%20Lewis%3A%20Death%20Valley%20in%20%E2%80%9949.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "Adventure",
+      "American"
+    ]
+  },
+  {
+    "id": "prentice-mulfords-story",
+    "author_last": "Mulford",
+    "author_first": "Prentice",
+    "title": "Prentice Mulford’s Story: Life by Land and Sea",
+    "translator": "",
+    "original_date": "1889",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/mulford-prentice/prentice-mulfords-story",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/mulford-prentice/prentice-mulfords-story/output/Mulford%2C%20Prentice%3A%20Prentice%20Mulford%E2%80%99s%20Story%3A%20Life%20by%20Land%20and%20Sea.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "Sea & Ships",
+      "American"
+    ]
+  },
+  {
+    "id": "incidents-on-land-and-water",
+    "author_last": "Bates",
+    "author_first": "Mrs. D. B.",
+    "title": "Incidents on Land and Water; or, Four Years on the Pacific Coast",
+    "translator": "",
+    "original_date": "1857",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/bates-d-b/incidents-on-land-and-water",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/bates-d-b/incidents-on-land-and-water/output/Bates%2C%20D.%20B.%3A%20Incidents%20on%20Land%20and%20Water%3B%20or%2C%20Four%20Years%20on%20the%20Pacific%20Coast.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "Women Writers",
+      "Sea & Ships",
+      "Travel",
+      "American"
+    ]
+  },
+  {
+    "id": "adobe-days",
+    "author_last": "Smith",
+    "author_first": "Sarah Bixby",
+    "title": "Adobe Days",
+    "translator": "",
+    "original_date": "1925",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/smith-sarah-bixby/adobe-days",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/smith-sarah-bixby/adobe-days/output/Smith%2C%20Sarah%20Bixby%3A%20Adobe%20Days.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "Women Writers",
+      "American"
+    ]
+  },
+  {
+    "id": "mcteague",
+    "author_last": "Norris",
+    "author_first": "Frank",
+    "title": "McTeague: A Story of San Francisco",
+    "translator": "",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/norris-frank/mcteague",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/norris-frank/mcteague/output/Norris%2C%20Frank%3A%20McTeague%3A%20A%20Story%20of%20San%20Francisco.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Novels",
+      "American"
+    ]
+  },
+  {
+    "id": "the-maltese-falcon",
+    "author_last": "Hammett",
+    "author_first": "Dashiell",
+    "title": "The Maltese Falcon",
+    "translator": "",
+    "original_date": "1930",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/hammett-dashiell/the-maltese-falcon",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/hammett-dashiell/the-maltese-falcon/output/Hammett%2C%20Dashiell%3A%20The%20Maltese%20Falcon.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Novels",
+      "Mystery & Detection",
+      "American"
+    ]
+  },
+  {
+    "id": "the-luck-of-roaring-camp-and-other-tales",
+    "author_last": "Harte",
+    "author_first": "Bret",
+    "title": "The Luck of Roaring Camp and Other Tales",
+    "translator": "",
+    "original_date": "1870",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/harte-bret/the-luck-of-roaring-camp-and-other-tales",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/harte-bret/the-luck-of-roaring-camp-and-other-tales/output/Harte%2C%20Bret%3A%20The%20Luck%20of%20Roaring%20Camp%20and%20Other%20Tales.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Stories",
+      "American"
+    ]
+  },
+  {
+    "id": "the-san-francisco-calamity-by-earthquake-and-fire",
+    "author_last": "Morris",
+    "author_first": "Charles",
+    "title": "The San Francisco Calamity by Earthquake and Fire",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/morris-charles/the-san-francisco-calamity-by-earthquake-and-fire",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/morris-charles/the-san-francisco-calamity-by-earthquake-and-fire/output/Morris%2C%20Charles%3A%20The%20San%20Francisco%20Calamity%20by%20Earthquake%20and%20Fire.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "under-the-redwoods",
+    "author_last": "Harte",
+    "author_first": "Bret",
+    "title": "Under the Redwoods",
+    "translator": "",
+    "original_date": "1901",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/harte-bret/under-the-redwoods",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/harte-bret/under-the-redwoods/output/Harte%2C%20Bret%3A%20Under%20the%20Redwoods.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Stories",
+      "American"
+    ]
+  },
+  {
+    "id": "bohemian-san-francisco",
+    "author_last": "Edwords",
+    "author_first": "Clarence E.",
+    "title": "Bohemian San Francisco",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/edwords-clarence-e/bohemian-san-francisco",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/edwords-clarence-e/bohemian-san-francisco/output/Edwords%2C%20Clarence%20E.%3A%20Bohemian%20San%20Francisco.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "treaty-of-guadalupe-hidalgo",
+    "author_last": "United States",
+    "author_first": "",
+    "title": "Treaty of Guadalupe Hidalgo",
+    "translator": "",
+    "original_date": "1848",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/united-states/treaty-of-guadalupe-hidalgo",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/united-states/treaty-of-guadalupe-hidalgo/output/Treaty%20of%20Guadalupe%20Hidalgo.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "History",
+      "American",
+      "Politics & Society",
+      "Short Reads"
     ]
   }
 ]
