@@ -3233,5 +3233,22 @@
       "History",
       "American"
     ]
+  },
+  {
+    "id": "sixty-years-in-southern-california",
+    "author_last": "Newmark",
+    "author_first": "Harris",
+    "title": "Sixty Years in Southern California, 1853–1913",
+    "translator": "",
+    "original_date": "1916",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/newmark-harris/sixty-years-in-southern-california",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/newmark-harris/sixty-years-in-southern-california/output/Newmark%2C%20Harris%3A%20Sixty%20Years%20in%20Southern%20California%2C%201853%E2%80%931913.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Memoir",
+      "History",
+      "American"
+    ]
   }
 ]
