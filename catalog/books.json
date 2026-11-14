@@ -3201,5 +3201,37 @@
       "Politics & Society",
       "Short Reads"
     ]
+  },
+  {
+    "id": "historic-towns-of-the-western-states",
+    "author_last": "Powell",
+    "author_first": "Lyman P.",
+    "title": "Historic Towns of the Western States",
+    "translator": "",
+    "original_date": "1901",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/powell-lyman-p/historic-towns-of-the-western-states",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/powell-lyman-p/historic-towns-of-the-western-states/output/Powell%2C%20Lyman%20P.%3A%20Historic%20Towns%20of%20the%20Western%20States.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "california",
+    "author_last": "Royce",
+    "author_first": "Josiah",
+    "title": "California: From the Conquest in 1846 to the Second Vigilance Committee in San Francisco",
+    "translator": "",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/royce-josiah/california",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/royce-josiah/california/output/Royce%2C%20Josiah%3A%20California%3A%20From%20the%20Conquest%20in%201846%20to%20the%20Second%20Vigilance%20Committee%20in%20San%20Francisco.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "History",
+      "American"
+    ]
   }
 ]
