@@ -12,11 +12,18 @@ Everything is built from scratch from the files in this repo. The book PDFs them
 - `admin/`: the admin pages at foggypress.com/admin, for editing the catalog and tags.
 - `assets/`: the site's stylesheet and script.
 - `build/build.py`: turns the catalog into the website.
+- `build/search_index.py`: makes the search index (called by `build.py`).
 - `.github/workflows/build.yml`: builds and publishes the site.
 
 ## Read online
 
 Every book has two links: **Read online** opens `/read/<id>/`, the book's web edition, and **Print this book** opens its PDF. The web edition is made in `foggy-press-files` from the book's final LaTeX (`pipeline/web/`), so it has the same text as the PDF; the build wraps it in a plain reading page and copies its pictures. A book without a web edition links straight to its PDF.
+
+## Search
+
+A search box sits at the top of the left nav (under the name on phones). It opens `/search/?q=...`, which lists matching **Authors**, **Titles**, and every book whose text has the words (**Inside the books**, most mentions first, with each book's best passages folded under "Show passages"). A passage opens the book at that chapter with the words already found.
+
+The search runs in the browser with no server. Each build writes `search/books.json` (the books and their chapter lists) and `search/w/*.json` (every word of every web edition, split into small files by its first letters), so a search downloads only the few files its words need. Very common words such as "the" and "and" are not indexed. Every read-online page also has **Find in this book**, which works like find in a document: typing goes to the first match, Enter or ↓ to the next, Shift+Enter or ↑ back, and "All" lists every match by chapter.
 
 ## Descriptions
 
