@@ -3267,5 +3267,21 @@
       "Memoir",
       "American"
     ]
+  },
+  {
+    "id": "the-annals-of-san-francisco",
+    "author_last": "Soulé",
+    "author_first": "Frank, John H. Gihon and James Nisbet",
+    "title": "The Annals of San Francisco",
+    "translator": "",
+    "original_date": "1855",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/soule-frank/the-annals-of-san-francisco",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/soule-frank/the-annals-of-san-francisco/output/Soul%C3%A9%2C%20Frank%2C%20John%20H.%20Gihon%20and%20James%20Nisbet%3A%20The%20Annals%20of%20San%20Francisco.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "History",
+      "American"
+    ]
   }
 ]
