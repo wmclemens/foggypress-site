@@ -26,6 +26,8 @@ Environment (all optional):
 import argparse, datetime, html, json, os, re, shutil, sys, urllib.parse, urllib.request
 from pathlib import Path
 
+import search_index
+
 ROOT = Path(__file__).resolve().parent.parent
 FEATURED_MAX = 3
 COLLECTIONS_PER_PAGE = 25
@@ -207,7 +209,9 @@ class Site:
 <body>
 <div class="wrap shell">
   <a class="brand" href="/"><span class="n">Foggy Press</span><span class="s">Printable Books</span></a>
+  {self.search_box('qm', 'srch msrch')}
   <aside class="rail">
+    {self.search_box('q', 'srch')}
     <div><div class="eyebrow" style="margin-bottom:.6rem">List books</div><nav aria-label="Lists">{navhtml}</nav></div>
     <nav aria-label="About"><a href="/about/"{" aria-current=page" if current == 'about' else ""}><span>About Foggy Press</span><span class="mono">→</span></a></nav>
     <button class="theme" id="theme" type="button">Dark mode</button>
@@ -216,15 +220,43 @@ class Site:
   <footer class="foot mono"><span>Foggy Press · public-domain books, free to print</span><span>{len(self.live)} books</span></footer>
 </div>
 <script src="/assets/site.js" defer></script>
+{'<script src="/assets/search.js" defer></script>' if current == 'search' else ''}
 {gc}
 </body>
 </html>
 '''
         if self.base:
-            doc = re.sub(r'(href|src)="/(?!/)', lambda m: f'{m.group(1)}="{self.base}/', doc)
+            doc = re.sub(r'(href|src|action)="/(?!/)', lambda m: f'{m.group(1)}="{self.base}/', doc)
         dest = self.out / path
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(doc)
+
+    @staticmethod
+    def search_box(iid, cls):
+        """the site search box: in the left rail, and (phones only, where the rail drops below the page) under the name"""
+        return (f'<form class="{cls}" role="search" action="/search/" method="get"><label class="eyebrow" for="{iid}">Search</label>'
+                f'<div class="sbox"><input id="{iid}" name="q" type="search" placeholder="Title, author or any word" autocomplete="off" enterkeyhint="search">'
+                f'<button type="submit" aria-label="Search">→</button></div></form>')
+
+    def search(self):
+        """/search/ page plus the index it reads (search/books.json, search/w/*.json): see search_index.py"""
+        rows = []
+        for b in self.live:
+            art = None
+            if b.get('_html'):
+                m = re.search(r'<article class="book".*</article>', b['_html'].read_text(encoding='utf-8'), re.S)
+                art = m.group(0) if m else None
+            pdf = self.pdf_url(b)
+            if pdf.startswith('/'):
+                pdf = self.base + pdf
+            rows.append(({'id': b['id'], 't': b['title'], 'a': author_name(b), 'al': b['author_last'], 'tr': b.get('translator') or '',
+                          'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'pdf': pdf, 'read': bool(art)}, art))
+        nw, ns = search_index.write_index(self.out / 'search', rows)
+        print(f'Search index: {nw} words in {ns} files.')
+        self.page('search/index.html', 'Search · Foggy Press',
+                  '<div id="search-results"><div class="ph"><span class="crumb"><a href="/">Home</a> / Search</span><h1>Search</h1>'
+                  '<noscript><p class="sub">Search needs JavaScript. You can still <a href="/authors/" style="color:var(--accent)">list books by author</a>.</p></noscript></div></div>',
+                  'search', 'Search Foggy Press books by title, author, or any word inside them.')
 
     def recs(self, books):
         out = []
@@ -287,13 +319,26 @@ class Site:
 <script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
 <body class="reading">
+<div class="readtop">
 <nav class="readbar" aria-label="Foggy Press">
   <a class="rb-home" href="/">Foggy Press</a>
   <span class="rb-acts"><a class="rb-pdf" href="{pdf}" {click}>Print this book</a><button class="theme" id="theme" type="button">Dark mode</button></span>
 </nav>
+<div class="bsearch" role="search">
+  <div class="in">
+    <label class="fld" for="find"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input id="find" type="search" placeholder="Find in this book" autocomplete="off" enterkeyhint="search" aria-describedby="find-count"></label>
+    <span class="cnt" id="find-count" aria-live="polite"></span>
+    <span class="nav"><button type="button" id="find-prev" aria-label="Previous match" disabled>↑</button><button type="button" id="find-next" aria-label="Next match" disabled>↓</button></span>
+    <button type="button" class="lst" id="find-all" aria-expanded="false" aria-controls="find-hits" disabled>All</button>
+  </div>
+  <div class="hits" id="find-hits" hidden><ol></ol></div>
+</div>
+</div>
 {art}
 <footer class="readfoot mono"><a href="/">Foggy Press</a><span>Public-domain books, free to read and print</span><a href="{pdf}" {click}>Print this book (PDF)</a></footer>
 <script src="/assets/site.js" defer></script>
+<script src="/assets/search.js" defer></script>
 {gc}
 </body>
 </html>
@@ -430,7 +475,7 @@ class Site:
         self.out.mkdir(parents=True)
         self.prepare()
         self.copy_assets()
-        self.home(); self.lists(); self.about(); self.not_found()
+        self.home(); self.lists(); self.about(); self.not_found(); self.search()
         self.admin_data()
         print(f'Built {len(self.live)} live books of {len(self.books)} records, {len(self.tags)} tags.')
         for p in self.problems:
