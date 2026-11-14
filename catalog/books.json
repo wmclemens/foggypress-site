@@ -3250,5 +3250,22 @@
       "History",
       "American"
     ]
+  },
+  {
+    "id": "eldorado",
+    "author_last": "Taylor",
+    "author_first": "Bayard",
+    "title": "Eldorado; or, Adventures in the Path of Empire",
+    "translator": "",
+    "original_date": "1850",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/taylor-bayard/eldorado",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/taylor-bayard/eldorado/output/Taylor%2C%20Bayard%3A%20Eldorado%3B%20or%2C%20Adventures%20in%20the%20Path%20of%20Empire.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "California",
+      "Travel",
+      "Memoir",
+      "American"
+    ]
   }
 ]
