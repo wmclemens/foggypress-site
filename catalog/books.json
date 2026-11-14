@@ -3905,5 +3905,22 @@
       "American",
       "Memoir"
     ]
+  },
+  {
+    "id": "pioneer-register-and-index-1542-1848",
+    "author_last": "Bancroft",
+    "author_first": "Hubert Howe",
+    "title": "Pioneer Register and Index, 1542–1848",
+    "translator": "",
+    "original_date": "1885",
+    "foggy_press_date": "2026-11-14",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/bancroft-hubert-howe/pioneer-register-and-index-1542-1848",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/bancroft-hubert-howe/pioneer-register-and-index-1542-1848/output/Bancroft%2C%20Hubert%20Howe%3A%20Pioneer%20Register%20and%20Index%2C%201542%E2%80%931848.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "H.H. Bancroft",
+      "California",
+      "History",
+      "American"
+    ]
   }
 ]
