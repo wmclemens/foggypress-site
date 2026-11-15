@@ -21,11 +21,13 @@ Environment (all optional):
                      under /pdf/. Without it, the site keeps its own copies.
 
   python build/build.py --files ../foggy-press-files --stage-pdfs _pdfs
-    only copies each live book's PDF to _pdfs/<id>.pdf, for upload to R2.
+    only copies each live book's PDF to _pdfs/<id>.pdf and makes its EPUB at
+    _pdfs/epub/<id>.epub (from the web edition, see epub.py), for upload to R2.
 """
 import argparse, datetime, html, json, os, re, shutil, sys, urllib.parse, urllib.request
 from pathlib import Path
 
+import epub
 import search_index
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -159,6 +161,11 @@ class Site:
         self.base = '' if os.environ.get('SITE_DOMAIN', '').strip() or not repo else '/' + repo.split('/')[-1]
         self.pdf_base = os.environ.get('PDF_BASE', '').strip().rstrip('/')
 
+    def epub_url(self, b):
+        """the book's EPUB (made from its web edition): beside the PDFs in R2, or under /epub/ in the site"""
+        name = f"{urllib.parse.quote(b['id'])}.epub"
+        return f'{self.pdf_base}/epub/{name}' if self.pdf_base else f'/epub/{name}'
+
     def pdf_url(self, b):
         """Where visitors get a book's PDF: R2 (files.foggypress.com) when PDF_BASE is set, else the site's own /pdf/ copy."""
         name = f"{urllib.parse.quote(b['id'])}.pdf"
@@ -266,7 +273,8 @@ class Site:
             if pdf.startswith('/'):
                 pdf = self.base + pdf
             rows.append(({'id': b['id'], 't': b['title'], 'a': author_name(b), 'al': b['author_last'], 'tr': b.get('translator') or '',
-                          'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'pdf': pdf, 'read': bool(art)}, art))
+                          'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'pdf': pdf, 'read': bool(art),
+                          **({'epub': self.epub_url(b) if self.pdf_base else self.base + self.epub_url(b)} if art else {})}, art))
         nw, ns = search_index.write_index(self.out / 'search', rows)
         tags = [{'n': t['name'], 's': t['slug'], 'c': len(self.by_tag[t['name']])} for t in sorted(self.tags, key=lambda t: t['name'].lower()) if self.by_tag[t['name']]]
         (self.out / 'search' / 'tags.json').write_text(json.dumps(tags, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
@@ -275,6 +283,10 @@ class Site:
                   '<div id="search-results"><div class="ph"><span class="crumb"><a href="/">Home</a> / Search</span><h1>Search</h1>'
                   '<noscript><p class="sub">Search needs JavaScript. You can still <a href="/authors/" style="color:var(--accent)">list books by author</a>.</p></noscript></div></div>',
                   'search', 'Search Foggy Press books by title, author, or any word inside them.')
+
+    def epub_link(self, b, cls):
+        return (f'<a class="{cls}" href="{esc(self.epub_url(b))}" download data-goatcounter-click="epub-{esc(b["id"])}" '
+                f'data-goatcounter-title="{esc(b["title"])}" title="For e-readers: Kindle, Apple Books, Kobo">EPUB</a>')
 
     def recs(self, books, sortable=False):
         """book rows; sortable adds the keys the tag pages' sort buttons use (assets/site.js)"""
@@ -286,7 +298,7 @@ class Site:
                    f'data-goatcounter-title="{esc(b["title"])}">Print this book</a>')
             if b.get('_html'):
                 main = f'/read/{esc(b["id"])}/'
-                acts = f'<a class="act" href="{main}">Read online</a>{pdf}'
+                acts = f'<a class="act" href="{main}">Read online</a>{pdf}{self.epub_link(b, "act")}'
             else:
                 main = esc(self.pdf_url(b))
                 acts = pdf
@@ -342,7 +354,7 @@ class Site:
 <div class="readtop">
 <nav class="readbar" aria-label="Foggy Press">
   <a class="rb-home" href="/">Foggy Press</a>
-  <span class="rb-acts"><a class="rb-pdf" href="{pdf}" {click}>Print this book</a><button class="theme" id="theme" type="button">Dark mode</button></span>
+  <span class="rb-acts"><a class="rb-pdf" href="{pdf}" {click}>Print this book</a>{self.epub_link(b, 'rb-pdf')}<button class="theme" id="theme" type="button">Dark mode</button></span>
 </nav>
 <div class="bsearch" role="search">
   <div class="in">
@@ -356,7 +368,7 @@ class Site:
 </div>
 </div>
 {art}
-<footer class="readfoot mono"><a href="/">Foggy Press</a><span>Public-domain books, free to read and print</span><a href="{pdf}" {click}>Print this book (PDF)</a></footer>
+<footer class="readfoot mono"><a href="/">Foggy Press</a><span>Public-domain books, free to read and print</span><span><a href="{pdf}" {click}>Print this book (PDF)</a> · {self.epub_link(b, '')}</span></footer>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/search.js" defer></script>
 {gc}
@@ -457,8 +469,9 @@ class Site:
         v = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d%H%M')
         ai = self.out / 'admin' / 'index.html'
         ai.write_text(re.sub(r'(href|src)="((?:\.\./assets/style|admin)\.(?:css|js))"', lambda m: f'{m.group(1)}="{m.group(2)}?v={v}"', ai.read_text()))
-        if not self.pdf_base:  # with PDF_BASE set, the PDFs live in R2 and stay out of the Pages site (1 GB cap)
+        if not self.pdf_base:  # with PDF_BASE set, the PDFs and EPUBs live in R2 and stay out of the Pages site (1 GB cap)
             self.stage_pdfs(self.out / 'pdf')
+            self.stage_epubs(self.out / 'epub')
         css = self.files / 'pipeline' / 'web' / 'book.css'
         if css.exists():
             shutil.copyfile(css, self.out / 'assets' / 'book.css')
@@ -499,6 +512,23 @@ class Site:
         for b in self.live:
             shutil.copyfile(b['_src'], dest / f"{b['id']}.pdf")
 
+    def stage_epubs(self, dest):
+        """an EPUB for every live book with a web edition (epub.py); unchanged books give identical files"""
+        dest = Path(dest)
+        dest.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for b in self.live:
+            if not b.get('_html'):
+                continue
+            meta = {'id': b['id'], 'title': b['title'], 'author': author_name(b), 'date': b.get('foggy_press_date') or '',
+                    'description': b.get('_desc') or '', 'lang': 'en'}
+            try:
+                if epub.make_epub(b['_html'], dest / f"{b['id']}.epub", meta, web_picture):
+                    n += 1
+            except Exception as e:  # one bad book must not stop the site
+                self.problems.append(f"{b['id']}: EPUB not made ({e})")
+        return n
+
     def build(self):
         if self.out.exists():
             shutil.rmtree(self.out)
@@ -522,6 +552,9 @@ if __name__ == '__main__':
     if a.stage_pdfs:
         site.prepare()
         site.stage_pdfs(a.stage_pdfs)
-        print(f'Staged {len(site.live)} PDFs in {a.stage_pdfs}.')
+        ne = site.stage_epubs(Path(a.stage_pdfs) / 'epub')
+        print(f'Staged {len(site.live)} PDFs and {ne} EPUBs in {a.stage_pdfs}.')
+        for p in site.problems:
+            print('warning:', p, file=sys.stderr)
     else:
         site.build()

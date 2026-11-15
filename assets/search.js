@@ -195,7 +195,8 @@
     function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
     function acts(b) {
       return '<span class="acts">' + (b.read ? '<a class="act" href="' + BASE + 'read/' + esc(b.id) + '/">Read online</a>' : '') +
-        '<a class="act" href="' + esc(b.pdf) + '" data-goatcounter-click="pdf-' + esc(b.id) + '" data-goatcounter-title="' + esc(b.t) + '">Print this book</a></span>';
+        '<a class="act" href="' + esc(b.pdf) + '" data-goatcounter-click="pdf-' + esc(b.id) + '" data-goatcounter-title="' + esc(b.t) + '">Print this book</a>' +
+        (b.epub ? '<a class="act" href="' + esc(b.epub) + '" download data-goatcounter-click="epub-' + esc(b.id) + '" data-goatcounter-title="' + esc(b.t) + '">EPUB</a>' : '') + '</span>';
     }
     function mainHref(b, extra) { return b.read ? BASE + 'read/' + b.id + '/' + (extra || '') : b.pdf; }
     function rec(b, ws) {
