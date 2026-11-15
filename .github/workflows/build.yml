@@ -46,9 +46,10 @@ jobs:
 
       - run: pip install pypdf markdown pillow
 
-      # PDFs go to Cloudflare R2 (served at files.foggypress.com) once the three R2
-      # secrets exist; until then this is skipped and the site keeps its own /pdf/ copies.
-      - name: Upload PDFs to Cloudflare R2
+      # PDFs, EPUBs and the read-online pages go to Cloudflare R2 (served at
+      # files.foggypress.com) once the three R2 secrets exist; until then this is skipped
+      # and the site keeps its own copies.
+      - name: Upload PDFs, EPUBs and read-online pages to Cloudflare R2
         id: r2
         if: env.R2_ACCESS_KEY_ID != ''
         env:
@@ -57,6 +58,12 @@ jobs:
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_BUCKET: ${{ vars.R2_BUCKET || 'foggypress-books' }}
           PDF_BASE: ${{ vars.PDF_BASE || 'https://files.foggypress.com' }}
+          SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'foggypress.com' }}
+          GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE || 'wmc' }}
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+          TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
+          ASK_ON: ${{ vars.ASK_ON }}   # "1" once the ask function is deployed (supabase/README.md)
         run: |
           python build/build.py --files files --stage-pdfs _pdfs
           curl -fsSL https://rclone.org/install.sh | sudo bash > /dev/null
@@ -66,7 +73,13 @@ jobs:
                  RCLONE_CONFIG_R2_ENDPOINT="https://$R2_ACCOUNT_ID.r2.cloudflarestorage.com" \
                  RCLONE_CONFIG_R2_NO_CHECK_BUCKET=true
           # --checksum: upload only new or changed PDFs; sync also removes PDFs of books taken off the site
-          rclone sync _pdfs "r2:$R2_BUCKET" --checksum --transfers 8 --stats-one-line -v
+          rclone sync _pdfs "r2:$R2_BUCKET" --checksum --transfers 16 --stats-one-line -v
+          # search on foggypress.com reads passages from the read pages here, so allow that origin
+          printf '%s' '<CORSConfiguration><CORSRule><AllowedOrigin>https://foggypress.com</AllowedOrigin><AllowedOrigin>https://www.foggypress.com</AllowedOrigin><AllowedMethod>GET</AllowedMethod><AllowedMethod>HEAD</AllowedMethod><AllowedHeader>*</AllowedHeader><MaxAgeSeconds>86400</MaxAgeSeconds></CORSRule></CORSConfiguration>' > cors.xml
+          curl -sS --fail-with-body --aws-sigv4 "aws:amz:auto:s3" --user "$R2_ACCESS_KEY_ID:$R2_SECRET_ACCESS_KEY" -X PUT \
+               -H "Content-MD5: $(openssl md5 -binary cors.xml | base64)" -H "Content-Type: application/xml" --data-binary @cors.xml \
+               "https://$R2_ACCOUNT_ID.r2.cloudflarestorage.com/$R2_BUCKET?cors" > /dev/null \
+            || echo "::warning::Could not set the R2 CORS rule (search passage previews need it); set it in the Cloudflare dashboard"
           # switch the site's links to R2 only if a PDF is really reachable there
           pdfs=(_pdfs/*.pdf); one=$(basename "${pdfs[0]}")
           if curl -fsSI "$PDF_BASE/$one" > /dev/null; then
@@ -80,6 +93,13 @@ jobs:
           PDF_BASE: ${{ steps.r2.outputs.pdf_base }}
           GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE || 'wmc' }}
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}   # optional: bots vs people for the PDFs (admin Reports)
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          # reader accounts (supabase/schema.sql): public values, set as repository variables; empty = no sign-in
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+          TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
+          ASK_ON: ${{ vars.ASK_ON }}   # "1" once the ask function is deployed (supabase/README.md)
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'foggypress.com' }}
           WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY || '560bbd06-0bf6-47ce-b04d-f68df6a5ff16' }}
         run: python build/build.py --files files --out _site

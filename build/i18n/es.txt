@@ -1,0 +1,297 @@
+Libros para imprimir
+Buscar
+Título, autor o cualquier palabra
+Ver libros
+Por autor
+Por título
+Por etiqueta
+Acerca de Foggy Press
+Modo oscuro
+Modo claro
+Idioma
+Foggy Press · libros de dominio público, gratis para imprimir
+{n} libros
+{n} libro
+Inicio
+Listas
+Colecciones destacadas
+{n} libros · PDF gratis
+{n} título
+{n} títulos
+Más: los {n} títulos →
+Abrir la colección →
+Colecciones
+Ordenar por
+Ordenar colecciones
+Etiqueta
+Populares
+{n} colecciones
+{n} colección
+Más colecciones
+Mostrando {n} de {m}
+Las {n} colecciones →
+{n} libros, de la A a la Z por el apellido del autor. Lea cualquier libro en línea o imprímalo desde su PDF.
+{n} libros, de la A a la Z, sin contar “The”, “A” ni “An”. Lea cualquier libro en línea o imprímalo desde su PDF.
+Cada etiqueta es una colección. {n} etiquetas.
+Destacadas
+Colecciones principales
+Otras colecciones
+Colecciones de nivel {n}
+Colección destacada
+Ordenar libros
+Autor
+Título
+Leer en línea
+Imprimir este libro
+Para lectores electrónicos: Kindle, Apple Books, Kobo
+trad.
+{n} págs.
+Imprimir este libro (PDF)
+Libros de dominio público, gratis para leer e imprimir
+Buscar en este libro
+Coincidencia anterior
+Coincidencia siguiente
+Todas
+Todas ({n})
+Sin coincidencias
+{n} de {m}
+Se muestran las primeras {n} de {m}. Use las flechas para ver el resto.
+Inicio del texto
+Escriba un título, un autor o cualquier palabra del interior de los libros.
+Autores
+Títulos
+Dentro de los libros
+Buscando…
+{n} autor
+{n} autores
+encontrado en {n} libro
+encontrado en {n} libros
+No se encontró nada.
+Más menciones primero
+Frase exacta · más menciones primero
+Abrir todo
+Cerrar todo
+Ver pasajes
+Cargando pasajes…
+{n} mención
+{n} menciones
+{n} capítulo
+{n} capítulos
+{n} lugar
+{n} lugares
+Mostrando {n} de {m} libros
+Ver los {n}
+No se pudo buscar dentro de los libros en este momento. Inténtelo de nuevo.
+Texto
+Abra el libro para ver dónde aparece.
+No se pudieron cargar los pasajes. Ciérrelos y ábralos de nuevo para reintentar.
+¡Envíenos sus preguntas o comentarios!
+Su nombre
+Su correo electrónico
+Mensaje
+Enviar mensaje
+El formulario se abrirá en un momento.
+Escriba su nombre, su correo electrónico y su mensaje.
+Esa dirección de correo no parece correcta. Revísela, por favor.
+Marque “Soy humano” antes de enviar.
+Enviando…
+Gracias. Su mensaje se ha enviado.
+Su mensaje no se envió: {why}
+inténtelo de nuevo.
+Su mensaje no se envió. Revise su conexión e inténtelo de nuevo.
+No encontrado
+Esa página no está aquí.
+Ir a la página de inicio
+No se guardó. Inténtelo de nuevo.
+Este navegador guarda {n} libros. Inicie sesión para guardar más.
+Los libros guardados en este navegador se añadieron a su cuenta.
+Guardar
+Listas y etiquetas
+Guardado
+Cargando…
+Inicie sesión para poner libros en listas de lectura y añadir sus propias etiquetas.
+Iniciar sesión
+No se cargó. Inténtelo de nuevo.
+Listas de lectura
+Nueva lista
+Mis etiquetas
+Nueva etiqueta
+Mis libros
+Ha llegado al límite. Quite algo primero.
+Ya tiene una con ese nombre.
+{n} % leído
+Seguir leyendo
+Historial
+Ya no está en el sitio
+Cuenta
+Todas mis etiquetas
+Ningún libro guardado tiene esta etiqueta.
+Aún no ha guardado nada. Pulse Guardar en cualquier libro para tenerlo aquí.
+Borrar etiqueta
+Nombre de una nueva lista de lectura
+Crear lista
+Aún no hay listas de lectura.
+Guardar mi historial de lectura
+Borrar historial
+El historial está desactivado. No se registra nada nuevo.
+Aún no hay historial de lectura.
+Pulse otra vez para borrar
+Correo electrónico
+Cerrar sesión
+Sus datos
+Descargue en un archivo todo lo guardado en su cuenta, o borre la cuenta y todo lo que contiene.
+Privacidad
+Descargar mis datos
+Borrar mi cuenta
+Pulse otra vez para borrarlo todo
+Inicie sesión para tener sus libros guardados, listas de lectura, etiquetas e historial en todos sus dispositivos. Sin contraseña: le enviamos un enlace por correo.
+Le enviamos un enlace de acceso a {email}. Ábralo en este dispositivo o escriba aquí el código de 6 dígitos del correo.
+Código
+Usar otro correo
+Enviar enlace
+Guardamos su correo electrónico y los libros que guarda, nada más. Las cuentas son para lectores de 13 años o más.
+Escriba el código de 6 dígitos del correo.
+Iniciando sesión…
+Ese código no funcionó. Revíselo o envíe un enlace nuevo.
+Un momento: comprobando este navegador…
+Demasiados intentos. Espere un minuto e inténtelo de nuevo.
+No pudimos enviar el correo. Inténtelo de nuevo.
+Guardados en este navegador
+Leídos recientemente
+Se guardan solo en este navegador. Inicie sesión y se unirán a su cuenta.
+Lista no encontrada
+Mis listas de lectura
+Nombre de la lista
+Añada una nota sobre esta lista
+Nota
+Subir
+Bajar
+Quitar de la lista
+Esta lista está vacía. Use el ▾ junto a Guardar en cualquier libro para añadirlo.
+Borrar esta lista
+Pulse otra vez para borrar esta lista
+Su cuenta y todo lo que contenía se han borrado.
+Las cuentas necesitan JavaScript.
+Lista de lectura
+Preguntar
+Preguntar sobre los libros
+Nuevo
+Conversaciones anteriores
+Preguntar sobre este libro
+Pregunte a Foggy Press
+Para preguntar se necesita JavaScript.
+Pensando
+Ver en el libro
+Abrir en este pasaje
+Las preguntas están en pausa por ahora
+Le quedan {n} de {m} preguntas hoy
+Las preguntas están en pausa hasta fin de mes.
+Se alcanzó el presupuesto mensual. La búsqueda y la lectura siguen funcionando.
+Ya hizo sus {n} preguntas de hoy.
+Vuelva a preguntar mañana (se renueva a medianoche). La búsqueda y la lectura no tienen límite.
+Inicie sesión para hacer una pregunta
+Hasta mañana
+Su pregunta
+Enviar
+Inicie sesión para preguntar
+Respuestas de IA · las citas enlazan al texto para que pueda comprobarlas
+Preguntar es gratis. Iniciar sesión lo mantiene justo: cada persona tiene {n} preguntas al día.
+Iniciar sesión con su correo
+Sin contraseña: le enviamos un enlace por correo.
+Buscarme un libro
+Algo como La isla del tesoro, pero real
+Explicar un libro
+¿De qué trata realmente Walden?
+Encontrar un pasaje
+¿Dónde dice Ismael por qué se hace a la mar?
+Comparar
+¿En qué se diferencian las biografías de Grant?
+Volver a la conversación
+Nueva conversación
+Pida una recomendación, la explicación de un libro o ayuda para encontrar un pasaje. Las respuestas salen solo de los {n} libros de Foggy Press, y cada cita enlaza con la página de donde viene.
+Pregunte sobre un libro, un autor o un tema
+Aún no hay conversaciones anteriores.
+Borrar todo
+Conversación sin título
+Borrar
+Las conversaciones se guardan en su cuenta hasta que las borre.
+Hoy
+Ayer
+¿De qué trata este libro?
+¿Quiénes son los personajes principales?
+¿Qué conviene saber antes de empezar?
+Las respuestas salen del texto de este libro
+Cerrar
+Pregunte sobre {title}
+Hay mucha demanda ahora mismo. Inténtelo de nuevo en un minuto.
+Parece que no tiene conexión. Inténtelo de nuevo.
+Algo salió mal. Inténtelo de nuevo.
+¿Borrar? Pulse otra vez
+¿Aún no está en Foggy Press?
+Solicitar este libro
+Solicitar un libro
+Pida un libro de dominio público que aún no esté en Foggy Press. Lo buscamos en nuestras fuentes aprobadas de libros de dominio público. Si encontramos una edición que podamos publicar, la preparamos y le escribimos cuando esté en el sitio, normalmente en pocos días. Si no podemos, le escribimos para explicarle por qué.
+Inicie sesión para solicitar un libro
+Le escribimos cuando su libro esté listo, así que las solicitudes necesitan una cuenta.
+Sus solicitudes
+En espera
+En preparación
+En el sitio
+No es posible
+No se encontró en nuestras fuentes
+Retirar
+¿Retirar? Pulse otra vez
+Enlace (opcional)
+Una página del libro en Project Gutenberg, HathiTrust, Internet Archive, Wikisource, Standard Ebooks, Faded Page o Google Books.
+Nota (opcional)
+Qué edición o traducción, si importa
+Indique el título del libro.
+Ese enlace no es de nuestras fuentes. Déjelo vacío o use uno de los sitios de la lista.
+Ya pidió ese libro. Está en camino.
+Ya hizo 3 solicitudes hoy. Vuelva a pedir mañana.
+Tiene 10 solicitudes en espera. Espere a que terminen algunas.
+Gracias. Le escribiremos cuando «{title}» esté en el sitio, o si no podemos añadirlo.
+
+@about 2654dd9aaf
+Foggy Press compone libros de dominio público en un estilo propio y sencillo y los publica gratis: para leer en línea, para imprimir en casa desde un PDF en papel carta de EE. UU. o para descargar como EPUB para un lector electrónico.
+
+## Derechos y fuentes
+
+Los libros de este sitio son textos de dominio público en los Estados Unidos, donde tiene su sede Foggy Press: obras cuyos derechos de autor han vencido o nunca se renovaron. Si vive fuera de los Estados Unidos, los plazos de los derechos de autor pueden ser distintos, así que consulte las normas de su país antes de copiar o reimprimir un libro.
+
+Nuestros textos proceden de transcripciones y escaneos de dominio público: sobre todo de [Project Gutenberg](https://www.gutenberg.org), y también de [Internet Archive](https://archive.org), [Wikisource](https://wikisource.org), [HathiTrust](https://www.hathitrust.org) y [Google Books](https://books.google.com). Volvemos a componer cada texto con nuestro propio diseño y no añadimos nada más que los encabezados de página y, en las colecciones, un breve índice. La ficha de cada libro indica su fecha de publicación original y, cuando lo hay, su traductor.
+
+Foggy Press es una edición de lectura gratuita y sin fines comerciales. No hay anuncios, ni cuentas, ni nada a la venta.
+
+## Correcciones y solicitudes de retirada
+
+Si cree que un libro de este sitio sigue protegido por derechos de autor, o que nos hemos equivocado sobre sus derechos, díganoslo mediante el formulario de abajo. Indique el libro y explique el problema, y lo revisaremos enseguida. El mismo formulario sirve para erratas y otros errores.
+
+@privacy 2e5df3593b
+Puede leer, buscar y descargar todos los libros de Foggy Press sin una cuenta. La cuenta es opcional: guarda los libros que usted guarda, sus listas de lectura, sus propias etiquetas y su historial de lectura, para tenerlos en cualquier dispositivo.
+
+## Qué guardamos
+
+Si crea una cuenta, guardamos su dirección de correo, los libros que guarda, sus listas y etiquetas con sus notas, y su historial de lectura: qué libros abrió, dónde se quedó y si descargó el PDF o el EPUB. Puede desactivar o borrar el historial cuando quiera en la página Mis libros.
+
+Si usa Pregunte a Foggy Press, guardamos sus preguntas y las respuestas como conversaciones anteriores en su cuenta, y un recuento de cuántas preguntas hace cada día (para el límite diario). Si solicita un libro, guardamos la solicitud (título, autor, su enlace y su nota) y lo que pasó con ella, y le escribimos cuando termina.
+
+No guardamos su nombre, ninguna contraseña ni datos de pago. No hay anuncios ni cookies de seguimiento. Nunca vendemos ni compartimos lo que usted guarda, y solo le enviamos correos para iniciar sesión.
+
+Sin cuenta, los libros que guarda y los que leyó hace poco se quedan solo en este navegador, en una pequeña cookie.
+
+## Quién puede verlo
+
+Solo usted, con la sesión iniciada. El responsable del sitio puede ver la lista de correos de las cuentas en el servicio de cuentas, y totales como cuántas personas guardaron un libro, pero nunca los libros de una persona. Nuestro recuento de visitas (GoatCounter) son totales anónimos y no está vinculado a las cuentas.
+
+Pregunte a Foggy Press responde con Claude, un modelo de IA creado por Anthropic: su pregunta y los mensajes anteriores de esa conversación se envían a Anthropic para escribir la respuesta. Anthropic no los usa para entrenar sus modelos. Las respuestas las escribe una IA y pueden equivocarse; las citas enlazan con el libro para que pueda comprobarlas.
+
+## Dónde se guarda
+
+Las cuentas se guardan en Supabase, en Estados Unidos. Sus registros conservan por poco tiempo la dirección de internet de las solicitudes de inicio de sesión, por seguridad. Los correos de inicio de sesión los envía Resend.
+
+## Sus opciones
+
+En la página Mis libros puede descargar en un archivo todo lo que guardamos sobre usted, o borrar su cuenta. Al borrarla se elimina la cuenta y todo lo que contiene de inmediato; las copias de seguridad desaparecen en 7 días. Las cuentas son para lectores de 13 años o más. En la página Preguntar puede borrar las conversaciones anteriores una por una o todas a la vez.
+
+¿Preguntas? Escríbanos con el formulario de la página Acerca de.

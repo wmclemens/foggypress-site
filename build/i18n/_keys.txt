@@ -1,0 +1,253 @@
+Printable Books
+Search
+Title, author or any word
+List books
+By author
+By title
+By tag
+About Foggy Press
+Dark mode
+Light mode
+Language
+Foggy Press · public-domain books, free to print
+{n} books
+{n} book
+Home
+List
+Featured collections
+{n} books · free PDFs
+{n} title
+{n} titles
+More: all {n} titles →
+Open collection →
+Collections
+Sort by
+Sort collections
+Tag
+Popular
+{n} collections
+{n} collection
+More collections
+Showing {n} of {m}
+All {n} collections →
+{n} books, A to Z by the author’s last name. Read any book online, or print it from its PDF.
+{n} books, A to Z, ignoring “The”, “A” and “An”. Read any book online, or print it from its PDF.
+Every tag is a collection. {n} tags.
+Featured
+Main collections
+Other collections
+Level {n} collections
+Featured collection
+Sort books
+Author
+Title
+Read online
+Print this book
+For e-readers: Kindle, Apple Books, Kobo
+tr.
+{n} pp
+Print this book (PDF)
+Public-domain books, free to read and print
+Find in this book
+Previous match
+Next match
+All
+All {n}
+No matches
+{n} of {m}
+First {n} of {m} shown. Use the arrows for the rest.
+Opening
+Type a title, an author, or any word from inside the books.
+Authors
+Titles
+Inside the books
+Searching…
+{n} author
+{n} authors
+found inside {n} book
+found inside {n} books
+Nothing found.
+Most mentions first
+Exact phrase · most mentions first
+Expand all
+Collapse all
+Show passages
+Loading passages…
+{n} mention
+{n} mentions
+{n} chapter
+{n} chapters
+{n} place
+{n} places
+Showing {n} of {m} books
+Show all {n}
+Couldn’t search inside the books just now. Please try again.
+Text
+Open the book to see where it appears.
+Couldn’t load the passages. Close and open again to retry.
+Please send us questions or feedback!
+Your name
+Your email
+Message
+Send message
+The form will open shortly.
+Please fill in your name, email and message.
+That email address doesn’t look right. Please check it.
+Please tick “I am human” before sending.
+Sending…
+Thank you. Your message has been sent.
+Your message didn’t send: {why}
+please try again.
+Your message didn’t send. Please check your connection and try again.
+Not found
+That page isn’t here.
+Go to the home page
+That didn’t save. Please try again.
+This browser holds {n} saved books. Sign in to save more.
+Books saved in this browser were added to your account.
+Save
+Lists and tags
+Saved
+Loading…
+Sign in to put books on reading lists and add your own tags.
+Sign in
+That didn’t load. Please try again.
+Reading lists
+New list
+My tags
+New tag
+My books
+You’ve reached the limit for this. Remove something first.
+You already have one with that name.
+{n}% read
+Continue reading
+History
+No longer on the site
+Account
+All my tags
+No saved books have this tag.
+Nothing saved yet. Press Save on any book to keep it here.
+Delete tag
+Name a new reading list
+Make list
+No reading lists yet.
+Keep my reading history
+Clear history
+History is off. Nothing new is recorded.
+No reading history yet.
+Press again to clear
+Email
+Sign out
+Your data
+Download everything saved in your account as a file, or delete the account and everything in it.
+Privacy
+Download my data
+Delete my account
+Press again to delete everything
+Sign in to keep your saved books, reading lists, tags and history on every device. No password: we email you a link.
+We sent a sign-in link to {email}. Open it on this device, or type the 6-digit code from the email here.
+Code
+Use a different email
+Send link
+We keep your email address and the books you save, nothing else. Accounts are for readers 13 and over.
+Please type the 6-digit code from the email.
+Signing in…
+That code didn’t work. Check it, or send a new link.
+One moment: checking this browser…
+Too many tries. Please wait a minute and try again.
+We couldn’t send the email. Please try again.
+Saved in this browser
+Recently read
+These are kept in this browser only. Sign in and they join your account.
+List not found
+My reading lists
+List name
+Add a note about this list
+Note
+Move up
+Move down
+Remove from list
+This list is empty. Use the ▾ next to Save on any book to add it.
+Delete this list
+Press again to delete this list
+Your account and everything in it were deleted.
+Accounts need JavaScript.
+Reading list
+Ask
+Ask about the books
+New
+Past chats
+Ask about this book
+Ask Foggy Press
+Ask needs JavaScript.
+Thinking
+Show in book
+Open at this passage
+Ask is paused for now
+{n} of {m} questions left today
+Ask is paused for the rest of the month.
+It has reached its monthly budget. Search and reading still work.
+That’s {n} questions for today.
+Ask again tomorrow (resets at midnight). Search and reading are unlimited.
+Sign in to ask a question
+Back tomorrow
+Your question
+Send
+Sign in to ask
+AI answers · quotes link to the text so you can check them
+Asking is free. Signing in keeps it fair: everyone gets {n} questions a day.
+Sign in with your email
+No password: we email you a link.
+Find me a book
+Something like Treasure Island, but true
+Explain a book
+What is Walden really about?
+Find a passage
+Where does Ishmael say why he goes to sea?
+Compare
+How do the Grant biographies differ?
+Back to the chat
+New chat
+Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.
+Ask about a book, an author or a subject
+No past chats yet.
+Delete all
+Untitled chat
+Delete
+Chats are kept in your account until you delete them.
+Today
+Yesterday
+What is this book about?
+Who are the main characters?
+What should I know before I start?
+Answers come from this book’s text
+Close
+Ask about {title}
+Ask is busy right now. Please try again in a minute.
+You seem to be offline. Please try again.
+Something went wrong. Please try again.
+Delete? Press again
+Not on Foggy Press yet?
+Request this book
+Request a book
+Ask for a public-domain book that isn’t on Foggy Press yet. We look for it in our approved sources of public-domain books. If we find an edition we can publish, we build it and email you when it’s on the site, usually within a few days. If we can’t, we email you why.
+Sign in to request a book
+We email you when your book is ready, so requests need an account.
+Your requests
+Waiting
+Being built
+On the site
+Not possible
+Not found in our sources
+Withdraw
+Withdraw? Press again
+Link (optional)
+A page for the book on Project Gutenberg, HathiTrust, the Internet Archive, Wikisource, Standard Ebooks, Faded Page or Google Books.
+Note (optional)
+Which edition or translation, if it matters
+Please give the book’s title.
+That link isn’t one of our sources. Leave it empty, or use one of the sites listed.
+You’ve already asked for that book. It’s on its way.
+That’s 3 requests for today. Please ask again tomorrow.
+You have 10 requests waiting. Please wait for some to finish.
+Thanks. We’ll email you when “{title}” is on the site, or if we can’t add it.

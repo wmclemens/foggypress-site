@@ -6,6 +6,15 @@
   var BRANCH = 'main';
   var BOOKS = 'catalog/books.json', TAGS = 'catalog/tags.json';
   var FEATURED_MAX = 3;
+  // tag display levels (build/build.py LEVEL_NAMES): 1 Featured, 2 Main (home page), 3+ only on By tag, search and links
+  var LEVELS = {1: 'Featured', 2: 'Main', 3: 'Other'};
+  function levelOf(t) { var n = parseInt(t.level, 10); return n >= 1 ? n : (t.featured ? 1 : 2); }
+  function levelName(n) { return LEVELS[n] || 'Level ' + n; }
+  function levelPick(t) {
+    var cur = levelOf(t), top = Math.max(3, cur + 1, data.tags.reduce(function (m, x) { return Math.max(m, levelOf(x)); }, 0) + 1), o = '';
+    for (var n = 1; n <= top; n++) o += '<option value="' + n + '"' + (n === cur ? ' selected' : '') + '>' + n + ' · ' + esc(levelName(n)) + '</option>';
+    return '<select class="lvl" data-lvl="' + esc(t.name) + '" aria-label="Display level for ' + esc(t.name) + '">' + o + '</select>';
+  }
   var KEY = 'fp-admin-token';
 
   var $ = function (s) { return document.querySelector(s); };
@@ -100,10 +109,13 @@
   var isLive = function (b) { var s = st(b); return s.live != null ? s.live : !!b.foggy_press_date; };
   var dlOf = function (b) { return st(b).downloads || 0; };
   var vwOf = function (b) { return st(b).views || 0; };
+  var svOf = function (b) { return st(b).saved || 0; };
+  var hasSaved = function () { return Object.keys(stats.books || {}).some(function (k) { return stats.books[k].saved != null; }); };
 
   // ---- views ----
   function tabs(cur) {
-    return '<div class="tabs"><a href="#" ' + (cur === 'books' ? 'aria-current="page"' : '') + '>Book catalog</a><a href="#tags" ' + (cur === 'tags' ? 'aria-current="page"' : '') + '>Tag file</a></div>';
+    return '<div class="tabs"><a href="#" ' + (cur === 'books' ? 'aria-current="page"' : '') + '>Book catalog</a><a href="#tags" ' + (cur === 'tags' ? 'aria-current="page"' : '') + '>Tag file</a>' +
+      '<a href="#reports" ' + (cur === 'reports' ? 'aria-current="page"' : '') + '>Reports</a></div>';
   }
 
   function vSignIn(err) {
@@ -135,16 +147,16 @@
       var val = {
         author_last: function (b) { return b.author_last; }, author_first: function (b) { return b.author_first; },
         title: function (b) { return sortTitle(b.title); }, original_date: function (b) { var n = yearNum(b.original_date); return n === Infinity ? '' : n; },
-        foggy_press_date: function (b) { return b.foggy_press_date || ''; }, downloads: function (b) { return dlOf(b); }, views: function (b) { return vwOf(b); },
+        foggy_press_date: function (b) { return b.foggy_press_date || ''; }, downloads: function (b) { return dlOf(b); }, views: function (b) { return vwOf(b); }, saved: function (b) { return svOf(b); },
         pages: function (b) { return st(b).pages == null ? '' : st(b).pages; }, tags: function (b) { return sortedTags(b).join(', '); }
       }[catSort.key];
       list.sort(function (a, b) { var r = cmp(val(a), val(b)); return (r * catSort.dir) || cmp(a.author_last + a.author_first + sortTitle(a.title), b.author_last + b.author_first + sortTitle(b.title)); });
-      $('#chead').innerHTML = '<tr>' + th('Author last', 'author_last', catSort) + th('Author first', 'author_first', catSort) + th('Title', 'title', catSort) + th('Original', 'original_date', catSort) + th('Foggy Press', 'foggy_press_date', catSort) + th('PDF downloads', 'downloads', catSort) + th('Online views', 'views', catSort) + th('Pages', 'pages', catSort) + th('Tags', 'tags', catSort) + '</tr>';
+      $('#chead').innerHTML = '<tr>' + th('Author last', 'author_last', catSort) + th('Author first', 'author_first', catSort) + th('Title', 'title', catSort) + th('Original', 'original_date', catSort) + th('Foggy Press', 'foggy_press_date', catSort) + th('PDF downloads', 'downloads', catSort) + th('Online views', 'views', catSort) + (hasSaved() ? th('Saved', 'saved', catSort) : '') + th('Pages', 'pages', catSort) + th('Tags', 'tags', catSort) + '</tr>';
       wireSort($('#chead'), catSort, draw);
       $('#count').textContent = list.length + ' of ' + data.books.length + ' records · ' + data.books.filter(isLive).length + ' live';
       $('#rows').innerHTML = list.map(function (b) {
         return '<tr class="go" data-id="' + esc(b.id) + '" tabindex="0"><td>' + esc(b.author_last) + '</td><td>' + esc(b.author_first) + '</td><td>' + esc(b.title) + '</td><td class="num">' + esc(b.original_date) + '</td>' +
-          '<td class="num">' + (b.foggy_press_date ? esc(b.foggy_press_date) : '<span class="pill warn">Hidden</span>') + '</td><td class="num">' + num(dlOf(b)) + '</td><td class="num">' + num(vwOf(b)) + '</td><td class="num">' + num(st(b).pages) + '</td>' +
+          '<td class="num">' + (b.foggy_press_date ? esc(b.foggy_press_date) : '<span class="pill warn">Hidden</span>') + '</td><td class="num">' + num(dlOf(b)) + '</td><td class="num">' + num(vwOf(b)) + '</td>' + (hasSaved() ? '<td class="num">' + num(svOf(b)) + '</td>' : '') + '<td class="num">' + num(st(b).pages) + '</td>' +
           '<td><div class="chips">' + sortedTags(b).map(function (t) { return '<span class="chip">' + esc(t) + '</span>'; }).join('') + '</div></td></tr>';
       }).join('');
     };
@@ -235,7 +247,7 @@
       if (clash) { note.innerHTML = '<span class="err">“' + esc(rec.id) + '” is already used by ' + esc(clash.title) + '. Change the web address.</span>'; return; }
       var btn = $('#save'); btn.disabled = true; note.textContent = 'Saving…';
       var newTags = created.filter(function (t) { return draft.indexOf(t) >= 0 && tagNames().indexOf(t) < 0; });
-      var step = newTags.length ? (function () { newTags.forEach(function (t) { data.tags.push({name: t, featured: false}); }); return saveTags('Add tag' + (newTags.length > 1 ? 's ' : ' ') + newTags.join(', ')); })() : Promise.resolve();
+      var step = newTags.length ? (function () { newTags.forEach(function (t) { data.tags.push({name: t, level: 3}); }); return saveTags('Add tag' + (newTags.length > 1 ? 's ' : ' ') + newTags.join(', ')); })() : Promise.resolve();
       step.then(function () {
         if (isNew) data.books.push(rec); else Object.assign(b, rec);
         return saveBooks((isNew ? 'Add ' : 'Update ') + rec.title);
@@ -257,39 +269,41 @@
 
   function vTags() {
     var ts = data.tags.map(function (t) { var bs = booksWith(t.name), live = bs.filter(isLive); return {t: t, books: bs.length, live: live.length, dl: live.reduce(function (s, b) { return s + dlOf(b); }, 0), vw: live.reduce(function (s, b) { return s + vwOf(b); }, 0)}; });
-    var tv = {name: function (r) { return r.t.name; }, books: function (r) { return r.books; }, live: function (r) { return r.live; }, downloads: function (r) { return r.dl; }, views: function (r) { return r.vw; }, featured: function (r) { return r.t.featured ? 0 : 1; }}[tagSort.key];
+    var tv = {name: function (r) { return r.t.name; }, books: function (r) { return r.books; }, live: function (r) { return r.live; }, downloads: function (r) { return r.dl; }, views: function (r) { return r.vw; }, level: function (r) { return levelOf(r.t); }}[tagSort.key];
     ts.sort(function (a, b) { return (cmp(tv(a), tv(b)) * tagSort.dir) || cmp(a.t.name, b.t.name); });
-    var nf = data.tags.filter(function (t) { return t.featured; }).length;
+    var nf = data.tags.filter(function (t) { return levelOf(t) === 1; }).length;
     $('#app').innerHTML = tabs('tags') +
       '<div class="tools"><input id="nt" type="text" placeholder="New tag name" aria-label="New tag name" style="width:min(16rem,100%)"><button class="btn sm" id="addtag" type="button">Add tag</button><span class="mono count">' + ts.length + ' tags · ' + nf + ' of ' + FEATURED_MAX + ' featured</span></div>' +
-      '<div class="tbl-wrap"><table><thead id="thead"><tr>' + th('Tag', 'name', tagSort) + th('Books', 'books', tagSort) + th('Live', 'live', tagSort) + th('PDF downloads', 'downloads', tagSort) + th('Online views', 'views', tagSort) + th('Featured on home page', 'featured', tagSort) + '</tr></thead><tbody>' +
+      '<div class="tbl-wrap"><table><thead id="thead"><tr>' + th('Tag', 'name', tagSort) + th('Books', 'books', tagSort) + th('Live', 'live', tagSort) + th('PDF downloads', 'downloads', tagSort) + th('Online views', 'views', tagSort) + th('Shows as', 'level', tagSort) + '</tr></thead><tbody>' +
       ts.map(function (r) {
         var t = r.t;
         return '<tr class="go" data-slug="' + slugify(t.name) + '" tabindex="0"><td style="font-weight:500">' + esc(t.name) + '</td><td class="num">' + r.books + '</td><td class="num">' + r.live + '</td><td class="num">' + num(r.dl) + '</td><td class="num">' + num(r.vw) + '</td>' +
-          '<td><button class="star" type="button" data-feat="' + esc(t.name) + '" aria-pressed="' + !!t.featured + '">' + (t.featured ? '★ Featured' : '☆ Feature') + '</button></td></tr>';
+          '<td>' + levelPick(t) + '</td></tr>';
       }).join('') + '</tbody></table></div>';
     $('#addtag').onclick = function () {
       var v = $('#nt').value.trim(); if (!v) return;
       if (tagNames().some(function (t) { return t.toLowerCase() === v.toLowerCase(); })) { toast('“' + v + '” is already in the tag file.'); return; }
-      data.tags.push({name: v, featured: false});
+      data.tags.push({name: v, level: 3});
       saveTags('Add tag ' + v).then(function () { toast('Added “' + v + '”. Open it to tag books.'); route(); }).catch(function (e) { data.tags.pop(); failed(e); });
     };
     $('#nt').onkeydown = function (e) { if (e.key === 'Enter') $('#addtag').click(); };
     wireSort($('#thead'), tagSort, vTags);
     wireFeature();
-    $('#app').querySelector('tbody').onclick = function (e) { if (e.target.closest('button')) return; var r = e.target.closest('tr[data-slug]'); if (r) location.hash = 'tag-' + r.dataset.slug; };
-    $('#app').querySelector('tbody').onkeydown = function (e) { var r = e.target.closest('tr[data-slug]'); if (r && e.key === 'Enter' && !e.target.closest('button')) location.hash = 'tag-' + r.dataset.slug; };
+    $('#app').querySelector('tbody').onclick = function (e) { if (e.target.closest('button, select')) return; var r = e.target.closest('tr[data-slug]'); if (r) location.hash = 'tag-' + r.dataset.slug; };
+    $('#app').querySelector('tbody').onkeydown = function (e) { var r = e.target.closest('tr[data-slug]'); if (r && e.key === 'Enter' && !e.target.closest('button, select')) location.hash = 'tag-' + r.dataset.slug; };
   }
 
   function wireFeature() {
-    $('#app').querySelectorAll('[data-feat]').forEach(function (btn) {
-      btn.onclick = function (e) {
-        e.stopPropagation();
-        var t = data.tags.find(function (x) { return x.name === btn.dataset.feat; });
-        if (!t.featured && data.tags.filter(function (x) { return x.featured; }).length >= FEATURED_MAX) { toast('Three collections are already featured. Unfeature one first.'); return; }
-        t.featured = !t.featured; btn.disabled = true;
-        saveTags((t.featured ? 'Feature ' : 'Unfeature ') + t.name).then(function () { toast((t.featured ? '“' + t.name + '” is now featured. ' : '“' + t.name + '” is no longer featured. ') + SAVED); route(); })
-          .catch(function (err) { t.featured = !t.featured; btn.disabled = false; failed(err); });
+    $('#app').querySelectorAll('[data-lvl]').forEach(function (sel) {
+      sel.onclick = function (e) { e.stopPropagation(); };
+      sel.onchange = function () {
+        var t = data.tags.find(function (x) { return x.name === sel.dataset.lvl; }), was = {level: t.level, featured: t.featured}, n = +sel.value;
+        if (n === 1 && levelOf(t) !== 1 && data.tags.filter(function (x) { return levelOf(x) === 1; }).length >= FEATURED_MAX) {
+          toast('Three collections are already featured. Move one to another level first.'); sel.value = levelOf(t); return;
+        }
+        t.level = n; delete t.featured; sel.disabled = true;
+        saveTags('Show ' + t.name + ' as ' + levelName(n)).then(function () { toast('“' + t.name + '” now shows as ' + levelName(n) + '. ' + SAVED); route(); })
+          .catch(function (err) { t.level = was.level; if (was.featured !== undefined) t.featured = was.featured; if (was.level === undefined) delete t.level; sel.disabled = false; sel.value = levelOf(t); failed(err); });
       };
     });
   }
@@ -301,7 +315,7 @@
     var list = booksWith(t.name).sort(function (a, b) { return (cmp(ov(a), ov(b)) * oneTagSort.dir) || cmp(sortTitle(a.title), sortTitle(b.title)); });
     $('#app').innerHTML = tabs('tags') +
       '<div style="padding-top:1.25rem;display:grid;gap:.5rem"><span class="crumb"><a href="#tags">Tag file</a> / ' + esc(t.name) + '</span>' +
-      '<div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><h1 style="font-size:2rem">' + esc(t.name) + '</h1><button class="star" type="button" data-feat="' + esc(t.name) + '" aria-pressed="' + !!t.featured + '">' + (t.featured ? '★ Featured' : '☆ Feature') + '</button></div></div>' +
+      '<div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><h1 style="font-size:2rem">' + esc(t.name) + '</h1><label class="mono" style="display:flex;gap:.5rem;align-items:center">Shows as ' + levelPick(t) + '</label></div></div>' +
       '<div class="form" style="padding-top:1rem"><div class="fld"><label for="addbook">Add books to this tag</label><div class="picker" style="padding:.25rem"><input id="addbook" type="text" placeholder="Type a title or author" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="bsugg"><div class="sugg" id="bsugg" hidden></div></div></div>' +
       '<div class="fld"><label for="rn">Rename tag</label><div style="display:flex;gap:.5rem"><input id="rn" type="text" value="' + esc(t.name) + '"><button class="btn ghost sm" id="rename" type="button">Rename</button></div></div></div>' +
       '<div class="tbl-wrap" style="margin-top:1.25rem"><table><thead id="thead"><tr>' + th('Title', 'title', oneTagSort) + th('Author', 'author', oneTagSort) + th('PDF downloads', 'downloads', oneTagSort) + th('Online views', 'views', oneTagSort) + th('Status', 'status', oneTagSort) + '<th></th></tr></thead><tbody>' +
@@ -351,10 +365,104 @@
     };
   }
 
+  // ---- Reports: admin/report.json, gathered at build time by build/report.py (GoatCounter, Cloudflare)
+  var report = null;
+  function vReports() {
+    $('#app').innerHTML = tabs('reports') + '<p class="note" style="padding:2rem 0">Loading the reports…</p>';
+    (report ? Promise.resolve(report) : fetch('report.json', {cache: 'no-store'}).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }))
+      .then(function (r) { report = r; drawReports(r); })
+      .catch(function () { $('#app').innerHTML = tabs('reports') + '<p class="note" style="padding:2rem 0">No report yet. It is made by the next site build (nightly, or after any change).</p>'; });
+  }
+  function fmtDay(d) { var x = new Date(d + 'T12:00:00Z'); return isNaN(x) ? d : x.toLocaleDateString(undefined, {month: 'short', day: 'numeric', timeZone: 'UTC'}); }
+  function ranked(title, rows, opts) {
+    opts = opts || {};
+    rows = (rows || []).filter(function (r) { return r[1] > 0; }).slice(0, opts.max || 10);
+    var top = rows.reduce(function (m, r) { return Math.max(m, r[1]); }, 0) || 1;
+    return '<section class="rp-card' + (opts.wide ? ' wide' : '') + '"><h2>' + esc(title) + '</h2>' + (opts.note ? '<p class="note">' + opts.note + '</p>' : '') +
+      (rows.length ? '<table class="rk"><tbody>' + rows.map(function (r) {
+        return '<tr><td class="rk-n" title="' + esc(r[0]) + '">' + esc(opts.label ? opts.label(r[0]) : r[0]) + '</td><td class="rk-b"><span style="width:' + Math.max(2, Math.round(r[1] / top * 100)) + '%"></span></td><td class="num">' + num(r[1]) + '</td></tr>';
+      }).join('') + '</tbody></table>' : '<p class="note">Nothing yet.</p>') + '</section>';
+  }
+  function daily(rows) {
+    if (!rows || !rows.length) return '';
+    var W = 720, H = 170, pad = 22, top0 = 10, n = rows.length, max = rows.reduce(function (m, r) { return Math.max(m, r[1]); }, 0) || 1;
+    var step = (W - pad) / n, bw = Math.max(2, step - 2);
+    var nice = Math.pow(10, Math.floor(Math.log10(max))), top = Math.ceil(max / nice) * nice;
+    var bars = rows.map(function (r, i) {
+      var h = Math.max(r[1] ? 2 : 0, (H - pad - top0) * r[1] / top), x = pad + i * step + 1, y = H - pad - h;
+      return '<g class="dbar" data-i="' + i + '"><rect class="hit" x="' + (pad + i * step) + '" y="0" width="' + step + '" height="' + (H - pad) + '"/>' +
+        (h ? '<path class="bar" d="M' + x + ',' + (H - pad) + 'V' + (y + Math.min(4, h)) + 'Q' + x + ',' + y + ' ' + (x + Math.min(4, bw / 2)) + ',' + y + 'H' + (x + bw - Math.min(4, bw / 2)) + 'Q' + (x + bw) + ',' + y + ' ' + (x + bw) + ',' + (y + Math.min(4, h)) + 'V' + (H - pad) + 'Z"/>' : '') + '</g>';
+    }).join('');
+    var grid = [0, .5, 1].map(function (f) { var y = H - pad - (H - pad - top0) * f; return '<line class="grid" x1="' + pad + '" x2="' + W + '" y1="' + y + '" y2="' + y + '"/><text class="ax" x="' + (pad - 4) + '" y="' + (y + 3) + '" text-anchor="end">' + num(Math.round(top * f)) + '</text>'; }).join('');
+    var ticks = [0, Math.floor(n / 2), n - 1].map(function (i) { return '<text class="ax" x="' + (i === 0 ? pad : i === n - 1 ? W : pad + i * step + step / 2) + '" y="' + (H - 6) + '" text-anchor="' + (i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle') + '">' + esc(fmtDay(rows[i][0])) + '</text>'; }).join('');
+    return '<section class="rp-card wide"><h2>Visitors per day</h2><div class="dchart"><svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Visitors per day, last ' + n + ' days">' + grid + bars + ticks + '</svg><div class="tip" hidden></div></div>' +
+      '<details class="rp-tbl"><summary class="mono">Show as a table</summary><table><tbody>' + rows.map(function (r) { return '<tr><td>' + esc(fmtDay(r[0])) + '</td><td class="num">' + num(r[1]) + '</td></tr>'; }).join('') + '</tbody></table></details></section>';
+  }
+  function drawReports(r) {
+    var g = r.goatcounter, c = r.cloudflare, f = {};
+    ((g && g.features) || []).forEach(function (x) { f[x[0]] = x[1]; });
+    var tile = function (label, v, sub) { return '<div class="rp-tile"><span class="mono">' + esc(label) + '</span><b>' + (v == null ? '–' : typeof v === 'string' ? esc(v) : num(v)) + '</b>' + (sub ? '<span class="note">' + sub + '</span>' : '') + '</div>'; };
+    var h = tabs('reports') + '<div class="rp-head"><p class="note">' + (g ? 'Last 30 days (' + esc(fmtDay(g.start)) + ' to ' + esc(fmtDay(g.end)) + '). ' : '') + 'Updated with each site build, last ' + esc((r.built || '').replace('T', ' ')) + ' UTC. Counts come from GoatCounter, which leaves out known bots.</p></div>';
+    if (r.missing && r.missing.length) h += '<div class="banner"><b>Not included this time</b><ul>' + r.missing.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul></div>';
+    if (g) {
+      h += '<div class="rp-tiles">' + tile('Visitors', g.visitors) + tile('Read-online views', f['Read-online page views']) + tile('PDF downloads', f['PDF downloads']) + tile('EPUB downloads', f['EPUB downloads']) + tile('Searches', f['Searches'] || 0, f['Searches that found nothing'] ? num(f['Searches that found nothing']) + ' found nothing' : '') + '</div>';
+      h += daily(g.daily);
+      h += '<div class="rp-grid">' +
+        ranked('Where visitors come from', g.toprefs, {note: '“(none)” is people who typed the address or used a bookmark.', label: function (s) { return s === '' ? '(none)' : s; }}) +
+        ranked('Feature use', g.features, {max: 14}) +
+        ranked('Top searches', g.searches, {max: 15}) +
+        ranked('Searches that found nothing', g.searches_none, {max: 15, note: 'Books people looked for and we don’t have.'}) +
+        ranked('Countries', g.locations) + ranked('Browsers', g.browsers) + ranked('Systems', g.systems) + ranked('Screen sizes', g.sizes) +
+        ranked('Most visited pages', g.pages, {max: 20, wide: true}) + '</div>';
+    }
+    var a = r.accounts;
+    if (a) {
+      var titleOf = function (id) { var b = data.books.find(function (x) { return x.id === id; }); return b ? b.title : id; };
+      h += '<h2 class="rp-sec">Reader accounts</h2><div class="rp-tiles">' + tile('Accounts', a.accounts) + tile('New in 7 days', a.new_7d) + tile('Active in 30 days', a.active_30d) + tile('Saved books', a.favorites) + tile('Reading lists', a.lists, num(a.list_items) + ' books on lists') + '</div>' +
+        '<div class="rp-grid">' + ranked('Most-saved books', (a.top_saved || []).map(function (x) { return [titleOf(x[0]), x[1]]; }), {max: 20, note: 'Totals only: who saved what is never shown here.'}) + '</div>';
+      if (a.requests_waiting != null) {
+        h += '<h2 class="rp-sec">Book requests</h2><div class="rp-tiles">' + tile('Waiting or being built', a.requests_waiting) + tile('Published', a.requests_published) + tile('Not possible', a.requests_declined) + '</div>' +
+          '<p class="note">Readers ask on /request/. Each night the books repository picks up new requests, builds the ones it can from approved sources, and emails the reader. The list itself is in foggy-press-files, requests/queue.json.</p>';
+      }
+      if (a.ask_cap != null) {
+        var cost = Number(a.ask_cost_month || 0), cap = Number(a.ask_cap || 0);
+        h += '<h2 class="rp-sec">Ask Foggy Press</h2><div class="rp-tiles">' + tile('Questions in 30 days', a.ask_30d) + tile('People asking, 30 days', a.ask_askers_30d) +
+          tile('Spent this month', '$' + cost.toFixed(2), 'of the $' + cap.toFixed(2) + ' monthly cap' + (cap && cost >= cap ? ': Ask is paused' : '')) + tile('Saved chats', a.chats) + '</div>' +
+          '<p class="note">Change the daily limit or the monthly cap in Supabase: Table Editor → ask_config. Questions and answers are never shown here.</p>';
+      }
+    }
+    h += '<div class="rp-grid">';
+    if (c) {
+      var tot = (c.people + c.bots) || 1;
+      h += '<section class="rp-card"><h2>PDF and EPUB requests: people and bots</h2><p class="note">' + esc(c.host) + ', last 7 days, from Cloudflare. Bots are requests whose browser name says crawler, bot, script and the like.</p>' +
+        '<div class="split"><span style="width:' + Math.round(c.people / tot * 100) + '%"></span></div>' +
+        '<table class="rk"><tbody><tr><td class="rk-n">People</td><td class="num">' + num(c.people) + ' (' + Math.round(c.people / tot * 100) + '%)</td></tr><tr><td class="rk-n">Bots</td><td class="num">' + num(c.bots) + ' (' + Math.round(c.bots / tot * 100) + '%)</td></tr></tbody></table></section>' +
+        ranked('Busiest bots', c.bot_agents) + ranked('People’s countries (downloads)', c.countries);
+    } else {
+      h += '<section class="rp-card"><h2>PDF and EPUB requests: people and bots</h2><p class="note">Not connected yet. Pages on GitHub keep no visit logs, so bots can only be counted for the PDFs and EPUBs, which Cloudflare serves. To turn this on: in Cloudflare, My Profile → API Tokens → Create token → “Read analytics and logs” template, limited to the foggypress.com zone. Add it to the foggypress-site repository as the secret <span class="mono">CLOUDFLARE_API_TOKEN</span>, and the zone ID (on the foggypress.com Overview page) as <span class="mono">CLOUDFLARE_ZONE_ID</span>.</p></section>';
+    }
+    h += '</div>';
+    $('#app').innerHTML = h;
+    var chart = $('#app').querySelector('.dchart');
+    if (chart && g) {
+      var tip = chart.querySelector('.tip');
+      chart.addEventListener('mousemove', function (e) {
+        var b = e.target.closest('.dbar'); if (!b) { tip.hidden = true; return; }
+        var d = g.daily[+b.dataset.i], box = chart.getBoundingClientRect();
+        tip.innerHTML = '<span class="mono">' + esc(fmtDay(d[0])) + '</span><b>' + num(d[1]) + '</b> visitors';
+        tip.hidden = false;
+        tip.style.left = Math.min(box.width - tip.offsetWidth, Math.max(0, e.clientX - box.left - tip.offsetWidth / 2)) + 'px';
+        chart.querySelectorAll('.dbar.on').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on');
+      });
+      chart.addEventListener('mouseleave', function () { tip.hidden = true; chart.querySelectorAll('.dbar.on').forEach(function (x) { x.classList.remove('on'); }); });
+    }
+  }
+
   function route() {
     if (!data.books) return;
     var h = decodeURIComponent(location.hash.slice(1));
-    if (h === 'tags') vTags();
+    if (h === 'reports') vReports();
+    else if (h === 'tags') vTags();
     else if (h.indexOf('tag-') === 0) vTag(h.slice(4));
     else if (h === 'new') vEdit(null);
     else if (h.indexOf('book-') === 0) vEdit(h.slice(5));

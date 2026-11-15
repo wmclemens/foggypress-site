@@ -1,0 +1,297 @@
+Buku Siap Cetak
+Cari
+Judul, pengarang, atau kata apa saja
+Daftar buku
+Menurut pengarang
+Menurut judul
+Menurut label
+Tentang Foggy Press
+Mode gelap
+Mode terang
+Bahasa
+Foggy Press · buku domain publik, gratis untuk dicetak
+{n} buku
+{n} buku
+Beranda
+Daftar
+Koleksi pilihan
+{n} buku · PDF gratis
+{n} judul
+{n} judul
+Lainnya: semua {n} judul →
+Buka koleksi →
+Koleksi
+Urutkan menurut
+Urutkan koleksi
+Label
+Populer
+{n} koleksi
+{n} koleksi
+Koleksi lainnya
+Menampilkan {n} dari {m}
+Semua {n} koleksi →
+{n} buku, A sampai Z menurut nama belakang pengarang. Baca buku apa pun secara daring, atau cetak dari PDF-nya.
+{n} buku, A sampai Z, tanpa menghitung “The”, “A”, dan “An”. Baca buku apa pun secara daring, atau cetak dari PDF-nya.
+Setiap label adalah sebuah koleksi. {n} label.
+Pilihan
+Koleksi utama
+Koleksi lain
+Koleksi tingkat {n}
+Koleksi pilihan
+Urutkan buku
+Pengarang
+Judul
+Baca daring
+Cetak buku ini
+Untuk pembaca e-book: Kindle, Apple Books, Kobo
+terj.
+{n} hlm.
+Cetak buku ini (PDF)
+Buku domain publik, gratis untuk dibaca dan dicetak
+Cari di buku ini
+Hasil sebelumnya
+Hasil berikutnya
+Semua
+Semua ({n})
+Tidak ada hasil
+{n} dari {m}
+Menampilkan {n} pertama dari {m}. Gunakan tanda panah untuk sisanya.
+Awal teks
+Ketik judul, pengarang, atau kata apa saja dari dalam buku.
+Pengarang
+Judul
+Di dalam buku
+Mencari…
+{n} pengarang
+{n} pengarang
+ditemukan di {n} buku
+ditemukan di {n} buku
+Tidak ada yang ditemukan.
+Paling banyak disebut lebih dulu
+Frasa persis · paling banyak disebut lebih dulu
+Buka semua
+Tutup semua
+Lihat kutipan
+Memuat kutipan…
+{n} sebutan
+{n} sebutan
+{n} bab
+{n} bab
+{n} tempat
+{n} tempat
+Menampilkan {n} dari {m} buku
+Tampilkan semua {n}
+Saat ini tidak dapat mencari di dalam buku. Silakan coba lagi.
+Teks
+Buka bukunya untuk melihat di mana kata itu muncul.
+Kutipan tidak dapat dimuat. Tutup lalu buka lagi untuk mencoba kembali.
+Kirimkan pertanyaan atau masukan Anda kepada kami!
+Nama Anda
+Email Anda
+Pesan
+Kirim pesan
+Formulir akan segera terbuka.
+Isi nama, email, dan pesan Anda.
+Alamat email itu tampaknya tidak benar. Silakan periksa lagi.
+Centang “Saya manusia” sebelum mengirim.
+Mengirim…
+Terima kasih. Pesan Anda sudah terkirim.
+Pesan Anda tidak terkirim: {why}
+silakan coba lagi.
+Pesan Anda tidak terkirim. Periksa koneksi Anda lalu coba lagi.
+Tidak ditemukan
+Halaman itu tidak ada di sini.
+Ke beranda
+Gagal menyimpan. Silakan coba lagi.
+Browser ini menyimpan {n} buku. Masuk untuk menyimpan lebih banyak.
+Buku yang disimpan di browser ini telah ditambahkan ke akun Anda.
+Simpan
+Daftar dan tag
+Tersimpan
+Memuat…
+Masuk untuk menaruh buku di daftar bacaan dan menambahkan tag Anda sendiri.
+Masuk
+Gagal memuat. Silakan coba lagi.
+Daftar bacaan
+Daftar baru
+Tag saya
+Tag baru
+Buku saya
+Anda sudah mencapai batas. Hapus sesuatu dulu.
+Anda sudah punya satu dengan nama itu.
+{n}% dibaca
+Lanjutkan membaca
+Riwayat
+Tidak ada lagi di situs
+Akun
+Semua tag saya
+Tidak ada buku tersimpan dengan tag ini.
+Belum ada yang disimpan. Tekan Simpan di buku mana pun untuk menyimpannya di sini.
+Hapus tag
+Nama daftar bacaan baru
+Buat daftar
+Belum ada daftar bacaan.
+Simpan riwayat bacaan saya
+Hapus riwayat
+Riwayat nonaktif. Tidak ada yang baru dicatat.
+Belum ada riwayat bacaan.
+Tekan lagi untuk menghapus
+Email
+Keluar
+Data Anda
+Unduh semua yang tersimpan di akun Anda sebagai file, atau hapus akun beserta seluruh isinya.
+Privasi
+Unduh data saya
+Hapus akun saya
+Tekan lagi untuk menghapus semuanya
+Masuk agar buku tersimpan, daftar bacaan, tag, dan riwayat Anda ada di setiap perangkat. Tanpa kata sandi: kami mengirim tautan lewat email.
+Kami mengirim tautan masuk ke {email}. Buka di perangkat ini, atau ketik kode 6 digit dari email di sini.
+Kode
+Gunakan email lain
+Kirim tautan
+Kami menyimpan alamat email Anda dan buku yang Anda simpan, tidak lebih. Akun untuk pembaca berusia 13 tahun ke atas.
+Silakan ketik kode 6 digit dari email.
+Sedang masuk…
+Kode itu tidak berhasil. Periksa lagi, atau kirim tautan baru.
+Sebentar: memeriksa browser ini…
+Terlalu banyak percobaan. Tunggu satu menit lalu coba lagi.
+Kami tidak bisa mengirim email. Silakan coba lagi.
+Tersimpan di browser ini
+Baru dibaca
+Ini hanya disimpan di browser ini. Masuk dan semuanya akan bergabung ke akun Anda.
+Daftar tidak ditemukan
+Daftar bacaan saya
+Nama daftar
+Tambahkan catatan tentang daftar ini
+Catatan
+Naikkan
+Turunkan
+Hapus dari daftar
+Daftar ini kosong. Gunakan ▾ di samping Simpan pada buku mana pun untuk menambahkannya.
+Hapus daftar ini
+Tekan lagi untuk menghapus daftar ini
+Akun Anda beserta seluruh isinya telah dihapus.
+Akun memerlukan JavaScript.
+Daftar bacaan
+Tanya
+Tanya tentang buku
+Baru
+Percakapan sebelumnya
+Tanya tentang buku ini
+Tanya Foggy Press
+Untuk bertanya diperlukan JavaScript.
+Berpikir
+Tunjukkan di buku
+Buka di bagian ini
+Fitur tanya sedang dijeda
+Sisa {n} dari {m} pertanyaan hari ini
+Fitur tanya dijeda sampai akhir bulan.
+Anggaran bulanan sudah tercapai. Pencarian dan membaca tetap berjalan.
+Itu {n} pertanyaan Anda hari ini.
+Tanya lagi besok (diatur ulang tengah malam). Pencarian dan membaca tanpa batas.
+Masuk untuk bertanya
+Sampai besok
+Pertanyaan Anda
+Kirim
+Masuk untuk bertanya
+Jawaban AI · kutipan ditautkan ke teks agar Anda bisa memeriksanya
+Bertanya itu gratis. Masuk membuatnya adil: setiap orang mendapat {n} pertanyaan sehari.
+Masuk dengan email Anda
+Tanpa kata sandi: kami kirimkan tautan lewat email.
+Carikan saya buku
+Seperti Pulau Harta Karun, tapi kisah nyata
+Jelaskan sebuah buku
+Sebenarnya Walden itu tentang apa?
+Cari sebuah bagian
+Di mana Ismael mengatakan mengapa ia pergi melaut?
+Bandingkan
+Apa bedanya biografi-biografi Grant?
+Kembali ke percakapan
+Percakapan baru
+Minta rekomendasi buku, penjelasan sebuah buku, atau bantuan mencari sebuah bagian. Jawaban hanya berasal dari {n} buku di Foggy Press, dan setiap kutipan ditautkan ke halaman asalnya.
+Tanya tentang buku, penulis, atau topik
+Belum ada percakapan sebelumnya.
+Hapus semua
+Percakapan tanpa judul
+Hapus
+Percakapan disimpan di akun Anda sampai Anda menghapusnya.
+Hari ini
+Kemarin
+Buku ini tentang apa?
+Siapa tokoh-tokoh utamanya?
+Apa yang perlu saya ketahui sebelum mulai?
+Jawaban berasal dari teks buku ini
+Tutup
+Tanya tentang {title}
+Sedang banyak permintaan. Coba lagi dalam satu menit.
+Sepertinya Anda sedang offline. Coba lagi.
+Terjadi kesalahan. Coba lagi.
+Hapus? Tekan sekali lagi
+Belum ada di Foggy Press?
+Minta buku ini
+Minta buku
+Minta buku domain publik yang belum ada di Foggy Press. Kami mencarinya di sumber-sumber buku domain publik yang kami setujui. Jika kami menemukan edisi yang bisa diterbitkan, kami menyiapkannya dan mengirim email saat buku itu sudah ada di situs, biasanya dalam beberapa hari. Jika tidak bisa, kami mengirim email untuk menjelaskan alasannya.
+Masuk untuk meminta buku
+Kami mengirim email saat buku Anda siap, jadi permintaan memerlukan akun.
+Permintaan Anda
+Menunggu
+Sedang disiapkan
+Sudah di situs
+Tidak bisa
+Tidak ditemukan di sumber kami
+Batalkan
+Batalkan? Tekan sekali lagi
+Tautan (opsional)
+Halaman buku itu di Project Gutenberg, HathiTrust, Internet Archive, Wikisource, Standard Ebooks, Faded Page, atau Google Books.
+Catatan (opsional)
+Edisi atau terjemahan mana, jika penting
+Tuliskan judul buku.
+Tautan itu bukan dari sumber kami. Kosongkan saja, atau gunakan salah satu situs dalam daftar.
+Anda sudah meminta buku itu. Sedang diproses.
+Itu 3 permintaan Anda hari ini. Silakan minta lagi besok.
+Ada 10 permintaan Anda yang menunggu. Tunggu sampai beberapa selesai.
+Terima kasih. Kami akan mengirim email saat “{title}” sudah ada di situs, atau jika kami tidak bisa menambahkannya.
+
+@about 2654dd9aaf
+Foggy Press menata ulang buku-buku domain publik dalam satu gaya rumah yang sederhana dan menerbitkannya secara gratis: untuk dibaca daring, dicetak di rumah dari PDF berukuran kertas letter AS, atau diunduh sebagai EPUB untuk pembaca e-book.
+
+## Hak dan sumber
+
+Buku-buku di sini adalah teks domain publik di Amerika Serikat, tempat Foggy Press berada: karya yang hak ciptanya sudah habis atau tidak pernah diperpanjang. Jika Anda tinggal di luar Amerika Serikat, masa hak cipta bisa berbeda, jadi periksalah aturan di negara Anda sebelum menyalin atau mencetak ulang sebuah buku.
+
+Teks kami berasal dari transkripsi dan pindaian domain publik: terutama dari [Project Gutenberg](https://www.gutenberg.org), juga dari [Internet Archive](https://archive.org), [Wikisource](https://wikisource.org), [HathiTrust](https://www.hathitrust.org), dan [Google Books](https://books.google.com). Kami menata ulang setiap teks dengan tata letak kami sendiri dan tidak menambahkan apa pun selain judul halaman dan, untuk kumpulan karya, daftar isi singkat. Catatan setiap buku menyebutkan tanggal terbit aslinya dan, bila ada, penerjemahnya.
+
+Foggy Press adalah edisi bacaan gratis dan nonkomersial. Tidak ada iklan, tidak ada akun, dan tidak ada yang dijual.
+
+## Koreksi dan permintaan penghapusan
+
+Jika Anda yakin sebuah buku di situs ini masih dilindungi hak cipta, atau kami keliru tentang haknya, beri tahu kami melalui formulir di bawah. Sebutkan bukunya dan jelaskan masalahnya, dan kami akan segera memeriksanya. Formulir yang sama juga bisa dipakai untuk salah ketik dan kesalahan lain.
+
+@privacy 2e5df3593b
+Anda dapat membaca, mencari, dan mengunduh setiap buku di Foggy Press tanpa akun. Akun bersifat pilihan: akun menyimpan buku yang Anda simpan, daftar bacaan, tag Anda sendiri, dan riwayat bacaan, agar ikut bersama Anda di perangkat mana pun.
+
+## Yang kami simpan
+
+Jika Anda membuat akun, kami menyimpan alamat email Anda, buku yang Anda simpan, daftar dan tag beserta catatannya, serta riwayat bacaan Anda: buku apa yang Anda buka, di mana Anda berhenti, dan apakah Anda mengunduh PDF atau EPUB. Anda dapat mematikan atau menghapus riwayat kapan saja di halaman Buku saya.
+
+Jika Anda memakai Tanya Foggy Press, kami menyimpan pertanyaan dan jawabannya sebagai percakapan sebelumnya di akun Anda, serta jumlah pertanyaan yang Anda ajukan setiap hari (untuk batas harian). Jika Anda meminta buku, kami menyimpan permintaan itu (judul, penulis, tautan dan catatan Anda) beserta hasilnya, dan mengirim email saat selesai.
+
+Kami tidak menyimpan nama Anda, kata sandi, atau data pembayaran. Tidak ada iklan dan tidak ada cookie pelacak. Kami tidak pernah menjual atau membagikan apa yang Anda simpan, dan kami hanya mengirim email untuk masuk.
+
+Tanpa akun, buku yang Anda simpan dan yang baru Anda baca hanya disimpan di browser ini, dalam cookie kecil.
+
+## Siapa yang dapat melihatnya
+
+Hanya Anda, saat Anda masuk. Pemilik situs dapat melihat daftar alamat email akun di layanan akun, dan jumlah total seperti berapa orang yang menyimpan sebuah buku, tetapi tidak pernah buku milik satu orang. Penghitung kunjungan kami (GoatCounter) hanya berupa total anonim dan tidak terhubung ke akun.
+
+Tanya Foggy Press menjawab dengan Claude, model AI buatan Anthropic: pertanyaan Anda dan pesan-pesan sebelumnya dalam percakapan itu dikirim ke Anthropic untuk menulis jawabannya. Anthropic tidak memakainya untuk melatih modelnya. Jawaban ditulis oleh AI dan bisa salah; kutipan ditautkan ke buku agar Anda bisa memeriksanya.
+
+## Di mana disimpan
+
+Akun disimpan di Supabase, di Amerika Serikat. Lognya menyimpan alamat internet permintaan masuk untuk waktu singkat, demi keamanan. Email untuk masuk dikirim oleh Resend.
+
+## Pilihan Anda
+
+Di halaman Buku saya Anda dapat mengunduh semua yang kami simpan tentang Anda sebagai file, atau menghapus akun Anda. Penghapusan langsung menghilangkan akun dan seluruh isinya; salinan cadangan hilang dalam 7 hari. Akun untuk pembaca berusia 13 tahun ke atas. Di halaman Tanya, Anda bisa menghapus percakapan sebelumnya satu per satu atau sekaligus.
+
+Ada pertanyaan? Tulis kepada kami melalui formulir di halaman Tentang.

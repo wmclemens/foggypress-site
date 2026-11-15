@@ -1,16 +1,55 @@
-// Foggy Press public pages: theme switch, collection sort (Tag / Popular) and "More collections" paging.
+// Foggy Press public pages: theme switch, collection sort (Tag / Popular), "More collections" paging,
+// and the book sort on collection pages (Author / Title / Popular).
+// feature-use counts for the admin Reports tab: GoatCounter events, no personal data
+window.fpEvent = function (name) {
+  try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({path: String(name).slice(0, 120), title: 'event', event: true}); } catch (e) {}
+};
+// Read-online pages are served from files.foggypress.com, which keeps its own settings: links there carry
+// the reader's language and theme (?fp=es.dark), and assets/i18n.js there takes them up.
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href*="/read/"]');
+  if (!a || a.host === location.host || !/^https?:$/.test(a.protocol)) return;
+  var lang = window.fpLang ? window.fpLang() : '', th = document.documentElement.dataset.theme || '';
+  if (!lang && !th) return;
+  var u = new URL(a.href); u.searchParams.set('fp', lang + '.' + th); a.href = u.toString();
+}, true);
 (function () {
+  var T = window.fpT || function (s, v) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); };
   var root = document.documentElement;
   var dark = function () { return root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; };
   var tb = document.getElementById('theme');
   if (tb) {
-    var label = function () { tb.textContent = dark() ? 'Light mode' : 'Dark mode'; };
+    var label = function () { tb.textContent = dark() ? T('Light mode') : T('Dark mode'); };
+    document.addEventListener('fp-lang', label);
     label();
     tb.addEventListener('click', function () {
       root.dataset.theme = dark() ? 'light' : 'dark';
+      fpEvent('theme: ' + root.dataset.theme);
       try { localStorage.setItem('fp-theme', root.dataset.theme); } catch (e) {}
       label();
     });
+  }
+
+  // books on a collection page: Author (A to Z by last name, then title), Title, or Popular (online views + PDF downloads)
+  var bar = document.querySelector('.booksort'), list = bar && document.querySelector('ul.recs');
+  if (list) {
+    var rows = Array.prototype.slice.call(list.children), bsort = 'author';
+    try { bsort = sessionStorage.getItem('fp-bsort') || 'author'; } catch (e) {}
+    var cmp = function (x, y) { return x.localeCompare(y, 'en', {numeric: true}); };   // "Volume 2" before "Volume 10"
+    var by = {
+      author: function (a, b) { return cmp(a.dataset.au, b.dataset.au) || cmp(a.dataset.ti, b.dataset.ti); },
+      title: function (a, b) { return cmp(a.dataset.ti, b.dataset.ti) || cmp(a.dataset.au, b.dataset.au); },
+      popular: function (a, b) { return (+b.dataset.pop - +a.dataset.pop) || by.author(a, b); }
+    };
+    var drawBooks = function () {
+      if (!by[bsort]) bsort = 'author';
+      rows.sort(by[bsort]).forEach(function (r) { list.appendChild(r); });
+      bar.querySelectorAll('[data-bsort]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.bsort === bsort)); });
+    };
+    bar.querySelectorAll('[data-bsort]').forEach(function (b) {
+      b.addEventListener('click', function () { bsort = b.dataset.bsort; fpEvent('sort: books by ' + bsort); try { sessionStorage.setItem('fp-bsort', bsort); } catch (e) {} drawBooks(); });
+    });
+    drawBooks();
   }
 
   var grid = document.getElementById('colls');
@@ -26,23 +65,25 @@
       : function (a, b) { return a.dataset.name.localeCompare(b.dataset.name); });
     tiles.forEach(function (t, i) { t.hidden = i >= shown; grid.appendChild(t); });
     var n = Math.min(shown, tiles.length);
-    count.textContent = 'Showing ' + n + ' of ' + tiles.length;
+    count.textContent = T('Showing {n} of {m}', {n: n, m: tiles.length});
     more.hidden = shown >= tiles.length;
     document.querySelectorAll('[data-sort]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.sort === sort)); });
   }
   document.querySelectorAll('[data-sort]').forEach(function (b) {
     b.addEventListener('click', function () {
-      sort = b.dataset.sort; shown = per;
+      sort = b.dataset.sort; shown = per; fpEvent('sort: collections by ' + sort);
       try { sessionStorage.setItem('fp-sort', sort); } catch (e) {}
       draw();
     });
   });
   more.addEventListener('click', function () { shown += per; draw(); });
+  document.addEventListener('fp-lang', draw);
   draw();
 })();
 
 // Contact form on the About page: sends through Web3Forms after the hCaptcha check.
 (function () {
+  var T = window.fpT || function (s) { return s; };
   var f = document.getElementById('contact');
   if (!f || !f.dataset.key) return;
   var status = document.getElementById('cf-status');
@@ -50,11 +91,11 @@
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     var el = f.elements, name = el['name'].value.trim(), email = el['email'].value.trim(), msg = el['message'].value.trim();
-    if (!name || !email || !msg) { say('Please fill in your name, email and message.', 'bad'); return; }
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { say('That email address doesn’t look right. Please check it.', 'bad'); return; }
+    if (!name || !email || !msg) { say(T('Please fill in your name, email and message.'), 'bad'); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { say(T('That email address doesn’t look right. Please check it.'), 'bad'); return; }
     var cap = f.querySelector('[name="h-captcha-response"]');
-    if (!cap || !cap.value) { say('Please tick “I am human” before sending.', 'bad'); return; }
-    var btn = f.querySelector('button[type=submit]'); btn.disabled = true; say('Sending…');
+    if (!cap || !cap.value) { say(T('Please tick “I am human” before sending.'), 'bad'); return; }
+    var btn = f.querySelector('button[type=submit]'); btn.disabled = true; say(T('Sending…'));
     var data = new FormData(f); data.delete('g-recaptcha-response'); // hCaptcha adds this copy; Web3Forms would read it as reCAPTCHA (a paid feature)
     data.append('access_key', f.dataset.key);
     data.append('subject', 'Foggy Press website: message from ' + name);
@@ -62,10 +103,10 @@
     fetch('https://api.web3forms.com/submit', {method: 'POST', body: data})
       .then(function (r) { return r.json(); })
       .then(function (j) {
-        if (j.success) { f.reset(); if (window.hcaptcha) hcaptcha.reset(); say('Thank you. Your message has been sent.', 'ok'); }
-        else { say('Your message didn’t send: ' + (j.message || 'please try again.'), 'bad'); if (window.hcaptcha) hcaptcha.reset(); }
+        if (j.success) { f.reset(); if (window.hcaptcha) hcaptcha.reset(); say(T('Thank you. Your message has been sent.'), 'ok'); }
+        else { say(T('Your message didn’t send: {why}', {why: j.message || T('please try again.')}), 'bad'); if (window.hcaptcha) hcaptcha.reset(); }
       })
-      .catch(function () { say('Your message didn’t send. Please check your connection and try again.', 'bad'); })
+      .catch(function () { say(T('Your message didn’t send. Please check your connection and try again.'), 'bad'); })
       .then(function () { btn.disabled = false; });
   });
 })();
