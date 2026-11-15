@@ -1,0 +1,66 @@
+/* 1911 Encyclopædia Britannica article pages (build/britannica.py), on top of style.css and book.css */
+.eb .byline{font-variant-numeric:lining-nums}
+.eb-text>div>p:first-child,.eb-text>p:first-child{text-indent:0}
+.eb-text p+p{text-indent:1.4em}
+.eb-text dl{margin:.4rem 0}
+.eb-text dd{margin-left:1.4em}
+.eb-text .fine{font-size:.88em;line-height:1.5}
+.eb-text .fine p{margin-top:.6em}
+.eb-text .center{text-align:center}
+.eb-text .center p{text-indent:0}
+.eb-text .hang p{text-indent:-1.4em;padding-left:1.4em}
+.eb-text .asc{font-size:.8em;letter-spacing:.02em}
+.eb-text [style*="float:right"],.eb-text [style*="float: right"]{float:right}
+.eb-text math{font-size:1.05em}
+/* pictures: small and grayscale; narrow ones sit at the column edge with the text wrapping, wide ones in the middle */
+.eb-text img{max-width:100%;height:auto;filter:grayscale(1)}
+.eb-text img.glyph{display:inline;margin:0;vertical-align:middle;max-height:1.4em;width:auto}
+.eb-text .figf{display:block;width:min(42%,260px);margin:.3rem 0 .6rem;font-size:.8rem;line-height:1.35;text-align:center;color:var(--muted);text-indent:0}
+.eb-text .figf.left{float:left;margin-right:1rem}
+.eb-text .figf.right{float:right;margin-left:1rem}
+.eb-text .figf img{margin:0 auto .3rem}
+.eb-text .fig{margin:1rem auto;max-width:min(100%,420px)}
+.eb-text .fig img{margin:0 auto}
+.eb-text table{display:table;width:auto;max-width:100%;margin:1rem auto}
+.eb-text table img{margin:.4rem auto}
+.eb-text table.contrib td:first-child{white-space:nowrap;font-family:var(--sans);font-size:.75rem}
+.eb-text::after{content:"";display:block;clear:both}
+.eb-runhead{display:none}
+.eb-nav{max-width:36rem;margin:0 auto;padding:1.2rem 18px;display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:baseline;
+  font-family:var(--sans);font-size:.9rem;border-top:1px solid var(--line)}
+.eb-nav a{color:var(--accent)}
+.eb-nav a[rel=next]{text-align:right}
+.eb-nav .up{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+.eb-src{max-width:36rem;margin:0 auto 1.5rem;padding:0 18px;color:var(--muted)}
+.eb-src a{color:var(--accent)}
+.rb-print{background:none;border:0;padding:0;cursor:pointer}
+/* front and volume pages */
+.eb-find{display:grid;gap:.6rem;max-width:40rem;margin-bottom:2rem}
+#eb-results ul{list-style:none;margin:.4rem 0 0;padding:0}
+#eb-results li{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-bottom:1px solid var(--line)}
+#eb-results li a{color:var(--ink)}
+#eb-results li a:hover{color:var(--accent)}
+#eb-results .grp{margin-top:1.2rem}
+#eb-results .none{color:var(--muted);margin-top:.6rem}
+.eb-jump{display:flex;flex-wrap:wrap;gap:.35rem .7rem;margin:0 0 1rem}
+.eb-jump a{color:var(--accent)}
+.eb-list{list-style:none;margin:0;padding:0;columns:2 18rem;column-gap:2.5rem}
+.eb-list li{display:flex;justify-content:space-between;gap:1rem;padding:.3rem 0;break-inside:avoid;border-bottom:1px solid var(--line)}
+.eb-list li a:hover{color:var(--accent)}
+.eb-list .mono{color:var(--muted)}
+.eb-note{max-width:40rem}
+/* print: the article alone, with the Foggy Press running head */
+@media print{
+  @page{margin:.6in .7in .4in}
+  :root,:root[data-theme="dark"]{--bg:#fff;--ink:#000;--muted:#333;--line:#bbb;--accent:#000;color-scheme:light}
+  body{background:#fff}
+  .readtop,.eb-nav,.eb-src,.readfoot{display:none!important}
+  .eb-runhead{display:flex;justify-content:space-between;gap:1rem;font-family:var(--sans);font-size:8pt;color:#333;border-bottom:.5pt solid #999;padding-bottom:3pt;margin-bottom:12pt}
+  .book{max-width:none;padding:0;font-size:10.5pt;line-height:1.4}
+  .book-head{margin-bottom:10pt}
+  .book-head h1{font-size:16pt}
+  .eb-text img{filter:grayscale(1)}
+  .eb-text .figf,.eb-text .fig,.eb-text table{break-inside:avoid}
+  a{color:inherit}
+}
+@media (max-width:480px){.readbar .wide{display:none}}

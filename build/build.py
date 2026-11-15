@@ -27,6 +27,7 @@ Environment (all optional):
 import argparse, datetime, html, json, os, re, shutil, sys, urllib.parse, urllib.request
 from pathlib import Path
 
+import britannica
 import epub
 import report
 import search_index
@@ -187,6 +188,13 @@ class Site:
             meta += f'<meta name="fp-ask" content="{esc(self.sb_url)}/functions/v1/ask">'
         return meta
 
+    def reference_nav(self, current):
+        """'Reference' in the left rail, once the 1911 Britannica is on the site (see britannica.py)"""
+        if not britannica.listed():
+            return ''
+        return (f'<div><div class="eyebrow" style="margin-bottom:.6rem" data-t>Reference</div><nav aria-label="Reference">'
+                f'<a href="/britannica/"{" aria-current=page" if current == "britannica" else ""}><span>Britannica 1911</span><span class="mono">→</span></a></nav></div>')
+
     def account_script(self):
         return ('<script src="/assets/account.js" defer></script>' if self.accounts else '') + \
             ('<script src="/assets/ask.js" defer></script>' if self.ask else '')
@@ -278,7 +286,7 @@ class Site:
     {self.search_box('q', 'srch')}
     {self.ask_rail(current)}
     <div><div class="eyebrow" style="margin-bottom:.6rem" data-t>List books</div><nav aria-label="Lists">{navhtml}</nav></div>
-    <nav aria-label="About">{f'<a href="/account/"{" aria-current=page" if current == "account" else ""}><span data-t>My books</span><span class="mono">→</span></a><a href="/request/"{" aria-current=page" if current == "request" else ""}><span data-t>Request a book</span><span class="mono">→</span></a>' if self.accounts else ''}<a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
+    {self.reference_nav(current)}<nav aria-label="About">{f'<a href="/account/"{" aria-current=page" if current == "account" else ""}><span data-t>My books</span><span class="mono">→</span></a><a href="/request/"{" aria-current=page" if current == "request" else ""}><span data-t>Request a book</span><span class="mono">→</span></a>' if self.accounts else ''}<a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
     <div class="rail-end"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div>
   </aside>
   <main>{body}</main>
@@ -704,6 +712,7 @@ class Site:
         self.prepare()
         self.copy_assets()
         self.home(); self.lists(); self.about(); self.account_pages(); self.ask_page(); self.not_found(); self.search(); self.translations()
+        britannica.build(self)
         self.admin_data()
         print(f'Built {len(self.live)} live books of {len(self.books)} records, {len(self.tags)} tags.')
         for p in self.problems:
@@ -723,6 +732,7 @@ if __name__ == '__main__':
         ne = site.stage_epubs(Path(a.stage_pdfs) / 'epub')
         if site.pdf_base:
             site.stage_read(a.stage_pdfs)
+            britannica.stage(site, a.stage_pdfs)
         print(f'Staged {len(site.live)} PDFs and {ne} EPUBs in {a.stage_pdfs}.')
         for p in site.problems:
             print('warning:', p, file=sys.stderr)
