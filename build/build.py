@@ -28,6 +28,7 @@ import argparse, datetime, html, json, os, re, shutil, sys, urllib.parse, urllib
 from pathlib import Path
 
 import epub
+import report
 import search_index
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -555,6 +556,9 @@ class Site:
                              'github_pdf': 'https://github.com/wmclemens/foggy-press-files/blob/main/' + urllib.parse.quote(rel)})
         stats = {b['id']: {'pages': b['_pages'], 'mb': b['_mb'], 'downloads': b['_downloads'], 'views': b['_views'], 'live': b in self.live} for b in self.books}
         (self.out / 'admin').mkdir(parents=True, exist_ok=True)
+        rep = report.build_report(self.gc_code, os.environ.get('GOATCOUNTER_TOKEN', '').strip(),
+                                  os.environ.get('CLOUDFLARE_API_TOKEN', '').strip(), os.environ.get('CLOUDFLARE_ZONE_ID', '').strip())
+        (self.out / 'admin/report.json').write_text(json.dumps(rep, ensure_ascii=False), encoding='utf-8')
         (self.out / 'admin/stats.json').write_text(json.dumps({'built': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'books': stats, 'unlisted': unlisted, 'problems': self.problems}, ensure_ascii=False))
 
     def stage_pdfs(self, dest):

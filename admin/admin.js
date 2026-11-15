@@ -112,7 +112,8 @@
 
   // ---- views ----
   function tabs(cur) {
-    return '<div class="tabs"><a href="#" ' + (cur === 'books' ? 'aria-current="page"' : '') + '>Book catalog</a><a href="#tags" ' + (cur === 'tags' ? 'aria-current="page"' : '') + '>Tag file</a></div>';
+    return '<div class="tabs"><a href="#" ' + (cur === 'books' ? 'aria-current="page"' : '') + '>Book catalog</a><a href="#tags" ' + (cur === 'tags' ? 'aria-current="page"' : '') + '>Tag file</a>' +
+      '<a href="#reports" ' + (cur === 'reports' ? 'aria-current="page"' : '') + '>Reports</a></div>';
   }
 
   function vSignIn(err) {
@@ -362,10 +363,88 @@
     };
   }
 
+  // ---- Reports: admin/report.json, gathered at build time by build/report.py (GoatCounter, Cloudflare)
+  var report = null;
+  function vReports() {
+    $('#app').innerHTML = tabs('reports') + '<p class="note" style="padding:2rem 0">Loading the reports…</p>';
+    (report ? Promise.resolve(report) : fetch('report.json', {cache: 'no-store'}).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }))
+      .then(function (r) { report = r; drawReports(r); })
+      .catch(function () { $('#app').innerHTML = tabs('reports') + '<p class="note" style="padding:2rem 0">No report yet. It is made by the next site build (nightly, or after any change).</p>'; });
+  }
+  function fmtDay(d) { var x = new Date(d + 'T12:00:00Z'); return isNaN(x) ? d : x.toLocaleDateString(undefined, {month: 'short', day: 'numeric', timeZone: 'UTC'}); }
+  function ranked(title, rows, opts) {
+    opts = opts || {};
+    rows = (rows || []).filter(function (r) { return r[1] > 0; }).slice(0, opts.max || 10);
+    var top = rows.reduce(function (m, r) { return Math.max(m, r[1]); }, 0) || 1;
+    return '<section class="rp-card' + (opts.wide ? ' wide' : '') + '"><h2>' + esc(title) + '</h2>' + (opts.note ? '<p class="note">' + opts.note + '</p>' : '') +
+      (rows.length ? '<table class="rk"><tbody>' + rows.map(function (r) {
+        return '<tr><td class="rk-n" title="' + esc(r[0]) + '">' + esc(opts.label ? opts.label(r[0]) : r[0]) + '</td><td class="rk-b"><span style="width:' + Math.max(2, Math.round(r[1] / top * 100)) + '%"></span></td><td class="num">' + num(r[1]) + '</td></tr>';
+      }).join('') + '</tbody></table>' : '<p class="note">Nothing yet.</p>') + '</section>';
+  }
+  function daily(rows) {
+    if (!rows || !rows.length) return '';
+    var W = 720, H = 170, pad = 22, top0 = 10, n = rows.length, max = rows.reduce(function (m, r) { return Math.max(m, r[1]); }, 0) || 1;
+    var step = (W - pad) / n, bw = Math.max(2, step - 2);
+    var nice = Math.pow(10, Math.floor(Math.log10(max))), top = Math.ceil(max / nice) * nice;
+    var bars = rows.map(function (r, i) {
+      var h = Math.max(r[1] ? 2 : 0, (H - pad - top0) * r[1] / top), x = pad + i * step + 1, y = H - pad - h;
+      return '<g class="dbar" data-i="' + i + '"><rect class="hit" x="' + (pad + i * step) + '" y="0" width="' + step + '" height="' + (H - pad) + '"/>' +
+        (h ? '<path class="bar" d="M' + x + ',' + (H - pad) + 'V' + (y + Math.min(4, h)) + 'Q' + x + ',' + y + ' ' + (x + Math.min(4, bw / 2)) + ',' + y + 'H' + (x + bw - Math.min(4, bw / 2)) + 'Q' + (x + bw) + ',' + y + ' ' + (x + bw) + ',' + (y + Math.min(4, h)) + 'V' + (H - pad) + 'Z"/>' : '') + '</g>';
+    }).join('');
+    var grid = [0, .5, 1].map(function (f) { var y = H - pad - (H - pad - top0) * f; return '<line class="grid" x1="' + pad + '" x2="' + W + '" y1="' + y + '" y2="' + y + '"/><text class="ax" x="' + (pad - 4) + '" y="' + (y + 3) + '" text-anchor="end">' + num(Math.round(top * f)) + '</text>'; }).join('');
+    var ticks = [0, Math.floor(n / 2), n - 1].map(function (i) { return '<text class="ax" x="' + (i === 0 ? pad : i === n - 1 ? W : pad + i * step + step / 2) + '" y="' + (H - 6) + '" text-anchor="' + (i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle') + '">' + esc(fmtDay(rows[i][0])) + '</text>'; }).join('');
+    return '<section class="rp-card wide"><h2>Visitors per day</h2><div class="dchart"><svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Visitors per day, last ' + n + ' days">' + grid + bars + ticks + '</svg><div class="tip" hidden></div></div>' +
+      '<details class="rp-tbl"><summary class="mono">Show as a table</summary><table><tbody>' + rows.map(function (r) { return '<tr><td>' + esc(fmtDay(r[0])) + '</td><td class="num">' + num(r[1]) + '</td></tr>'; }).join('') + '</tbody></table></details></section>';
+  }
+  function drawReports(r) {
+    var g = r.goatcounter, c = r.cloudflare, f = {};
+    ((g && g.features) || []).forEach(function (x) { f[x[0]] = x[1]; });
+    var tile = function (label, v, sub) { return '<div class="rp-tile"><span class="mono">' + esc(label) + '</span><b>' + (v == null ? '–' : num(v)) + '</b>' + (sub ? '<span class="note">' + sub + '</span>' : '') + '</div>'; };
+    var h = tabs('reports') + '<div class="rp-head"><p class="note">' + (g ? 'Last 30 days (' + esc(fmtDay(g.start)) + ' to ' + esc(fmtDay(g.end)) + '). ' : '') + 'Updated with each site build, last ' + esc((r.built || '').replace('T', ' ')) + ' UTC. Counts come from GoatCounter, which leaves out known bots.</p></div>';
+    if (r.missing && r.missing.length) h += '<div class="banner"><b>Not included this time</b><ul>' + r.missing.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul></div>';
+    if (g) {
+      h += '<div class="rp-tiles">' + tile('Visitors', g.visitors) + tile('Read-online views', f['Read-online page views']) + tile('PDF downloads', f['PDF downloads']) + tile('EPUB downloads', f['EPUB downloads']) + tile('Searches', f['Searches'] || 0, f['Searches that found nothing'] ? num(f['Searches that found nothing']) + ' found nothing' : '') + '</div>';
+      h += daily(g.daily);
+      h += '<div class="rp-grid">' +
+        ranked('Where visitors come from', g.toprefs, {note: '“(none)” is people who typed the address or used a bookmark.', label: function (s) { return s === '' ? '(none)' : s; }}) +
+        ranked('Feature use', g.features, {max: 14}) +
+        ranked('Top searches', g.searches, {max: 15}) +
+        ranked('Searches that found nothing', g.searches_none, {max: 15, note: 'Books people looked for and we don’t have.'}) +
+        ranked('Countries', g.locations) + ranked('Browsers', g.browsers) + ranked('Systems', g.systems) + ranked('Screen sizes', g.sizes) +
+        ranked('Most visited pages', g.pages, {max: 20, wide: true}) + '</div>';
+    }
+    h += '<div class="rp-grid">';
+    if (c) {
+      var tot = (c.people + c.bots) || 1;
+      h += '<section class="rp-card"><h2>PDF and EPUB requests: people and bots</h2><p class="note">' + esc(c.host) + ', last 7 days, from Cloudflare. Bots are requests whose browser name says crawler, bot, script and the like.</p>' +
+        '<div class="split"><span style="width:' + Math.round(c.people / tot * 100) + '%"></span></div>' +
+        '<table class="rk"><tbody><tr><td class="rk-n">People</td><td class="num">' + num(c.people) + ' (' + Math.round(c.people / tot * 100) + '%)</td></tr><tr><td class="rk-n">Bots</td><td class="num">' + num(c.bots) + ' (' + Math.round(c.bots / tot * 100) + '%)</td></tr></tbody></table></section>' +
+        ranked('Busiest bots', c.bot_agents) + ranked('People’s countries (downloads)', c.countries);
+    } else {
+      h += '<section class="rp-card"><h2>PDF and EPUB requests: people and bots</h2><p class="note">Not connected yet. Pages on GitHub keep no visit logs, so bots can only be counted for the PDFs and EPUBs, which Cloudflare serves. To turn this on: in Cloudflare, My Profile → API Tokens → Create token → “Read analytics and logs” template, limited to the foggypress.com zone. Add it to the foggypress-site repository as the secret <span class="mono">CLOUDFLARE_API_TOKEN</span>, and the zone ID (on the foggypress.com Overview page) as <span class="mono">CLOUDFLARE_ZONE_ID</span>.</p></section>';
+    }
+    h += '</div>';
+    $('#app').innerHTML = h;
+    var chart = $('#app').querySelector('.dchart');
+    if (chart && g) {
+      var tip = chart.querySelector('.tip');
+      chart.addEventListener('mousemove', function (e) {
+        var b = e.target.closest('.dbar'); if (!b) { tip.hidden = true; return; }
+        var d = g.daily[+b.dataset.i], box = chart.getBoundingClientRect();
+        tip.innerHTML = '<span class="mono">' + esc(fmtDay(d[0])) + '</span><b>' + num(d[1]) + '</b> visitors';
+        tip.hidden = false;
+        tip.style.left = Math.min(box.width - tip.offsetWidth, Math.max(0, e.clientX - box.left - tip.offsetWidth / 2)) + 'px';
+        chart.querySelectorAll('.dbar.on').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on');
+      });
+      chart.addEventListener('mouseleave', function () { tip.hidden = true; chart.querySelectorAll('.dbar.on').forEach(function (x) { x.classList.remove('on'); }); });
+    }
+  }
+
   function route() {
     if (!data.books) return;
     var h = decodeURIComponent(location.hash.slice(1));
-    if (h === 'tags') vTags();
+    if (h === 'reports') vReports();
+    else if (h === 'tags') vTags();
     else if (h.indexOf('tag-') === 0) vTag(h.slice(4));
     else if (h === 'new') vEdit(null);
     else if (h.indexOf('book-') === 0) vEdit(h.slice(5));

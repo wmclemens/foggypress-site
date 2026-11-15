@@ -119,6 +119,7 @@
   function choose(code) {
     if (!known[code]) return;
     set('fp-lang', code);
+    if (window.fpEvent) window.fpEvent('language: ' + code);
     load(code).then(function (d) {
       lang = code; dict = d;
       try { plural = new Intl.PluralRules(lang); } catch (e) { plural = null; }

@@ -207,6 +207,14 @@
         '<span class="m mono">' + esc(b.d) + '</span>' + acts(b) + '</li>';
     }
 
+    // one count per search the reader settles on (not every keystroke): what people look for, and what we lack
+    var logTimer, logged = {};
+    function logSearch(q, found) {
+      clearTimeout(logTimer);
+      var k = words(q).join(' ').slice(0, 80);
+      if (!k || logged[k]) return;
+      logTimer = setTimeout(function () { logged[k] = 1; if (window.fpEvent) fpEvent((found ? 'search: ' : 'search-none: ') + k); }, 2000);
+    }
     function render() {
       var my = ++run, q = query.trim();
       document.title = q ? '“' + q + '” · ' + T('Search') + ' · Foggy Press' : T('Search') + ' · Foggy Press';
@@ -245,10 +253,11 @@
           if (!parts.length && inside != null) document.getElementById('sr-sum').textContent = T('Nothing found.');
         };
         sum(null);
-        if (!tws.length) { sum(0); return; }
+        if (!tws.length) { sum(0); logSearch(q, authors.length + titles.length + colls.length); return; }
         fullText(ws).then(function (res) {
           if (my !== run) return;
           res = res || [];
+          logSearch(q, res.length + authors.length + titles.length + colls.length);
           var sec = document.getElementById('sr-in');
           sum(res.length);
           if (!res.length) { sec.remove(); return; }
@@ -351,7 +360,9 @@
     }
     function setList(open) { list.hidden = !open; lst.setAttribute('aria-expanded', open ? 'true' : 'false'); }
     function chapterOf(node) { var s = node.closest('section'); var h = s && s.querySelector('h2'); return h ? h.textContent.trim() : T('Opening'); }
+    var findLogged = false;
     function search(q, stay) {
+      if (!findLogged && q && q.trim().length > 1 && window.fpEvent) { findLogged = true; fpEvent('find-in-book'); }
       lastQ = q; clear(); list.querySelector('ol').innerHTML = '';
       var toks = words(q);
       if (toks.join('').length < 2) { cnt.textContent = ''; prev.disabled = next.disabled = lst.disabled = true; lst.textContent = T('All'); setList(false); return; }

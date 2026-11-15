@@ -1,5 +1,9 @@
 // Foggy Press public pages: theme switch, collection sort (Tag / Popular), "More collections" paging,
 // and the book sort on collection pages (Author / Title / Popular).
+// feature-use counts for the admin Reports tab: GoatCounter events, no personal data
+window.fpEvent = function (name) {
+  try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({path: String(name).slice(0, 120), title: 'event', event: true}); } catch (e) {}
+};
 (function () {
   var T = window.fpT || function (s, v) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); };
   var root = document.documentElement;
@@ -11,6 +15,7 @@
     label();
     tb.addEventListener('click', function () {
       root.dataset.theme = dark() ? 'light' : 'dark';
+      fpEvent('theme: ' + root.dataset.theme);
       try { localStorage.setItem('fp-theme', root.dataset.theme); } catch (e) {}
       label();
     });
@@ -33,7 +38,7 @@
       bar.querySelectorAll('[data-bsort]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.bsort === bsort)); });
     };
     bar.querySelectorAll('[data-bsort]').forEach(function (b) {
-      b.addEventListener('click', function () { bsort = b.dataset.bsort; try { sessionStorage.setItem('fp-bsort', bsort); } catch (e) {} drawBooks(); });
+      b.addEventListener('click', function () { bsort = b.dataset.bsort; fpEvent('sort: books by ' + bsort); try { sessionStorage.setItem('fp-bsort', bsort); } catch (e) {} drawBooks(); });
     });
     drawBooks();
   }
@@ -57,7 +62,7 @@
   }
   document.querySelectorAll('[data-sort]').forEach(function (b) {
     b.addEventListener('click', function () {
-      sort = b.dataset.sort; shown = per;
+      sort = b.dataset.sort; shown = per; fpEvent('sort: collections by ' + sort);
       try { sessionStorage.setItem('fp-sort', sort); } catch (e) {}
       draw();
     });

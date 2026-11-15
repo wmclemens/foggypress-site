@@ -80,6 +80,8 @@ jobs:
           PDF_BASE: ${{ steps.r2.outputs.pdf_base }}
           GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE || 'wmc' }}
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}   # optional: bots vs people for the PDFs (admin Reports)
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'foggypress.com' }}
           WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY || '560bbd06-0bf6-47ce-b04d-f68df6a5ff16' }}
         run: python build/build.py --files files --out _site
