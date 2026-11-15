@@ -647,11 +647,16 @@ class Site:
     def admin_data(self):
         """Facts the admin pages show beside the catalog: page counts, sizes, downloads, and PDFs not yet in the catalog."""
         known = {pdf_repo_path(b.get('github_pdf')) for b in self.books}
+        try:      # PDFs merged in from the second repo (see build.yml)
+            lib = set((self.files / '.library-pdfs').read_text(encoding='utf-8').split('\n'))
+        except OSError:
+            lib = set()
         unlisted = []
         for p in sorted(self.files.glob('books/*/*/output/*.pdf')):
             rel = p.relative_to(self.files).as_posix()
             if rel in known:
                 continue
+            repo = 'foggy-press-library' if rel in lib else 'foggy-press-files'
             m = re.match(r'(.+?): (.+)\. Foggy Press, \d{4}\.pdf$', p.name)
             last, first = '', ''
             if m and ', ' in m.group(1):
@@ -660,8 +665,8 @@ class Site:
                 last = m.group(1)
             unlisted.append({'id': p.parent.parent.name, 'author_last': last, 'author_first': first,
                              'title': m.group(2) if m else p.stem,
-                             'github_dir': 'https://github.com/wmclemens/foggy-press-files/tree/main/' + urllib.parse.quote(p.parent.parent.relative_to(self.files).as_posix()),
-                             'github_pdf': 'https://github.com/wmclemens/foggy-press-files/blob/main/' + urllib.parse.quote(rel)})
+                             'github_dir': 'https://github.com/wmclemens/%s/tree/main/' % repo + urllib.parse.quote(p.parent.parent.relative_to(self.files).as_posix()),
+                             'github_pdf': 'https://github.com/wmclemens/%s/blob/main/' % repo + urllib.parse.quote(rel)})
         stats = {b['id']: {'pages': b['_pages'], 'mb': b['_mb'], 'downloads': b['_downloads'], 'views': b['_views'], 'live': b in self.live} for b in self.books}
         (self.out / 'admin').mkdir(parents=True, exist_ok=True)
         rep = report.build_report(self.gc_code, os.environ.get('GOATCOUNTER_TOKEN', '').strip(),

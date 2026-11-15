@@ -40,6 +40,31 @@ jobs:
             pipeline/web/book.css
           sparse-checkout-cone-mode: false
 
+      # the Gutenberg top-25 batch (Nov 2026) lives in a second private repo, same layout;
+      # its books are merged into the files checkout so the build treats them alike
+      - name: Check out the batch books (second private repo)
+        id: lib
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: wmclemens/foggy-press-library
+          token: ${{ secrets.FILES_TOKEN }}
+          path: library
+          sparse-checkout: |
+            books/*/*/output/*.pdf
+            books/*/*/README.md
+            books/*/*/output/html/
+            books/*/*/output/latex/images/
+          sparse-checkout-cone-mode: false
+
+      - name: Merge the batch books into the files checkout
+        if: steps.lib.outcome == 'success'
+        run: |
+          if [ -d library/books ]; then
+            cp -rn library/books/. files/books/
+            (cd library && find books -path '*/output/*.pdf') > files/.library-pdfs
+          fi
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
