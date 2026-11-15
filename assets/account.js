@@ -479,8 +479,8 @@
     document.getElementById('export').addEventListener('click', function () {
       // chats exist once Ask is set up; without its tables they come back empty
       var opt = function (t) { return sb.from(t).select('*').then(function (x) { return x.error ? [] : x.data; }); };
-      Promise.all(['profiles', 'favorites', 'labels', 'label_books', 'lists', 'list_items', 'history'].map(function (t) { return q(sb.from(t).select('*')); }).concat([opt('chats'), opt('chat_messages')])).then(function (r) {
-        var data = {email: user.email, account_created: user.created_at, exported: new Date().toISOString(), profile: r[0][0] || null, favorites: r[1], tags: r[2], tagged_books: r[3], lists: r[4], list_books: r[5], history: r[6], chats: r[7], chat_messages: r[8]};
+      Promise.all(['profiles', 'favorites', 'labels', 'label_books', 'lists', 'list_items', 'history'].map(function (t) { return q(sb.from(t).select('*')); }).concat([opt('chats'), opt('chat_messages'), opt('book_requests')])).then(function (r) {
+        var data = {email: user.email, account_created: user.created_at, exported: new Date().toISOString(), profile: r[0][0] || null, favorites: r[1], tags: r[2], tagged_books: r[3], lists: r[4], list_books: r[5], history: r[6], chats: r[7], chat_messages: r[8], book_requests: r[9]};
         var a = document.createElement('a');
         a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'}));
         a.download = 'foggy-press-my-data.json'; document.body.appendChild(a); a.click(); a.remove();

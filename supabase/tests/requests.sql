@@ -22,3 +22,7 @@ set role authenticated; select set_config('request.jwt.claim.sub','55555555-5555
 delete from book_requests where title = 'Ivanhoe'; delete from book_requests where title = 'Rob Roy';
 select title, status from book_requests order by created_at;
 reset role; set role anon; select site_totals()::jsonb - 'saved' as totals; reset role;
+-- ten waiting from earlier days: an eleventh is refused even on a fresh day
+insert into book_requests (user_id, title, created_at) select '66666666-6666-6666-6666-666666666666', 'Old ' || g, now() - interval '2 days' from generate_series(1, 10) g;
+set role authenticated; select set_config('request.jwt.claim.sub','66666666-6666-6666-6666-666666666666',false);
+select request_book('The Talisman') as eleventh_waiting; reset role;
