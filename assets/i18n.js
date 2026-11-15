@@ -23,6 +23,17 @@
   function get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function set(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} }
 
+  // settings handed over in the link from foggypress.com (assets/site.js), for pages on files.foggypress.com
+  try {
+    var fp = new URLSearchParams(location.search).get('fp');
+    if (fp) {
+      var parts = fp.split('.');
+      if (known[parts[0]]) set('fp-lang', parts[0]);
+      if (parts[1] === 'dark' || parts[1] === 'light') { set('fp-theme', parts[1]); root.dataset.theme = parts[1]; }
+      var clean = new URL(location.href); clean.searchParams.delete('fp');
+      history.replaceState(null, '', clean.toString());
+    }
+  } catch (e) {}
   var lang = get('fp-lang');
   if (!known[lang]) {
     lang = 'en';

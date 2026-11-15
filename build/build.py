@@ -285,7 +285,7 @@ class Site:
             if pdf.startswith('/'):
                 pdf = self.base + pdf
             rows.append(({'id': b['id'], 't': b['title'], 'a': author_name(b), 'al': b['author_last'], 'tr': b.get('translator') or '',
-                          'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'pdf': pdf, 'read': bool(art),
+                          'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'pdf': pdf, 'read': bool(art), **({'rd': self.read_url(b) if self.pdf_base else self.base + self.read_url(b)} if art else {}),
                           **({'epub': self.epub_url(b) if self.pdf_base else self.base + self.epub_url(b)} if art else {})}, art))
         nw, ns = search_index.write_index(self.out / 'search', rows)
         tags = [{'n': t['name'], 's': t['slug'], 'c': len(self.by_tag[t['name']])} for t in sorted(self.tags, key=lambda t: t['name'].lower()) if self.by_tag[t['name']]]
@@ -309,7 +309,7 @@ class Site:
             pdf = (f'<a class="act" href="{esc(self.pdf_url(b))}" data-goatcounter-click="pdf-{esc(b["id"])}" '
                    f'data-goatcounter-title="{esc(b["title"])}" data-t>Print this book</a>')
             if b.get('_html'):
-                main = f'/read/{esc(b["id"])}/'
+                main = esc(self.read_url(b))
                 acts = f'<a class="act" href="{main}" data-t>Read online</a>{pdf}{self.epub_link(b, "act")}'
             else:
                 main = esc(self.pdf_url(b))
@@ -321,8 +321,21 @@ class Site:
 <span class="acts">{acts}</span></li>''')
         return '<ul class="recs">' + ''.join(out) + '</ul>'
 
-    def reader(self, b):
-        """/read/<id>/: the book's web edition in a plain reading page, with a link to the PDF"""
+    def read_url(self, b, extra=''):
+        """where a book's read-online page is: beside the PDFs in R2 when they are there (the pages and their
+        pictures are most of the site's size, and GitHub Pages stops at 1 GB), else /read/<id>/ in the site"""
+        if self.pdf_base:
+            return f"{self.pdf_base}/read/{urllib.parse.quote(b['id'])}/index.html{extra}"
+        return f"/read/{urllib.parse.quote(b['id'])}/{extra}"
+
+    def site_origin(self):
+        dom = os.environ.get('SITE_DOMAIN', '').strip()
+        return f'https://{dom}' if dom else ''
+
+    def reader(self, b, root=None):
+        """read/<id>/index.html: the book's web edition in a plain reading page, with a link to the PDF.
+        root: where to write it (default: the site). A page written for R2 links the site's own files
+        (styles, scripts, home page) by full address, since it is served from files.foggypress.com."""
         src = b['_html'].read_text(encoding='utf-8')
         m = re.search(r'<article class="book".*</article>', src, re.S)
         if not m:
@@ -331,7 +344,7 @@ class Site:
         art = m.group(0)
         if b.get('_desc'):
             art = art.replace('</header>', f'<p class="desc">{esc(b["_desc"])}</p></header>', 1)
-        dest = self.out / 'read' / b['id']
+        dest = Path(root or self.out) / 'read' / b['id']
         dest.mkdir(parents=True, exist_ok=True)
 
         def pic(mm):
@@ -388,9 +401,29 @@ class Site:
 </body>
 </html>
 '''
-        if self.base:
-            doc = re.sub(r'(href|src)="/(?!/)', lambda mm: f'{mm.group(1)}="{self.base}/', doc)
+        prefix = self.site_origin() if root else self.base
+        if prefix:
+            doc = re.sub(r'(href|src)="/(?!/)', lambda mm: f'{mm.group(1)}="{prefix}/', doc)
         (dest / 'index.html').write_text(doc, encoding='utf-8')
+
+    def read_redirect(self, b):
+        """the old address /read/<id>/ on the site, kept for bookmarks and search engines: it sends readers on to
+        the page in R2, keeping a search (?q=) and a chapter (#c12)"""
+        to = self.read_url(b)
+        dest = self.out / 'read' / b['id']
+        dest.mkdir(parents=True, exist_ok=True)
+        (dest / 'index.html').write_text(f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>{esc(b['title'])} · Foggy Press</title><link rel="canonical" href="{esc(to)}"><meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={esc(to)}">
+<script>location.replace({json.dumps(to)} + location.search + location.hash)</script></head>
+<body><p><a href="{esc(to)}">{esc(b['title'])}: read online</a></p></body></html>
+''', encoding='utf-8')
+
+    def stage_read(self, root):
+        """every read-online page and its pictures under root/read/, for the R2 upload"""
+        for b in self.live:
+            if b.get('_html'):
+                self.reader(b, root)
 
     def home(self):
         feat = [t for t in self.tags if t['_level'] == 1 and self.by_tag[t['name']]][:FEATURED_MAX]
@@ -490,7 +523,10 @@ class Site:
             shutil.copyfile(css, self.out / 'assets' / 'book.css')
         for b in self.live:
             if b.get('_html'):
-                self.reader(b)
+                if self.pdf_base:
+                    self.read_redirect(b)
+                else:
+                    self.reader(b)
         (self.out / 'robots.txt').write_text('User-agent: *\nDisallow: /admin/\n')
         dom = os.environ.get('SITE_DOMAIN', '').strip()
         if dom:
@@ -608,6 +644,8 @@ if __name__ == '__main__':
         site.prepare()
         site.stage_pdfs(a.stage_pdfs)
         ne = site.stage_epubs(Path(a.stage_pdfs) / 'epub')
+        if site.pdf_base:
+            site.stage_read(a.stage_pdfs)
         print(f'Staged {len(site.live)} PDFs and {ne} EPUBs in {a.stage_pdfs}.')
         for p in site.problems:
             print('warning:', p, file=sys.stderr)

@@ -196,11 +196,13 @@
     // counted phrases: the English key is "{n} books"; translations pick their own plural form
     function plural(n, one, many) { return T(n === 1 ? '{n} ' + one : '{n} ' + many, {n: n}); }
     function acts(b) {
-      return '<span class="acts">' + (b.read ? '<a class="act" href="' + BASE + 'read/' + esc(b.id) + '/">' + T('Read online') + '</a>' : '') +
+      return '<span class="acts">' + (b.read ? '<a class="act" href="' + esc(readUrl(b)) + '">' + T('Read online') + '</a>' : '') +
         '<a class="act" href="' + esc(b.pdf) + '" data-goatcounter-click="pdf-' + esc(b.id) + '" data-goatcounter-title="' + esc(b.t) + '">' + T('Print this book') + '</a>' +
         (b.epub ? '<a class="act" href="' + esc(b.epub) + '" download data-goatcounter-click="epub-' + esc(b.id) + '" data-goatcounter-title="' + esc(b.t) + '" title="' + esc(T('For e-readers: Kindle, Apple Books, Kobo')) + '">EPUB</a>' : '') + '</span>';
     }
-    function mainHref(b, extra) { return b.read ? BASE + 'read/' + b.id + '/' + (extra || '') : b.pdf; }
+    // a book's read-online page: in R2 (files.foggypress.com) once the site moved them there, else /read/<id>/
+    function readUrl(b) { return b.rd || BASE + 'read/' + b.id + '/'; }
+    function mainHref(b, extra) { return b.read ? readUrl(b) + (extra || '') : b.pdf; }
     function rec(b, ws) {
       return '<li class="rec"><a class="main" href="' + esc(mainHref(b)) + '"><span class="t">' + hl(b.t, ws) + '</span><span class="a">' + hl(b.a, ws) +
         (b.tr ? ' · ' + T('tr.') + ' ' + esc(b.tr) : '') + '</span>' + (b.desc ? '<span class="d">' + esc(b.desc) + '</span>' : '') + '</a>' +
@@ -297,7 +299,7 @@
       if (li.dataset.loaded) return;
       li.dataset.loaded = '1';
       var box = li.querySelector('.snips');
-      var url = BASE + 'read/' + b.id + '/';
+      var url = readUrl(b);
       if (!pageCache[b.id]) pageCache[b.id] = fetch(url).then(function (x) { return x.text(); }).then(function (h) { return new DOMParser().parseFromString(h, 'text/html'); });
       pageCache[b.id].then(function (doc) {
         var chs = Object.keys(r.chapters).map(Number).sort(function (x, y) { return r.chapters[y] - r.chapters[x] || x - y; }).slice(0, 3).sort(function (x, y) { return x - y; });

@@ -4,6 +4,15 @@
 window.fpEvent = function (name) {
   try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({path: String(name).slice(0, 120), title: 'event', event: true}); } catch (e) {}
 };
+// Read-online pages are served from files.foggypress.com, which keeps its own settings: links there carry
+// the reader's language and theme (?fp=es.dark), and assets/i18n.js there takes them up.
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href*="/read/"]');
+  if (!a || a.host === location.host || !/^https?:$/.test(a.protocol)) return;
+  var lang = window.fpLang ? window.fpLang() : '', th = document.documentElement.dataset.theme || '';
+  if (!lang && !th) return;
+  var u = new URL(a.href); u.searchParams.set('fp', lang + '.' + th); a.href = u.toString();
+}, true);
 (function () {
   var T = window.fpT || function (s, v) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); };
   var root = document.documentElement;
