@@ -293,6 +293,71 @@ do $$ begin
   end if;
 end $$;
 
+-- ---------- Build me a book: readers ask for a public-domain book we don't have yet ----------
+-- A nightly job (foggy-press-files, .github/workflows/requests.yml) copies new requests into the books repository,
+-- where they are built from approved sources, and writes back what happened; the reader is emailed then.
+create table if not exists public.book_requests (
+  id          uuid primary key default gen_random_uuid(),
+  user_id     uuid not null references auth.users (id) on delete cascade,
+  title       text not null check (char_length(btrim(title)) between 1 and 300),
+  author      text not null default '' check (char_length(author) <= 200),
+  source_url  text not null default '' check (char_length(source_url) <= 500),
+  note        text not null default '' check (char_length(note) <= 500),
+  status      text not null default 'new' check (status in ('new', 'building', 'published', 'declined', 'not_found')),
+  book_id     text not null default '' check (char_length(book_id) <= 120),
+  reason      text not null default '' check (char_length(reason) <= 500),
+  notified_at timestamptz,
+  created_at  timestamptz not null default now(),
+  updated_at  timestamptz not null default now()
+);
+create index if not exists book_requests_user on public.book_requests (user_id, created_at desc);
+create index if not exists book_requests_status on public.book_requests (status);
+alter table public.book_requests enable row level security;
+drop policy if exists own_rows on public.book_requests;
+create policy own_rows on public.book_requests for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid());
+revoke all on public.book_requests from anon, authenticated;
+grant select on public.book_requests to authenticated;
+-- a reader may withdraw a request that hasn't been started
+drop policy if exists withdraw_new on public.book_requests;
+grant delete on public.book_requests to authenticated;
+create policy withdraw_new on public.book_requests as restrictive for delete to authenticated using (status = 'new');
+
+-- the sources a link may point to (the same ones the books are built from)
+create or replace function public.fp_approved_source(p_url text) returns boolean language sql immutable as $$
+  select coalesce(p_url, '') = '' or p_url ~* '^https?://([a-z0-9-]+\.)*(gutenberg\.org|gutenberg\.ca|hathitrust\.org|archive\.org|wikisource\.org|standardebooks\.org|fadedpage\.com|books\.google\.com)(/|$)';
+$$;
+
+-- ask for a book: at most 3 a day and 10 waiting at once per reader, and not the same title twice while waiting
+create or replace function public.request_book(p_title text, p_author text default '', p_url text default '', p_note text default '')
+returns json language plpgsql security definer set search_path = public as $$
+declare me uuid := auth.uid(); t text := btrim(coalesce(p_title, '')); new_id uuid;
+begin
+  if me is null then raise exception 'not signed in'; end if;
+  if char_length(t) < 2 then return json_build_object('ok', false, 'why', 'title'); end if;
+  if not fp_approved_source(btrim(coalesce(p_url, ''))) then return json_build_object('ok', false, 'why', 'source'); end if;
+  perform pg_advisory_xact_lock(hashtext('fp-req:' || me::text));
+  if exists (select 1 from book_requests where user_id = me and status in ('new', 'building') and lower(title) = lower(t)) then
+    return json_build_object('ok', false, 'why', 'duplicate');
+  end if;
+  if (select count(*) from book_requests where user_id = me and created_at > now() - interval '1 day') >= 3 then
+    return json_build_object('ok', false, 'why', 'day');
+  end if;
+  if (select count(*) from book_requests where user_id = me and status in ('new', 'building')) >= 10 then
+    return json_build_object('ok', false, 'why', 'open');
+  end if;
+  insert into book_requests (user_id, title, author, source_url, note)
+  values (me, left(t, 300), left(btrim(coalesce(p_author, '')), 200), left(btrim(coalesce(p_url, '')), 500), left(btrim(coalesce(p_note, '')), 500))
+  returning id into new_id;
+  return json_build_object('ok', true, 'id', new_id);
+end $$;
+revoke all on function public.request_book from public, anon;
+grant execute on function public.request_book to authenticated;
+do $$ begin
+  if exists (select 1 from pg_roles where rolname = 'service_role') then
+    grant select, update on public.book_requests to service_role;
+  end if;
+end $$;
+
 -- totals for the admin Reports tab (read at build time): counts only, never a row about a person
 create or replace function public.site_totals() returns json language sql security definer set search_path = public, auth stable as $$
   select json_build_object(
@@ -308,6 +373,9 @@ create or replace function public.site_totals() returns json language sql securi
     'ask_cost_month', (select coalesce(sum(cost_usd), 0) from ask_usage where asked_at >= date_trunc('month', now())),
     'ask_cap', (select monthly_cap_usd from ask_config),
     'chats', (select count(*) from chats),
+    'requests_waiting', (select count(*) from book_requests where status in ('new', 'building')),
+    'requests_published', (select count(*) from book_requests where status = 'published'),
+    'requests_declined', (select count(*) from book_requests where status in ('declined', 'not_found')),
     'saved', coalesce((select json_object_agg(book_id, n) from (select book_id, count(*) n from favorites group by book_id) s), '{}'::json)
   );
 $$;

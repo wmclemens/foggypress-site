@@ -420,6 +420,10 @@
       var titleOf = function (id) { var b = data.books.find(function (x) { return x.id === id; }); return b ? b.title : id; };
       h += '<h2 class="rp-sec">Reader accounts</h2><div class="rp-tiles">' + tile('Accounts', a.accounts) + tile('New in 7 days', a.new_7d) + tile('Active in 30 days', a.active_30d) + tile('Saved books', a.favorites) + tile('Reading lists', a.lists, num(a.list_items) + ' books on lists') + '</div>' +
         '<div class="rp-grid">' + ranked('Most-saved books', (a.top_saved || []).map(function (x) { return [titleOf(x[0]), x[1]]; }), {max: 20, note: 'Totals only: who saved what is never shown here.'}) + '</div>';
+      if (a.requests_waiting != null) {
+        h += '<h2 class="rp-sec">Book requests</h2><div class="rp-tiles">' + tile('Waiting or being built', a.requests_waiting) + tile('Published', a.requests_published) + tile('Not possible', a.requests_declined) + '</div>' +
+          '<p class="note">Readers ask on /request/. Each night the books repository picks up new requests, builds the ones it can from approved sources, and emails the reader. The list itself is in foggy-press-files, requests/queue.json.</p>';
+      }
       if (a.ask_cap != null) {
         var cost = Number(a.ask_cost_month || 0), cap = Number(a.ask_cap || 0);
         h += '<h2 class="rp-sec">Ask Foggy Press</h2><div class="rp-tiles">' + tile('Questions in 30 days', a.ask_30d) + tile('People asking, 30 days', a.ask_askers_30d) +

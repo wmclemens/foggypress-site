@@ -53,6 +53,10 @@
         (bk.tr ? ' · ' + esc(T('tr.')) + ' ' + esc(bk.tr) : '') + '</span>' + (b.why ? '<span class="d">' + inline(b.why) + '</span>' : '') + '</a>' +
         '<span class="m mono">' + esc(bk.d || '') + '</span><span class="acts">' + acts + '</span></li>';
     }
+    if (b.t === 'request') {
+      return '<p class="reqlink"><a class="btn ghost sm" href="' + BASE + 'request/?title=' + encodeURIComponent(b.title) + (b.author ? '&author=' + encodeURIComponent(b.author) : '') + '">' +
+        esc(T('Request this book')) + ': ' + esc(b.title) + ' →</a></p>';
+    }
     if (b.t === 'quote') {
       var here = bookId && b.id === bookId, where = readLink(bk || {id: b.id}, '?q=' + encodeURIComponent(b.q) + (b.ch ? '#' + encodeURIComponent(b.ch) : ''));
       return '<blockquote class="qt">' + esc(b.text) + '</blockquote><div class="src"><span>' + (here ? '' : esc(bk ? bk.t : b.id) + ' · ') + esc(b.head) + '</span>' +

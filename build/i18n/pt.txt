@@ -227,6 +227,30 @@ Muita procura agora. Tente de novo em um minuto.
 Parece que você está sem conexão. Tente de novo.
 Algo deu errado. Tente de novo.
 Excluir? Toque de novo
+Ainda não está na Foggy Press?
+Pedir este livro
+Pedir um livro
+Peça um livro de domínio público que ainda não está na Foggy Press. Procuramos nas nossas fontes aprovadas de livros de domínio público. Se encontrarmos uma edição que possamos publicar, nós a preparamos e avisamos por e-mail quando estiver no site, em geral em poucos dias. Se não for possível, explicamos o motivo por e-mail.
+Entre para pedir um livro
+Avisamos por e-mail quando seu livro estiver pronto, por isso os pedidos precisam de uma conta.
+Seus pedidos
+Aguardando
+Em preparação
+No site
+Não é possível
+Não encontrado nas nossas fontes
+Retirar
+Retirar? Toque de novo
+Link (opcional)
+Uma página do livro no Project Gutenberg, HathiTrust, Internet Archive, Wikisource, Standard Ebooks, Faded Page ou Google Books.
+Observação (opcional)
+Qual edição ou tradução, se fizer diferença
+Informe o título do livro.
+Esse link não é de uma das nossas fontes. Deixe em branco ou use um dos sites da lista.
+Você já pediu esse livro. Ele está a caminho.
+Você já fez 3 pedidos hoje. Peça de novo amanhã.
+Você tem 10 pedidos aguardando. Espere alguns terminarem.
+Obrigado. Avisaremos por e-mail quando “{title}” estiver no site, ou se não pudermos adicioná-lo.
 
 @about 2654dd9aaf
 A Foggy Press compõe livros de domínio público num estilo próprio e simples e os publica de graça: para ler on-line, imprimir em casa a partir de um PDF em papel carta americano ou baixar como EPUB para um leitor digital.
@@ -243,14 +267,14 @@ A Foggy Press é uma edição de leitura gratuita e sem fins comerciais. Não h�
 
 Se você acredita que um livro deste site ainda está protegido por direitos autorais, ou que nos enganamos sobre os direitos dele, avise-nos pelo formulário abaixo. Indique o livro e explique o problema, e vamos analisá-lo prontamente. O mesmo formulário serve para erros de digitação e outros erros.
 
-@privacy ce7b31869d
+@privacy 2e5df3593b
 Você pode ler, pesquisar e baixar todos os livros da Foggy Press sem conta. A conta é opcional: ela guarda os livros que você salva, suas listas de leitura, suas próprias etiquetas e seu histórico de leitura, para que estejam em qualquer dispositivo.
 
 ## O que guardamos
 
 Se você criar uma conta, guardamos seu endereço de e-mail, os livros que você salva, suas listas e etiquetas com as notas, e seu histórico de leitura: quais livros você abriu, onde parou e se baixou o PDF ou o EPUB. Você pode desativar ou limpar o histórico quando quiser na página Meus livros.
 
-Se você usa o Pergunte à Foggy Press, guardamos suas perguntas e as respostas como conversas anteriores na sua conta, e uma contagem de quantas perguntas você faz por dia (para o limite diário).
+Se você usa o Pergunte à Foggy Press, guardamos suas perguntas e as respostas como conversas anteriores na sua conta, e uma contagem de quantas perguntas você faz por dia (para o limite diário). Se você pedir um livro, guardamos o pedido (título, autor, seu link e sua observação) e o que aconteceu com ele, e avisamos você por e-mail quando terminar.
 
 Não guardamos seu nome, senha nem dados de pagamento. Não há anúncios nem cookies de rastreamento. Nunca vendemos nem compartilhamos o que você salva, e só enviamos e-mails para você entrar.
 

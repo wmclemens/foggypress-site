@@ -7,7 +7,8 @@ import { type Book, findPhrase, around, Library, tokens } from './books.ts';
 export type Block =
   | { t: 'p'; text: string }
   | { t: 'book'; id: string; why: string }
-  | { t: 'quote'; id: string; ch: string; head: string; text: string; q: string };
+  | { t: 'quote'; id: string; ch: string; head: string; text: string; q: string }
+  | { t: 'request'; title: string; author: string };
 export type Turn = { role: 'user' | 'assistant'; content: string };
 export type Usage = { input: number; output: number; cost: number };
 export type Engine = { model: string; priceIn: number; priceOut: number };   // prices: dollars per million tokens
@@ -31,6 +32,7 @@ How to write the answer (the page turns these lines into cards and quotes)
 [[book two-years-before-the-mast]] Dana's own account of two years as a common sailor.
 - A quote is a line on its own: [[quote ID#CHAPTER]] and then the exact words, without quotation marks, at most 80 words. CHAPTER is the chapter id the tools gave you (empty for the opening: [[quote ID#]]). Example:
 [[quote moby-dick#c1]] Call me Ishmael.
+- If the reader wants a public-domain book that is not in the catalog, say we don't have it yet and that they can ask us to add it, then write a line on its own: [[request TITLE | AUTHOR]]. Never offer this for books still under copyright.
 - Every other line is a paragraph. You may use *italics* for titles. No other markup and no links.
 
 The catalog (id | title | author | first published | tags | description)
@@ -117,6 +119,7 @@ async function readBook(lib: Library, input: Record<string, unknown>): Promise<s
 // ---- turning the model's lines into blocks
 const BOOK_LINE = /^\[\[book ([\w.-]+)\]\]\s*(.*)$/;
 const QUOTE_LINE = /^\[\[quote ([\w.-]+)#([^\]]*)\]\]\s*(.+)$/;
+const REQUEST_LINE = /^\[\[request ([^\]|]+)(?:\|([^\]]*))?\]\]\s*$/;
 
 // where a quote is, word for word (punctuation and case aside): the chapter it names first, then any chapter
 async function placeQuote(lib: Library, id: string, ch: string, text: string) {
@@ -142,6 +145,11 @@ export async function toBlocks(lib: Library, text: string): Promise<{ blocks: Bl
     if (m) {
       if (await lib.book(m[1])) blocks.push({ t: 'book', id: m[1], why: m[2].slice(0, 400) });
       else if (m[2]) blocks.push({ t: 'p', text: m[2] });
+      continue;
+    }
+    m = line.match(REQUEST_LINE);
+    if (m) {
+      blocks.push({ t: 'request', title: m[1].trim().slice(0, 300), author: (m[2] || '').trim().slice(0, 200) });
       continue;
     }
     m = line.match(QUOTE_LINE);

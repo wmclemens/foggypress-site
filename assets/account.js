@@ -17,7 +17,13 @@
   var DOMAIN = /(^|\.)foggypress\.com$/.test(location.hostname) ? '; domain=foggypress.com' : '';
   var SECURE = location.protocol === 'https:' ? '; secure' : '';
   var MAX_LOCAL_FAVS = 200, MAX_LOCAL_RECENT = 20;
-  var NEXT = (new URLSearchParams(location.search).get('next') || '').replace(/[^a-z]/g, '') === 'ask' ? 'ask' : '';
+  // signed in from Ask or Request a book: go back there, keeping that page's own ?title=… (only these two pages)
+  var NEXT = (function () {
+    var p = new URLSearchParams(location.search), n = p.get('next');
+    if (n !== 'ask' && n !== 'request') return '';
+    p.delete('next'); p.delete('code');
+    return n + '/' + (String(p) ? '?' + String(p) : '');
+  })();
 
   // ---------- cookies (long values are split over several) ----------
   function ckRaw(name) { var m = document.cookie.match('(?:^|; )' + name.replace(/[.$?*|{}()[\]\\/+^]/g, '\\$&') + '=([^;]*)'); return m ? m[1] : null; }
@@ -384,7 +390,7 @@
     if (!acct) return;
     if (!signedIn()) return drawSignIn();
     // signed in from Ask's "Sign in to ask": back to Ask
-    if (NEXT) { location.replace(BASE + NEXT + '/'); return; }
+    if (NEXT) { location.replace(BASE + NEXT); return; }
     var h = location.hash.replace('#', '');
     view = ['saved', 'lists', 'history', 'account'].indexOf(h) >= 0 ? h : 'saved';
     var tabs = [['saved', T('Saved')], ['lists', T('Reading lists')], ['history', T('History')], ['account', T('Account')]];
@@ -539,7 +545,7 @@
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say(T('That email address doesn’t look right. Please check it.'), true); return; }
         if (TS_KEY && !tsToken) { say(T('One moment: checking this browser…')); return; }
         say(T('Sending…'));
-        sb.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname + (NEXT ? '?next=' + NEXT : ''), shouldCreateUser: true, captchaToken: tsToken || undefined}}).then(function (r) {
+        sb.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname + location.search.replace(/[?&]code=[^&]*/, ''), shouldCreateUser: true, captchaToken: tsToken || undefined}}).then(function (r) {
           if (tsWidget != null && window.turnstile) { window.turnstile.reset(tsWidget); tsToken = ''; }
           if (r.error) { say(r.error.status === 429 ? T('Too many tries. Please wait a minute and try again.') : T('We couldn’t send the email. Please try again.'), true); return; }
           fpEvent('sign-in: link sent');

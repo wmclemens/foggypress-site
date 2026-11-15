@@ -424,3 +424,22 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 .dstart button:hover{border-color:var(--accent);color:var(--accent)}
 @media (min-width:1100px){body.reading.asking{padding-right:25rem}body.reading.asking .readtop{margin-right:0}}
 @media print{.drawer,.rb-ask,.askrail,.mask{display:none!important}}
+
+/* ---------- Request a book (assets/request.js) ---------- */
+.reqform{max-width:38rem;margin:1.75rem 0 2.5rem}
+.reqform .formnote{font-size:.8rem}
+#request .gate{margin-top:1.75rem}
+.reqs{list-style:none;margin:0;padding:0}
+.req{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem 1.5rem;padding:.8rem 0;border-bottom:1px solid var(--line);align-items:baseline}
+.req .t{font-weight:500;overflow-wrap:anywhere}
+.req .t a{color:var(--accent)}
+.req .t a:hover{text-decoration:underline;text-underline-offset:3px}
+.req .a{grid-column:1;color:var(--muted);font-size:.9rem}
+.req .st{grid-column:2;grid-row:1;color:var(--faint);white-space:nowrap;text-align:right}
+.req.st-published .st{color:var(--accent)}
+.req.st-declined .st,.req.st-not_found .st{color:var(--warn)}
+.req .why{grid-column:1/-1;color:var(--muted);font-size:.86rem}
+.req .linkish{grid-column:2;justify-self:end;font-size:.78rem}
+.reqhint a{color:var(--accent)}
+.reqlink{margin:0}
+@media (max-width:560px){.req{grid-template-columns:minmax(0,1fr)}.req .st,.req .linkish{grid-column:1;grid-row:auto;text-align:left;justify-self:start}}

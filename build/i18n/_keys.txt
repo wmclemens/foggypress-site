@@ -227,3 +227,27 @@ Ask is busy right now. Please try again in a minute.
 You seem to be offline. Please try again.
 Something went wrong. Please try again.
 Delete? Press again
+Not on Foggy Press yet?
+Request this book
+Request a book
+Ask for a public-domain book that isn’t on Foggy Press yet. We look for it in our approved sources of public-domain books. If we find an edition we can publish, we build it and email you when it’s on the site, usually within a few days. If we can’t, we email you why.
+Sign in to request a book
+We email you when your book is ready, so requests need an account.
+Your requests
+Waiting
+Being built
+On the site
+Not possible
+Not found in our sources
+Withdraw
+Withdraw? Press again
+Link (optional)
+A page for the book on Project Gutenberg, HathiTrust, the Internet Archive, Wikisource, Standard Ebooks, Faded Page or Google Books.
+Note (optional)
+Which edition or translation, if it matters
+Please give the book’s title.
+That link isn’t one of our sources. Leave it empty, or use one of the sites listed.
+You’ve already asked for that book. It’s on its way.
+That’s 3 requests for today. Please ask again tomorrow.
+You have 10 requests waiting. Please wait for some to finish.
+Thanks. We’ll email you when “{title}” is on the site, or if we can’t add it.

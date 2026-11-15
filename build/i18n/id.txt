@@ -227,6 +227,30 @@ Sedang banyak permintaan. Coba lagi dalam satu menit.
 Sepertinya Anda sedang offline. Coba lagi.
 Terjadi kesalahan. Coba lagi.
 Hapus? Tekan sekali lagi
+Belum ada di Foggy Press?
+Minta buku ini
+Minta buku
+Minta buku domain publik yang belum ada di Foggy Press. Kami mencarinya di sumber-sumber buku domain publik yang kami setujui. Jika kami menemukan edisi yang bisa diterbitkan, kami menyiapkannya dan mengirim email saat buku itu sudah ada di situs, biasanya dalam beberapa hari. Jika tidak bisa, kami mengirim email untuk menjelaskan alasannya.
+Masuk untuk meminta buku
+Kami mengirim email saat buku Anda siap, jadi permintaan memerlukan akun.
+Permintaan Anda
+Menunggu
+Sedang disiapkan
+Sudah di situs
+Tidak bisa
+Tidak ditemukan di sumber kami
+Batalkan
+Batalkan? Tekan sekali lagi
+Tautan (opsional)
+Halaman buku itu di Project Gutenberg, HathiTrust, Internet Archive, Wikisource, Standard Ebooks, Faded Page, atau Google Books.
+Catatan (opsional)
+Edisi atau terjemahan mana, jika penting
+Tuliskan judul buku.
+Tautan itu bukan dari sumber kami. Kosongkan saja, atau gunakan salah satu situs dalam daftar.
+Anda sudah meminta buku itu. Sedang diproses.
+Itu 3 permintaan Anda hari ini. Silakan minta lagi besok.
+Ada 10 permintaan Anda yang menunggu. Tunggu sampai beberapa selesai.
+Terima kasih. Kami akan mengirim email saat “{title}” sudah ada di situs, atau jika kami tidak bisa menambahkannya.
 
 @about 2654dd9aaf
 Foggy Press menata ulang buku-buku domain publik dalam satu gaya rumah yang sederhana dan menerbitkannya secara gratis: untuk dibaca daring, dicetak di rumah dari PDF berukuran kertas letter AS, atau diunduh sebagai EPUB untuk pembaca e-book.
@@ -243,14 +267,14 @@ Foggy Press adalah edisi bacaan gratis dan nonkomersial. Tidak ada iklan, tidak 
 
 Jika Anda yakin sebuah buku di situs ini masih dilindungi hak cipta, atau kami keliru tentang haknya, beri tahu kami melalui formulir di bawah. Sebutkan bukunya dan jelaskan masalahnya, dan kami akan segera memeriksanya. Formulir yang sama juga bisa dipakai untuk salah ketik dan kesalahan lain.
 
-@privacy ce7b31869d
+@privacy 2e5df3593b
 Anda dapat membaca, mencari, dan mengunduh setiap buku di Foggy Press tanpa akun. Akun bersifat pilihan: akun menyimpan buku yang Anda simpan, daftar bacaan, tag Anda sendiri, dan riwayat bacaan, agar ikut bersama Anda di perangkat mana pun.
 
 ## Yang kami simpan
 
 Jika Anda membuat akun, kami menyimpan alamat email Anda, buku yang Anda simpan, daftar dan tag beserta catatannya, serta riwayat bacaan Anda: buku apa yang Anda buka, di mana Anda berhenti, dan apakah Anda mengunduh PDF atau EPUB. Anda dapat mematikan atau menghapus riwayat kapan saja di halaman Buku saya.
 
-Jika Anda memakai Tanya Foggy Press, kami menyimpan pertanyaan dan jawabannya sebagai percakapan sebelumnya di akun Anda, serta jumlah pertanyaan yang Anda ajukan setiap hari (untuk batas harian).
+Jika Anda memakai Tanya Foggy Press, kami menyimpan pertanyaan dan jawabannya sebagai percakapan sebelumnya di akun Anda, serta jumlah pertanyaan yang Anda ajukan setiap hari (untuk batas harian). Jika Anda meminta buku, kami menyimpan permintaan itu (judul, penulis, tautan dan catatan Anda) beserta hasilnya, dan mengirim email saat selesai.
 
 Kami tidak menyimpan nama Anda, kata sandi, atau data pembayaran. Tidak ada iklan dan tidak ada cookie pelacak. Kami tidak pernah menjual atau membagikan apa yang Anda simpan, dan kami hanya mengirim email untuk masuk.
 

@@ -28,8 +28,9 @@ Deno.test('library search over the built site', async () => {
   const chs = await lib.chaptersOf(hits[0].book);
   const c = chs[hits[0].chapters[0].ci];
   eq(c.id, 'c3', 'chapter of the hit');
-  const { blocks, bad } = await toBlocks(lib, 'He says so at once.\n[[quote moby-dick#c1]] Call me Ishmael. Some years ago—never mind how long precisely\n[[quote moby-dick#c3]] I am the walrus and the carpenter\n[[book moby-dick]] The whale.\n[[book not-a-book]] Gone.');
-  eq(blocks.map((b) => b.t), ['p', 'quote', 'book', 'p'], 'block kinds');
+  const { blocks, bad } = await toBlocks(lib, 'He says so at once.\n[[quote moby-dick#c1]] Call me Ishmael. Some years ago—never mind how long precisely\n[[quote moby-dick#c3]] I am the walrus and the carpenter\n[[book moby-dick]] The whale.\n[[book not-a-book]] Gone.\n[[request Ivanhoe | Walter Scott]]');
+  eq(blocks.map((b) => b.t), ['p', 'quote', 'book', 'p', 'request'], 'block kinds');
+  eq(blocks[4], { t: 'request', title: 'Ivanhoe', author: 'Walter Scott' }, 'request block');
   eq(blocks[1].t === 'quote' && blocks[1].ch, 'c3', 'quote placed in its real chapter');
   eq(bad.length, 1, 'made-up quote caught');
 });

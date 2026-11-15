@@ -232,7 +232,10 @@
         var authors = Object.keys(am).sort(function (a, b) { return am[a].last.localeCompare(am[b].last) || a.localeCompare(b); });
         var titles = books.filter(function (b) { return hasPhrase(b.t, ws); }).sort(byT);
         var colls = tags.filter(function (g) { return hasPhrase(g.n, ws); });
-        var top = head + '<h1 lang="">“' + esc(q) + '”</h1><p class="sub" id="sr-sum"></p></div>';
+        // no book by that title or author: readers with accounts can ask for it (Build me a book, /request/)
+        var ask = !titles.length && !authors.length && document.querySelector('meta[name="fp-account"]')
+          ? '<p class="sub reqhint">' + T('Not on Foggy Press yet?') + ' <a href="' + BASE + 'request/?title=' + encodeURIComponent(q) + '">' + T('Request this book') + ' →</a></p>' : '';
+        var top = head + '<h1 lang="">“' + esc(q) + '”</h1><p class="sub" id="sr-sum"></p>' + ask + '</div>';
         var body = '';
         if (authors.length) body += '<section class="rgroup"><div class="sec-h"><h2>' + T('Authors') + '</h2><span class="eyebrow">' + authors.length + '</span></div><ul class="authors">' +
           authors.map(function (a) {

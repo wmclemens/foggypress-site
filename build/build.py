@@ -278,7 +278,7 @@ class Site:
     {self.search_box('q', 'srch')}
     {self.ask_rail(current)}
     <div><div class="eyebrow" style="margin-bottom:.6rem" data-t>List books</div><nav aria-label="Lists">{navhtml}</nav></div>
-    <nav aria-label="About">{f'<a href="/account/"{" aria-current=page" if current == "account" else ""}><span data-t>My books</span><span class="mono">→</span></a>' if self.accounts else ''}<a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
+    <nav aria-label="About">{f'<a href="/account/"{" aria-current=page" if current == "account" else ""}><span data-t>My books</span><span class="mono">→</span></a><a href="/request/"{" aria-current=page" if current == "request" else ""}><span data-t>Request a book</span><span class="mono">→</span></a>' if self.accounts else ''}<a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
     <div class="rail-end"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div>
   </aside>
   <main>{body}</main>
@@ -288,6 +288,7 @@ class Site:
 <script src="/assets/site.js" defer></script>
 {'<script src="/assets/search.js" defer></script>' if current == 'search' else ''}
 {self.account_script()}
+{'<script src="/assets/request.js" defer></script>' if current == 'request' else ''}
 {gc}
 </body>
 </html>
@@ -547,6 +548,8 @@ class Site:
         nojs = '<noscript><p class="sub" data-t>Accounts need JavaScript.</p></noscript>'
         self.page('account/index.html', 'My books · Foggy Press', f'<div id="acct"><div class="ph"><h1 data-t>My books</h1>{nojs}</div></div>', 'account',
                   'Your saved books, reading lists and history on Foggy Press.')
+        self.page('request/index.html', 'Request a book · Foggy Press', f'<div id="request"><div class="ph"><h1 data-t>Request a book</h1>{nojs}</div></div>', 'request',
+                  'Ask Foggy Press to add a public-domain book from its approved sources.')
         self.page('list/index.html', 'Reading list · Foggy Press', f'<div id="list"><div class="ph"><h1 data-t>Reading list</h1>{nojs}</div></div>', 'account')
         src = ROOT / 'content/privacy.md'
         text = src.read_text() if src.exists() else ''

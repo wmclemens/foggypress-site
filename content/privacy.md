@@ -4,7 +4,7 @@ You can read, search and download every book on Foggy Press without an account. 
 
 If you make an account, we keep your email address, the books you save, your lists and tags with their notes, and your reading history: which books you opened, where you stopped, and whether you downloaded the PDF or EPUB. You can turn history off or clear it at any time on the My books page.
 
-If you use Ask Foggy Press, we keep your questions and the answers as past chats in your account, and a count of how many questions you ask each day (for the daily limit).
+If you use Ask Foggy Press, we keep your questions and the answers as past chats in your account, and a count of how many questions you ask each day (for the daily limit). If you request a book, we keep the request (title, author, your link and note) and what happened to it, and email you when it's done.
 
 We don't keep your name, a password or any payment details. There are no ads and no tracking cookies. We never sell or share what you save, and we only email you to sign you in.
 

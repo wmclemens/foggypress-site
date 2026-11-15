@@ -227,6 +227,30 @@ Kuna maombi mengi sasa hivi. Jaribu tena baada ya dakika moja.
 Inaonekana uko nje ya mtandao. Jaribu tena.
 Kuna hitilafu. Jaribu tena.
 Futa? Bonyeza tena
+Bado hakipo Foggy Press?
+Omba kitabu hiki
+Omba kitabu
+Omba kitabu kilicho kwenye uwanja wa umma ambacho bado hakipo Foggy Press. Tunakitafuta kwenye vyanzo vyetu vilivyoidhinishwa vya vitabu vya uwanja wa umma. Tukipata toleo tunaloweza kuchapisha, tunakitengeneza na kukutumia barua pepe kikiwa kwenye tovuti, kwa kawaida ndani ya siku chache. Tusipoweza, tunakuandikia kukueleza sababu.
+Ingia ili uombe kitabu
+Tunakutumia barua pepe kitabu chako kikiwa tayari, kwa hiyo maombi yanahitaji akaunti.
+Maombi yako
+Yanasubiri
+Kinatengenezwa
+Kiko kwenye tovuti
+Haiwezekani
+Hakikupatikana kwenye vyanzo vyetu
+Ondoa ombi
+Ondoa? Bonyeza tena
+Kiungo (si lazima)
+Ukurasa wa kitabu kwenye Project Gutenberg, HathiTrust, Internet Archive, Wikisource, Standard Ebooks, Faded Page au Google Books.
+Maelezo (si lazima)
+Toleo au tafsiri ipi, ikiwa ni muhimu
+Tafadhali andika jina la kitabu.
+Kiungo hicho si cha vyanzo vyetu. Kiache wazi, au tumia mojawapo ya tovuti zilizoorodheshwa.
+Umeshaomba kitabu hicho. Kinashughulikiwa.
+Hayo ni maombi 3 ya leo. Tafadhali omba tena kesho.
+Una maombi 10 yanayosubiri. Tafadhali subiri baadhi yakamilike.
+Asante. Tutakutumia barua pepe “{title}” kikiwa kwenye tovuti, au tusipoweza kukiongeza.
 
 @about 2654dd9aaf
 Foggy Press hupanga upya vitabu vya umma kwa mtindo mmoja rahisi na kuvichapisha bure: kusoma mtandaoni, kuchapisha nyumbani kutoka kwenye PDF ya karatasi ya ukubwa wa letter ya Marekani, au kupakua kama EPUB kwa kisomaji cha kielektroniki.
@@ -243,14 +267,14 @@ Foggy Press ni toleo la kusoma la bure lisilo la kibiashara. Hakuna matangazo, h
 
 Ikiwa unaamini kwamba kitabu kwenye tovuti hii bado kina hakimiliki, au tumekosea kuhusu haki zake, tafadhali tuambie kupitia fomu iliyo hapa chini. Taja kitabu na ueleze tatizo, nasi tutalichunguza haraka. Fomu hiyo hiyo inatumika pia kwa makosa ya uchapaji na makosa mengine.
 
-@privacy ce7b31869d
+@privacy 2e5df3593b
 Unaweza kusoma, kutafuta na kupakua kila kitabu cha Foggy Press bila akaunti. Akaunti ni hiari: inahifadhi vitabu unavyohifadhi, orodha zako za kusoma, lebo zako mwenyewe na historia yako ya kusoma, ili viwe nawe kwenye kifaa chochote.
 
 ## Tunachohifadhi
 
 Ukifungua akaunti, tunahifadhi anwani yako ya barua pepe, vitabu unavyohifadhi, orodha na lebo zako pamoja na madokezo yake, na historia yako ya kusoma: vitabu ulivyofungua, ulipoishia, na kama ulipakua PDF au EPUB. Unaweza kuzima au kufuta historia wakati wowote kwenye ukurasa wa Vitabu vyangu.
 
-Ukitumia Uliza Foggy Press, tunahifadhi maswali yako na majibu kama mazungumzo ya awali kwenye akaunti yako, pamoja na idadi ya maswali unayouliza kila siku (kwa ajili ya kikomo cha kila siku).
+Ukitumia Uliza Foggy Press, tunahifadhi maswali yako na majibu kama mazungumzo ya awali kwenye akaunti yako, pamoja na idadi ya maswali unayouliza kila siku (kwa ajili ya kikomo cha kila siku). Ukiomba kitabu, tunahifadhi ombi (jina, mwandishi, kiungo chako na maelezo yako) na kilichotokea, na tunakutumia barua pepe likikamilika.
 
 Hatuhifadhi jina lako, nenosiri wala taarifa za malipo. Hakuna matangazo wala vidakuzi vya kufuatilia. Hatuuzi wala kushiriki unachohifadhi, na tunakutumia barua pepe kwa ajili ya kuingia tu.
 
