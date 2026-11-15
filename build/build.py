@@ -239,7 +239,7 @@ class Site:
                 f'<button type="submit" aria-label="Search">→</button></div></form>')
 
     def search(self):
-        """/search/ page plus the index it reads (search/books.json, search/w/*.json): see search_index.py"""
+        """/search/ page plus the index it reads (search/books.json, search/p.json, search/p/*.bin): see search_index.py"""
         rows = []
         for b in self.live:
             art = None
