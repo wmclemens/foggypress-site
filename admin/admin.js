@@ -109,6 +109,8 @@
   var isLive = function (b) { var s = st(b); return s.live != null ? s.live : !!b.foggy_press_date; };
   var dlOf = function (b) { return st(b).downloads || 0; };
   var vwOf = function (b) { return st(b).views || 0; };
+  var svOf = function (b) { return st(b).saved || 0; };
+  var hasSaved = function () { return Object.keys(stats.books || {}).some(function (k) { return stats.books[k].saved != null; }); };
 
   // ---- views ----
   function tabs(cur) {
@@ -145,16 +147,16 @@
       var val = {
         author_last: function (b) { return b.author_last; }, author_first: function (b) { return b.author_first; },
         title: function (b) { return sortTitle(b.title); }, original_date: function (b) { var n = yearNum(b.original_date); return n === Infinity ? '' : n; },
-        foggy_press_date: function (b) { return b.foggy_press_date || ''; }, downloads: function (b) { return dlOf(b); }, views: function (b) { return vwOf(b); },
+        foggy_press_date: function (b) { return b.foggy_press_date || ''; }, downloads: function (b) { return dlOf(b); }, views: function (b) { return vwOf(b); }, saved: function (b) { return svOf(b); },
         pages: function (b) { return st(b).pages == null ? '' : st(b).pages; }, tags: function (b) { return sortedTags(b).join(', '); }
       }[catSort.key];
       list.sort(function (a, b) { var r = cmp(val(a), val(b)); return (r * catSort.dir) || cmp(a.author_last + a.author_first + sortTitle(a.title), b.author_last + b.author_first + sortTitle(b.title)); });
-      $('#chead').innerHTML = '<tr>' + th('Author last', 'author_last', catSort) + th('Author first', 'author_first', catSort) + th('Title', 'title', catSort) + th('Original', 'original_date', catSort) + th('Foggy Press', 'foggy_press_date', catSort) + th('PDF downloads', 'downloads', catSort) + th('Online views', 'views', catSort) + th('Pages', 'pages', catSort) + th('Tags', 'tags', catSort) + '</tr>';
+      $('#chead').innerHTML = '<tr>' + th('Author last', 'author_last', catSort) + th('Author first', 'author_first', catSort) + th('Title', 'title', catSort) + th('Original', 'original_date', catSort) + th('Foggy Press', 'foggy_press_date', catSort) + th('PDF downloads', 'downloads', catSort) + th('Online views', 'views', catSort) + (hasSaved() ? th('Saved', 'saved', catSort) : '') + th('Pages', 'pages', catSort) + th('Tags', 'tags', catSort) + '</tr>';
       wireSort($('#chead'), catSort, draw);
       $('#count').textContent = list.length + ' of ' + data.books.length + ' records · ' + data.books.filter(isLive).length + ' live';
       $('#rows').innerHTML = list.map(function (b) {
         return '<tr class="go" data-id="' + esc(b.id) + '" tabindex="0"><td>' + esc(b.author_last) + '</td><td>' + esc(b.author_first) + '</td><td>' + esc(b.title) + '</td><td class="num">' + esc(b.original_date) + '</td>' +
-          '<td class="num">' + (b.foggy_press_date ? esc(b.foggy_press_date) : '<span class="pill warn">Hidden</span>') + '</td><td class="num">' + num(dlOf(b)) + '</td><td class="num">' + num(vwOf(b)) + '</td><td class="num">' + num(st(b).pages) + '</td>' +
+          '<td class="num">' + (b.foggy_press_date ? esc(b.foggy_press_date) : '<span class="pill warn">Hidden</span>') + '</td><td class="num">' + num(dlOf(b)) + '</td><td class="num">' + num(vwOf(b)) + '</td>' + (hasSaved() ? '<td class="num">' + num(svOf(b)) + '</td>' : '') + '<td class="num">' + num(st(b).pages) + '</td>' +
           '<td><div class="chips">' + sortedTags(b).map(function (t) { return '<span class="chip">' + esc(t) + '</span>'; }).join('') + '</div></td></tr>';
       }).join('');
     };
@@ -412,6 +414,12 @@
         ranked('Searches that found nothing', g.searches_none, {max: 15, note: 'Books people looked for and we don’t have.'}) +
         ranked('Countries', g.locations) + ranked('Browsers', g.browsers) + ranked('Systems', g.systems) + ranked('Screen sizes', g.sizes) +
         ranked('Most visited pages', g.pages, {max: 20, wide: true}) + '</div>';
+    }
+    var a = r.accounts;
+    if (a) {
+      var titleOf = function (id) { var b = data.books.find(function (x) { return x.id === id; }); return b ? b.title : id; };
+      h += '<h2 class="rp-sec">Reader accounts</h2><div class="rp-tiles">' + tile('Accounts', a.accounts) + tile('New in 7 days', a.new_7d) + tile('Active in 30 days', a.active_30d) + tile('Saved books', a.favorites) + tile('Reading lists', a.lists, num(a.list_items) + ' books on lists') + '</div>' +
+        '<div class="rp-grid">' + ranked('Most-saved books', (a.top_saved || []).map(function (x) { return [titleOf(x[0]), x[1]]; }), {max: 20, note: 'Totals only: who saved what is never shown here.'}) + '</div>';
     }
     h += '<div class="rp-grid">';
     if (c) {

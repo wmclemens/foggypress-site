@@ -14,7 +14,7 @@
     ['pt', 'Português'], ['ru', 'Русский'], ['id', 'Bahasa Indonesia'], ['fr', 'Français'], ['ja', '日本語'],
     ['sw', 'Kiswahili'], ['mr', 'मराठी'], ['te', 'తెలుగు']
   ];
-  var VERSION = '1';
+  var VERSION = '2';
   var me = document.currentScript && document.currentScript.src;
   var BASE = me ? me.replace(/assets\/i18n\.js(\?.*)?$/, '') : '/';
   var root = document.documentElement, known = {};

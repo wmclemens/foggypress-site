@@ -13,6 +13,10 @@ Cloudflare (CLOUDFLARE_API_TOKEN + CLOUDFLARE_ZONE_ID; optional), last 7 days:
   the browser name each request gives (crawlers name themselves: "bot", "spider", "crawl"...),
   with countries. Needs an API token with the zone's Analytics: Read permission.
 
+Supabase (SUPABASE_URL + SUPABASE_ANON_KEY; only once reader accounts are set up):
+  totals from the database function site_totals() (supabase/schema.sql): accounts, new in 7 days,
+  active in 30 days, favorites, lists, and how many readers saved each book. Counts only.
+
 Every source is optional: what can't be fetched is left out and named in "missing".
 Nothing here identifies a person; the counts are totals.
 """
@@ -123,7 +127,16 @@ def cloudflare(token, zone, host='files.foggypress.com'):
             'countries': sorted(countries.items(), key=lambda kv: -kv[1])[:15]}
 
 
-def build_report(gc_code, gc_token, cf_token='', cf_zone=''):
+def supabase_totals(url, key):
+    d = _get(f'{url}/rest/v1/rpc/site_totals', {'apikey': key, 'Authorization': f'Bearer {key}', 'Content-Type': 'application/json'}, b'{}')
+    saved = d.get('saved') or {}
+    return {'accounts': int(d.get('accounts') or 0), 'new_7d': int(d.get('new_7d') or 0), 'active_30d': int(d.get('active_30d') or 0),
+            'favorites': int(d.get('favorites') or 0), 'lists': int(d.get('lists') or 0), 'list_items': int(d.get('list_items') or 0),
+            'saved': {k: int(v) for k, v in saved.items()},
+            'top_saved': sorted(([k, int(v)] for k, v in saved.items()), key=lambda kv: -kv[1])[:20]}
+
+
+def build_report(gc_code, gc_token, cf_token='', cf_zone='', sb_url='', sb_key=''):
     rep = {'built': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'missing': []}
     if gc_code and gc_token:
         try:
@@ -141,6 +154,11 @@ def build_report(gc_code, gc_token, cf_token='', cf_zone=''):
             rep['missing'].append(f'Cloudflare: {e}')
     else:
         rep['missing'].append('Cloudflare: not connected (needs CLOUDFLARE_API_TOKEN and CLOUDFLARE_ZONE_ID secrets)')
+    if sb_url and sb_key:
+        try:
+            rep['accounts'] = supabase_totals(sb_url, sb_key)
+        except Exception as e:
+            rep['missing'].append(f'Accounts (Supabase): {e}')
     for m in rep['missing']:
         print('warning: report:', m, file=sys.stderr)
     return rep

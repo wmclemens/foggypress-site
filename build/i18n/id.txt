@@ -102,6 +102,77 @@ Pesan Anda tidak terkirim. Periksa koneksi Anda lalu coba lagi.
 Tidak ditemukan
 Halaman itu tidak ada di sini.
 Ke beranda
+Gagal menyimpan. Silakan coba lagi.
+Browser ini menyimpan {n} buku. Masuk untuk menyimpan lebih banyak.
+Buku yang disimpan di browser ini telah ditambahkan ke akun Anda.
+Simpan
+Daftar dan tag
+Tersimpan
+Memuat…
+Masuk untuk menaruh buku di daftar bacaan dan menambahkan tag Anda sendiri.
+Masuk
+Gagal memuat. Silakan coba lagi.
+Daftar bacaan
+Daftar baru
+Tag saya
+Tag baru
+Buku saya
+Anda sudah mencapai batas. Hapus sesuatu dulu.
+Anda sudah punya satu dengan nama itu.
+{n}% dibaca
+Lanjutkan membaca
+Riwayat
+Tidak ada lagi di situs
+Akun
+Semua tag saya
+Tidak ada buku tersimpan dengan tag ini.
+Belum ada yang disimpan. Tekan Simpan di buku mana pun untuk menyimpannya di sini.
+Hapus tag
+Nama daftar bacaan baru
+Buat daftar
+Belum ada daftar bacaan.
+Simpan riwayat bacaan saya
+Hapus riwayat
+Riwayat nonaktif. Tidak ada yang baru dicatat.
+Belum ada riwayat bacaan.
+Tekan lagi untuk menghapus
+Email
+Keluar
+Data Anda
+Unduh semua yang tersimpan di akun Anda sebagai file, atau hapus akun beserta seluruh isinya.
+Privasi
+Unduh data saya
+Hapus akun saya
+Tekan lagi untuk menghapus semuanya
+Masuk agar buku tersimpan, daftar bacaan, tag, dan riwayat Anda ada di setiap perangkat. Tanpa kata sandi: kami mengirim tautan lewat email.
+Kami mengirim tautan masuk ke {email}. Buka di perangkat ini, atau ketik kode 6 digit dari email di sini.
+Kode
+Gunakan email lain
+Kirim tautan
+Kami menyimpan alamat email Anda dan buku yang Anda simpan, tidak lebih. Akun untuk pembaca berusia 13 tahun ke atas.
+Silakan ketik kode 6 digit dari email.
+Sedang masuk…
+Kode itu tidak berhasil. Periksa lagi, atau kirim tautan baru.
+Sebentar: memeriksa browser ini…
+Terlalu banyak percobaan. Tunggu satu menit lalu coba lagi.
+Kami tidak bisa mengirim email. Silakan coba lagi.
+Tersimpan di browser ini
+Baru dibaca
+Ini hanya disimpan di browser ini. Masuk dan semuanya akan bergabung ke akun Anda.
+Daftar tidak ditemukan
+Daftar bacaan saya
+Nama daftar
+Tambahkan catatan tentang daftar ini
+Catatan
+Naikkan
+Turunkan
+Hapus dari daftar
+Daftar ini kosong. Gunakan ▾ di samping Simpan pada buku mana pun untuk menambahkannya.
+Hapus daftar ini
+Tekan lagi untuk menghapus daftar ini
+Akun Anda beserta seluruh isinya telah dihapus.
+Akun memerlukan JavaScript.
+Daftar bacaan
 @about 2654dd9aaf
 Foggy Press menata ulang buku-buku domain publik dalam satu gaya rumah yang sederhana dan menerbitkannya secara gratis: untuk dibaca daring, dicetak di rumah dari PDF berukuran kertas letter AS, atau diunduh sebagai EPUB untuk pembaca e-book.
 
@@ -116,3 +187,28 @@ Foggy Press adalah edisi bacaan gratis dan nonkomersial. Tidak ada iklan, tidak 
 ## Koreksi dan permintaan penghapusan
 
 Jika Anda yakin sebuah buku di situs ini masih dilindungi hak cipta, atau kami keliru tentang haknya, beri tahu kami melalui formulir di bawah. Sebutkan bukunya dan jelaskan masalahnya, dan kami akan segera memeriksanya. Formulir yang sama juga bisa dipakai untuk salah ketik dan kesalahan lain.
+
+@privacy 9c322fddeb
+Anda dapat membaca, mencari, dan mengunduh setiap buku di Foggy Press tanpa akun. Akun bersifat pilihan: akun menyimpan buku yang Anda simpan, daftar bacaan, tag Anda sendiri, dan riwayat bacaan, agar ikut bersama Anda di perangkat mana pun.
+
+## Yang kami simpan
+
+Jika Anda membuat akun, kami menyimpan alamat email Anda, buku yang Anda simpan, daftar dan tag beserta catatannya, serta riwayat bacaan Anda: buku apa yang Anda buka, di mana Anda berhenti, dan apakah Anda mengunduh PDF atau EPUB. Anda dapat mematikan atau menghapus riwayat kapan saja di halaman Buku saya.
+
+Kami tidak menyimpan nama Anda, kata sandi, atau data pembayaran. Tidak ada iklan dan tidak ada cookie pelacak. Kami tidak pernah menjual atau membagikan apa yang Anda simpan, dan kami hanya mengirim email untuk masuk.
+
+Tanpa akun, buku yang Anda simpan dan yang baru Anda baca hanya disimpan di browser ini, dalam cookie kecil.
+
+## Siapa yang dapat melihatnya
+
+Hanya Anda, saat Anda masuk. Pemilik situs dapat melihat daftar alamat email akun di layanan akun, dan jumlah total seperti berapa orang yang menyimpan sebuah buku, tetapi tidak pernah buku milik satu orang. Penghitung kunjungan kami (GoatCounter) hanya berupa total anonim dan tidak terhubung ke akun.
+
+## Di mana disimpan
+
+Akun disimpan di Supabase, di Amerika Serikat. Lognya menyimpan alamat internet permintaan masuk untuk waktu singkat, demi keamanan. Email untuk masuk dikirim oleh Resend.
+
+## Pilihan Anda
+
+Di halaman Buku saya Anda dapat mengunduh semua yang kami simpan tentang Anda sebagai file, atau menghapus akun Anda. Penghapusan langsung menghilangkan akun dan seluruh isinya; salinan cadangan hilang dalam 7 hari. Akun untuk pembaca berusia 13 tahun ke atas.
+
+Ada pertanyaan? Tulis kepada kami melalui formulir di halaman Tentang.

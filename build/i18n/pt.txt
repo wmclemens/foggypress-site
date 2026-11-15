@@ -102,6 +102,77 @@ Sua mensagem não foi enviada. Verifique sua conexão e tente de novo.
 Não encontrada
 Esta página não existe.
 Ir para a página inicial
+Não foi salvo. Tente de novo.
+Este navegador guarda {n} livros. Entre para salvar mais.
+Os livros salvos neste navegador foram adicionados à sua conta.
+Salvar
+Listas e etiquetas
+Salvo
+Carregando…
+Entre para pôr livros em listas de leitura e adicionar suas próprias etiquetas.
+Entrar
+Não carregou. Tente de novo.
+Listas de leitura
+Nova lista
+Minhas etiquetas
+Nova etiqueta
+Meus livros
+Você atingiu o limite. Remova algo primeiro.
+Você já tem uma com esse nome.
+{n}% lido
+Continuar lendo
+Histórico
+Não está mais no site
+Conta
+Todas as minhas etiquetas
+Nenhum livro salvo tem esta etiqueta.
+Nada salvo ainda. Toque em Salvar em qualquer livro para guardá-lo aqui.
+Excluir etiqueta
+Nome de uma nova lista de leitura
+Criar lista
+Ainda não há listas de leitura.
+Manter meu histórico de leitura
+Limpar histórico
+O histórico está desativado. Nada novo é registrado.
+Ainda não há histórico de leitura.
+Toque de novo para limpar
+E-mail
+Sair
+Seus dados
+Baixe em um arquivo tudo o que está salvo na sua conta, ou exclua a conta e tudo o que há nela.
+Privacidade
+Baixar meus dados
+Excluir minha conta
+Toque de novo para excluir tudo
+Entre para ter seus livros salvos, listas de leitura, etiquetas e histórico em qualquer dispositivo. Sem senha: enviamos um link por e-mail.
+Enviamos um link de acesso para {email}. Abra-o neste dispositivo ou digite aqui o código de 6 dígitos do e-mail.
+Código
+Usar outro e-mail
+Enviar link
+Guardamos seu endereço de e-mail e os livros que você salva, nada mais. As contas são para leitores com 13 anos ou mais.
+Digite o código de 6 dígitos do e-mail.
+Entrando…
+Esse código não funcionou. Confira ou envie um novo link.
+Um momento: verificando este navegador…
+Tentativas demais. Espere um minuto e tente de novo.
+Não conseguimos enviar o e-mail. Tente de novo.
+Salvos neste navegador
+Lidos recentemente
+Ficam guardados só neste navegador. Entre e eles irão para a sua conta.
+Lista não encontrada
+Minhas listas de leitura
+Nome da lista
+Adicione uma nota sobre esta lista
+Nota
+Mover para cima
+Mover para baixo
+Remover da lista
+Esta lista está vazia. Use o ▾ ao lado de Salvar em qualquer livro para adicioná-lo.
+Excluir esta lista
+Toque de novo para excluir esta lista
+Sua conta e tudo o que havia nela foram excluídos.
+As contas precisam de JavaScript.
+Lista de leitura
 @about 2654dd9aaf
 A Foggy Press compõe livros de domínio público num estilo próprio e simples e os publica de graça: para ler on-line, imprimir em casa a partir de um PDF em papel carta americano ou baixar como EPUB para um leitor digital.
 
@@ -116,3 +187,28 @@ A Foggy Press é uma edição de leitura gratuita e sem fins comerciais. Não h�
 ## Correções e pedidos de remoção
 
 Se você acredita que um livro deste site ainda está protegido por direitos autorais, ou que nos enganamos sobre os direitos dele, avise-nos pelo formulário abaixo. Indique o livro e explique o problema, e vamos analisá-lo prontamente. O mesmo formulário serve para erros de digitação e outros erros.
+
+@privacy 9c322fddeb
+Você pode ler, pesquisar e baixar todos os livros da Foggy Press sem conta. A conta é opcional: ela guarda os livros que você salva, suas listas de leitura, suas próprias etiquetas e seu histórico de leitura, para que estejam em qualquer dispositivo.
+
+## O que guardamos
+
+Se você criar uma conta, guardamos seu endereço de e-mail, os livros que você salva, suas listas e etiquetas com as notas, e seu histórico de leitura: quais livros você abriu, onde parou e se baixou o PDF ou o EPUB. Você pode desativar ou limpar o histórico quando quiser na página Meus livros.
+
+Não guardamos seu nome, senha nem dados de pagamento. Não há anúncios nem cookies de rastreamento. Nunca vendemos nem compartilhamos o que você salva, e só enviamos e-mails para você entrar.
+
+Sem conta, os livros que você salva e os que leu recentemente ficam só neste navegador, em um pequeno cookie.
+
+## Quem pode ver
+
+Só você, quando está conectado. O responsável pelo site pode ver a lista de e-mails das contas no serviço de contas, e totais como quantas pessoas salvaram um livro, mas nunca os livros de uma pessoa. Nossa contagem de visitas (GoatCounter) são totais anônimos, sem ligação com as contas.
+
+## Onde fica guardado
+
+As contas ficam na Supabase, nos Estados Unidos. Os registros dela guardam por pouco tempo o endereço de internet dos pedidos de entrada, por segurança. Os e-mails de entrada são enviados pela Resend.
+
+## Suas escolhas
+
+Na página Meus livros você pode baixar em um arquivo tudo o que guardamos sobre você, ou excluir sua conta. A exclusão apaga na hora a conta e tudo o que há nela; as cópias de segurança somem em 7 dias. As contas são para leitores com 13 anos ou mais.
+
+Dúvidas? Escreva para nós pelo formulário da página Sobre.

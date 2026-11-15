@@ -84,3 +84,4 @@ table.rk .rk-b span{display:block;height:8px;border-radius:0 4px 4px 0;backgroun
 .rp-tbl table{margin-top:.5rem;max-width:20rem}
 .split{height:10px;border-radius:5px;background:var(--line-2);overflow:hidden}
 .split span{display:block;height:100%;background:var(--accent)}
+.rp-sec{font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:2rem 0 0}

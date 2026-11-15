@@ -171,6 +171,19 @@ class Site:
         repo = os.environ.get('GITHUB_REPOSITORY', '')
         self.base = '' if os.environ.get('SITE_DOMAIN', '').strip() or not repo else '/' + repo.split('/')[-1]
         self.pdf_base = os.environ.get('PDF_BASE', '').strip().rstrip('/')
+        # reader accounts (assets/account.js, supabase/schema.sql): on only when the Supabase project is set
+        self.sb_url = os.environ.get('SUPABASE_URL', '').strip().rstrip('/')
+        self.sb_key = os.environ.get('SUPABASE_ANON_KEY', '').strip()
+        self.accounts = bool(self.sb_url and self.sb_key)
+
+    def account_head(self):
+        if not self.accounts:
+            return ''
+        ts = os.environ.get('TURNSTILE_SITE_KEY', '').strip()
+        return f'<meta name="fp-account" content="{esc(self.sb_url)}|{esc(self.sb_key)}|{esc(ts)}">'
+
+    def account_script(self):
+        return '<script src="/assets/account.js" defer></script>' if self.accounts else ''
 
     def epub_url(self, b):
         """the book's EPUB (made from its web edition): beside the PDFs in R2, or under /epub/ in the site"""
@@ -238,6 +251,7 @@ class Site:
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/style.css">
+{self.account_head()}
 <script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
 <body>
@@ -247,15 +261,16 @@ class Site:
   <aside class="rail">
     {self.search_box('q', 'srch')}
     <div><div class="eyebrow" style="margin-bottom:.6rem" data-t>List books</div><nav aria-label="Lists">{navhtml}</nav></div>
-    <nav aria-label="About"><a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
+    <nav aria-label="About">{f'<a href="/account/"{" aria-current=page" if current == "account" else ""}><span data-t>My books</span><span class="mono">→</span></a>' if self.accounts else ''}<a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
     <div class="rail-end"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div>
   </aside>
   <main>{body}</main>
-  <footer class="foot mono"><span data-t>Foggy Press · public-domain books, free to print</span>{tn('{n} books', len(self.live))}</footer>
+  <footer class="foot mono"><span data-t>Foggy Press · public-domain books, free to print</span>{'<a href="/privacy/" data-t>Privacy</a>' if self.accounts else ''}{tn('{n} books', len(self.live))}</footer>
 </div>
 <script src="/assets/i18n.js"></script>
 <script src="/assets/site.js" defer></script>
 {'<script src="/assets/search.js" defer></script>' if current == 'search' else ''}
+{self.account_script()}
 {gc}
 </body>
 </html>
@@ -315,7 +330,7 @@ class Site:
                 main = esc(self.pdf_url(b))
                 acts = pdf
             sk = f' data-au="{esc(b["author_last"].lower())} {esc(b["author_first"].lower())}" data-ti="{esc(sort_title(b["title"]).lower())}" data-pop="{b["_downloads"] + b["_views"]}"' if sortable else ''
-            out.append(f'''<li class="rec"{sk}><a class="main" href="{main}"><span class="t">{esc(b['title'])}</span>
+            out.append(f'''<li class="rec" data-id="{esc(b['id'])}"{sk}><a class="main" href="{main}"><span class="t">{esc(b['title'])}</span>
 <span class="a">{esc(author_name(b))}{tr}</span>{f'<span class="d">{esc(b["_desc"])}</span>' if b.get('_desc') else ''}</a>
 <span class="m mono">{esc(b.get('original_date'))}{pages}</span>
 <span class="acts">{acts}</span></li>''')
@@ -373,9 +388,10 @@ class Site:
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="stylesheet" href="/assets/book.css">
+{self.account_head()}
 <script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
-<body class="reading">
+<body class="reading" data-book="{esc(b['id'])}">
 <div class="readtop">
 <nav class="readbar" aria-label="Foggy Press">
   <a class="rb-home" href="/">Foggy Press</a>
@@ -397,6 +413,7 @@ class Site:
 <script src="/assets/i18n.js"></script>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/search.js" defer></script>
+{self.account_script()}
 {gc}
 </body>
 </html>
@@ -438,7 +455,8 @@ class Site:
         nall = len([t for t in self.tags if self.by_tag[t['name']]])
         tiles = ''.join(f'''<a class="ct" href="/tag/{t['slug']}/" data-name="{esc(t['name'].lower())}" data-dl="{self.tag_dl(t['name'])}"><span class="nm">{esc(t['name'])}</span><span class="row mono">{tn('{n} title' if len(self.by_tag[t['name']]) == 1 else '{n} titles', len(self.by_tag[t['name']]))}</span></a>''' for t in alltags)
         featsec = f'''<section class="sec"><div class="sec-h"><h2 data-t>Featured collections</h2><span class="eyebrow">{tn('{n} books · free PDFs', len(self.live))}</span></div><div class="feat">{''.join(fhtml)}</div></section>''' if feat else ''
-        body = f'''{featsec}
+        cont = '<section class="sec" id="continue" hidden></section>' if self.accounts else ''
+        body = f'''{cont}{featsec}
 <section class="sec"><div class="sec-h"><h2 data-t>Collections</h2>
 <div class="sortbar"><span class="eyebrow" data-t>Sort by</span><div class="seg" role="group" aria-label="Sort collections" data-t-attr="aria-label"><button type="button" data-sort="tag" aria-pressed="true" data-t>Tag</button><button type="button" data-sort="popular" aria-pressed="false" data-t>Popular</button></div></div></div>
 <div class="grid" id="colls" data-page="{COLLECTIONS_PER_PAGE}">{tiles}</div>
@@ -505,6 +523,24 @@ class Site:
 {'<script src="https://js.hcaptcha.com/1/api.js" async defer></script>' if key else ''}'''
 
 
+    def account_pages(self):
+        """My books (/account/), a reading list (/list/?id=) and the Privacy page; drawn by assets/account.js"""
+        if not self.accounts:
+            return
+        nojs = '<noscript><p class="sub" data-t>Accounts need JavaScript.</p></noscript>'
+        self.page('account/index.html', 'My books · Foggy Press', f'<div id="acct"><div class="ph"><h1 data-t>My books</h1>{nojs}</div></div>', 'account',
+                  'Your saved books, reading lists and history on Foggy Press.')
+        self.page('list/index.html', 'Reading list · Foggy Press', f'<div id="list"><div class="ph"><h1 data-t>Reading list</h1>{nojs}</div></div>', 'account')
+        src = ROOT / 'content/privacy.md'
+        text = src.read_text() if src.exists() else ''
+        try:
+            import markdown
+            body = markdown.markdown(text)
+        except Exception:
+            body = ''.join(f'<p>{esc(p)}</p>' for p in text.split('\n\n') if p.strip())
+        self.page('privacy/index.html', 'Privacy · Foggy Press', f'<div class="ph"><span class="crumb"><a href="/" data-t>Home</a></span><h1 data-t>Privacy</h1></div><div class="prose" data-t-html="privacy">{body}</div>', 'privacy',
+                  'What Foggy Press keeps about readers, and how to download or delete it.')
+
     def not_found(self):
         self.page('404.html', 'Not found · Foggy Press', '<div class="ph"><h1 data-t>Not found</h1><p class="sub"><span data-t>That page isn’t here.</span> <a href="/" style="color:var(--accent)" data-t>Go to the home page</a></p></div>')
 
@@ -535,19 +571,23 @@ class Site:
 
     def translations(self):
         """assets/i18n/<code>.json for the language menu (assets/i18n.js), from build/i18n/<code>.txt:
-        one translation per line in the order of build/i18n/_keys.txt, then "@about <hash>" and the About
-        page in Markdown. The About text is used only while <hash> matches content/about.md (the first 10
-        characters of its SHA-1), so an edited About page shows in English until it is translated again."""
+        one translation per line in the order of build/i18n/_keys.txt, then whole pages: "@about <hash>" and the
+        About page in Markdown, "@privacy <hash>" and the Privacy page. A page's text is used only while <hash>
+        matches content/<name>.md (the first 10 characters of its SHA-1), so an edited page shows in English
+        until it is translated again."""
         import hashlib
         src = ROOT / 'build' / 'i18n'
         keys = (src / '_keys.txt').read_text(encoding='utf-8').splitlines()
-        about = ROOT / 'content' / 'about.md'
-        about_hash = hashlib.sha1(about.read_bytes()).hexdigest()[:10] if about.exists() else ''
         out = self.out / 'assets' / 'i18n'
         out.mkdir(parents=True, exist_ok=True)
+
+        def page_hash(name):
+            md = ROOT / 'content' / f'{name}.md'
+            return hashlib.sha1(md.read_bytes()).hexdigest()[:10] if md.exists() else None
+
         for f in sorted(src.glob('[a-z]*.txt')):
             lines = f.read_text(encoding='utf-8').split('\n')
-            cut = next((i for i, l in enumerate(lines) if l.startswith('@about')), len(lines))
+            cut = next((i for i, l in enumerate(lines) if l.startswith('@')), len(lines))
             phrases = [l.strip() for l in lines[:cut]]
             while phrases and not phrases[-1]:
                 phrases.pop()
@@ -561,15 +601,19 @@ class Site:
                     if ph not in v and not singular:
                         self.problems.append(f'{f.name}: "{v}" is missing {ph}')
                 d[k] = v
-            if cut < len(lines):
-                h = lines[cut].split()[1] if len(lines[cut].split()) > 1 else ''
-                if h == about_hash:
-                    body = '\n'.join(lines[cut + 1:])
-                    try:
-                        import markdown
-                        d['@about'] = markdown.markdown(body)
-                    except Exception:
-                        d['@about'] = ''.join(f'<p>{esc(p)}</p>' for p in body.split('\n\n') if p.strip())
+            # whole pages after the phrases: "@about <hash>", "@privacy <hash>", each followed by its Markdown
+            starts = [i for i in range(cut, len(lines)) if lines[i].startswith('@')]
+            for n, i in enumerate(starts):
+                head = lines[i][1:].split()
+                name, h = head[0], (head[1] if len(head) > 1 else '')
+                if h != page_hash(name):
+                    continue   # the English page changed since this translation: show it in English
+                body = '\n'.join(lines[i + 1:starts[n + 1] if n + 1 < len(starts) else len(lines)])
+                try:
+                    import markdown
+                    d['@' + name] = markdown.markdown(body)
+                except Exception:
+                    d['@' + name] = ''.join(f'<p>{esc(p)}</p>' for p in body.split('\n\n') if p.strip())
             (out / f'{f.stem}.json').write_text(json.dumps(d, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
     def admin_data(self):
@@ -593,7 +637,12 @@ class Site:
         stats = {b['id']: {'pages': b['_pages'], 'mb': b['_mb'], 'downloads': b['_downloads'], 'views': b['_views'], 'live': b in self.live} for b in self.books}
         (self.out / 'admin').mkdir(parents=True, exist_ok=True)
         rep = report.build_report(self.gc_code, os.environ.get('GOATCOUNTER_TOKEN', '').strip(),
-                                  os.environ.get('CLOUDFLARE_API_TOKEN', '').strip(), os.environ.get('CLOUDFLARE_ZONE_ID', '').strip())
+                                  os.environ.get('CLOUDFLARE_API_TOKEN', '').strip(), os.environ.get('CLOUDFLARE_ZONE_ID', '').strip(),
+                                  self.sb_url if self.accounts else '', self.sb_key)
+        saved = (rep.get('accounts') or {}).pop('saved', {})
+        for bid, st in stats.items():
+            if self.accounts:
+                st['saved'] = saved.get(bid, 0)
         (self.out / 'admin/report.json').write_text(json.dumps(rep, ensure_ascii=False), encoding='utf-8')
         (self.out / 'admin/stats.json').write_text(json.dumps({'built': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'books': stats, 'unlisted': unlisted, 'problems': self.problems}, ensure_ascii=False))
 
@@ -626,7 +675,7 @@ class Site:
         self.out.mkdir(parents=True)
         self.prepare()
         self.copy_assets()
-        self.home(); self.lists(); self.about(); self.not_found(); self.search(); self.translations()
+        self.home(); self.lists(); self.about(); self.account_pages(); self.not_found(); self.search(); self.translations()
         self.admin_data()
         print(f'Built {len(self.live)} live books of {len(self.books)} records, {len(self.tags)} tags.')
         for p in self.problems:

@@ -102,6 +102,77 @@ Ujumbe wako haukutumwa. Tafadhali angalia muunganisho wako kisha ujaribu tena.
 Haikupatikana
 Ukurasa huo haupo hapa.
 Nenda kwenye ukurasa wa mwanzo
+Haikuhifadhiwa. Tafadhali jaribu tena.
+Kivinjari hiki kinahifadhi vitabu {n}. Ingia ili uhifadhi zaidi.
+Vitabu vilivyohifadhiwa kwenye kivinjari hiki vimeongezwa kwenye akaunti yako.
+Hifadhi
+Orodha na lebo
+Imehifadhiwa
+Inapakia…
+Ingia ili uweke vitabu kwenye orodha za kusoma na uongeze lebo zako mwenyewe.
+Ingia
+Haikupakia. Tafadhali jaribu tena.
+Orodha za kusoma
+Orodha mpya
+Lebo zangu
+Lebo mpya
+Vitabu vyangu
+Umefikia kikomo. Ondoa kitu kwanza.
+Tayari una moja yenye jina hilo.
+{n}% imesomwa
+Endelea kusoma
+Historia
+Hakipo tena kwenye tovuti
+Akaunti
+Lebo zangu zote
+Hakuna kitabu kilichohifadhiwa chenye lebo hii.
+Bado hujahifadhi chochote. Bonyeza Hifadhi kwenye kitabu chochote ili kikae hapa.
+Futa lebo
+Jina la orodha mpya ya kusoma
+Unda orodha
+Bado hakuna orodha za kusoma.
+Hifadhi historia yangu ya kusoma
+Futa historia
+Historia imezimwa. Hakuna kipya kinachorekodiwa.
+Bado hakuna historia ya kusoma.
+Bonyeza tena ili kufuta
+Barua pepe
+Toka
+Data yako
+Pakua kila kitu kilichohifadhiwa kwenye akaunti yako kama faili, au futa akaunti na kila kitu ndani yake.
+Faragha
+Pakua data yangu
+Futa akaunti yangu
+Bonyeza tena ili kufuta kila kitu
+Ingia ili vitabu ulivyohifadhi, orodha za kusoma, lebo na historia viwe nawe kwenye kila kifaa. Hakuna nenosiri: tunakutumia kiungo kwa barua pepe.
+Tumetuma kiungo cha kuingia kwa {email}. Kifungue kwenye kifaa hiki, au andika hapa msimbo wa tarakimu 6 kutoka kwenye barua pepe.
+Msimbo
+Tumia barua pepe nyingine
+Tuma kiungo
+Tunahifadhi anwani yako ya barua pepe na vitabu unavyohifadhi tu, hakuna kingine. Akaunti ni za wasomaji wenye umri wa miaka 13 na zaidi.
+Tafadhali andika msimbo wa tarakimu 6 kutoka kwenye barua pepe.
+Inaingia…
+Msimbo huo haukufanya kazi. Uangalie, au tuma kiungo kipya.
+Subiri kidogo: tunakagua kivinjari hiki…
+Majaribio mengi mno. Subiri dakika moja kisha ujaribu tena.
+Hatukuweza kutuma barua pepe. Tafadhali jaribu tena.
+Vilivyohifadhiwa kwenye kivinjari hiki
+Vilivyosomwa hivi karibuni
+Hivi vimehifadhiwa kwenye kivinjari hiki tu. Ingia na vitaungana na akaunti yako.
+Orodha haikupatikana
+Orodha zangu za kusoma
+Jina la orodha
+Ongeza dokezo kuhusu orodha hii
+Dokezo
+Panda juu
+Shuka chini
+Ondoa kwenye orodha
+Orodha hii haina kitu. Tumia ▾ kando ya Hifadhi kwenye kitabu chochote ili kukiongeza.
+Futa orodha hii
+Bonyeza tena ili kufuta orodha hii
+Akaunti yako na kila kitu ndani yake vimefutwa.
+Akaunti zinahitaji JavaScript.
+Orodha ya kusoma
 @about 2654dd9aaf
 Foggy Press hupanga upya vitabu vya umma kwa mtindo mmoja rahisi na kuvichapisha bure: kusoma mtandaoni, kuchapisha nyumbani kutoka kwenye PDF ya karatasi ya ukubwa wa letter ya Marekani, au kupakua kama EPUB kwa kisomaji cha kielektroniki.
 
@@ -116,3 +187,28 @@ Foggy Press ni toleo la kusoma la bure lisilo la kibiashara. Hakuna matangazo, h
 ## Masahihisho na maombi ya kuondoa
 
 Ikiwa unaamini kwamba kitabu kwenye tovuti hii bado kina hakimiliki, au tumekosea kuhusu haki zake, tafadhali tuambie kupitia fomu iliyo hapa chini. Taja kitabu na ueleze tatizo, nasi tutalichunguza haraka. Fomu hiyo hiyo inatumika pia kwa makosa ya uchapaji na makosa mengine.
+
+@privacy 9c322fddeb
+Unaweza kusoma, kutafuta na kupakua kila kitabu cha Foggy Press bila akaunti. Akaunti ni hiari: inahifadhi vitabu unavyohifadhi, orodha zako za kusoma, lebo zako mwenyewe na historia yako ya kusoma, ili viwe nawe kwenye kifaa chochote.
+
+## Tunachohifadhi
+
+Ukifungua akaunti, tunahifadhi anwani yako ya barua pepe, vitabu unavyohifadhi, orodha na lebo zako pamoja na madokezo yake, na historia yako ya kusoma: vitabu ulivyofungua, ulipoishia, na kama ulipakua PDF au EPUB. Unaweza kuzima au kufuta historia wakati wowote kwenye ukurasa wa Vitabu vyangu.
+
+Hatuhifadhi jina lako, nenosiri wala taarifa za malipo. Hakuna matangazo wala vidakuzi vya kufuatilia. Hatuuzi wala kushiriki unachohifadhi, na tunakutumia barua pepe kwa ajili ya kuingia tu.
+
+Bila akaunti, vitabu unavyohifadhi na ulivyosoma hivi karibuni vinahifadhiwa kwenye kivinjari hiki tu, katika kidakuzi kidogo.
+
+## Nani anaweza kuona
+
+Wewe tu, ukiwa umeingia. Mmiliki wa tovuti anaweza kuona orodha ya barua pepe za akaunti kwenye huduma ya akaunti, na jumla kama watu wangapi walihifadhi kitabu fulani, lakini kamwe si vitabu vya mtu mmoja. Hesabu yetu ya wageni (GoatCounter) ni jumla zisizo na majina na haihusiani na akaunti.
+
+## Kinapohifadhiwa
+
+Akaunti zinahifadhiwa na Supabase nchini Marekani. Kumbukumbu zake hutunza anwani ya intaneti ya maombi ya kuingia kwa muda mfupi, kwa usalama. Barua pepe za kuingia hutumwa na Resend.
+
+## Chaguo zako
+
+Kwenye ukurasa wa Vitabu vyangu unaweza kupakua kila kitu tunachohifadhi kukuhusu kama faili, au kufuta akaunti yako. Kufuta huondoa akaunti na kila kitu ndani yake mara moja; nakala za akiba hutoweka ndani ya siku 7. Akaunti ni za wasomaji wenye umri wa miaka 13 na zaidi.
+
+Una maswali? Tuandikie kupitia fomu kwenye ukurasa wa Kuhusu.

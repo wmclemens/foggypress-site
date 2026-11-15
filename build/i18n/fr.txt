@@ -102,6 +102,77 @@ Votre message n’a pas été envoyé. Vérifiez votre connexion et réessayez.
 Page introuvable
 Cette page n’existe pas.
 Aller à la page d’accueil
+L’enregistrement a échoué. Veuillez réessayer.
+Ce navigateur garde {n} livres. Connectez-vous pour en garder plus.
+Les livres gardés dans ce navigateur ont été ajoutés à votre compte.
+Garder
+Listes et étiquettes
+Gardé
+Chargement…
+Connectez-vous pour mettre des livres dans des listes de lecture et ajouter vos propres étiquettes.
+Se connecter
+Le chargement a échoué. Veuillez réessayer.
+Listes de lecture
+Nouvelle liste
+Mes étiquettes
+Nouvelle étiquette
+Mes livres
+Vous avez atteint la limite. Retirez d’abord quelque chose.
+Vous en avez déjà une avec ce nom.
+{n} % lu
+Reprendre la lecture
+Historique
+N’est plus sur le site
+Compte
+Toutes mes étiquettes
+Aucun livre gardé n’a cette étiquette.
+Rien de gardé pour l’instant. Appuyez sur Garder sur n’importe quel livre pour le retrouver ici.
+Supprimer l’étiquette
+Nom d’une nouvelle liste de lecture
+Créer la liste
+Pas encore de liste de lecture.
+Garder mon historique de lecture
+Effacer l’historique
+L’historique est désactivé. Rien de nouveau n’est enregistré.
+Pas encore d’historique de lecture.
+Appuyez encore pour effacer
+E-mail
+Se déconnecter
+Vos données
+Téléchargez dans un fichier tout ce qui est gardé dans votre compte, ou supprimez le compte et tout son contenu.
+Confidentialité
+Télécharger mes données
+Supprimer mon compte
+Appuyez encore pour tout supprimer
+Connectez-vous pour retrouver vos livres gardés, listes de lecture, étiquettes et historique sur tous vos appareils. Pas de mot de passe : nous vous envoyons un lien par e-mail.
+Nous avons envoyé un lien de connexion à {email}. Ouvrez-le sur cet appareil, ou tapez ici le code à 6 chiffres de l’e-mail.
+Code
+Utiliser une autre adresse
+Envoyer le lien
+Nous gardons votre adresse e-mail et les livres que vous gardez, rien d’autre. Les comptes sont réservés aux lecteurs de 13 ans et plus.
+Veuillez taper le code à 6 chiffres de l’e-mail.
+Connexion…
+Ce code n’a pas fonctionné. Vérifiez-le, ou envoyez un nouveau lien.
+Un instant : vérification de ce navigateur…
+Trop d’essais. Attendez une minute et réessayez.
+Nous n’avons pas pu envoyer l’e-mail. Veuillez réessayer.
+Gardés dans ce navigateur
+Lus récemment
+Ils sont gardés dans ce navigateur seulement. Connectez-vous et ils rejoindront votre compte.
+Liste introuvable
+Mes listes de lecture
+Nom de la liste
+Ajoutez une note sur cette liste
+Note
+Monter
+Descendre
+Retirer de la liste
+Cette liste est vide. Utilisez le ▾ à côté de Garder sur n’importe quel livre pour l’ajouter.
+Supprimer cette liste
+Appuyez encore pour supprimer cette liste
+Votre compte et tout son contenu ont été supprimés.
+Les comptes ont besoin de JavaScript.
+Liste de lecture
 @about 2654dd9aaf
 Foggy Press compose des livres du domaine public dans un style maison simple et les publie gratuitement : à lire en ligne, à imprimer chez soi à partir d’un PDF au format Lettre US, ou à télécharger en EPUB pour une liseuse.
 
@@ -116,3 +187,28 @@ Foggy Press est une édition de lecture gratuite et non commerciale. Il n’y a 
 ## Corrections et demandes de retrait
 
 Si vous pensez qu’un livre de ce site est encore protégé par le droit d’auteur, ou que nous nous sommes trompés sur ses droits, dites-le-nous grâce au formulaire ci-dessous. Indiquez le livre et expliquez le problème : nous l’examinerons rapidement. Le même formulaire sert aussi pour les coquilles et autres erreurs.
+
+@privacy 9c322fddeb
+Vous pouvez lire, chercher et télécharger tous les livres de Foggy Press sans compte. Le compte est facultatif : il garde les livres que vous gardez, vos listes de lecture, vos propres étiquettes et votre historique de lecture, pour les retrouver sur n’importe quel appareil.
+
+## Ce que nous gardons
+
+Si vous créez un compte, nous gardons votre adresse e-mail, les livres que vous gardez, vos listes et étiquettes avec leurs notes, et votre historique de lecture : les livres ouverts, l’endroit où vous vous êtes arrêté, et si vous avez téléchargé le PDF ou l’EPUB. Vous pouvez désactiver ou effacer l’historique à tout moment sur la page Mes livres.
+
+Nous ne gardons ni votre nom, ni mot de passe, ni données de paiement. Pas de publicité, pas de cookies de suivi. Nous ne vendons ni ne partageons jamais ce que vous gardez, et nous ne vous écrivons que pour vous connecter.
+
+Sans compte, les livres que vous gardez et ceux lus récemment restent dans ce navigateur seulement, dans un petit cookie.
+
+## Qui peut le voir
+
+Vous seul, une fois connecté. Le responsable du site peut voir la liste des adresses e-mail des comptes dans le service de comptes, et des totaux comme le nombre de personnes ayant gardé un livre, mais jamais les livres d’une personne. Notre comptage des visites (GoatCounter) ne donne que des totaux anonymes, sans lien avec les comptes.
+
+## Où c’est stocké
+
+Les comptes sont stockés chez Supabase, aux États-Unis. Ses journaux gardent un court moment l’adresse internet des demandes de connexion, par sécurité. Les e-mails de connexion sont envoyés par Resend.
+
+## Vos choix
+
+Sur la page Mes livres, vous pouvez télécharger dans un fichier tout ce que nous gardons sur vous, ou supprimer votre compte. La suppression efface aussitôt le compte et tout son contenu ; les copies de sauvegarde disparaissent sous 7 jours. Les comptes sont réservés aux lecteurs de 13 ans et plus.
+
+Des questions ? Écrivez-nous avec le formulaire de la page À propos.
