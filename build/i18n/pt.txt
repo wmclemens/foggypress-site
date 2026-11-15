@@ -173,6 +173,61 @@ Toque de novo para excluir esta lista
 Sua conta e tudo o que havia nela foram excluídos.
 As contas precisam de JavaScript.
 Lista de leitura
+Perguntar
+Perguntar sobre os livros
+Novo
+Conversas anteriores
+Perguntar sobre este livro
+Pergunte à Foggy Press
+Para perguntar é preciso JavaScript.
+Pensando
+Ver no livro
+Abrir neste trecho
+As perguntas estão pausadas por enquanto
+Restam {n} de {m} perguntas hoje
+As perguntas estão pausadas até o fim do mês.
+O orçamento mensal foi atingido. A busca e a leitura continuam funcionando.
+Você já fez suas {n} perguntas de hoje.
+Pergunte de novo amanhã (renova à meia-noite). A busca e a leitura não têm limite.
+Entre para fazer uma pergunta
+Até amanhã
+Sua pergunta
+Enviar
+Entre para perguntar
+Respostas de IA · as citações levam ao texto para você conferir
+Perguntar é grátis. Entrar mantém tudo justo: cada pessoa tem {n} perguntas por dia.
+Entrar com seu e-mail
+Sem senha: enviamos um link por e-mail.
+Encontre um livro para mim
+Algo como A Ilha do Tesouro, mas real
+Explicar um livro
+Sobre o que Walden fala de verdade?
+Encontrar um trecho
+Onde Ismael diz por que vai para o mar?
+Comparar
+Em que as biografias de Grant diferem?
+Voltar à conversa
+Nova conversa
+Peça uma recomendação, a explicação de um livro ou ajuda para encontrar um trecho. As respostas vêm só dos {n} livros da Foggy Press, e cada citação leva à página de onde veio.
+Pergunte sobre um livro, um autor ou um assunto
+Ainda não há conversas anteriores.
+Excluir tudo
+Conversa sem título
+Excluir
+As conversas ficam na sua conta até você excluí-las.
+Hoje
+Ontem
+Sobre o que é este livro?
+Quem são os personagens principais?
+O que devo saber antes de começar?
+As respostas vêm do texto deste livro
+Fechar
+Pergunte sobre {title}
+Muita procura agora. Tente de novo em um minuto.
+Parece que você está sem conexão. Tente de novo.
+Algo deu errado. Tente de novo.
+Excluir? Toque de novo
+
 @about 2654dd9aaf
 A Foggy Press compõe livros de domínio público num estilo próprio e simples e os publica de graça: para ler on-line, imprimir em casa a partir de um PDF em papel carta americano ou baixar como EPUB para um leitor digital.
 
@@ -188,12 +243,14 @@ A Foggy Press é uma edição de leitura gratuita e sem fins comerciais. Não h�
 
 Se você acredita que um livro deste site ainda está protegido por direitos autorais, ou que nos enganamos sobre os direitos dele, avise-nos pelo formulário abaixo. Indique o livro e explique o problema, e vamos analisá-lo prontamente. O mesmo formulário serve para erros de digitação e outros erros.
 
-@privacy 9c322fddeb
+@privacy ce7b31869d
 Você pode ler, pesquisar e baixar todos os livros da Foggy Press sem conta. A conta é opcional: ela guarda os livros que você salva, suas listas de leitura, suas próprias etiquetas e seu histórico de leitura, para que estejam em qualquer dispositivo.
 
 ## O que guardamos
 
 Se você criar uma conta, guardamos seu endereço de e-mail, os livros que você salva, suas listas e etiquetas com as notas, e seu histórico de leitura: quais livros você abriu, onde parou e se baixou o PDF ou o EPUB. Você pode desativar ou limpar o histórico quando quiser na página Meus livros.
+
+Se você usa o Pergunte à Foggy Press, guardamos suas perguntas e as respostas como conversas anteriores na sua conta, e uma contagem de quantas perguntas você faz por dia (para o limite diário).
 
 Não guardamos seu nome, senha nem dados de pagamento. Não há anúncios nem cookies de rastreamento. Nunca vendemos nem compartilhamos o que você salva, e só enviamos e-mails para você entrar.
 
@@ -203,12 +260,14 @@ Sem conta, os livros que você salva e os que leu recentemente ficam só neste n
 
 Só você, quando está conectado. O responsável pelo site pode ver a lista de e-mails das contas no serviço de contas, e totais como quantas pessoas salvaram um livro, mas nunca os livros de uma pessoa. Nossa contagem de visitas (GoatCounter) são totais anônimos, sem ligação com as contas.
 
+O Pergunte à Foggy Press responde com o Claude, um modelo de IA feito pela Anthropic: sua pergunta e as mensagens anteriores dessa conversa são enviadas à Anthropic para escrever a resposta. A Anthropic não as usa para treinar seus modelos. As respostas são escritas por IA e podem estar erradas; as citações levam ao livro para você conferir.
+
 ## Onde fica guardado
 
 As contas ficam na Supabase, nos Estados Unidos. Os registros dela guardam por pouco tempo o endereço de internet dos pedidos de entrada, por segurança. Os e-mails de entrada são enviados pela Resend.
 
 ## Suas escolhas
 
-Na página Meus livros você pode baixar em um arquivo tudo o que guardamos sobre você, ou excluir sua conta. A exclusão apaga na hora a conta e tudo o que há nela; as cópias de segurança somem em 7 dias. As contas são para leitores com 13 anos ou mais.
+Na página Meus livros você pode baixar em um arquivo tudo o que guardamos sobre você, ou excluir sua conta. A exclusão apaga na hora a conta e tudo o que há nela; as cópias de segurança somem em 7 dias. As contas são para leitores com 13 anos ou mais. Na página Perguntar, você pode excluir conversas anteriores uma a uma ou todas de uma vez.
 
 Dúvidas? Escreva para nós pelo formulário da página Sobre.

@@ -401,7 +401,7 @@
   function drawReports(r) {
     var g = r.goatcounter, c = r.cloudflare, f = {};
     ((g && g.features) || []).forEach(function (x) { f[x[0]] = x[1]; });
-    var tile = function (label, v, sub) { return '<div class="rp-tile"><span class="mono">' + esc(label) + '</span><b>' + (v == null ? '–' : num(v)) + '</b>' + (sub ? '<span class="note">' + sub + '</span>' : '') + '</div>'; };
+    var tile = function (label, v, sub) { return '<div class="rp-tile"><span class="mono">' + esc(label) + '</span><b>' + (v == null ? '–' : typeof v === 'string' ? esc(v) : num(v)) + '</b>' + (sub ? '<span class="note">' + sub + '</span>' : '') + '</div>'; };
     var h = tabs('reports') + '<div class="rp-head"><p class="note">' + (g ? 'Last 30 days (' + esc(fmtDay(g.start)) + ' to ' + esc(fmtDay(g.end)) + '). ' : '') + 'Updated with each site build, last ' + esc((r.built || '').replace('T', ' ')) + ' UTC. Counts come from GoatCounter, which leaves out known bots.</p></div>';
     if (r.missing && r.missing.length) h += '<div class="banner"><b>Not included this time</b><ul>' + r.missing.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul></div>';
     if (g) {
@@ -420,6 +420,12 @@
       var titleOf = function (id) { var b = data.books.find(function (x) { return x.id === id; }); return b ? b.title : id; };
       h += '<h2 class="rp-sec">Reader accounts</h2><div class="rp-tiles">' + tile('Accounts', a.accounts) + tile('New in 7 days', a.new_7d) + tile('Active in 30 days', a.active_30d) + tile('Saved books', a.favorites) + tile('Reading lists', a.lists, num(a.list_items) + ' books on lists') + '</div>' +
         '<div class="rp-grid">' + ranked('Most-saved books', (a.top_saved || []).map(function (x) { return [titleOf(x[0]), x[1]]; }), {max: 20, note: 'Totals only: who saved what is never shown here.'}) + '</div>';
+      if (a.ask_cap != null) {
+        var cost = Number(a.ask_cost_month || 0), cap = Number(a.ask_cap || 0);
+        h += '<h2 class="rp-sec">Ask Foggy Press</h2><div class="rp-tiles">' + tile('Questions in 30 days', a.ask_30d) + tile('People asking, 30 days', a.ask_askers_30d) +
+          tile('Spent this month', '$' + cost.toFixed(2), 'of the $' + cap.toFixed(2) + ' monthly cap' + (cap && cost >= cap ? ': Ask is paused' : '')) + tile('Saved chats', a.chats) + '</div>' +
+          '<p class="note">Change the daily limit or the monthly cap in Supabase: Table Editor → ask_config. Questions and answers are never shown here.</p>';
+      }
     }
     h += '<div class="rp-grid">';
     if (c) {

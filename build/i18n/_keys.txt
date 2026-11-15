@@ -173,3 +173,57 @@ Press again to delete this list
 Your account and everything in it were deleted.
 Accounts need JavaScript.
 Reading list
+Ask
+Ask about the books
+New
+Past chats
+Ask about this book
+Ask Foggy Press
+Ask needs JavaScript.
+Thinking
+Show in book
+Open at this passage
+Ask is paused for now
+{n} of {m} questions left today
+Ask is paused for the rest of the month.
+It has reached its monthly budget. Search and reading still work.
+That’s {n} questions for today.
+Ask again tomorrow (resets at midnight). Search and reading are unlimited.
+Sign in to ask a question
+Back tomorrow
+Your question
+Send
+Sign in to ask
+AI answers · quotes link to the text so you can check them
+Asking is free. Signing in keeps it fair: everyone gets {n} questions a day.
+Sign in with your email
+No password: we email you a link.
+Find me a book
+Something like Treasure Island, but true
+Explain a book
+What is Walden really about?
+Find a passage
+Where does Ishmael say why he goes to sea?
+Compare
+How do the Grant biographies differ?
+Back to the chat
+New chat
+Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.
+Ask about a book, an author or a subject
+No past chats yet.
+Delete all
+Untitled chat
+Delete
+Chats are kept in your account until you delete them.
+Today
+Yesterday
+What is this book about?
+Who are the main characters?
+What should I know before I start?
+Answers come from this book’s text
+Close
+Ask about {title}
+Ask is busy right now. Please try again in a minute.
+You seem to be offline. Please try again.
+Something went wrong. Please try again.
+Delete? Press again

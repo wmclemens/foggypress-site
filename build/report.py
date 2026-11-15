@@ -132,6 +132,8 @@ def supabase_totals(url, key):
     saved = d.get('saved') or {}
     return {'accounts': int(d.get('accounts') or 0), 'new_7d': int(d.get('new_7d') or 0), 'active_30d': int(d.get('active_30d') or 0),
             'favorites': int(d.get('favorites') or 0), 'lists': int(d.get('lists') or 0), 'list_items': int(d.get('list_items') or 0),
+            'ask_30d': int(d.get('ask_30d') or 0), 'ask_askers_30d': int(d.get('ask_askers_30d') or 0),
+            'ask_cost_month': float(d.get('ask_cost_month') or 0), 'ask_cap': d.get('ask_cap'), 'chats': int(d.get('chats') or 0),
             'saved': {k: int(v) for k, v in saved.items()},
             'top_saved': sorted(([k, int(v)] for k, v in saved.items()), key=lambda kv: -kv[1])[:20]}
 

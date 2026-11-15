@@ -173,6 +173,61 @@ Tekan lagi untuk menghapus daftar ini
 Akun Anda beserta seluruh isinya telah dihapus.
 Akun memerlukan JavaScript.
 Daftar bacaan
+Tanya
+Tanya tentang buku
+Baru
+Percakapan sebelumnya
+Tanya tentang buku ini
+Tanya Foggy Press
+Untuk bertanya diperlukan JavaScript.
+Berpikir
+Tunjukkan di buku
+Buka di bagian ini
+Fitur tanya sedang dijeda
+Sisa {n} dari {m} pertanyaan hari ini
+Fitur tanya dijeda sampai akhir bulan.
+Anggaran bulanan sudah tercapai. Pencarian dan membaca tetap berjalan.
+Itu {n} pertanyaan Anda hari ini.
+Tanya lagi besok (diatur ulang tengah malam). Pencarian dan membaca tanpa batas.
+Masuk untuk bertanya
+Sampai besok
+Pertanyaan Anda
+Kirim
+Masuk untuk bertanya
+Jawaban AI · kutipan ditautkan ke teks agar Anda bisa memeriksanya
+Bertanya itu gratis. Masuk membuatnya adil: setiap orang mendapat {n} pertanyaan sehari.
+Masuk dengan email Anda
+Tanpa kata sandi: kami kirimkan tautan lewat email.
+Carikan saya buku
+Seperti Pulau Harta Karun, tapi kisah nyata
+Jelaskan sebuah buku
+Sebenarnya Walden itu tentang apa?
+Cari sebuah bagian
+Di mana Ismael mengatakan mengapa ia pergi melaut?
+Bandingkan
+Apa bedanya biografi-biografi Grant?
+Kembali ke percakapan
+Percakapan baru
+Minta rekomendasi buku, penjelasan sebuah buku, atau bantuan mencari sebuah bagian. Jawaban hanya berasal dari {n} buku di Foggy Press, dan setiap kutipan ditautkan ke halaman asalnya.
+Tanya tentang buku, penulis, atau topik
+Belum ada percakapan sebelumnya.
+Hapus semua
+Percakapan tanpa judul
+Hapus
+Percakapan disimpan di akun Anda sampai Anda menghapusnya.
+Hari ini
+Kemarin
+Buku ini tentang apa?
+Siapa tokoh-tokoh utamanya?
+Apa yang perlu saya ketahui sebelum mulai?
+Jawaban berasal dari teks buku ini
+Tutup
+Tanya tentang {title}
+Sedang banyak permintaan. Coba lagi dalam satu menit.
+Sepertinya Anda sedang offline. Coba lagi.
+Terjadi kesalahan. Coba lagi.
+Hapus? Tekan sekali lagi
+
 @about 2654dd9aaf
 Foggy Press menata ulang buku-buku domain publik dalam satu gaya rumah yang sederhana dan menerbitkannya secara gratis: untuk dibaca daring, dicetak di rumah dari PDF berukuran kertas letter AS, atau diunduh sebagai EPUB untuk pembaca e-book.
 
@@ -188,12 +243,14 @@ Foggy Press adalah edisi bacaan gratis dan nonkomersial. Tidak ada iklan, tidak 
 
 Jika Anda yakin sebuah buku di situs ini masih dilindungi hak cipta, atau kami keliru tentang haknya, beri tahu kami melalui formulir di bawah. Sebutkan bukunya dan jelaskan masalahnya, dan kami akan segera memeriksanya. Formulir yang sama juga bisa dipakai untuk salah ketik dan kesalahan lain.
 
-@privacy 9c322fddeb
+@privacy ce7b31869d
 Anda dapat membaca, mencari, dan mengunduh setiap buku di Foggy Press tanpa akun. Akun bersifat pilihan: akun menyimpan buku yang Anda simpan, daftar bacaan, tag Anda sendiri, dan riwayat bacaan, agar ikut bersama Anda di perangkat mana pun.
 
 ## Yang kami simpan
 
 Jika Anda membuat akun, kami menyimpan alamat email Anda, buku yang Anda simpan, daftar dan tag beserta catatannya, serta riwayat bacaan Anda: buku apa yang Anda buka, di mana Anda berhenti, dan apakah Anda mengunduh PDF atau EPUB. Anda dapat mematikan atau menghapus riwayat kapan saja di halaman Buku saya.
+
+Jika Anda memakai Tanya Foggy Press, kami menyimpan pertanyaan dan jawabannya sebagai percakapan sebelumnya di akun Anda, serta jumlah pertanyaan yang Anda ajukan setiap hari (untuk batas harian).
 
 Kami tidak menyimpan nama Anda, kata sandi, atau data pembayaran. Tidak ada iklan dan tidak ada cookie pelacak. Kami tidak pernah menjual atau membagikan apa yang Anda simpan, dan kami hanya mengirim email untuk masuk.
 
@@ -203,12 +260,14 @@ Tanpa akun, buku yang Anda simpan dan yang baru Anda baca hanya disimpan di brow
 
 Hanya Anda, saat Anda masuk. Pemilik situs dapat melihat daftar alamat email akun di layanan akun, dan jumlah total seperti berapa orang yang menyimpan sebuah buku, tetapi tidak pernah buku milik satu orang. Penghitung kunjungan kami (GoatCounter) hanya berupa total anonim dan tidak terhubung ke akun.
 
+Tanya Foggy Press menjawab dengan Claude, model AI buatan Anthropic: pertanyaan Anda dan pesan-pesan sebelumnya dalam percakapan itu dikirim ke Anthropic untuk menulis jawabannya. Anthropic tidak memakainya untuk melatih modelnya. Jawaban ditulis oleh AI dan bisa salah; kutipan ditautkan ke buku agar Anda bisa memeriksanya.
+
 ## Di mana disimpan
 
 Akun disimpan di Supabase, di Amerika Serikat. Lognya menyimpan alamat internet permintaan masuk untuk waktu singkat, demi keamanan. Email untuk masuk dikirim oleh Resend.
 
 ## Pilihan Anda
 
-Di halaman Buku saya Anda dapat mengunduh semua yang kami simpan tentang Anda sebagai file, atau menghapus akun Anda. Penghapusan langsung menghilangkan akun dan seluruh isinya; salinan cadangan hilang dalam 7 hari. Akun untuk pembaca berusia 13 tahun ke atas.
+Di halaman Buku saya Anda dapat mengunduh semua yang kami simpan tentang Anda sebagai file, atau menghapus akun Anda. Penghapusan langsung menghilangkan akun dan seluruh isinya; salinan cadangan hilang dalam 7 hari. Akun untuk pembaca berusia 13 tahun ke atas. Di halaman Tanya, Anda bisa menghapus percakapan sebelumnya satu per satu atau sekaligus.
 
 Ada pertanyaan? Tulis kepada kami melalui formulir di halaman Tentang.

@@ -17,6 +17,7 @@
   var DOMAIN = /(^|\.)foggypress\.com$/.test(location.hostname) ? '; domain=foggypress.com' : '';
   var SECURE = location.protocol === 'https:' ? '; secure' : '';
   var MAX_LOCAL_FAVS = 200, MAX_LOCAL_RECENT = 20;
+  var NEXT = (new URLSearchParams(location.search).get('next') || '').replace(/[^a-z]/g, '') === 'ask' ? 'ask' : '';
 
   // ---------- cookies (long values are split over several) ----------
   function ckRaw(name) { var m = document.cookie.match('(?:^|; )' + name.replace(/[.$?*|{}()[\]\\/+^]/g, '\\$&') + '=([^;]*)'); return m ? m[1] : null; }
@@ -382,6 +383,8 @@
   function drawAccount() {
     if (!acct) return;
     if (!signedIn()) return drawSignIn();
+    // signed in from Ask's "Sign in to ask": back to Ask
+    if (NEXT) { location.replace(BASE + NEXT + '/'); return; }
     var h = location.hash.replace('#', '');
     view = ['saved', 'lists', 'history', 'account'].indexOf(h) >= 0 ? h : 'saved';
     var tabs = [['saved', T('Saved')], ['lists', T('Reading lists')], ['history', T('History')], ['account', T('Account')]];
@@ -468,8 +471,10 @@
       '<p class="btns"><button type="button" class="btn ghost sm" id="export">' + esc(T('Download my data')) + '</button> <button type="button" class="btn ghost sm danger" id="delete">' + esc(T('Delete my account')) + '</button></p>';
     document.getElementById('signout').addEventListener('click', function () { sb.auth.signOut().finally(function () { store.removeItem('fp-auth'); location.href = BASE; }); });
     document.getElementById('export').addEventListener('click', function () {
-      Promise.all(['profiles', 'favorites', 'labels', 'label_books', 'lists', 'list_items', 'history'].map(function (t) { return q(sb.from(t).select('*')); })).then(function (r) {
-        var data = {email: user.email, account_created: user.created_at, exported: new Date().toISOString(), profile: r[0][0] || null, favorites: r[1], tags: r[2], tagged_books: r[3], lists: r[4], list_books: r[5], history: r[6]};
+      // chats exist once Ask is set up; without its tables they come back empty
+      var opt = function (t) { return sb.from(t).select('*').then(function (x) { return x.error ? [] : x.data; }); };
+      Promise.all(['profiles', 'favorites', 'labels', 'label_books', 'lists', 'list_items', 'history'].map(function (t) { return q(sb.from(t).select('*')); }).concat([opt('chats'), opt('chat_messages')])).then(function (r) {
+        var data = {email: user.email, account_created: user.created_at, exported: new Date().toISOString(), profile: r[0][0] || null, favorites: r[1], tags: r[2], tagged_books: r[3], lists: r[4], list_books: r[5], history: r[6], chats: r[7], chat_messages: r[8]};
         var a = document.createElement('a');
         a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'}));
         a.download = 'foggy-press-my-data.json'; document.body.appendChild(a); a.click(); a.remove();
@@ -523,7 +528,7 @@
           if (tsWidget != null && window.turnstile) { window.turnstile.reset(tsWidget); tsToken = ''; }
           if (r.error) { say(T('That code didn’t work. Check it, or send a new link.'), true); return; }
           user = r.data.user; fpEvent('sign-in: code');
-          return mergeLocal().then(function () { return loadFavs(); }).then(drawAccount);
+          return Promise.resolve(mergeLocal()).then(function () { return loadFavs(); }).then(drawAccount);
         });
       });
     } else {
@@ -534,7 +539,7 @@
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say(T('That email address doesn’t look right. Please check it.'), true); return; }
         if (TS_KEY && !tsToken) { say(T('One moment: checking this browser…')); return; }
         say(T('Sending…'));
-        sb.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname, shouldCreateUser: true, captchaToken: tsToken || undefined}}).then(function (r) {
+        sb.auth.signInWithOtp({email: email, options: {emailRedirectTo: location.origin + location.pathname + (NEXT ? '?next=' + NEXT : ''), shouldCreateUser: true, captchaToken: tsToken || undefined}}).then(function (r) {
           if (tsWidget != null && window.turnstile) { window.turnstile.reset(tsWidget); tsToken = ''; }
           if (r.error) { say(r.error.status === 429 ? T('Too many tries. Please wait a minute and try again.') : T('We couldn’t send the email. Please try again.'), true); return; }
           fpEvent('sign-in: link sent');
@@ -622,5 +627,12 @@
     paintStars(); continueRow(); if (acct && sb) { if (signedIn()) drawAccount(); else drawSignIn(sentEmail); }
     var lb = document.getElementById('list'); if (lb && signedIn() && lists) books().then(function (cat) { drawList(lb, new URLSearchParams(location.search).get('id'), cat); });
   });
-  window.fpAccount = {store: store, signedIn: signedIn};
+  window.fpAccount = {
+    store: store, signedIn: signedIn, ready: start, books: books, toast: toast,
+    hasSession: function () { return !!ckRaw('fp-auth.n'); },
+    client: function () { return sb; },
+    // the reader's current access token (refreshed if it has run out), for calls to the ask function
+    token: function () { return start().then(function () { return sb ? sb.auth.getSession() : null; }).then(function (r) { return r && r.data.session ? r.data.session.access_token : null; }); },
+    star: function (box) { addStars(box); }
+  };
 })();

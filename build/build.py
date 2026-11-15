@@ -175,15 +175,30 @@ class Site:
         self.sb_url = os.environ.get('SUPABASE_URL', '').strip().rstrip('/')
         self.sb_key = os.environ.get('SUPABASE_ANON_KEY', '').strip()
         self.accounts = bool(self.sb_url and self.sb_key)
+        # Ask Foggy Press (assets/ask.js, supabase/functions/ask): needs accounts, and ASK_ON once the function is deployed
+        self.ask = self.accounts and os.environ.get('ASK_ON', '').strip().lower() in ('1', 'true', 'yes', 'on')
 
     def account_head(self):
         if not self.accounts:
             return ''
         ts = os.environ.get('TURNSTILE_SITE_KEY', '').strip()
-        return f'<meta name="fp-account" content="{esc(self.sb_url)}|{esc(self.sb_key)}|{esc(ts)}">'
+        meta = f'<meta name="fp-account" content="{esc(self.sb_url)}|{esc(self.sb_key)}|{esc(ts)}">'
+        if self.ask:
+            meta += f'<meta name="fp-ask" content="{esc(self.sb_url)}/functions/v1/ask">'
+        return meta
 
     def account_script(self):
-        return '<script src="/assets/account.js" defer></script>' if self.accounts else ''
+        return ('<script src="/assets/account.js" defer></script>' if self.accounts else '') + \
+            ('<script src="/assets/ask.js" defer></script>' if self.ask else '')
+
+    def ask_rail(self, current):
+        """the Ask section of the left rail, under Search"""
+        if not self.ask:
+            return ''
+        on = ' aria-current=page' if current == 'ask' else ''
+        return (f'<div class="askrail"><div class="eyebrow" style="margin-bottom:.6rem" data-t>Ask</div><nav aria-label="Ask">'
+                f'<a href="/ask/"{on}><span><span data-t>Ask about the books</span><span class="newtag" data-t>New</span></span><span class="mono">→</span></a>'
+                f'<a href="/ask/#past"><span data-t>Past chats</span><span class="mono">→</span></a></nav></div>')
 
     def epub_url(self, b):
         """the book's EPUB (made from its web edition): beside the PDFs in R2, or under /epub/ in the site"""
@@ -258,8 +273,10 @@ class Site:
 <div class="wrap shell">
   <a class="brand" href="/"><span class="n">Foggy Press</span><span class="s" data-t>Printable Books</span></a>
   {self.search_box('qm', 'srch msrch')}
+  {'<div class="mask"><a href="/ask/" data-t>Ask about the books</a></div>' if self.ask and current != 'ask' else ''}
   <aside class="rail">
     {self.search_box('q', 'srch')}
+    {self.ask_rail(current)}
     <div><div class="eyebrow" style="margin-bottom:.6rem" data-t>List books</div><nav aria-label="Lists">{navhtml}</nav></div>
     <nav aria-label="About">{f'<a href="/account/"{" aria-current=page" if current == "account" else ""}><span data-t>My books</span><span class="mono">→</span></a>' if self.accounts else ''}<a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
     <div class="rail-end"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div>
@@ -300,7 +317,7 @@ class Site:
             if pdf.startswith('/'):
                 pdf = self.base + pdf
             rows.append(({'id': b['id'], 't': b['title'], 'a': author_name(b), 'al': b['author_last'], 'tr': b.get('translator') or '',
-                          'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'pdf': pdf, 'read': bool(art), **({'rd': self.read_url(b) if self.pdf_base else self.base + self.read_url(b)} if art else {}),
+                          'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'tg': b.get('tags', []), 'pdf': pdf, 'read': bool(art), **({'rd': self.read_url(b) if self.pdf_base else self.base + self.read_url(b)} if art else {}),
                           **({'epub': self.epub_url(b) if self.pdf_base else self.base + self.epub_url(b)} if art else {})}, art))
         nw, ns = search_index.write_index(self.out / 'search', rows)
         tags = [{'n': t['name'], 's': t['slug'], 'c': len(self.by_tag[t['name']])} for t in sorted(self.tags, key=lambda t: t['name'].lower()) if self.by_tag[t['name']]]
@@ -395,7 +412,7 @@ class Site:
 <div class="readtop">
 <nav class="readbar" aria-label="Foggy Press">
   <a class="rb-home" href="/">Foggy Press</a>
-  <span class="rb-acts"><a class="rb-pdf" href="{pdf}" {click} data-t>Print this book</a>{self.epub_link(b, 'rb-pdf')}<button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</span>
+  <span class="rb-acts">{'<button class="rb-ask" id="rbask" type="button" aria-expanded="false" aria-controls="askdrawer" hidden data-t>Ask about this book</button>' if self.ask and self.accounts else ''}<a class="rb-pdf" href="{pdf}" {click} data-t>Print this book</a>{self.epub_link(b, 'rb-pdf')}<button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</span>
 </nav>
 <div class="bsearch" role="search">
   <div class="in">
@@ -541,6 +558,14 @@ class Site:
         self.page('privacy/index.html', 'Privacy · Foggy Press', f'<div class="ph"><span class="crumb"><a href="/" data-t>Home</a></span><h1 data-t>Privacy</h1></div><div class="prose" data-t-html="privacy">{body}</div>', 'privacy',
                   'What Foggy Press keeps about readers, and how to download or delete it.')
 
+    def ask_page(self):
+        """/ask/: Ask Foggy Press, drawn by assets/ask.js"""
+        if not self.ask:
+            return
+        self.page('ask/index.html', 'Ask Foggy Press', '<div id="ask" class="ask"><div class="ask-h"><h1 data-t>Ask Foggy Press</h1></div>'
+                  '<noscript><p class="sub" data-t>Ask needs JavaScript.</p></noscript></div>', 'ask',
+                  'Ask for a book recommendation, an explanation of a book, or help finding a passage in the Foggy Press books.')
+
     def not_found(self):
         self.page('404.html', 'Not found · Foggy Press', '<div class="ph"><h1 data-t>Not found</h1><p class="sub"><span data-t>That page isn’t here.</span> <a href="/" style="color:var(--accent)" data-t>Go to the home page</a></p></div>')
 
@@ -675,7 +700,7 @@ class Site:
         self.out.mkdir(parents=True)
         self.prepare()
         self.copy_assets()
-        self.home(); self.lists(); self.about(); self.account_pages(); self.not_found(); self.search(); self.translations()
+        self.home(); self.lists(); self.about(); self.account_pages(); self.ask_page(); self.not_found(); self.search(); self.translations()
         self.admin_data()
         print(f'Built {len(self.live)} live books of {len(self.books)} records, {len(self.tags)} tags.')
         for p in self.problems:

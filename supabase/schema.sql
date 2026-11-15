@@ -181,6 +181,118 @@ end $$;
 revoke all on function public.delete_me from public, anon;
 grant execute on function public.delete_me to authenticated;
 
+-- ---------- Ask Foggy Press (supabase/functions/ask): past chats, daily limit, monthly spending cap ----------
+-- Readers can read and delete their own chats; only the ask function (service role) writes them.
+create table if not exists public.chats (
+  id         uuid primary key default gen_random_uuid(),
+  user_id    uuid not null references auth.users (id) on delete cascade,
+  title      text not null default '' check (char_length(title) <= 200),
+  book_id    text not null default '' check (char_length(book_id) <= 120),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+create table if not exists public.chat_messages (
+  id         bigint generated always as identity primary key,
+  chat_id    uuid not null references public.chats (id) on delete cascade,
+  user_id    uuid not null references auth.users (id) on delete cascade,
+  role       text not null check (role in ('user', 'assistant')),
+  content    text not null check (char_length(content) <= 20000),
+  blocks     jsonb not null default '[]'::jsonb,
+  created_at timestamptz not null default now()
+);
+create index if not exists chats_recent on public.chats (user_id, updated_at desc);
+create index if not exists chat_messages_chat on public.chat_messages (chat_id, id);
+
+-- one row per question asked: for the daily limit and the monthly cap. Holds no words, only counts;
+-- when an account is deleted its rows lose the user id but stay, so the month's spending stays right.
+create table if not exists public.ask_usage (
+  id            bigint generated always as identity primary key,
+  user_id       uuid references auth.users (id) on delete set null,
+  asked_at      timestamptz not null default now(),
+  local_day     date not null,
+  input_tokens  integer not null default 0,
+  output_tokens integer not null default 0,
+  cost_usd      numeric(10, 6) not null default 0
+);
+create index if not exists ask_usage_user_day on public.ask_usage (user_id, local_day);
+create index if not exists ask_usage_time on public.ask_usage (asked_at);
+
+-- the settings, one row: change them in Supabase's Table Editor (table ask_config)
+create table if not exists public.ask_config (
+  id              boolean primary key default true check (id),
+  enabled         boolean not null default true,
+  daily_limit     integer not null default 20 check (daily_limit >= 0),
+  monthly_cap_usd numeric(10, 2) not null default 10 check (monthly_cap_usd >= 0)
+);
+insert into public.ask_config (id) values (true) on conflict do nothing;
+
+do $$
+declare t text;
+begin
+  foreach t in array array['chats', 'chat_messages'] loop
+    execute format('alter table public.%I enable row level security', t);
+    execute format('drop policy if exists own_rows on public.%I', t);
+    execute format('create policy own_rows on public.%I for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid())', t);
+    execute format('revoke all on public.%I from anon, authenticated', t);
+    execute format('grant select, delete on public.%I to authenticated', t);
+  end loop;
+  foreach t in array array['ask_usage', 'ask_config'] loop
+    execute format('alter table public.%I enable row level security', t);
+    execute format('revoke all on public.%I from anon, authenticated', t);
+  end loop;
+end $$;
+
+-- the reader's day, in their own time zone (a bad zone name counts as UTC)
+create or replace function public.fp_local_day(p_tz text) returns date language plpgsql stable as $$
+begin
+  return (now() at time zone coalesce(nullif(p_tz, ''), 'UTC'))::date;
+exception when others then
+  return (now() at time zone 'UTC')::date;
+end $$;
+
+-- questions left today, and whether Ask is open (the page shows "17 of 20 questions left today")
+create or replace function public.ask_status(p_tz text default 'UTC') returns json language sql security definer set search_path = public stable as $$
+  select json_build_object(
+    'limit', c.daily_limit,
+    'left', greatest(0, c.daily_limit - (select count(*) from ask_usage where user_id = auth.uid() and local_day = fp_local_day(p_tz))),
+    'open', c.enabled and (select coalesce(sum(cost_usd), 0) from ask_usage where asked_at >= date_trunc('month', now())) < c.monthly_cap_usd)
+  from ask_config c;
+$$;
+revoke all on function public.ask_status from public, anon;
+grant execute on function public.ask_status to authenticated;
+
+-- called by the ask function before it asks the model: counts the question, or says why it can't
+create or replace function public.ask_begin(p_user uuid, p_tz text) returns json language plpgsql security definer set search_path = public as $$
+declare c ask_config; used integer; spent numeric; d date := fp_local_day(p_tz); new_id bigint;
+begin
+  perform pg_advisory_xact_lock(hashtext('fp-ask:' || p_user::text));
+  select * into c from ask_config;
+  select coalesce(sum(cost_usd), 0) into spent from ask_usage where asked_at >= date_trunc('month', now());
+  if not c.enabled or spent >= c.monthly_cap_usd then
+    return json_build_object('ok', false, 'why', 'paused', 'limit', c.daily_limit, 'left', 0);
+  end if;
+  select count(*) into used from ask_usage where user_id = p_user and local_day = d;
+  if used >= c.daily_limit then
+    return json_build_object('ok', false, 'why', 'limit', 'limit', c.daily_limit, 'left', 0);
+  end if;
+  insert into ask_usage (user_id, local_day) values (p_user, d) returning id into new_id;
+  return json_build_object('ok', true, 'usage_id', new_id, 'limit', c.daily_limit, 'left', c.daily_limit - used - 1);
+end $$;
+-- and after: what the answer cost
+create or replace function public.ask_finish(p_id bigint, p_in integer, p_out integer, p_cost numeric) returns void language sql security definer set search_path = public as $$
+  update ask_usage set input_tokens = p_in, output_tokens = p_out, cost_usd = p_cost where id = p_id;
+$$;
+revoke all on function public.ask_begin from public, anon, authenticated;
+revoke all on function public.ask_finish from public, anon, authenticated;
+do $$ begin
+  if exists (select 1 from pg_roles where rolname = 'service_role') then
+    grant execute on function public.ask_begin to service_role;
+    grant execute on function public.ask_finish to service_role;
+    grant select, insert, update, delete on public.chats, public.chat_messages, public.ask_usage to service_role;
+    grant select on public.ask_config to service_role;
+  end if;
+end $$;
+
 -- totals for the admin Reports tab (read at build time): counts only, never a row about a person
 create or replace function public.site_totals() returns json language sql security definer set search_path = public, auth stable as $$
   select json_build_object(
@@ -191,6 +303,11 @@ create or replace function public.site_totals() returns json language sql securi
     'favorites', (select count(*) from favorites),
     'lists', (select count(*) from lists),
     'list_items', (select count(*) from list_items),
+    'ask_30d', (select count(*) from ask_usage where asked_at > now() - interval '30 days'),
+    'ask_askers_30d', (select count(distinct user_id) from ask_usage where asked_at > now() - interval '30 days'),
+    'ask_cost_month', (select coalesce(sum(cost_usd), 0) from ask_usage where asked_at >= date_trunc('month', now())),
+    'ask_cap', (select monthly_cap_usd from ask_config),
+    'chats', (select count(*) from chats),
     'saved', coalesce((select json_object_agg(book_id, n) from (select book_id, count(*) n from favorites group by book_id) s), '{}'::json)
   );
 $$;

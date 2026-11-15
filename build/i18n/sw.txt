@@ -173,6 +173,61 @@ Bonyeza tena ili kufuta orodha hii
 Akaunti yako na kila kitu ndani yake vimefutwa.
 Akaunti zinahitaji JavaScript.
 Orodha ya kusoma
+Uliza
+Uliza kuhusu vitabu
+Mpya
+Mazungumzo ya awali
+Uliza kuhusu kitabu hiki
+Uliza Foggy Press
+Kuuliza kunahitaji JavaScript.
+Inafikiri
+Onyesha kitabuni
+Fungua kwenye kifungu hiki
+Kuuliza kumesitishwa kwa sasa
+Maswali {n} kati ya {m} yamebaki leo
+Kuuliza kumesitishwa hadi mwisho wa mwezi.
+Bajeti ya mwezi imefikiwa. Kutafuta na kusoma bado vinafanya kazi.
+Hayo ndiyo maswali {n} ya leo.
+Uliza tena kesho (inaanza upya saa sita usiku). Kutafuta na kusoma hakuna kikomo.
+Ingia ili uulize swali
+Tuonane kesho
+Swali lako
+Tuma
+Ingia ili uulize
+Majibu ya AI · nukuu zinaunganishwa na maandishi ili uweze kuzihakiki
+Kuuliza ni bure. Kuingia kunaweka usawa: kila mtu ana maswali {n} kwa siku.
+Ingia kwa barua pepe yako
+Hakuna nenosiri: tunakutumia kiungo kwa barua pepe.
+Nitafutie kitabu
+Kitu kama Kisiwa cha Hazina, lakini cha kweli
+Eleza kitabu
+Walden inahusu nini hasa?
+Tafuta kifungu
+Ishmaeli anasema wapi kwa nini anaenda baharini?
+Linganisha
+Wasifu wa Grant zinatofautianaje?
+Rudi kwenye mazungumzo
+Mazungumzo mapya
+Omba pendekezo la kitabu, maelezo ya kitabu, au msaada wa kupata kifungu. Majibu yanatoka tu kwenye vitabu {n} vya Foggy Press, na kila nukuu inaunganishwa na ukurasa ilikotoka.
+Uliza kuhusu kitabu, mwandishi au mada
+Bado hakuna mazungumzo ya awali.
+Futa yote
+Mazungumzo yasiyo na kichwa
+Futa
+Mazungumzo yanahifadhiwa kwenye akaunti yako hadi uyafute.
+Leo
+Jana
+Kitabu hiki kinahusu nini?
+Wahusika wakuu ni akina nani?
+Nijue nini kabla ya kuanza?
+Majibu yanatoka kwenye maandishi ya kitabu hiki
+Funga
+Uliza kuhusu {title}
+Kuna maombi mengi sasa hivi. Jaribu tena baada ya dakika moja.
+Inaonekana uko nje ya mtandao. Jaribu tena.
+Kuna hitilafu. Jaribu tena.
+Futa? Bonyeza tena
+
 @about 2654dd9aaf
 Foggy Press hupanga upya vitabu vya umma kwa mtindo mmoja rahisi na kuvichapisha bure: kusoma mtandaoni, kuchapisha nyumbani kutoka kwenye PDF ya karatasi ya ukubwa wa letter ya Marekani, au kupakua kama EPUB kwa kisomaji cha kielektroniki.
 
@@ -188,12 +243,14 @@ Foggy Press ni toleo la kusoma la bure lisilo la kibiashara. Hakuna matangazo, h
 
 Ikiwa unaamini kwamba kitabu kwenye tovuti hii bado kina hakimiliki, au tumekosea kuhusu haki zake, tafadhali tuambie kupitia fomu iliyo hapa chini. Taja kitabu na ueleze tatizo, nasi tutalichunguza haraka. Fomu hiyo hiyo inatumika pia kwa makosa ya uchapaji na makosa mengine.
 
-@privacy 9c322fddeb
+@privacy ce7b31869d
 Unaweza kusoma, kutafuta na kupakua kila kitabu cha Foggy Press bila akaunti. Akaunti ni hiari: inahifadhi vitabu unavyohifadhi, orodha zako za kusoma, lebo zako mwenyewe na historia yako ya kusoma, ili viwe nawe kwenye kifaa chochote.
 
 ## Tunachohifadhi
 
 Ukifungua akaunti, tunahifadhi anwani yako ya barua pepe, vitabu unavyohifadhi, orodha na lebo zako pamoja na madokezo yake, na historia yako ya kusoma: vitabu ulivyofungua, ulipoishia, na kama ulipakua PDF au EPUB. Unaweza kuzima au kufuta historia wakati wowote kwenye ukurasa wa Vitabu vyangu.
+
+Ukitumia Uliza Foggy Press, tunahifadhi maswali yako na majibu kama mazungumzo ya awali kwenye akaunti yako, pamoja na idadi ya maswali unayouliza kila siku (kwa ajili ya kikomo cha kila siku).
 
 Hatuhifadhi jina lako, nenosiri wala taarifa za malipo. Hakuna matangazo wala vidakuzi vya kufuatilia. Hatuuzi wala kushiriki unachohifadhi, na tunakutumia barua pepe kwa ajili ya kuingia tu.
 
@@ -203,12 +260,14 @@ Bila akaunti, vitabu unavyohifadhi na ulivyosoma hivi karibuni vinahifadhiwa kwe
 
 Wewe tu, ukiwa umeingia. Mmiliki wa tovuti anaweza kuona orodha ya barua pepe za akaunti kwenye huduma ya akaunti, na jumla kama watu wangapi walihifadhi kitabu fulani, lakini kamwe si vitabu vya mtu mmoja. Hesabu yetu ya wageni (GoatCounter) ni jumla zisizo na majina na haihusiani na akaunti.
 
+Uliza Foggy Press hujibu kwa kutumia Claude, modeli ya AI iliyotengenezwa na Anthropic: swali lako na ujumbe uliotangulia katika mazungumzo hayo hutumwa kwa Anthropic ili kuandika jibu. Anthropic haizitumii kufunza modeli zake. Majibu huandikwa na AI na yanaweza kuwa na makosa; nukuu zinaunganishwa na kitabu ili uweze kuzihakiki.
+
 ## Kinapohifadhiwa
 
 Akaunti zinahifadhiwa na Supabase nchini Marekani. Kumbukumbu zake hutunza anwani ya intaneti ya maombi ya kuingia kwa muda mfupi, kwa usalama. Barua pepe za kuingia hutumwa na Resend.
 
 ## Chaguo zako
 
-Kwenye ukurasa wa Vitabu vyangu unaweza kupakua kila kitu tunachohifadhi kukuhusu kama faili, au kufuta akaunti yako. Kufuta huondoa akaunti na kila kitu ndani yake mara moja; nakala za akiba hutoweka ndani ya siku 7. Akaunti ni za wasomaji wenye umri wa miaka 13 na zaidi.
+Kwenye ukurasa wa Vitabu vyangu unaweza kupakua kila kitu tunachohifadhi kukuhusu kama faili, au kufuta akaunti yako. Kufuta huondoa akaunti na kila kitu ndani yake mara moja; nakala za akiba hutoweka ndani ya siku 7. Akaunti ni za wasomaji wenye umri wa miaka 13 na zaidi. Kwenye ukurasa wa Uliza unaweza kufuta mazungumzo ya awali moja moja au yote kwa mara moja.
 
 Una maswali? Tuandikie kupitia fomu kwenye ukurasa wa Kuhusu.

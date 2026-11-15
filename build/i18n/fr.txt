@@ -173,6 +173,61 @@ Appuyez encore pour supprimer cette liste
 Votre compte et tout son contenu ont été supprimés.
 Les comptes ont besoin de JavaScript.
 Liste de lecture
+Demander
+Poser une question sur les livres
+Nouveau
+Conversations précédentes
+Poser une question sur ce livre
+Demandez à Foggy Press
+Pour poser une question, JavaScript est nécessaire.
+Réflexion
+Voir dans le livre
+Ouvrir à ce passage
+Les questions sont en pause pour le moment
+Il vous reste {n} questions sur {m} aujourd’hui
+Les questions sont en pause jusqu’à la fin du mois.
+Le budget mensuel est atteint. La recherche et la lecture fonctionnent toujours.
+Vous avez posé vos {n} questions du jour.
+Revenez demain (remise à zéro à minuit). La recherche et la lecture sont illimitées.
+Connectez-vous pour poser une question
+À demain
+Votre question
+Envoyer
+Connectez-vous pour poser une question
+Réponses d’IA · les citations renvoient au texte pour que vous puissiez les vérifier
+Poser des questions est gratuit. La connexion rend les choses équitables : chacun a {n} questions par jour.
+Se connecter avec son e-mail
+Pas de mot de passe : nous vous envoyons un lien par e-mail.
+Trouvez-moi un livre
+Quelque chose comme L’Île au trésor, mais vrai
+Expliquer un livre
+De quoi parle vraiment Walden ?
+Trouver un passage
+Où Ismaël dit-il pourquoi il part en mer ?
+Comparer
+En quoi les biographies de Grant diffèrent-elles ?
+Retour à la conversation
+Nouvelle conversation
+Demandez une recommandation, l’explication d’un livre ou de l’aide pour trouver un passage. Les réponses viennent uniquement des {n} livres de Foggy Press, et chaque citation renvoie à la page d’où elle vient.
+Posez une question sur un livre, un auteur ou un sujet
+Pas encore de conversations précédentes.
+Tout supprimer
+Conversation sans titre
+Supprimer
+Les conversations sont gardées dans votre compte jusqu’à ce que vous les supprimiez.
+Aujourd’hui
+Hier
+De quoi parle ce livre ?
+Qui sont les personnages principaux ?
+Que faut-il savoir avant de commencer ?
+Les réponses viennent du texte de ce livre
+Fermer
+Posez une question sur {title}
+Le service est très demandé. Réessayez dans une minute.
+Vous semblez hors ligne. Réessayez.
+Un problème est survenu. Réessayez.
+Supprimer ? Appuyez encore
+
 @about 2654dd9aaf
 Foggy Press compose des livres du domaine public dans un style maison simple et les publie gratuitement : à lire en ligne, à imprimer chez soi à partir d’un PDF au format Lettre US, ou à télécharger en EPUB pour une liseuse.
 
@@ -188,12 +243,14 @@ Foggy Press est une édition de lecture gratuite et non commerciale. Il n’y a 
 
 Si vous pensez qu’un livre de ce site est encore protégé par le droit d’auteur, ou que nous nous sommes trompés sur ses droits, dites-le-nous grâce au formulaire ci-dessous. Indiquez le livre et expliquez le problème : nous l’examinerons rapidement. Le même formulaire sert aussi pour les coquilles et autres erreurs.
 
-@privacy 9c322fddeb
+@privacy ce7b31869d
 Vous pouvez lire, chercher et télécharger tous les livres de Foggy Press sans compte. Le compte est facultatif : il garde les livres que vous gardez, vos listes de lecture, vos propres étiquettes et votre historique de lecture, pour les retrouver sur n’importe quel appareil.
 
 ## Ce que nous gardons
 
 Si vous créez un compte, nous gardons votre adresse e-mail, les livres que vous gardez, vos listes et étiquettes avec leurs notes, et votre historique de lecture : les livres ouverts, l’endroit où vous vous êtes arrêté, et si vous avez téléchargé le PDF ou l’EPUB. Vous pouvez désactiver ou effacer l’historique à tout moment sur la page Mes livres.
+
+Si vous utilisez Demandez à Foggy Press, nous gardons vos questions et les réponses comme conversations précédentes dans votre compte, ainsi que le nombre de questions que vous posez chaque jour (pour la limite quotidienne).
 
 Nous ne gardons ni votre nom, ni mot de passe, ni données de paiement. Pas de publicité, pas de cookies de suivi. Nous ne vendons ni ne partageons jamais ce que vous gardez, et nous ne vous écrivons que pour vous connecter.
 
@@ -203,12 +260,14 @@ Sans compte, les livres que vous gardez et ceux lus récemment restent dans ce n
 
 Vous seul, une fois connecté. Le responsable du site peut voir la liste des adresses e-mail des comptes dans le service de comptes, et des totaux comme le nombre de personnes ayant gardé un livre, mais jamais les livres d’une personne. Notre comptage des visites (GoatCounter) ne donne que des totaux anonymes, sans lien avec les comptes.
 
+Demandez à Foggy Press répond avec Claude, un modèle d’IA créé par Anthropic : votre question et les messages précédents de cette conversation sont envoyés à Anthropic pour rédiger la réponse. Anthropic ne les utilise pas pour entraîner ses modèles. Les réponses sont écrites par une IA et peuvent être fausses ; les citations renvoient au livre pour que vous puissiez les vérifier.
+
 ## Où c’est stocké
 
 Les comptes sont stockés chez Supabase, aux États-Unis. Ses journaux gardent un court moment l’adresse internet des demandes de connexion, par sécurité. Les e-mails de connexion sont envoyés par Resend.
 
 ## Vos choix
 
-Sur la page Mes livres, vous pouvez télécharger dans un fichier tout ce que nous gardons sur vous, ou supprimer votre compte. La suppression efface aussitôt le compte et tout son contenu ; les copies de sauvegarde disparaissent sous 7 jours. Les comptes sont réservés aux lecteurs de 13 ans et plus.
+Sur la page Mes livres, vous pouvez télécharger dans un fichier tout ce que nous gardons sur vous, ou supprimer votre compte. La suppression efface aussitôt le compte et tout son contenu ; les copies de sauvegarde disparaissent sous 7 jours. Les comptes sont réservés aux lecteurs de 13 ans et plus. Sur la page Demander, vous pouvez supprimer les conversations précédentes une par une ou toutes à la fois.
 
 Des questions ? Écrivez-nous avec le formulaire de la page À propos.
