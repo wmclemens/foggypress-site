@@ -1,4 +1,5 @@
-// Foggy Press public pages: theme switch, collection sort (Tag / Popular) and "More collections" paging.
+// Foggy Press public pages: theme switch, collection sort (Tag / Popular), "More collections" paging,
+// and the book sort on collection pages (Author / Title / Popular).
 (function () {
   var root = document.documentElement;
   var dark = function () { return root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; };
@@ -11,6 +12,28 @@
       try { localStorage.setItem('fp-theme', root.dataset.theme); } catch (e) {}
       label();
     });
+  }
+
+  // books on a collection page: Author (A to Z by last name, then title), Title, or Popular (online views + PDF downloads)
+  var bar = document.querySelector('.booksort'), list = bar && document.querySelector('ul.recs');
+  if (list) {
+    var rows = Array.prototype.slice.call(list.children), bsort = 'author';
+    try { bsort = sessionStorage.getItem('fp-bsort') || 'author'; } catch (e) {}
+    var cmp = function (x, y) { return x.localeCompare(y, 'en', {numeric: true}); };   // "Volume 2" before "Volume 10"
+    var by = {
+      author: function (a, b) { return cmp(a.dataset.au, b.dataset.au) || cmp(a.dataset.ti, b.dataset.ti); },
+      title: function (a, b) { return cmp(a.dataset.ti, b.dataset.ti) || cmp(a.dataset.au, b.dataset.au); },
+      popular: function (a, b) { return (+b.dataset.pop - +a.dataset.pop) || by.author(a, b); }
+    };
+    var drawBooks = function () {
+      if (!by[bsort]) bsort = 'author';
+      rows.sort(by[bsort]).forEach(function (r) { list.appendChild(r); });
+      bar.querySelectorAll('[data-bsort]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.bsort === bsort)); });
+    };
+    bar.querySelectorAll('[data-bsort]').forEach(function (b) {
+      b.addEventListener('click', function () { bsort = b.dataset.bsort; try { sessionStorage.setItem('fp-bsort', bsort); } catch (e) {} drawBooks(); });
+    });
+    drawBooks();
   }
 
   var grid = document.getElementById('colls');

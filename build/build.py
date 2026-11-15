@@ -258,7 +258,8 @@ class Site:
                   '<noscript><p class="sub">Search needs JavaScript. You can still <a href="/authors/" style="color:var(--accent)">list books by author</a>.</p></noscript></div></div>',
                   'search', 'Search Foggy Press books by title, author, or any word inside them.')
 
-    def recs(self, books):
+    def recs(self, books, sortable=False):
+        """book rows; sortable adds the keys the tag pages' sort buttons use (assets/site.js)"""
         out = []
         for b in books:
             tr = f" · tr. {esc(b['translator'])}" if b.get('translator') else ''
@@ -271,7 +272,8 @@ class Site:
             else:
                 main = esc(self.pdf_url(b))
                 acts = pdf
-            out.append(f'''<li class="rec"><a class="main" href="{main}"><span class="t">{esc(b['title'])}</span>
+            sk = f' data-au="{esc(b["author_last"].lower())} {esc(b["author_first"].lower())}" data-ti="{esc(sort_title(b["title"]).lower())}" data-pop="{b["_downloads"] + b["_views"]}"' if sortable else ''
+            out.append(f'''<li class="rec"{sk}><a class="main" href="{main}"><span class="t">{esc(b['title'])}</span>
 <span class="a">{esc(author_name(b))}{tr}</span>{f'<span class="d">{esc(b["_desc"])}</span>' if b.get('_desc') else ''}</a>
 <span class="m mono">{esc(b.get('original_date'))}{pages}</span>
 <span class="acts">{acts}</span></li>''')
@@ -385,7 +387,13 @@ class Site:
         for t in ts:
             bs = sorted(self.by_tag[t['name']], key=lambda b: (b['author_last'].lower(), sort_title(b['title'])))
             n = len(bs)
-            self.page(f'tag/{t["slug"]}/index.html', f'{t["name"]} · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/tags/">Collections</a></span><h1>{esc(t['name'])}</h1><p class="sub">{n} {'book' if n == 1 else 'books'}{' · Featured collection' if t.get('featured') else ''}</p></div>{self.recs(bs)}''', '')
+            self.page(f'tag/{t["slug"]}/index.html', f'{t["name"]} · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/tags/">Collections</a></span><h1>{esc(t['name'])}</h1><p class="sub">{n} {'book' if n == 1 else 'books'}{' · Featured collection' if t.get('featured') else ''}</p></div>{self.book_sortbar() if n > 1 else ''}{self.recs(bs, sortable=True)}''', '')
+
+    @staticmethod
+    def book_sortbar():
+        return ('<div class="sortbar booksort"><span class="eyebrow">Sort by</span><div class="seg" role="group" aria-label="Sort books">'
+                '<button type="button" data-bsort="author" aria-pressed="true">Author</button><button type="button" data-bsort="title" aria-pressed="false">Title</button>'
+                '<button type="button" data-bsort="popular" aria-pressed="false">Popular</button></div></div>')
 
     def about(self):
         src = ROOT / 'content/about.md'
