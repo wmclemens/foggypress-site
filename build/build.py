@@ -30,6 +30,21 @@ import search_index
 
 ROOT = Path(__file__).resolve().parent.parent
 FEATURED_MAX = 3
+# Display levels of a tag (catalog/tags.json "level"): 1 Featured (home page top, at most FEATURED_MAX),
+# 2 Main (the home page's collection tiles), 3 and deeper only on the By tag page, in search and by link.
+LEVEL_NAMES = {1: 'Featured', 2: 'Main collections', 3: 'Other collections'}
+
+
+def tag_level(t):
+    """a tag's display level; older tag files only say featured true/false"""
+    try:
+        return max(1, int(t['level']))
+    except (KeyError, TypeError, ValueError):
+        return 1 if t.get('featured') else 2
+
+
+def level_name(n):
+    return LEVEL_NAMES.get(n, f'Level {n} collections')
 COLLECTIONS_PER_PAGE = 25
 
 
@@ -155,10 +170,11 @@ class Site:
         for b in self.books:
             for t in b.get('tags', []):
                 if t not in tag_names:  # a tag typed into a record but missing from the tag file
-                    self.tags.append({'name': t, 'featured': False})
+                    self.tags.append({'name': t, 'level': 3})
                     tag_names.add(t)
         for t in self.tags:
             t['slug'] = slugify(t['name'])
+            t['_level'] = tag_level(t)
         self.live = []
         for b in self.books:
             rel = pdf_repo_path(b.get('github_pdf'))
@@ -252,6 +268,8 @@ class Site:
             rows.append(({'id': b['id'], 't': b['title'], 'a': author_name(b), 'al': b['author_last'], 'tr': b.get('translator') or '',
                           'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'pdf': pdf, 'read': bool(art)}, art))
         nw, ns = search_index.write_index(self.out / 'search', rows)
+        tags = [{'n': t['name'], 's': t['slug'], 'c': len(self.by_tag[t['name']])} for t in sorted(self.tags, key=lambda t: t['name'].lower()) if self.by_tag[t['name']]]
+        (self.out / 'search' / 'tags.json').write_text(json.dumps(tags, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
         print(f'Search index: {nw} words in {ns} files.')
         self.page('search/index.html', 'Search · Foggy Press',
                   '<div id="search-results"><div class="ph"><span class="crumb"><a href="/">Home</a> / Search</span><h1>Search</h1>'
@@ -350,7 +368,7 @@ class Site:
         (dest / 'index.html').write_text(doc, encoding='utf-8')
 
     def home(self):
-        feat = [t for t in self.tags if t.get('featured') and self.by_tag[t['name']]][:FEATURED_MAX]
+        feat = [t for t in self.tags if t['_level'] == 1 and self.by_tag[t['name']]][:FEATURED_MAX]
         fhtml = []
         for i, t in enumerate(feat):
             bs = sorted(self.by_tag[t['name']], key=lambda b: (-b['_downloads'], sort_title(b['title'])))
@@ -358,14 +376,15 @@ class Site:
             more = f'More: all {n} titles →' if n > 3 else 'Open collection →'
             fhtml.append(f'''<a class="ft" href="/tag/{t['slug']}/"><div class="top"><span class="mono i">{i+1:02d}</span><span class="mono c">{n} {'title' if n == 1 else 'titles'}</span></div>
 <h3>{esc(t['name'])}</h3><ul>{''.join(f'<li>{esc(b["title"])}</li>' for b in bs[:3])}</ul><span class="fmore">{more}</span></a>''')
-        alltags = sorted([t for t in self.tags if self.by_tag[t['name']]], key=lambda t: t['name'].lower())
+        alltags = sorted([t for t in self.tags if t['_level'] == 2 and self.by_tag[t['name']]], key=lambda t: t['name'].lower())
+        nall = len([t for t in self.tags if self.by_tag[t['name']]])
         tiles = ''.join(f'''<a class="ct" href="/tag/{t['slug']}/" data-name="{esc(t['name'].lower())}" data-dl="{self.tag_dl(t['name'])}"><span class="nm">{esc(t['name'])}</span><span class="row mono"><span>{len(self.by_tag[t['name']])} {'title' if len(self.by_tag[t['name']]) == 1 else 'titles'}</span></span></a>''' for t in alltags)
         featsec = f'''<section class="sec"><div class="sec-h"><h2>Featured collections</h2><span class="eyebrow">{len(self.live)} books · free PDFs</span></div><div class="feat">{''.join(fhtml)}</div></section>''' if feat else ''
         body = f'''{featsec}
-<section class="sec"><div class="sec-h"><h2>All collections</h2>
+<section class="sec"><div class="sec-h"><h2>Collections</h2>
 <div class="sortbar"><span class="eyebrow">Sort by</span><div class="seg" role="group" aria-label="Sort collections"><button type="button" data-sort="tag" aria-pressed="true">Tag</button><button type="button" data-sort="popular" aria-pressed="false">Popular</button></div></div></div>
 <div class="grid" id="colls" data-page="{COLLECTIONS_PER_PAGE}">{tiles}</div>
-<div class="morebar"><span class="mono" id="shown">{len(alltags)} collections</span><button class="btn ghost sm" id="more" type="button" hidden>More collections</button></div>
+<div class="morebar"><span class="mono" id="shown">{len(alltags)} collections</span><button class="btn ghost sm" id="more" type="button" hidden>More collections</button><a class="allc" href="/tags/">All {nall} collections →</a></div>
 </section>'''
         self.page('index.html', 'Foggy Press · Printable Books', body, 'home')
 
@@ -382,12 +401,15 @@ class Site:
         by_title = sorted(self.live, key=lambda b: sort_title(b['title']).lower())
         self.page('titles/index.html', 'By title · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By title</h1><p class="sub">{len(self.live)} books, A to Z, ignoring “The”, “A” and “An”. Read any book online, or print it from its PDF.</p></div>{self.recs(by_title)}''', 'titles')
         ts = sorted([t for t in self.tags if self.by_tag[t['name']]], key=lambda t: t['name'].lower())
-        links = ''.join(f'<a href="/tag/{t["slug"]}/"><span>{esc(t["name"])}</span><span class="mono">{len(self.by_tag[t["name"]])}</span></a>' for t in ts)
-        self.page('tags/index.html', 'By tag · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By tag</h1><p class="sub">Every tag is a collection. {len(ts)} tags.</p></div><div class="taglist">{links}</div>''', 'tags')
+        groups = []
+        for lv in sorted({t['_level'] for t in ts}):
+            links = ''.join(f'<a href="/tag/{t["slug"]}/"><span>{esc(t["name"])}</span><span class="mono">{len(self.by_tag[t["name"]])}</span></a>' for t in ts if t['_level'] == lv)
+            groups.append(f'<section class="tagsec"><h2 class="eyebrow">{esc(level_name(lv))}</h2><div class="taglist">{links}</div></section>')
+        self.page('tags/index.html', 'By tag · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By tag</h1><p class="sub">Every tag is a collection. {len(ts)} tags.</p></div>{''.join(groups)}''', 'tags')
         for t in ts:
             bs = sorted(self.by_tag[t['name']], key=lambda b: (b['author_last'].lower(), sort_title(b['title'])))
             n = len(bs)
-            self.page(f'tag/{t["slug"]}/index.html', f'{t["name"]} · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/tags/">Collections</a></span><h1>{esc(t['name'])}</h1><p class="sub">{n} {'book' if n == 1 else 'books'}{' · Featured collection' if t.get('featured') else ''}</p></div>{self.book_sortbar() if n > 1 else ''}{self.recs(bs, sortable=True)}''', '')
+            self.page(f'tag/{t["slug"]}/index.html', f'{t["name"]} · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/tags/">Collections</a></span><h1>{esc(t['name'])}</h1><p class="sub">{n} {'book' if n == 1 else 'books'}{' · Featured collection' if t['_level'] == 1 else ''}</p></div>{self.book_sortbar() if n > 1 else ''}{self.recs(bs, sortable=True)}''', '')
 
     @staticmethod
     def book_sortbar():

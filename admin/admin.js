@@ -6,6 +6,15 @@
   var BRANCH = 'main';
   var BOOKS = 'catalog/books.json', TAGS = 'catalog/tags.json';
   var FEATURED_MAX = 3;
+  // tag display levels (build/build.py LEVEL_NAMES): 1 Featured, 2 Main (home page), 3+ only on By tag, search and links
+  var LEVELS = {1: 'Featured', 2: 'Main', 3: 'Other'};
+  function levelOf(t) { var n = parseInt(t.level, 10); return n >= 1 ? n : (t.featured ? 1 : 2); }
+  function levelName(n) { return LEVELS[n] || 'Level ' + n; }
+  function levelPick(t) {
+    var cur = levelOf(t), top = Math.max(3, cur + 1, data.tags.reduce(function (m, x) { return Math.max(m, levelOf(x)); }, 0) + 1), o = '';
+    for (var n = 1; n <= top; n++) o += '<option value="' + n + '"' + (n === cur ? ' selected' : '') + '>' + n + ' · ' + esc(levelName(n)) + '</option>';
+    return '<select class="lvl" data-lvl="' + esc(t.name) + '" aria-label="Display level for ' + esc(t.name) + '">' + o + '</select>';
+  }
   var KEY = 'fp-admin-token';
 
   var $ = function (s) { return document.querySelector(s); };
@@ -235,7 +244,7 @@
       if (clash) { note.innerHTML = '<span class="err">“' + esc(rec.id) + '” is already used by ' + esc(clash.title) + '. Change the web address.</span>'; return; }
       var btn = $('#save'); btn.disabled = true; note.textContent = 'Saving…';
       var newTags = created.filter(function (t) { return draft.indexOf(t) >= 0 && tagNames().indexOf(t) < 0; });
-      var step = newTags.length ? (function () { newTags.forEach(function (t) { data.tags.push({name: t, featured: false}); }); return saveTags('Add tag' + (newTags.length > 1 ? 's ' : ' ') + newTags.join(', ')); })() : Promise.resolve();
+      var step = newTags.length ? (function () { newTags.forEach(function (t) { data.tags.push({name: t, level: 3}); }); return saveTags('Add tag' + (newTags.length > 1 ? 's ' : ' ') + newTags.join(', ')); })() : Promise.resolve();
       step.then(function () {
         if (isNew) data.books.push(rec); else Object.assign(b, rec);
         return saveBooks((isNew ? 'Add ' : 'Update ') + rec.title);
@@ -257,39 +266,41 @@
 
   function vTags() {
     var ts = data.tags.map(function (t) { var bs = booksWith(t.name), live = bs.filter(isLive); return {t: t, books: bs.length, live: live.length, dl: live.reduce(function (s, b) { return s + dlOf(b); }, 0), vw: live.reduce(function (s, b) { return s + vwOf(b); }, 0)}; });
-    var tv = {name: function (r) { return r.t.name; }, books: function (r) { return r.books; }, live: function (r) { return r.live; }, downloads: function (r) { return r.dl; }, views: function (r) { return r.vw; }, featured: function (r) { return r.t.featured ? 0 : 1; }}[tagSort.key];
+    var tv = {name: function (r) { return r.t.name; }, books: function (r) { return r.books; }, live: function (r) { return r.live; }, downloads: function (r) { return r.dl; }, views: function (r) { return r.vw; }, level: function (r) { return levelOf(r.t); }}[tagSort.key];
     ts.sort(function (a, b) { return (cmp(tv(a), tv(b)) * tagSort.dir) || cmp(a.t.name, b.t.name); });
-    var nf = data.tags.filter(function (t) { return t.featured; }).length;
+    var nf = data.tags.filter(function (t) { return levelOf(t) === 1; }).length;
     $('#app').innerHTML = tabs('tags') +
       '<div class="tools"><input id="nt" type="text" placeholder="New tag name" aria-label="New tag name" style="width:min(16rem,100%)"><button class="btn sm" id="addtag" type="button">Add tag</button><span class="mono count">' + ts.length + ' tags · ' + nf + ' of ' + FEATURED_MAX + ' featured</span></div>' +
-      '<div class="tbl-wrap"><table><thead id="thead"><tr>' + th('Tag', 'name', tagSort) + th('Books', 'books', tagSort) + th('Live', 'live', tagSort) + th('PDF downloads', 'downloads', tagSort) + th('Online views', 'views', tagSort) + th('Featured on home page', 'featured', tagSort) + '</tr></thead><tbody>' +
+      '<div class="tbl-wrap"><table><thead id="thead"><tr>' + th('Tag', 'name', tagSort) + th('Books', 'books', tagSort) + th('Live', 'live', tagSort) + th('PDF downloads', 'downloads', tagSort) + th('Online views', 'views', tagSort) + th('Shows as', 'level', tagSort) + '</tr></thead><tbody>' +
       ts.map(function (r) {
         var t = r.t;
         return '<tr class="go" data-slug="' + slugify(t.name) + '" tabindex="0"><td style="font-weight:500">' + esc(t.name) + '</td><td class="num">' + r.books + '</td><td class="num">' + r.live + '</td><td class="num">' + num(r.dl) + '</td><td class="num">' + num(r.vw) + '</td>' +
-          '<td><button class="star" type="button" data-feat="' + esc(t.name) + '" aria-pressed="' + !!t.featured + '">' + (t.featured ? '★ Featured' : '☆ Feature') + '</button></td></tr>';
+          '<td>' + levelPick(t) + '</td></tr>';
       }).join('') + '</tbody></table></div>';
     $('#addtag').onclick = function () {
       var v = $('#nt').value.trim(); if (!v) return;
       if (tagNames().some(function (t) { return t.toLowerCase() === v.toLowerCase(); })) { toast('“' + v + '” is already in the tag file.'); return; }
-      data.tags.push({name: v, featured: false});
+      data.tags.push({name: v, level: 3});
       saveTags('Add tag ' + v).then(function () { toast('Added “' + v + '”. Open it to tag books.'); route(); }).catch(function (e) { data.tags.pop(); failed(e); });
     };
     $('#nt').onkeydown = function (e) { if (e.key === 'Enter') $('#addtag').click(); };
     wireSort($('#thead'), tagSort, vTags);
     wireFeature();
-    $('#app').querySelector('tbody').onclick = function (e) { if (e.target.closest('button')) return; var r = e.target.closest('tr[data-slug]'); if (r) location.hash = 'tag-' + r.dataset.slug; };
-    $('#app').querySelector('tbody').onkeydown = function (e) { var r = e.target.closest('tr[data-slug]'); if (r && e.key === 'Enter' && !e.target.closest('button')) location.hash = 'tag-' + r.dataset.slug; };
+    $('#app').querySelector('tbody').onclick = function (e) { if (e.target.closest('button, select')) return; var r = e.target.closest('tr[data-slug]'); if (r) location.hash = 'tag-' + r.dataset.slug; };
+    $('#app').querySelector('tbody').onkeydown = function (e) { var r = e.target.closest('tr[data-slug]'); if (r && e.key === 'Enter' && !e.target.closest('button, select')) location.hash = 'tag-' + r.dataset.slug; };
   }
 
   function wireFeature() {
-    $('#app').querySelectorAll('[data-feat]').forEach(function (btn) {
-      btn.onclick = function (e) {
-        e.stopPropagation();
-        var t = data.tags.find(function (x) { return x.name === btn.dataset.feat; });
-        if (!t.featured && data.tags.filter(function (x) { return x.featured; }).length >= FEATURED_MAX) { toast('Three collections are already featured. Unfeature one first.'); return; }
-        t.featured = !t.featured; btn.disabled = true;
-        saveTags((t.featured ? 'Feature ' : 'Unfeature ') + t.name).then(function () { toast((t.featured ? '“' + t.name + '” is now featured. ' : '“' + t.name + '” is no longer featured. ') + SAVED); route(); })
-          .catch(function (err) { t.featured = !t.featured; btn.disabled = false; failed(err); });
+    $('#app').querySelectorAll('[data-lvl]').forEach(function (sel) {
+      sel.onclick = function (e) { e.stopPropagation(); };
+      sel.onchange = function () {
+        var t = data.tags.find(function (x) { return x.name === sel.dataset.lvl; }), was = {level: t.level, featured: t.featured}, n = +sel.value;
+        if (n === 1 && levelOf(t) !== 1 && data.tags.filter(function (x) { return levelOf(x) === 1; }).length >= FEATURED_MAX) {
+          toast('Three collections are already featured. Move one to another level first.'); sel.value = levelOf(t); return;
+        }
+        t.level = n; delete t.featured; sel.disabled = true;
+        saveTags('Show ' + t.name + ' as ' + levelName(n)).then(function () { toast('“' + t.name + '” now shows as ' + levelName(n) + '. ' + SAVED); route(); })
+          .catch(function (err) { t.level = was.level; if (was.featured !== undefined) t.featured = was.featured; if (was.level === undefined) delete t.level; sel.disabled = false; sel.value = levelOf(t); failed(err); });
       };
     });
   }
@@ -301,7 +312,7 @@
     var list = booksWith(t.name).sort(function (a, b) { return (cmp(ov(a), ov(b)) * oneTagSort.dir) || cmp(sortTitle(a.title), sortTitle(b.title)); });
     $('#app').innerHTML = tabs('tags') +
       '<div style="padding-top:1.25rem;display:grid;gap:.5rem"><span class="crumb"><a href="#tags">Tag file</a> / ' + esc(t.name) + '</span>' +
-      '<div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><h1 style="font-size:2rem">' + esc(t.name) + '</h1><button class="star" type="button" data-feat="' + esc(t.name) + '" aria-pressed="' + !!t.featured + '">' + (t.featured ? '★ Featured' : '☆ Feature') + '</button></div></div>' +
+      '<div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><h1 style="font-size:2rem">' + esc(t.name) + '</h1><label class="mono" style="display:flex;gap:.5rem;align-items:center">Shows as ' + levelPick(t) + '</label></div></div>' +
       '<div class="form" style="padding-top:1rem"><div class="fld"><label for="addbook">Add books to this tag</label><div class="picker" style="padding:.25rem"><input id="addbook" type="text" placeholder="Type a title or author" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="bsugg"><div class="sugg" id="bsugg" hidden></div></div></div>' +
       '<div class="fld"><label for="rn">Rename tag</label><div style="display:flex;gap:.5rem"><input id="rn" type="text" value="' + esc(t.name) + '"><button class="btn ghost sm" id="rename" type="button">Rename</button></div></div></div>' +
       '<div class="tbl-wrap" style="margin-top:1.25rem"><table><thead id="thead"><tr>' + th('Title', 'title', oneTagSort) + th('Author', 'author', oneTagSort) + th('PDF downloads', 'downloads', oneTagSort) + th('Online views', 'views', oneTagSort) + th('Status', 'status', oneTagSort) + '<th></th></tr></thead><tbody>' +

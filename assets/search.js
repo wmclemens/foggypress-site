@@ -72,7 +72,7 @@
     var params = new URLSearchParams(location.search);
     var query = params.get('q') || '';
     inputs.forEach(function (i) { i.value = query; });
-    var SHOWN = 10, booksP = getJSON('search/books.json'), keysP = getJSON('search/p.json').then(function (ks) {
+    var SHOWN = 10, booksP = getJSON('search/books.json'), tagsP = getJSON('search/tags.json').catch(function () { return []; }), keysP = getJSON('search/p.json').then(function (ks) {
       var set = {}; ks.forEach(function (k) { set[k] = 1; }); return set; });
     var fileCache = {}, pageCache = {}, run = 0, timer;
 
@@ -210,13 +210,15 @@
       var head = '<div class="ph"><span class="crumb"><a href="' + BASE + '">Home</a> / Search</span>';
       if (!q) { out.innerHTML = head + '<h1>Search</h1><p class="sub">Type a title, an author, or any word from inside the books.</p></div>'; return; }
       var ws = words(q), tws = textWords(q);
-      booksP.then(function (books) {
+      Promise.all([booksP, tagsP]).then(function (got) {
+        var books = got[0], tags = got[1];
         if (my !== run) return;
         var byT = function (a, b) { return sortT(a.t).localeCompare(sortT(b.t)); };
         var am = {};
         books.forEach(function (b) { if (b.a && hasPhrase(b.a, ws)) (am[b.a] = am[b.a] || {last: b.al, b: []}).b.push(b); });
         var authors = Object.keys(am).sort(function (a, b) { return am[a].last.localeCompare(am[b].last) || a.localeCompare(b); });
         var titles = books.filter(function (b) { return hasPhrase(b.t, ws); }).sort(byT);
+        var colls = tags.filter(function (g) { return hasPhrase(g.n, ws); });
         var top = head + '<h1>“' + esc(q) + '”</h1><p class="sub" id="sr-sum"></p></div>';
         var body = '';
         if (authors.length) body += '<section class="rgroup"><div class="sec-h"><h2>Authors</h2><span class="eyebrow">' + authors.length + '</span></div><ul class="authors">' +
@@ -225,12 +227,15 @@
             return '<li class="au"><span class="n">' + hl(a, ws) + '</span><span class="c mono">' + plural(bs.length, 'book', 'books') + '</span><span class="bk">' +
               bs.map(function (b) { return '<a href="' + esc(mainHref(b)) + '">' + esc(b.t) + '</a>'; }).join('') + '</span></li>';
           }).join('') + '</ul></section>';
+        if (colls.length) body += '<section class="rgroup"><div class="sec-h"><h2>Collections</h2><span class="eyebrow">' + colls.length + '</span></div><div class="taglist">' +
+          colls.map(function (g) { return '<a href="' + BASE + 'tag/' + esc(g.s) + '/"><span>' + hl(g.n, ws) + '</span><span class="mono">' + g.c + '</span></a>'; }).join('') + '</div></section>';
         if (titles.length) body += '<section class="rgroup"><div class="sec-h"><h2>Titles</h2><span class="eyebrow">' + titles.length + '</span></div><ul class="recs">' +
           titles.map(function (b) { return rec(b, ws); }).join('') + '</ul></section>';
         out.innerHTML = top + body + (tws.length ? '<section class="rgroup" id="sr-in"><div class="sec-h"><h2>Inside the books</h2><span class="eyebrow">Searching…</span></div></section>' : '');
         var sum = function (inside) {
           var parts = [];
           if (authors.length) parts.push(plural(authors.length, 'author', 'authors'));
+          if (colls.length) parts.push(plural(colls.length, 'collection', 'collections'));
           if (titles.length) parts.push(plural(titles.length, 'title', 'titles'));
           if (inside) parts.push('found inside ' + plural(inside, 'book', 'books'));
           document.getElementById('sr-sum').textContent = parts.join(' · ');

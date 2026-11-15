@@ -128,6 +128,11 @@ body.reading{padding:0}
 .readfoot a{color:var(--accent)}
 .letter{font-family:var(--mono);font-size:.75rem;color:var(--accent);padding:1.5rem 0 .35rem;border-bottom:1px solid var(--line-2);letter-spacing:.06em}
 .taglist{columns:14rem 3;column-gap:2.5rem;padding-top:1rem}
+.tagsec{padding-top:1.75rem}
+.tagsec h2{padding-bottom:.6rem;border-bottom:1px solid var(--ink)}
+.tagsec .taglist{padding-top:.25rem}
+.allc{margin-left:auto;font-family:var(--mono);font-size:.75rem;letter-spacing:.02em;color:var(--accent)}
+.allc:hover{text-decoration:underline;text-underline-offset:3px}
 .taglist a{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid var(--line);break-inside:avoid}
 .taglist a:hover{color:var(--accent)}
 .taglist .mono{color:var(--faint);white-space:nowrap}
