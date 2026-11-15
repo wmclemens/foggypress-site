@@ -1,0 +1,118 @@
+Livros para imprimir
+Pesquisar
+Título, autor ou qualquer palavra
+Ver livros
+Por autor
+Por título
+Por etiqueta
+Sobre a Foggy Press
+Modo escuro
+Modo claro
+Idioma
+Foggy Press · livros de domínio público, grátis para imprimir
+{n} livros
+{n} livro
+Início
+Listas
+Coleções em destaque
+{n} livros · PDFs grátis
+{n} título
+{n} títulos
+Mais: todos os {n} títulos →
+Abrir coleção →
+Coleções
+Ordenar por
+Ordenar coleções
+Etiqueta
+Populares
+{n} coleções
+{n} coleção
+Mais coleções
+Mostrando {n} de {m}
+Todas as {n} coleções →
+{n} livros, de A a Z pelo sobrenome do autor. Leia qualquer livro on-line ou imprima-o a partir do PDF.
+{n} livros, de A a Z, ignorando “The”, “A” e “An”. Leia qualquer livro on-line ou imprima-o a partir do PDF.
+Cada etiqueta é uma coleção. {n} etiquetas.
+Em destaque
+Coleções principais
+Outras coleções
+Coleções de nível {n}
+Coleção em destaque
+Ordenar livros
+Autor
+Título
+Ler on-line
+Imprimir este livro
+Para leitores digitais: Kindle, Apple Books, Kobo
+trad.
+{n} págs.
+Imprimir este livro (PDF)
+Livros de domínio público, grátis para ler e imprimir
+Procurar neste livro
+Resultado anterior
+Próximo resultado
+Todos
+Todos ({n})
+Nenhum resultado
+{n} de {m}
+Mostrando os primeiros {n} de {m}. Use as setas para ver o resto.
+Início do texto
+Digite um título, um autor ou qualquer palavra de dentro dos livros.
+Autores
+Títulos
+Dentro dos livros
+Pesquisando…
+{n} autor
+{n} autores
+encontrado em {n} livro
+encontrado em {n} livros
+Nada encontrado.
+Mais menções primeiro
+Frase exata · mais menções primeiro
+Abrir tudo
+Fechar tudo
+Ver trechos
+Carregando trechos…
+{n} menção
+{n} menções
+{n} capítulo
+{n} capítulos
+{n} lugar
+{n} lugares
+Mostrando {n} de {m} livros
+Mostrar todos os {n}
+Não foi possível pesquisar dentro dos livros agora. Tente de novo.
+Texto
+Abra o livro para ver onde aparece.
+Não foi possível carregar os trechos. Feche e abra de novo para tentar outra vez.
+Envie-nos suas perguntas ou comentários!
+Seu nome
+Seu e-mail
+Mensagem
+Enviar mensagem
+O formulário vai abrir em instantes.
+Preencha seu nome, e-mail e mensagem.
+Esse endereço de e-mail não parece correto. Verifique, por favor.
+Marque “Sou humano” antes de enviar.
+Enviando…
+Obrigado. Sua mensagem foi enviada.
+Sua mensagem não foi enviada: {why}
+tente de novo.
+Sua mensagem não foi enviada. Verifique sua conexão e tente de novo.
+Não encontrada
+Esta página não existe.
+Ir para a página inicial
+@about 2654dd9aaf
+A Foggy Press compõe livros de domínio público num estilo próprio e simples e os publica de graça: para ler on-line, imprimir em casa a partir de um PDF em papel carta americano ou baixar como EPUB para um leitor digital.
+
+## Direitos e fontes
+
+Os livros deste site são textos de domínio público nos Estados Unidos, onde a Foggy Press tem sede: obras cujos direitos autorais expiraram ou nunca foram renovados. Se você mora fora dos Estados Unidos, os prazos dos direitos autorais podem ser diferentes; por isso, verifique as regras do seu país antes de copiar ou reimprimir um livro.
+
+Nossos textos vêm de transcrições e digitalizações de domínio público: principalmente do [Project Gutenberg](https://www.gutenberg.org) e também do [Internet Archive](https://archive.org), do [Wikisource](https://wikisource.org), do [HathiTrust](https://www.hathitrust.org) e do [Google Books](https://books.google.com). Recompomos cada texto com nosso próprio layout e não acrescentamos nada além dos cabeçalhos de página e, nas coletâneas, um breve sumário. A ficha de cada livro informa a data da publicação original e, quando houver, o tradutor.
+
+A Foggy Press é uma edição de leitura gratuita e sem fins comerciais. Não há anúncios, nem contas, nem nada à venda.
+
+## Correções e pedidos de remoção
+
+Se você acredita que um livro deste site ainda está protegido por direitos autorais, ou que nos enganamos sobre os direitos dele, avise-nos pelo formulário abaixo. Indique o livro e explique o problema, e vamos analisá-lo prontamente. O mesmo formulário serve para erros de digitação e outros erros.

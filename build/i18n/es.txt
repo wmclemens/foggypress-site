@@ -1,0 +1,118 @@
+Libros para imprimir
+Buscar
+Título, autor o cualquier palabra
+Ver libros
+Por autor
+Por título
+Por etiqueta
+Acerca de Foggy Press
+Modo oscuro
+Modo claro
+Idioma
+Foggy Press · libros de dominio público, gratis para imprimir
+{n} libros
+{n} libro
+Inicio
+Listas
+Colecciones destacadas
+{n} libros · PDF gratis
+{n} título
+{n} títulos
+Más: los {n} títulos →
+Abrir la colección →
+Colecciones
+Ordenar por
+Ordenar colecciones
+Etiqueta
+Populares
+{n} colecciones
+{n} colección
+Más colecciones
+Mostrando {n} de {m}
+Las {n} colecciones →
+{n} libros, de la A a la Z por el apellido del autor. Lea cualquier libro en línea o imprímalo desde su PDF.
+{n} libros, de la A a la Z, sin contar “The”, “A” ni “An”. Lea cualquier libro en línea o imprímalo desde su PDF.
+Cada etiqueta es una colección. {n} etiquetas.
+Destacadas
+Colecciones principales
+Otras colecciones
+Colecciones de nivel {n}
+Colección destacada
+Ordenar libros
+Autor
+Título
+Leer en línea
+Imprimir este libro
+Para lectores electrónicos: Kindle, Apple Books, Kobo
+trad.
+{n} págs.
+Imprimir este libro (PDF)
+Libros de dominio público, gratis para leer e imprimir
+Buscar en este libro
+Coincidencia anterior
+Coincidencia siguiente
+Todas
+Todas ({n})
+Sin coincidencias
+{n} de {m}
+Se muestran las primeras {n} de {m}. Use las flechas para ver el resto.
+Inicio del texto
+Escriba un título, un autor o cualquier palabra del interior de los libros.
+Autores
+Títulos
+Dentro de los libros
+Buscando…
+{n} autor
+{n} autores
+encontrado en {n} libro
+encontrado en {n} libros
+No se encontró nada.
+Más menciones primero
+Frase exacta · más menciones primero
+Abrir todo
+Cerrar todo
+Ver pasajes
+Cargando pasajes…
+{n} mención
+{n} menciones
+{n} capítulo
+{n} capítulos
+{n} lugar
+{n} lugares
+Mostrando {n} de {m} libros
+Ver los {n}
+No se pudo buscar dentro de los libros en este momento. Inténtelo de nuevo.
+Texto
+Abra el libro para ver dónde aparece.
+No se pudieron cargar los pasajes. Ciérrelos y ábralos de nuevo para reintentar.
+¡Envíenos sus preguntas o comentarios!
+Su nombre
+Su correo electrónico
+Mensaje
+Enviar mensaje
+El formulario se abrirá en un momento.
+Escriba su nombre, su correo electrónico y su mensaje.
+Esa dirección de correo no parece correcta. Revísela, por favor.
+Marque “Soy humano” antes de enviar.
+Enviando…
+Gracias. Su mensaje se ha enviado.
+Su mensaje no se envió: {why}
+inténtelo de nuevo.
+Su mensaje no se envió. Revise su conexión e inténtelo de nuevo.
+No encontrado
+Esa página no está aquí.
+Ir a la página de inicio
+@about 2654dd9aaf
+Foggy Press compone libros de dominio público en un estilo propio y sencillo y los publica gratis: para leer en línea, para imprimir en casa desde un PDF en papel carta de EE. UU. o para descargar como EPUB para un lector electrónico.
+
+## Derechos y fuentes
+
+Los libros de este sitio son textos de dominio público en los Estados Unidos, donde tiene su sede Foggy Press: obras cuyos derechos de autor han vencido o nunca se renovaron. Si vive fuera de los Estados Unidos, los plazos de los derechos de autor pueden ser distintos, así que consulte las normas de su país antes de copiar o reimprimir un libro.
+
+Nuestros textos proceden de transcripciones y escaneos de dominio público: sobre todo de [Project Gutenberg](https://www.gutenberg.org), y también de [Internet Archive](https://archive.org), [Wikisource](https://wikisource.org), [HathiTrust](https://www.hathitrust.org) y [Google Books](https://books.google.com). Volvemos a componer cada texto con nuestro propio diseño y no añadimos nada más que los encabezados de página y, en las colecciones, un breve índice. La ficha de cada libro indica su fecha de publicación original y, cuando lo hay, su traductor.
+
+Foggy Press es una edición de lectura gratuita y sin fines comerciales. No hay anuncios, ni cuentas, ni nada a la venta.
+
+## Correcciones y solicitudes de retirada
+
+Si cree que un libro de este sitio sigue protegido por derechos de autor, o que nos hemos equivocado sobre sus derechos, díganoslo mediante el formulario de abajo. Indique el libro y explique el problema, y lo revisaremos enseguida. El mismo formulario sirve para erratas y otros errores.

@@ -1,0 +1,118 @@
+Livres à imprimer
+Rechercher
+Titre, auteur ou n’importe quel mot
+Parcourir les livres
+Par auteur
+Par titre
+Par étiquette
+À propos de Foggy Press
+Mode sombre
+Mode clair
+Langue
+Foggy Press · livres du domaine public, gratuits à imprimer
+{n} livres
+{n} livre
+Accueil
+Listes
+Collections à la une
+{n} livres · PDF gratuits
+{n} titre
+{n} titres
+Plus : les {n} titres →
+Ouvrir la collection →
+Collections
+Trier par
+Trier les collections
+Étiquette
+Populaires
+{n} collections
+{n} collection
+Plus de collections
+{n} sur {m} affichées
+Les {n} collections →
+{n} livres, de A à Z par nom d’auteur. Lisez chaque livre en ligne ou imprimez-le à partir de son PDF.
+{n} livres, de A à Z, sans tenir compte de « The », « A » et « An ». Lisez chaque livre en ligne ou imprimez-le à partir de son PDF.
+Chaque étiquette est une collection. {n} étiquettes.
+À la une
+Collections principales
+Autres collections
+Collections de niveau {n}
+Collection à la une
+Trier les livres
+Auteur
+Titre
+Lire en ligne
+Imprimer ce livre
+Pour liseuses : Kindle, Apple Books, Kobo
+trad.
+{n} p.
+Imprimer ce livre (PDF)
+Livres du domaine public, gratuits à lire et à imprimer
+Rechercher dans ce livre
+Résultat précédent
+Résultat suivant
+Tous
+Tous ({n})
+Aucun résultat
+{n} sur {m}
+Les {n} premiers résultats sur {m} sont affichés. Utilisez les flèches pour la suite.
+Début du texte
+Saisissez un titre, un auteur ou n’importe quel mot tiré des livres.
+Auteurs
+Titres
+Dans les livres
+Recherche…
+{n} auteur
+{n} auteurs
+trouvé dans {n} livre
+trouvé dans {n} livres
+Aucun résultat.
+Les plus cités d’abord
+Expression exacte · les plus cités d’abord
+Tout déplier
+Tout replier
+Voir les passages
+Chargement des passages…
+{n} occurrence
+{n} occurrences
+{n} chapitre
+{n} chapitres
+{n} endroit
+{n} endroits
+{n} livres sur {m} affichés
+Tout afficher ({n})
+Impossible de rechercher dans les livres pour le moment. Veuillez réessayer.
+Texte
+Ouvrez le livre pour voir où cela apparaît.
+Impossible de charger les passages. Fermez puis rouvrez pour réessayer.
+Envoyez-nous vos questions ou vos remarques !
+Votre nom
+Votre adresse e-mail
+Message
+Envoyer le message
+Le formulaire va s’ouvrir dans un instant.
+Indiquez votre nom, votre adresse e-mail et votre message.
+Cette adresse e-mail ne semble pas correcte. Veuillez la vérifier.
+Cochez « Je suis un humain » avant d’envoyer.
+Envoi…
+Merci. Votre message a été envoyé.
+Votre message n’a pas été envoyé : {why}
+veuillez réessayer.
+Votre message n’a pas été envoyé. Vérifiez votre connexion et réessayez.
+Page introuvable
+Cette page n’existe pas.
+Aller à la page d’accueil
+@about 2654dd9aaf
+Foggy Press compose des livres du domaine public dans un style maison simple et les publie gratuitement : à lire en ligne, à imprimer chez soi à partir d’un PDF au format Lettre US, ou à télécharger en EPUB pour une liseuse.
+
+## Droits et sources
+
+Les livres de ce site sont des textes du domaine public aux États-Unis, où Foggy Press est établie : des œuvres dont les droits d’auteur ont expiré ou n’ont jamais été renouvelés. Si vous vivez hors des États-Unis, la durée des droits peut être différente ; vérifiez donc les règles de votre pays avant de copier ou de réimprimer un livre.
+
+Nos textes proviennent de transcriptions et de numérisations du domaine public : surtout du [Project Gutenberg](https://www.gutenberg.org), mais aussi de l’[Internet Archive](https://archive.org), de [Wikisource](https://wikisource.org), de [HathiTrust](https://www.hathitrust.org) et de [Google Books](https://books.google.com). Nous recomposons chaque texte dans notre propre mise en page et n’ajoutons rien d’autre que les en-têtes de page et, pour les recueils, une courte table des matières. La fiche de chaque livre indique sa date de publication originale et, le cas échéant, son traducteur.
+
+Foggy Press est une édition de lecture gratuite et non commerciale. Il n’y a ni publicité, ni comptes, ni rien à vendre.
+
+## Corrections et demandes de retrait
+
+Si vous pensez qu’un livre de ce site est encore protégé par le droit d’auteur, ou que nous nous sommes trompés sur ses droits, dites-le-nous grâce au formulaire ci-dessous. Indiquez le livre et expliquez le problème : nous l’examinerons rapidement. Le même formulaire sert aussi pour les coquilles et autres erreurs.

@@ -45,6 +45,16 @@ def tag_level(t):
         return 1 if t.get('featured') else 2
 
 
+LANG_PICK = ('<label class="langpick"><span class="vh" data-t>Language</span>'
+             '<select aria-label="Language" data-t-attr="aria-label"><option value="en">English</option></select></label>')
+
+
+def tn(key, n, text=None, m=None):
+    """a counted phrase the language menu translates (assets/i18n.js): key such as {n} books"""
+    shown = text if text is not None else key.replace('{n}', str(n)).replace('{m}', str(m))
+    return f'<span data-t="{esc(key)}" data-n="{n}"{f' data-m="{m}"' if m is not None else ''}>{esc(shown)}</span>'
+
+
 def level_name(n):
     return LEVEL_NAMES.get(n, f'Level {n} collections')
 COLLECTIONS_PER_PAGE = 25
@@ -216,7 +226,7 @@ class Site:
             gc = f'<script data-goatcounter="https://{esc(self.gc_code)}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
         nav = [('authors', 'By author', len(self.live)), ('titles', 'By title', len(self.live)),
                ('tags', 'By tag', sum(1 for t in self.tags if self.by_tag[t['name']]))]
-        navhtml = ''.join(f'<a href="/{h}/"{" aria-current=page" if current == h else ""}><span>{l}</span><span class="mono">{n}</span></a>' for h, l, n in nav)
+        navhtml = ''.join(f'<a href="/{h}/"{" aria-current=page" if current == h else ""}><span data-t>{l}</span><span class="mono">{n}</span></a>' for h, l, n in nav)
         doc = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -231,17 +241,18 @@ class Site:
 </head>
 <body>
 <div class="wrap shell">
-  <a class="brand" href="/"><span class="n">Foggy Press</span><span class="s">Printable Books</span></a>
+  <a class="brand" href="/"><span class="n">Foggy Press</span><span class="s" data-t>Printable Books</span></a>
   {self.search_box('qm', 'srch msrch')}
   <aside class="rail">
     {self.search_box('q', 'srch')}
-    <div><div class="eyebrow" style="margin-bottom:.6rem">List books</div><nav aria-label="Lists">{navhtml}</nav></div>
-    <nav aria-label="About"><a href="/about/"{" aria-current=page" if current == 'about' else ""}><span>About Foggy Press</span><span class="mono">→</span></a></nav>
-    <button class="theme" id="theme" type="button">Dark mode</button>
+    <div><div class="eyebrow" style="margin-bottom:.6rem" data-t>List books</div><nav aria-label="Lists">{navhtml}</nav></div>
+    <nav aria-label="About"><a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
+    <div class="rail-end"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div>
   </aside>
   <main>{body}</main>
-  <footer class="foot mono"><span>Foggy Press · public-domain books, free to print</span><span>{len(self.live)} books</span></footer>
+  <footer class="foot mono"><span data-t>Foggy Press · public-domain books, free to print</span>{tn('{n} books', len(self.live))}</footer>
 </div>
+<script src="/assets/i18n.js"></script>
 <script src="/assets/site.js" defer></script>
 {'<script src="/assets/search.js" defer></script>' if current == 'search' else ''}
 {gc}
@@ -257,9 +268,9 @@ class Site:
     @staticmethod
     def search_box(iid, cls):
         """the site search box: in the left rail, and (phones only, where the rail drops below the page) under the name"""
-        return (f'<form class="{cls}" role="search" action="/search/" method="get"><label class="eyebrow" for="{iid}">Search</label>'
-                f'<div class="sbox"><input id="{iid}" name="q" type="search" placeholder="Title, author or any word" autocomplete="off" enterkeyhint="search">'
-                f'<button type="submit" aria-label="Search">→</button></div></form>')
+        return (f'<form class="{cls}" role="search" action="/search/" method="get"><label class="eyebrow" for="{iid}" data-t>Search</label>'
+                f'<div class="sbox"><input id="{iid}" name="q" type="search" placeholder="Title, author or any word" data-t-attr="placeholder" autocomplete="off" enterkeyhint="search">'
+                f'<button type="submit" aria-label="Search" data-t-attr="aria-label">→</button></div></form>')
 
     def search(self):
         """/search/ page plus the index it reads (search/books.json, search/p.json, search/p/*.bin): see search_index.py"""
@@ -280,25 +291,25 @@ class Site:
         (self.out / 'search' / 'tags.json').write_text(json.dumps(tags, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
         print(f'Search index: {nw} words in {ns} files.')
         self.page('search/index.html', 'Search · Foggy Press',
-                  '<div id="search-results"><div class="ph"><span class="crumb"><a href="/">Home</a> / Search</span><h1>Search</h1>'
+                  '<div id="search-results"><div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>Search</span></span><h1 data-t>Search</h1>'
                   '<noscript><p class="sub">Search needs JavaScript. You can still <a href="/authors/" style="color:var(--accent)">list books by author</a>.</p></noscript></div></div>',
                   'search', 'Search Foggy Press books by title, author, or any word inside them.')
 
     def epub_link(self, b, cls):
         return (f'<a class="{cls}" href="{esc(self.epub_url(b))}" download data-goatcounter-click="epub-{esc(b["id"])}" '
-                f'data-goatcounter-title="{esc(b["title"])}" title="For e-readers: Kindle, Apple Books, Kobo">EPUB</a>')
+                f'data-goatcounter-title="{esc(b["title"])}" title="For e-readers: Kindle, Apple Books, Kobo" data-t-attr="title">EPUB</a>')
 
     def recs(self, books, sortable=False):
         """book rows; sortable adds the keys the tag pages' sort buttons use (assets/site.js)"""
         out = []
         for b in books:
-            tr = f" · tr. {esc(b['translator'])}" if b.get('translator') else ''
-            pages = f" · {b['_pages']} pp" if b.get('_pages') else ''
+            tr = f" · <span data-t>tr.</span> {esc(b['translator'])}" if b.get('translator') else ''
+            pages = f" · {tn('{n} pp', b['_pages'])}" if b.get('_pages') else ''
             pdf = (f'<a class="act" href="{esc(self.pdf_url(b))}" data-goatcounter-click="pdf-{esc(b["id"])}" '
-                   f'data-goatcounter-title="{esc(b["title"])}">Print this book</a>')
+                   f'data-goatcounter-title="{esc(b["title"])}" data-t>Print this book</a>')
             if b.get('_html'):
                 main = f'/read/{esc(b["id"])}/'
-                acts = f'<a class="act" href="{main}">Read online</a>{pdf}{self.epub_link(b, "act")}'
+                acts = f'<a class="act" href="{main}" data-t>Read online</a>{pdf}{self.epub_link(b, "act")}'
             else:
                 main = esc(self.pdf_url(b))
                 acts = pdf
@@ -354,21 +365,22 @@ class Site:
 <div class="readtop">
 <nav class="readbar" aria-label="Foggy Press">
   <a class="rb-home" href="/">Foggy Press</a>
-  <span class="rb-acts"><a class="rb-pdf" href="{pdf}" {click}>Print this book</a>{self.epub_link(b, 'rb-pdf')}<button class="theme" id="theme" type="button">Dark mode</button></span>
+  <span class="rb-acts"><a class="rb-pdf" href="{pdf}" {click} data-t>Print this book</a>{self.epub_link(b, 'rb-pdf')}<button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</span>
 </nav>
 <div class="bsearch" role="search">
   <div class="in">
     <label class="fld" for="find"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <input id="find" type="search" placeholder="Find in this book" autocomplete="off" enterkeyhint="search" aria-describedby="find-count"></label>
+      <input id="find" type="search" placeholder="Find in this book" data-t-attr="placeholder" autocomplete="off" enterkeyhint="search" aria-describedby="find-count"></label>
     <span class="cnt" id="find-count" aria-live="polite"></span>
-    <span class="nav"><button type="button" id="find-prev" aria-label="Previous match" disabled>↑</button><button type="button" id="find-next" aria-label="Next match" disabled>↓</button></span>
+    <span class="nav"><button type="button" id="find-prev" aria-label="Previous match" data-t-attr="aria-label" disabled>↑</button><button type="button" id="find-next" aria-label="Next match" data-t-attr="aria-label" disabled>↓</button></span>
     <button type="button" class="lst" id="find-all" aria-expanded="false" aria-controls="find-hits" disabled>All</button>
   </div>
   <div class="hits" id="find-hits" hidden><ol></ol></div>
 </div>
 </div>
 {art}
-<footer class="readfoot mono"><a href="/">Foggy Press</a><span>Public-domain books, free to read and print</span><span><a href="{pdf}" {click}>Print this book (PDF)</a> · {self.epub_link(b, '')}</span></footer>
+<footer class="readfoot mono"><a href="/">Foggy Press</a><span data-t>Public-domain books, free to read and print</span><span><a href="{pdf}" {click} data-t>Print this book (PDF)</a> · {self.epub_link(b, '')}</span></footer>
+<script src="/assets/i18n.js"></script>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/search.js" defer></script>
 {gc}
@@ -385,18 +397,18 @@ class Site:
         for i, t in enumerate(feat):
             bs = sorted(self.by_tag[t['name']], key=lambda b: (-b['_downloads'], sort_title(b['title'])))
             n = len(bs)
-            more = f'More: all {n} titles →' if n > 3 else 'Open collection →'
-            fhtml.append(f'''<a class="ft" href="/tag/{t['slug']}/"><div class="top"><span class="mono i">{i+1:02d}</span><span class="mono c">{n} {'title' if n == 1 else 'titles'}</span></div>
+            more = tn('More: all {n} titles →', n) if n > 3 else '<span data-t>Open collection →</span>'
+            fhtml.append(f'''<a class="ft" href="/tag/{t['slug']}/"><div class="top"><span class="mono i">{i+1:02d}</span><span class="mono c">{tn('{n} title' if n == 1 else '{n} titles', n)}</span></div>
 <h3>{esc(t['name'])}</h3><ul>{''.join(f'<li>{esc(b["title"])}</li>' for b in bs[:3])}</ul><span class="fmore">{more}</span></a>''')
         alltags = sorted([t for t in self.tags if t['_level'] == 2 and self.by_tag[t['name']]], key=lambda t: t['name'].lower())
         nall = len([t for t in self.tags if self.by_tag[t['name']]])
-        tiles = ''.join(f'''<a class="ct" href="/tag/{t['slug']}/" data-name="{esc(t['name'].lower())}" data-dl="{self.tag_dl(t['name'])}"><span class="nm">{esc(t['name'])}</span><span class="row mono"><span>{len(self.by_tag[t['name']])} {'title' if len(self.by_tag[t['name']]) == 1 else 'titles'}</span></span></a>''' for t in alltags)
-        featsec = f'''<section class="sec"><div class="sec-h"><h2>Featured collections</h2><span class="eyebrow">{len(self.live)} books · free PDFs</span></div><div class="feat">{''.join(fhtml)}</div></section>''' if feat else ''
+        tiles = ''.join(f'''<a class="ct" href="/tag/{t['slug']}/" data-name="{esc(t['name'].lower())}" data-dl="{self.tag_dl(t['name'])}"><span class="nm">{esc(t['name'])}</span><span class="row mono">{tn('{n} title' if len(self.by_tag[t['name']]) == 1 else '{n} titles', len(self.by_tag[t['name']]))}</span></a>''' for t in alltags)
+        featsec = f'''<section class="sec"><div class="sec-h"><h2 data-t>Featured collections</h2><span class="eyebrow">{tn('{n} books · free PDFs', len(self.live))}</span></div><div class="feat">{''.join(fhtml)}</div></section>''' if feat else ''
         body = f'''{featsec}
-<section class="sec"><div class="sec-h"><h2>Collections</h2>
-<div class="sortbar"><span class="eyebrow">Sort by</span><div class="seg" role="group" aria-label="Sort collections"><button type="button" data-sort="tag" aria-pressed="true">Tag</button><button type="button" data-sort="popular" aria-pressed="false">Popular</button></div></div></div>
+<section class="sec"><div class="sec-h"><h2 data-t>Collections</h2>
+<div class="sortbar"><span class="eyebrow" data-t>Sort by</span><div class="seg" role="group" aria-label="Sort collections" data-t-attr="aria-label"><button type="button" data-sort="tag" aria-pressed="true" data-t>Tag</button><button type="button" data-sort="popular" aria-pressed="false" data-t>Popular</button></div></div></div>
 <div class="grid" id="colls" data-page="{COLLECTIONS_PER_PAGE}">{tiles}</div>
-<div class="morebar"><span class="mono" id="shown">{len(alltags)} collections</span><button class="btn ghost sm" id="more" type="button" hidden>More collections</button><a class="allc" href="/tags/">All {nall} collections →</a></div>
+<div class="morebar"><span class="mono" id="shown">{len(alltags)} collections</span><button class="btn ghost sm" id="more" type="button" hidden data-t>More collections</button><a class="allc" href="/tags/">{tn('All {n} collections →', nall)}</a></div>
 </section>'''
         self.page('index.html', 'Foggy Press · Printable Books', body, 'home')
 
@@ -409,25 +421,25 @@ class Site:
                 parts.append(f'<div class="letter">{esc(letter)}</div>')
                 cur = letter
             parts.append(self.recs([b]))
-        self.page('authors/index.html', 'By author · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By author</h1><p class="sub">{len(self.live)} books, A to Z by the author’s last name. Read any book online, or print it from its PDF.</p></div>{''.join(parts)}''', 'authors')
+        self.page('authors/index.html', 'By author · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By author</h1><p class="sub">{tn('{n} books, A to Z by the author’s last name. Read any book online, or print it from its PDF.', len(self.live))}</p></div>{''.join(parts)}''', 'authors')
         by_title = sorted(self.live, key=lambda b: sort_title(b['title']).lower())
-        self.page('titles/index.html', 'By title · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By title</h1><p class="sub">{len(self.live)} books, A to Z, ignoring “The”, “A” and “An”. Read any book online, or print it from its PDF.</p></div>{self.recs(by_title)}''', 'titles')
+        self.page('titles/index.html', 'By title · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By title</h1><p class="sub">{tn('{n} books, A to Z, ignoring “The”, “A” and “An”. Read any book online, or print it from its PDF.', len(self.live))}</p></div>{self.recs(by_title)}''', 'titles')
         ts = sorted([t for t in self.tags if self.by_tag[t['name']]], key=lambda t: t['name'].lower())
         groups = []
         for lv in sorted({t['_level'] for t in ts}):
             links = ''.join(f'<a href="/tag/{t["slug"]}/"><span>{esc(t["name"])}</span><span class="mono">{len(self.by_tag[t["name"]])}</span></a>' for t in ts if t['_level'] == lv)
-            groups.append(f'<section class="tagsec"><h2 class="eyebrow">{esc(level_name(lv))}</h2><div class="taglist">{links}</div></section>')
-        self.page('tags/index.html', 'By tag · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / List</span><h1>By tag</h1><p class="sub">Every tag is a collection. {len(ts)} tags.</p></div>{''.join(groups)}''', 'tags')
+            groups.append(f'<section class="tagsec"><h2 class="eyebrow">{tn('Level {n} collections', lv, level_name(lv)) if lv > 3 else f'<span data-t>{esc(level_name(lv))}</span>'}</h2><div class="taglist">{links}</div></section>')
+        self.page('tags/index.html', 'By tag · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By tag</h1><p class="sub">{tn('Every tag is a collection. {n} tags.', len(ts))}</p></div>{''.join(groups)}''', 'tags')
         for t in ts:
             bs = sorted(self.by_tag[t['name']], key=lambda b: (b['author_last'].lower(), sort_title(b['title'])))
             n = len(bs)
-            self.page(f'tag/{t["slug"]}/index.html', f'{t["name"]} · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/tags/">Collections</a></span><h1>{esc(t['name'])}</h1><p class="sub">{n} {'book' if n == 1 else 'books'}{' · Featured collection' if t['_level'] == 1 else ''}</p></div>{self.book_sortbar() if n > 1 else ''}{self.recs(bs, sortable=True)}''', '')
+            self.page(f'tag/{t["slug"]}/index.html', f'{t["name"]} · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <a href="/tags/" data-t>Collections</a></span><h1>{esc(t['name'])}</h1><p class="sub">{tn('{n} book' if n == 1 else '{n} books', n)}{' · <span data-t>Featured collection</span>' if t['_level'] == 1 else ''}</p></div>{self.book_sortbar() if n > 1 else ''}{self.recs(bs, sortable=True)}''', '')
 
     @staticmethod
     def book_sortbar():
-        return ('<div class="sortbar booksort"><span class="eyebrow">Sort by</span><div class="seg" role="group" aria-label="Sort books">'
-                '<button type="button" data-bsort="author" aria-pressed="true">Author</button><button type="button" data-bsort="title" aria-pressed="false">Title</button>'
-                '<button type="button" data-bsort="popular" aria-pressed="false">Popular</button></div></div>')
+        return ('<div class="sortbar booksort"><span class="eyebrow" data-t>Sort by</span><div class="seg" role="group" aria-label="Sort books" data-t-attr="aria-label">'
+                '<button type="button" data-bsort="author" aria-pressed="true" data-t>Author</button><button type="button" data-bsort="title" aria-pressed="false" data-t>Title</button>'
+                '<button type="button" data-bsort="popular" aria-pressed="false" data-t>Popular</button></div></div>')
 
     def about(self):
         src = ROOT / 'content/about.md'
@@ -437,30 +449,30 @@ class Site:
             body = markdown.markdown(text)
         except Exception:
             body = ''.join(f'<p>{esc(p)}</p>' for p in text.split('\n\n') if p.strip())
-        self.page('about/index.html', 'About · Foggy Press', f'<div class="ph"><span class="crumb"><a href="/">Home</a></span><h1>About Foggy Press</h1></div><div class="prose">{body}</div>{self.contact_form()}', 'about')
+        self.page('about/index.html', 'About · Foggy Press', f'<div class="ph"><span class="crumb"><a href="/" data-t>Home</a></span><h1 data-t>About Foggy Press</h1></div><div class="prose" data-t-html="about">{body}</div>{self.contact_form()}', 'about')
 
     def contact_form(self):
         """Feedback form. Messages are delivered by Web3Forms to the email address its access key was made for;
         the address never appears in the page. hCaptcha supplies the 'I am not a robot' check."""
         key = os.environ.get('WEB3FORMS_KEY', '').strip()
         off = '' if key else ' disabled'
-        note = '' if key else '<p class="formnote" id="cf-status">The form will open shortly.</p>'
+        note = '' if key else '<p class="formnote" id="cf-status" data-t>The form will open shortly.</p>'
         return f'''<section class="contact" aria-labelledby="cf-h">
-<h2 id="cf-h">Please send us questions or feedback!</h2>
+<h2 id="cf-h" data-t>Please send us questions or feedback!</h2>
 <form id="contact" class="cform" data-key="{esc(key)}" novalidate>
-  <div class="fld"><label for="cf-name">Your name</label><input id="cf-name" name="name" type="text" autocomplete="name" required{off}></div>
-  <div class="fld"><label for="cf-email">Your email</label><input id="cf-email" name="email" type="email" autocomplete="email" required{off}></div>
-  <div class="fld"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" rows="6" required{off}></textarea></div>
+  <div class="fld"><label for="cf-name" data-t>Your name</label><input id="cf-name" name="name" type="text" autocomplete="name" required{off}></div>
+  <div class="fld"><label for="cf-email" data-t>Your email</label><input id="cf-email" name="email" type="email" autocomplete="email" required{off}></div>
+  <div class="fld"><label for="cf-msg" data-t>Message</label><textarea id="cf-msg" name="message" rows="6" required{off}></textarea></div>
   <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
   <div class="h-captcha" data-captcha="true" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
-  <div class="cf-row"><button class="btn" type="submit"{off}>Send message</button></div>
+  <div class="cf-row"><button class="btn" type="submit"{off} data-t>Send message</button></div>
   {note or '<p class="formnote" id="cf-status" role="status"></p>'}
 </form></section>
 {'<script src="https://js.hcaptcha.com/1/api.js" async defer></script>' if key else ''}'''
 
 
     def not_found(self):
-        self.page('404.html', 'Not found · Foggy Press', '<div class="ph"><h1>Not found</h1><p class="sub">That page isn’t here. <a href="/" style="color:var(--accent)">Go to the home page</a>.</p></div>')
+        self.page('404.html', 'Not found · Foggy Press', '<div class="ph"><h1 data-t>Not found</h1><p class="sub"><span data-t>That page isn’t here.</span> <a href="/" style="color:var(--accent)" data-t>Go to the home page</a></p></div>')
 
     def copy_assets(self):
         for d in ('assets', 'admin'):
@@ -483,6 +495,45 @@ class Site:
         if dom:
             (self.out / 'CNAME').write_text(dom + '\n')
         (self.out / '.nojekyll').write_text('')
+
+    def translations(self):
+        """assets/i18n/<code>.json for the language menu (assets/i18n.js), from build/i18n/<code>.txt:
+        one translation per line in the order of build/i18n/_keys.txt, then "@about <hash>" and the About
+        page in Markdown. The About text is used only while <hash> matches content/about.md (the first 10
+        characters of its SHA-1), so an edited About page shows in English until it is translated again."""
+        import hashlib
+        src = ROOT / 'build' / 'i18n'
+        keys = (src / '_keys.txt').read_text(encoding='utf-8').splitlines()
+        about = ROOT / 'content' / 'about.md'
+        about_hash = hashlib.sha1(about.read_bytes()).hexdigest()[:10] if about.exists() else ''
+        out = self.out / 'assets' / 'i18n'
+        out.mkdir(parents=True, exist_ok=True)
+        for f in sorted(src.glob('[a-z]*.txt')):
+            lines = f.read_text(encoding='utf-8').split('\n')
+            cut = next((i for i, l in enumerate(lines) if l.startswith('@about')), len(lines))
+            phrases = [l.strip() for l in lines[:cut]]
+            while phrases and not phrases[-1]:
+                phrases.pop()
+            if len(phrases) != len(keys):
+                self.problems.append(f'{f.name}: {len(phrases)} phrases for {len(keys)} keys; language left out')
+                continue
+            d = {}
+            for k, v in zip(keys, phrases):
+                for ph in re.findall(r'\{\w+\}', k):
+                    singular = ph == '{n}' and not re.search(r's\b', k.split('{n}', 1)[1][:12])   # "{n} book": "one book" may drop the number
+                    if ph not in v and not singular:
+                        self.problems.append(f'{f.name}: "{v}" is missing {ph}')
+                d[k] = v
+            if cut < len(lines):
+                h = lines[cut].split()[1] if len(lines[cut].split()) > 1 else ''
+                if h == about_hash:
+                    body = '\n'.join(lines[cut + 1:])
+                    try:
+                        import markdown
+                        d['@about'] = markdown.markdown(body)
+                    except Exception:
+                        d['@about'] = ''.join(f'<p>{esc(p)}</p>' for p in body.split('\n\n') if p.strip())
+            (out / f'{f.stem}.json').write_text(json.dumps(d, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
     def admin_data(self):
         """Facts the admin pages show beside the catalog: page counts, sizes, downloads, and PDFs not yet in the catalog."""
@@ -535,7 +586,7 @@ class Site:
         self.out.mkdir(parents=True)
         self.prepare()
         self.copy_assets()
-        self.home(); self.lists(); self.about(); self.not_found(); self.search()
+        self.home(); self.lists(); self.about(); self.not_found(); self.search(); self.translations()
         self.admin_data()
         print(f'Built {len(self.live)} live books of {len(self.books)} records, {len(self.tags)} tags.')
         for p in self.problems:

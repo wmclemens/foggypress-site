@@ -1,4 +1,4 @@
-Foggy Press sets public-domain books in one plain house style and publishes them as free PDFs, ready to print at home on US letter paper.
+Foggy Press sets public-domain books in one plain house style and publishes them free: to read online, to print at home from a PDF on US letter paper, or to download as an EPUB for an e-reader.
 
 ## Rights and sources
 

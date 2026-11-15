@@ -14,6 +14,7 @@
    'their them then there these they this those to up upon us was we were what when where which who whom why will with would you your')
     .split(' ').forEach(function (w) { STOP[w] = 1; });
 
+  var T = function (s, v) { return window.fpT ? window.fpT(s, v) : String(s).replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); };
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
   // the index's own folding (build/search_index.py fold)
   function foldIdx(s) {
@@ -192,24 +193,25 @@
       return marked(text, findAll(String(text || ''), rx));
     }
     function sortT(t) { return t.replace(/^(The|A|An) /, '').toLowerCase(); }
-    function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+    // counted phrases: the English key is "{n} books"; translations pick their own plural form
+    function plural(n, one, many) { return T(n === 1 ? '{n} ' + one : '{n} ' + many, {n: n}); }
     function acts(b) {
-      return '<span class="acts">' + (b.read ? '<a class="act" href="' + BASE + 'read/' + esc(b.id) + '/">Read online</a>' : '') +
-        '<a class="act" href="' + esc(b.pdf) + '" data-goatcounter-click="pdf-' + esc(b.id) + '" data-goatcounter-title="' + esc(b.t) + '">Print this book</a>' +
-        (b.epub ? '<a class="act" href="' + esc(b.epub) + '" download data-goatcounter-click="epub-' + esc(b.id) + '" data-goatcounter-title="' + esc(b.t) + '">EPUB</a>' : '') + '</span>';
+      return '<span class="acts">' + (b.read ? '<a class="act" href="' + BASE + 'read/' + esc(b.id) + '/">' + T('Read online') + '</a>' : '') +
+        '<a class="act" href="' + esc(b.pdf) + '" data-goatcounter-click="pdf-' + esc(b.id) + '" data-goatcounter-title="' + esc(b.t) + '">' + T('Print this book') + '</a>' +
+        (b.epub ? '<a class="act" href="' + esc(b.epub) + '" download data-goatcounter-click="epub-' + esc(b.id) + '" data-goatcounter-title="' + esc(b.t) + '" title="' + esc(T('For e-readers: Kindle, Apple Books, Kobo')) + '">EPUB</a>' : '') + '</span>';
     }
     function mainHref(b, extra) { return b.read ? BASE + 'read/' + b.id + '/' + (extra || '') : b.pdf; }
     function rec(b, ws) {
       return '<li class="rec"><a class="main" href="' + esc(mainHref(b)) + '"><span class="t">' + hl(b.t, ws) + '</span><span class="a">' + hl(b.a, ws) +
-        (b.tr ? ' · tr. ' + esc(b.tr) : '') + '</span>' + (b.desc ? '<span class="d">' + esc(b.desc) + '</span>' : '') + '</a>' +
+        (b.tr ? ' · ' + T('tr.') + ' ' + esc(b.tr) : '') + '</span>' + (b.desc ? '<span class="d">' + esc(b.desc) + '</span>' : '') + '</a>' +
         '<span class="m mono">' + esc(b.d) + '</span>' + acts(b) + '</li>';
     }
 
     function render() {
       var my = ++run, q = query.trim();
-      document.title = q ? '“' + q + '” · Search · Foggy Press' : 'Search · Foggy Press';
-      var head = '<div class="ph"><span class="crumb"><a href="' + BASE + '">Home</a> / Search</span>';
-      if (!q) { out.innerHTML = head + '<h1>Search</h1><p class="sub">Type a title, an author, or any word from inside the books.</p></div>'; return; }
+      document.title = q ? '“' + q + '” · ' + T('Search') + ' · Foggy Press' : T('Search') + ' · Foggy Press';
+      var head = '<div class="ph"><span class="crumb"><a href="' + BASE + '">' + T('Home') + '</a> / ' + T('Search') + '</span>';
+      if (!q) { out.innerHTML = head + '<h1>' + T('Search') + '</h1><p class="sub">' + T('Type a title, an author, or any word from inside the books.') + '</p></div>'; return; }
       var ws = words(q), tws = textWords(q);
       Promise.all([booksP, tagsP]).then(function (got) {
         var books = got[0], tags = got[1];
@@ -220,27 +222,27 @@
         var authors = Object.keys(am).sort(function (a, b) { return am[a].last.localeCompare(am[b].last) || a.localeCompare(b); });
         var titles = books.filter(function (b) { return hasPhrase(b.t, ws); }).sort(byT);
         var colls = tags.filter(function (g) { return hasPhrase(g.n, ws); });
-        var top = head + '<h1>“' + esc(q) + '”</h1><p class="sub" id="sr-sum"></p></div>';
+        var top = head + '<h1 lang="">“' + esc(q) + '”</h1><p class="sub" id="sr-sum"></p></div>';
         var body = '';
-        if (authors.length) body += '<section class="rgroup"><div class="sec-h"><h2>Authors</h2><span class="eyebrow">' + authors.length + '</span></div><ul class="authors">' +
+        if (authors.length) body += '<section class="rgroup"><div class="sec-h"><h2>' + T('Authors') + '</h2><span class="eyebrow">' + authors.length + '</span></div><ul class="authors">' +
           authors.map(function (a) {
             var bs = am[a].b.slice().sort(byT);
             return '<li class="au"><span class="n">' + hl(a, ws) + '</span><span class="c mono">' + plural(bs.length, 'book', 'books') + '</span><span class="bk">' +
               bs.map(function (b) { return '<a href="' + esc(mainHref(b)) + '">' + esc(b.t) + '</a>'; }).join('') + '</span></li>';
           }).join('') + '</ul></section>';
-        if (colls.length) body += '<section class="rgroup"><div class="sec-h"><h2>Collections</h2><span class="eyebrow">' + colls.length + '</span></div><div class="taglist">' +
+        if (colls.length) body += '<section class="rgroup"><div class="sec-h"><h2>' + T('Collections') + '</h2><span class="eyebrow">' + colls.length + '</span></div><div class="taglist">' +
           colls.map(function (g) { return '<a href="' + BASE + 'tag/' + esc(g.s) + '/"><span>' + hl(g.n, ws) + '</span><span class="mono">' + g.c + '</span></a>'; }).join('') + '</div></section>';
-        if (titles.length) body += '<section class="rgroup"><div class="sec-h"><h2>Titles</h2><span class="eyebrow">' + titles.length + '</span></div><ul class="recs">' +
+        if (titles.length) body += '<section class="rgroup"><div class="sec-h"><h2>' + T('Titles') + '</h2><span class="eyebrow">' + titles.length + '</span></div><ul class="recs">' +
           titles.map(function (b) { return rec(b, ws); }).join('') + '</ul></section>';
-        out.innerHTML = top + body + (tws.length ? '<section class="rgroup" id="sr-in"><div class="sec-h"><h2>Inside the books</h2><span class="eyebrow">Searching…</span></div></section>' : '');
+        out.innerHTML = top + body + (tws.length ? '<section class="rgroup" id="sr-in"><div class="sec-h"><h2>' + T('Inside the books') + '</h2><span class="eyebrow">' + T('Searching…') + '</span></div></section>' : '');
         var sum = function (inside) {
           var parts = [];
           if (authors.length) parts.push(plural(authors.length, 'author', 'authors'));
           if (colls.length) parts.push(plural(colls.length, 'collection', 'collections'));
           if (titles.length) parts.push(plural(titles.length, 'title', 'titles'));
-          if (inside) parts.push('found inside ' + plural(inside, 'book', 'books'));
+          if (inside) parts.push(T(inside === 1 ? 'found inside {n} book' : 'found inside {n} books', {n: inside}));
           document.getElementById('sr-sum').textContent = parts.join(' · ');
-          if (!parts.length && inside != null) document.getElementById('sr-sum').textContent = 'Nothing found.';
+          if (!parts.length && inside != null) document.getElementById('sr-sum').textContent = T('Nothing found.');
         };
         sum(null);
         if (!tws.length) { sum(0); return; }
@@ -250,15 +252,15 @@
           var sec = document.getElementById('sr-in');
           sum(res.length);
           if (!res.length) { sec.remove(); return; }
-          sec.innerHTML = '<div class="sec-h"><h2>Inside the books</h2><span class="sortbar"><span class="eyebrow">Most mentions first</span>' +
-            '<button type="button" class="chip" id="xall">Expand all</button></span></div><ul class="recs">' +
+          sec.innerHTML = '<div class="sec-h"><h2>' + T('Inside the books') + '</h2><span class="sortbar"><span class="eyebrow">' + T(ws.length > 1 ? 'Exact phrase · most mentions first' : 'Most mentions first') + '</span>' +
+            '<button type="button" class="chip" id="xall">' + T('Expand all') + '</button></span></div><ul class="recs">' +
             res.map(function (r, i) {
               var b = books[r.book], nc = Object.keys(r.chapters).length;
-              return '<li class="rec ins" data-i="' + i + '"' + (i >= SHOWN ? ' hidden' : '') + '><a class="main" href="' + esc(mainHref(b, b.read ? '?q=' + encodeURIComponent(q) : '')) + '"><span class="t">' + esc(b.t) + '</span><span class="a">' + esc(b.a) + (b.tr ? ' · tr. ' + esc(b.tr) : '') + '</span></a>' +
+              return '<li class="rec ins" data-i="' + i + '"' + (i >= SHOWN ? ' hidden' : '') + '><a class="main" href="' + esc(mainHref(b, b.read ? '?q=' + encodeURIComponent(q) : '')) + '"><span class="t">' + esc(b.t) + '</span><span class="a">' + esc(b.a) + (b.tr ? ' · ' + T('tr.') + ' ' + esc(b.tr) : '') + '</span></a>' +
                 '<span class="m mono">' + plural(r.n, 'mention', 'mentions') + ' · ' + plural(nc, b.ch.length === 1 ? 'place' : 'chapter', b.ch.length === 1 ? 'places' : 'chapters') + '</span>' + acts(b) +
-                (b.read ? '<details class="snipd"><summary><span class="mono">Show passages</span></summary><div class="snips"><span class="snip-wait mono">Loading passages…</span></div></details>' : '') + '</li>';
+                (b.read ? '<details class="snipd"><summary><span class="mono">' + T('Show passages') + '</span></summary><div class="snips"><span class="snip-wait mono">' + T('Loading passages…') + '</span></div></details>' : '') + '</li>';
             }).join('') + '</ul>' +
-            (res.length > SHOWN ? '<div class="morebar"><span class="mono" id="sr-shown">Showing ' + SHOWN + ' of ' + res.length + ' books</span><button class="btn ghost sm" type="button" id="sr-more">Show all ' + res.length + '</button></div>' : '');
+            (res.length > SHOWN ? '<div class="morebar"><span class="mono" id="sr-shown">' + T('Showing {n} of {m} books', {n: SHOWN, m: res.length}) + '</span><button class="btn ghost sm" type="button" id="sr-more">' + T('Show all {n}', {n: res.length}) + '</button></div>' : '');
           var lis = sec.querySelectorAll('li.ins');
           lis.forEach(function (li) {
             var d = li.querySelector('details');
@@ -268,14 +270,15 @@
           if (more) more.addEventListener('click', function () { lis.forEach(function (li) { li.hidden = false; }); more.parentNode.remove(); });
           var xa = document.getElementById('xall');
           xa.addEventListener('click', function () {
-            var open = xa.textContent === 'Expand all';
+            var open = !xa.dataset.open;
             lis.forEach(function (li) { var d = li.querySelector('details'); if (d && !li.hidden) d.open = open; });
-            xa.textContent = open ? 'Collapse all' : 'Expand all';
+            if (open) xa.dataset.open = '1'; else delete xa.dataset.open;
+            xa.textContent = open ? T('Collapse all') : T('Expand all');
           });
         }).catch(function () {
           if (my !== run) return;
           var sec = document.getElementById('sr-in');
-          if (sec) sec.querySelector('.eyebrow').textContent = 'Couldn’t search inside the books just now. Please try again.';
+          if (sec) sec.querySelector('.eyebrow').textContent = T('Couldn’t search inside the books just now. Please try again.');
         });
       });
     }
@@ -304,17 +307,18 @@
           var a = Math.max(0, at - 90), z = Math.min(tx.length, at + len + 110);
           if (a > 0) a = tx.indexOf(' ', a) + 1;
           var zz = tx.indexOf(' ', z); if (zz > 0) z = zz;
-          return '<a class="snip" href="' + esc(url + '?q=' + encodeURIComponent(q) + (sid ? '#' + sid : '')) + '"><span class="ch mono">' + esc(info[1] || 'Text') +
+          return '<a class="snip" href="' + esc(url + '?q=' + encodeURIComponent(q) + (sid ? '#' + sid : '')) + '"><span class="ch mono">' + esc(info[1] || T('Text')) +
             (r.chapters[c] > 1 ? ' · ' + r.chapters[c] : '') + '</span><span class="tx">' + (a > 0 ? '…' : '') + esc(tx.slice(a, at)) +
             (len ? '<mark>' + esc(tx.slice(at, at + len)) + '</mark>' : '') + esc(tx.slice(at + len, z)) + (z < tx.length ? '…' : '') + '</span></a>';
-        }).join('') || '<span class="snip-wait mono">Open the book to see where it appears.</span>';
+        }).join('') || '<span class="snip-wait mono">' + T('Open the book to see where it appears.') + '</span>';
       }).catch(function () {
         delete li.dataset.loaded;
-        box.innerHTML = '<span class="snip-wait mono">Couldn’t load the passages. Close and open again to retry.</span>';
+        box.innerHTML = '<span class="snip-wait mono">' + T('Couldn’t load the passages. Close and open again to retry.') + '</span>';
       });
     }
 
     render();
+    document.addEventListener('fp-lang', render);
     inputs.forEach(function (inp) {
       inp.addEventListener('input', function () {
         query = inp.value;
@@ -346,11 +350,11 @@
       hits = []; cur = -1;
     }
     function setList(open) { list.hidden = !open; lst.setAttribute('aria-expanded', open ? 'true' : 'false'); }
-    function chapterOf(node) { var s = node.closest('section'); var h = s && s.querySelector('h2'); return h ? h.textContent.trim() : 'Opening'; }
+    function chapterOf(node) { var s = node.closest('section'); var h = s && s.querySelector('h2'); return h ? h.textContent.trim() : T('Opening'); }
     function search(q, stay) {
       lastQ = q; clear(); list.querySelector('ol').innerHTML = '';
       var toks = words(q);
-      if (toks.join('').length < 2) { cnt.textContent = ''; prev.disabled = next.disabled = lst.disabled = true; lst.textContent = 'All'; setList(false); return; }
+      if (toks.join('').length < 2) { cnt.textContent = ''; prev.disabled = next.disabled = lst.disabled = true; lst.textContent = T('All'); setList(false); return; }
       // the book's text as one string, with a space where one block ends and the next begins
       var walker = document.createTreeWalker(art, NodeFilter.SHOW_TEXT, {acceptNode: function (n) {
         return n.parentNode.closest('details.toc, script, style') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; }});
@@ -382,8 +386,8 @@
       }
       var n = hits.length;
       prev.disabled = next.disabled = lst.disabled = !n;
-      lst.textContent = n ? 'All ' + n : 'All';
-      if (!n) { cnt.textContent = 'No matches'; setList(false); return; }
+      lst.textContent = n ? T('All {n}', {n: n}) : T('All');
+      if (!n) { cnt.textContent = T('No matches'); setList(false); return; }
       list.querySelector('ol').innerHTML = hits.slice(0, LIST_MAX).map(function (ms, i) {
         var m = ms[0], blk = m.closest(BLOCK) || m.parentNode, tx = blk.textContent, before = 0, len = 0;
         var w = document.createTreeWalker(blk, NodeFilter.SHOW_TEXT);
@@ -393,7 +397,7 @@
         var a = Math.max(0, before - 60), z = Math.min(tx.length, before + len + 80);
         return '<li><a href="#" data-hit="' + i + '"><span class="ch">' + esc(chapterOf(m)) + '</span><span class="s">' + (a > 0 ? '…' : '') + esc(tx.slice(a, before)) +
           '<mark>' + esc(tx.slice(before, before + len)) + '</mark>' + esc(tx.slice(before + len, z)) + (z < tx.length ? '…' : '') + '</span></a></li>';
-      }).join('') + (n > LIST_MAX ? '<li class="more mono">First ' + LIST_MAX + ' of ' + n + ' shown. Use the arrows for the rest.</li>' : '');
+      }).join('') + (n > LIST_MAX ? '<li class="more mono">' + T('First {n} of {m} shown. Use the arrows for the rest.', {n: LIST_MAX, m: n}) + '</li>' : '');
       if (!stay) go(0);
     }
     function go(i) {
@@ -401,7 +405,7 @@
       if (cur >= 0) hits[cur].forEach(function (m) { m.classList.remove('cur'); });
       cur = (i + hits.length) % hits.length;
       hits[cur].forEach(function (m) { m.classList.add('cur'); });
-      cnt.textContent = (cur + 1) + ' of ' + hits.length;
+      cnt.textContent = T('{n} of {m}', {n: cur + 1, m: hits.length});
       // jump straight there, as find does in a document
       hits[cur][0].scrollIntoView({block: 'center'});
     }
@@ -412,6 +416,7 @@
         if (bq.value !== lastQ) search(bq.value); else go(e.shiftKey ? cur - 1 : cur + 1);
       } else if (e.key === 'Escape') { bq.value = ''; search(''); }
     });
+    document.addEventListener('fp-lang', function () { if (lastQ) { var c = cur; search(lastQ, true); if (c >= 0) go(c); } else { lst.textContent = T('All'); } });
     prev.addEventListener('click', function () { go(cur - 1); });
     next.addEventListener('click', function () { go(cur + 1); });
     lst.addEventListener('click', function () { setList(list.hidden); });

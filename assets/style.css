@@ -39,6 +39,20 @@ p{margin:0}
 .rail nav a[aria-current] .mono{color:var(--accent)}
 .theme{background:none;border:0;padding:0;text-align:left;color:var(--muted);font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase}
 .theme:hover{color:var(--ink)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.rail-end{display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.langpick select{appearance:none;-webkit-appearance:none;border:1px solid var(--line-2);background:var(--bg);color:var(--muted);border-radius:999px;
+  padding:.2rem 1.5rem .2rem .7rem;font:inherit;font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;cursor:pointer;max-width:11rem;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:right .75rem center,right .5rem center;background-size:4px 4px;background-repeat:no-repeat}
+[dir="rtl"] .langpick select{padding:.2rem .7rem .2rem 1.5rem;background-position:left .5rem center,left .75rem center}
+.langpick select:hover,.langpick select:focus-visible{color:var(--ink);border-color:var(--accent)}
+.readbar .langpick select{max-width:8.5rem}
+.readbar .rb-home{white-space:nowrap}
+@media (max-width:560px){.readbar .rb-acts{gap:.35rem .7rem;flex-wrap:wrap;justify-content:flex-end}.readbar .rb-acts>*{white-space:nowrap}.readbar .langpick select{max-width:6.5rem}}
+[dir="rtl"] .theme{text-align:right}
+/* letter-spacing and capitals are for the Latin alphabet; joined and complex scripts need neither */
+:root:is([lang="ar"],[lang="hi"],[lang="bn"],[lang="mr"],[lang="te"],[lang="zh-Hans"],[lang="ja"]) :is(.mono,.eyebrow,.theme,.act,.seg button,.rb-pdf,.langpick select,.chip,.cnt,.lst){letter-spacing:0;text-transform:none;font-family:var(--sans)}
 main{grid-area:main;min-width:0}
 .foot{grid-column:1/-1;margin-top:4rem;padding-top:1rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:.5rem 2rem;flex-wrap:wrap;color:var(--faint)}
 @media (max-width:760px){
