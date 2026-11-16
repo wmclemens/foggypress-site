@@ -31,9 +31,9 @@ jobs:
         run: |
           ref=$(echo "$SUPABASE_URL" | sed -E 's#^https?://([^.]+)\..*#\1#')
           if [ -n "$ANTHROPIC_API_KEY" ]; then
-            supabase secrets set --project-ref "$ref" ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" > /dev/null
+            supabase secrets set --yes --project-ref "$ref" ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" > /dev/null
           fi
-          supabase functions deploy ask --project-ref "$ref"
+          supabase functions deploy ask --yes --project-ref "$ref"
       - name: Skipped
         if: env.SUPABASE_ACCESS_TOKEN == '' || env.SUPABASE_URL == ''
         run: |
