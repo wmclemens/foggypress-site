@@ -1,0 +1,47 @@
+name: Keep bots off downloads and sign-in
+
+# Puts the Cloudflare rule that refuses PDF and EPUB downloads to bots (build/cloudflare_rules.py), then checks
+# the live site as a bot and as a person, and checks that Supabase sign-in demands the Turnstile bot check.
+# On a pull request it only checks (nothing is changed), so the result shows before merging.
+
+on:
+  push:
+    branches: [main]
+    paths: [build/bots.py, build/cloudflare_rules.py, .github/workflows/bot-rules.yml]
+  pull_request:
+    paths: [build/bots.py, build/cloudflare_rules.py, .github/workflows/bot-rules.yml]
+  schedule:
+    - cron: "41 7 * * 1"   # weekly: re-check, and put the rule back if it was removed
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Put the bot rules on Cloudflare
+        if: github.event_name != 'pull_request'
+        env:
+          CLOUDFLARE_WAF_TOKEN: ${{ secrets.CLOUDFLARE_WAF_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        run: python build/cloudflare_rules.py apply
+
+      - name: Check the live site as a bot and as a person
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+          HAS_TOKEN: ${{ secrets.CLOUDFLARE_WAF_TOKEN != '' }}
+        run: |
+          sleep 20   # a new rule reaches Cloudflare's edge within seconds
+          if [ "$GITHUB_EVENT_NAME" != "pull_request" ] && [ "$HAS_TOKEN" = "true" ]; then
+            python build/cloudflare_rules.py check --strict
+          else
+            python build/cloudflare_rules.py check
+          fi

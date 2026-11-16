@@ -9,9 +9,10 @@ GoatCounter (GOATCOUNTER_CODE + GOATCOUNTER_TOKEN), last 30 days:
   "language: <code>", "theme: <dark|light>", plus the PDF and EPUB download clicks.
 
 Cloudflare (CLOUDFLARE_API_TOKEN + CLOUDFLARE_ZONE_ID; optional), last 7 days:
-  every request for files.foggypress.com (the PDFs and EPUBs), split into people and bots by
-  the browser name each request gives (crawlers name themselves: "bot", "spider", "crawl"...),
-  with countries. Needs an API token with the zone's Analytics: Read permission.
+  every request for files.foggypress.com (the PDFs, EPUBs and read-online pages), split into people
+  and bots by the browser name each request gives (crawlers name themselves: "bot", "spider", "crawl"...;
+  the list is in bots.py), with countries, and how many bot requests were refused (downloads are
+  closed to bots, see cloudflare_rules.py). Needs an API token with the zone's Analytics: Read permission.
 
 Supabase (SUPABASE_URL + SUPABASE_ANON_KEY; only once reader accounts are set up):
   totals from the database function site_totals() (supabase/schema.sql): accounts, new in 7 days,
@@ -27,9 +28,10 @@ import sys
 import urllib.parse
 import urllib.request
 
+from bots import is_bot
+
 DAYS = 30
 CF_DAYS = 7
-BOT_UA = re.compile(r'bot|crawl|spider|slurp|fetch|scrape|curl|wget|python|java/|go-http|okhttp|headless|httpclient|libwww|axios|node-fetch|monitor|preview|facebookexternalhit|bingpreview|semrush|ahrefs|mj12|petal|yandex|baidu|bytespider|gptbot|claudebot|ccbot|amazonbot|applebot', re.I)
 
 
 def _get(url, headers, data=None):
@@ -102,7 +104,7 @@ def cloudflare(token, zone, host='files.foggypress.com'):
     q = '''query($zone: String!, $start: Time!, $end: Time!, $host: String!) {
       viewer { zones(filter: {zoneTag: $zone}) {
         ua: httpRequestsAdaptiveGroups(limit: 2000, filter: {datetime_geq: $start, datetime_lt: $end, clientRequestHTTPHost: $host}) {
-          count dimensions { userAgent clientCountryName } }
+          count dimensions { userAgent clientCountryName edgeResponseStatus } }
       } } }'''
     body = json.dumps({'query': q, 'variables': {'zone': zone, 'start': start.strftime('%Y-%m-%dT%H:%M:%SZ'),
                                                   'end': end.strftime('%Y-%m-%dT%H:%M:%SZ'), 'host': host}}).encode()
@@ -110,19 +112,21 @@ def cloudflare(token, zone, host='files.foggypress.com'):
     if d.get('errors'):
         raise RuntimeError('; '.join(e.get('message', '') for e in d['errors']))
     rows = d['data']['viewer']['zones'][0]['ua']
-    people = bots = 0
+    people = bots = blocked = 0
     agents, countries = {}, {}
     for r in rows:
         n, ua = int(r['count']), r['dimensions'].get('userAgent') or ''
-        if not ua or BOT_UA.search(ua):
+        if not ua or is_bot(ua):
             bots += n
+            if r['dimensions'].get('edgeResponseStatus') == 403:
+                blocked += n  # refused by the bot rule (build/cloudflare_rules.py)
             name = (re.search(r'([A-Za-z][\w.-]*(?:bot|crawler|spider)[\w.-]*)', ua, re.I) or re.search(r'^([^/ ]+)', ua) or [None, '(no browser name)'])[1]
             agents[name] = agents.get(name, 0) + n
         else:
             people += n
             c = r['dimensions'].get('clientCountryName') or '?'
             countries[c] = countries.get(c, 0) + n
-    return {'host': host, 'start': start.strftime('%Y-%m-%d'), 'end': end.strftime('%Y-%m-%d'), 'people': people, 'bots': bots,
+    return {'host': host, 'start': start.strftime('%Y-%m-%d'), 'end': end.strftime('%Y-%m-%d'), 'people': people, 'bots': bots, 'blocked': blocked,
             'bot_agents': sorted(agents.items(), key=lambda kv: -kv[1])[:15],
             'countries': sorted(countries.items(), key=lambda kv: -kv[1])[:15]}
 

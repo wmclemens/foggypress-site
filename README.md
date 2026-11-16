@@ -43,6 +43,20 @@ The site rebuilds on every change to this repo (including every save in admin), 
 | Secrets | `GOATCOUNTER_TOKEN` | GoatCounter API token, for download counts. Optional. |
 | Variables | `GOATCOUNTER_CODE` | GoatCounter site code, e.g. `foggypress`. Optional. |
 | Variables | `SITE_DOMAIN` | `foggypress.com` once DNS points here. Optional. |
+| Secrets | `CLOUDFLARE_WAF_TOKEN` | Cloudflare token with Zone WAF: Edit on foggypress.com, for the bot rule below. |
+
+## Bots
+
+Any crawler may read the site's pages, including the read-online books. Bots may not use what the site *does*:
+
+- **PDF and EPUB downloads** (files.foggypress.com): a Cloudflare rule refuses them to Cloudflare's known bots, to requests
+  with no browser name, and to browser names that say bot, crawler, script and the like (`build/bots.py`), plus a rate
+  limit of 30 downloads per 10 seconds per address. `files.foggypress.com/robots.txt` asks crawlers to skip them too.
+  The rule is set by `build/cloudflare_rules.py` through Actions → "Keep bots off downloads and sign-in", which runs
+  when those files change and weekly, and checks the live site as a bot and as a person each time.
+- **Sign-in** needs Cloudflare Turnstile, which Supabase checks on its side (supabase/README.md step 6); the same
+  workflow confirms that sign-in without it is refused. **Ask Foggy Press, Request a book, favorites and lists** all
+  need a signed-in reader and have per-reader limits (20 questions and 3 requests a day), so that one gate covers them.
 
 ## Build locally
 
