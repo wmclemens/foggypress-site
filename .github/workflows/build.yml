@@ -107,7 +107,8 @@ jobs:
             || echo "::warning::Could not set the R2 CORS rule (search passage previews need it); set it in the Cloudflare dashboard"
           # switch the site's links to R2 only if a PDF is really reachable there
           pdfs=(_pdfs/*.pdf); one=$(basename "${pdfs[0]}")
-          if curl -fsSI "$PDF_BASE/$one" > /dev/null; then
+          # named, so Cloudflare's rule that keeps bots off the downloads lets this check through (build/bots.py)
+          if curl -fsSI -A "FoggyPress-site-build/1.0" "$PDF_BASE/$one" > /dev/null; then
             echo "pdf_base=$PDF_BASE" >> "$GITHUB_OUTPUT"
           else
             echo "::warning::$PDF_BASE/$one is not reachable yet; keeping PDFs on GitHub Pages this run"

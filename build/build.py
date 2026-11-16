@@ -338,7 +338,7 @@ class Site:
                   'search', 'Search Foggy Press books by title, author, or any word inside them.')
 
     def epub_link(self, b, cls):
-        return (f'<a class="{cls}" href="{esc(self.epub_url(b))}" download data-goatcounter-click="epub-{esc(b["id"])}" '
+        return (f'<a class="{cls}" href="{esc(self.epub_url(b))}" download rel="nofollow" data-goatcounter-click="epub-{esc(b["id"])}" '
                 f'data-goatcounter-title="{esc(b["title"])}" title="For e-readers: Kindle, Apple Books, Kobo" data-t-attr="title">EPUB</a>')
 
     def recs(self, books, sortable=False):
@@ -347,7 +347,7 @@ class Site:
         for b in books:
             tr = f" · <span data-t>tr.</span> {esc(b['translator'])}" if b.get('translator') else ''
             pages = f" · {tn('{n} pp', b['_pages'])}" if b.get('_pages') else ''
-            pdf = (f'<a class="act" href="{esc(self.pdf_url(b))}" data-goatcounter-click="pdf-{esc(b["id"])}" '
+            pdf = (f'<a class="act" href="{esc(self.pdf_url(b))}" rel="nofollow" data-goatcounter-click="pdf-{esc(b["id"])}" '
                    f'data-goatcounter-title="{esc(b["title"])}" data-t>Print this book</a>')
             if b.get('_html'):
                 main = esc(self.read_url(b))
@@ -402,7 +402,7 @@ class Site:
         if self.gc_code:
             gc = f'<script data-goatcounter="https://{esc(self.gc_code)}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
         pdf = esc(self.pdf_url(b))
-        click = f'data-goatcounter-click="pdf-{esc(b["id"])}" data-goatcounter-title="{esc(b["title"])}"'
+        click = f'rel="nofollow" data-goatcounter-click="pdf-{esc(b["id"])}" data-goatcounter-title="{esc(b["title"])}"'
         doc = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -736,6 +736,9 @@ if __name__ == '__main__':
         site.stage_pdfs(a.stage_pdfs)
         ne = site.stage_epubs(Path(a.stage_pdfs) / 'epub')
         if site.pdf_base:
+            # files.foggypress.com: crawlers may read the read-online pages but not fetch the downloads,
+            # which Cloudflare refuses to bots anyway (build/cloudflare_rules.py)
+            (Path(a.stage_pdfs) / 'robots.txt').write_text('User-agent: *\nDisallow: /*.pdf$\nDisallow: /epub/\nAllow: /\n')
             site.stage_read(a.stage_pdfs)
             britannica.stage(site, a.stage_pdfs)
         print(f'Staged {len(site.live)} PDFs and {ne} EPUBs in {a.stage_pdfs}.')
