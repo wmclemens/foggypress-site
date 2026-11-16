@@ -35,7 +35,7 @@ const store: Store = {
   },
   async save(user, chat, question, text, blocks) {
     ok(await db.from('chat_messages').insert([
-      { chat_id: chat, user_id: user, role: 'user', content: question },
+      { chat_id: chat, user_id: user, role: 'user', content: question, blocks: [] },
       { chat_id: chat, user_id: user, role: 'assistant', content: text.slice(0, 20000), blocks },
     ]));
     ok(await db.from('chats').update({ updated_at: new Date().toISOString() }).eq('id', chat));
