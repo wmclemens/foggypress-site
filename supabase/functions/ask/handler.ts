@@ -44,21 +44,25 @@ export function handler(cfg: Config) {
     const lang = typeof body.lang === 'string' ? body.lang.slice(0, 8) : '';
     const chatId = typeof body.chat_id === 'string' && UUID.test(body.chat_id) ? body.chat_id : '';
     const bookId = typeof body.book_id === 'string' ? body.book_id.slice(0, 120) : '';
+    // a Britannica article page: kept with the chat as "eb:<slug>"
+    const articleId = typeof body.article_id === 'string' && body.article_id ? 'eb:' + body.article_id.slice(0, 116) : '';
 
     const begin = await cfg.store.begin(user, tz);
     if (!begin.ok) return json({ error: begin.why, limit: begin.limit, left: 0 }, 429);
     const usageId = begin.usage_id!;
     const usage: Usage = { input: 0, output: 0, cost: 0 };
     try {
-      let turns: Turn[] = [], chatBook = bookId, chat = chatId;
+      let turns: Turn[] = [], chatBook = articleId || bookId, chat = chatId;
       if (chat) {
         const c = await cfg.store.chat(user, chat);
         if (c) { turns = c.turns; chatBook = chatBook || c.book_id; } else chat = '';
       }
-      const book = chatBook ? await cfg.lib.book(chatBook) : undefined;
-      const out = await answer({ client: cfg.client, lib: cfg.lib, engine: cfg.engine, history: turns, question, book, lang, usage });
+      const isArt = chatBook.startsWith('eb:');
+      const book = chatBook && !isArt ? await cfg.lib.book(chatBook) : undefined;
+      const article = isArt ? await cfg.lib.article(chatBook.slice(3)).catch(() => undefined) : undefined;
+      const out = await answer({ client: cfg.client, lib: cfg.lib, engine: cfg.engine, history: turns, question, book, article, lang, usage });
       await cfg.store.finish(usageId, usage.input, usage.output, Number(usage.cost.toFixed(6)));
-      if (!chat) chat = await cfg.store.newChat(user, question.replace(/\s+/g, ' ').slice(0, 120), book ? book.id : '');
+      if (!chat) chat = await cfg.store.newChat(user, question.replace(/\s+/g, ' ').slice(0, 120), article ? 'eb:' + article.id : book ? book.id : '');
       await cfg.store.save(user, chat, question, out.text, out.blocks);
       return json({ chat_id: chat, blocks: out.blocks, limit: begin.limit, left: begin.left });
     } catch (e) {
