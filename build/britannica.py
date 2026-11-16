@@ -189,6 +189,9 @@ def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
     head = (f'<div class="eb-runhead" aria-hidden="true"><span>{esc(TITLE)} · Foggy Press</span>'
             f'<span>{esc(pg)}, {esc(a["title"])}</span></div>')
     art = art.replace('<article class="book eb"', head + '<article class="book eb"', 1)
+    # a picture whose file isn't there yet (still being fetched from Wikimedia) is left out until it is
+    imgdir = v['dir'] / 'img'
+    art = re.sub(r'<img [^>]*src="\.\./img/([^"]+)"[^>]*/?>', lambda m: m.group(0) if (imgdir / m.group(1)).exists() else '', art)
     def link(x, rel):
         if not x:
             return '<span></span>'
