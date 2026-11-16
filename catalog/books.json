@@ -10586,5 +10586,1786 @@
       "Children's",
       "American"
     ]
+  },
+  {
+    "id": "de-re-metallica",
+    "author_last": "Agricola",
+    "author_first": "Georg",
+    "title": "De Re Metallica",
+    "translator": "Herbert Hoover, Lou Henry Hoover",
+    "original_date": "1556",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 38015,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/agricola-georg/de-re-metallica",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/agricola-georg/de-re-metallica/output/Agricola%2C%20Georg%3A%20De%20Re%20Metallica.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Science",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "memoirs-of-the-court-of-queen-elizabeth",
+    "author_last": "Aikin",
+    "author_first": "Lucy",
+    "title": "Memoirs of the Court of Queen Elizabeth",
+    "translator": "",
+    "original_date": "1818",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 21500,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/aikin-lucy/memoirs-of-the-court-of-queen-elizabeth",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/aikin-lucy/memoirs-of-the-court-of-queen-elizabeth/output/Aikin%2C%20Lucy%3A%20Memoirs%20of%20the%20Court%20of%20Queen%20Elizabeth.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "brazilian-tales",
+    "author_last": "Albuquerque",
+    "author_first": "Medeiros e and Henrique Coelho Netto and Carmen Dolores",
+    "title": "Brazilian Tales",
+    "translator": "Isaac Goldberg",
+    "original_date": "1921",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 21040,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/albuquerque-medeiros-e/brazilian-tales",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/albuquerque-medeiros-e/brazilian-tales/output/Albuquerque%2C%20Medeiros%20e%20and%20Henrique%20Coelho%20Netto%20and%20Carmen%20Dolores%3A%20Brazilian%20Tales.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "alcohol",
+    "author_last": "Allen",
+    "author_first": "Martha Meir",
+    "title": "Alcohol",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 26774,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/allen-martha-meir/alcohol",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/allen-martha-meir/alcohol/output/Allen%2C%20Martha%20Meir%3A%20Alcohol.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "civics-and-health",
+    "author_last": "Allen",
+    "author_first": "William H.",
+    "title": "Civics and Health",
+    "translator": "",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 21353,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/allen-william-h/civics-and-health",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/allen-william-h/civics-and-health/output/Allen%2C%20William%20H.%3A%20Civics%20and%20Health.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American"
+    ]
+  },
+  {
+    "id": "the-institutes-of-justinian",
+    "author_last": "Anonymous",
+    "author_first": "",
+    "title": "The Institutes of Justinian",
+    "translator": "John Baron Moyle",
+    "original_date": "533",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 5983,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/the-institutes-of-justinian",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/the-institutes-of-justinian/output/Anonymous%3A%20The%20Institutes%20of%20Justinian.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "Ancient World",
+      "Classics",
+      "Translated"
+    ]
+  },
+  {
+    "id": "california-the-land-of-the-sun",
+    "author_last": "Austin",
+    "author_first": "Mary",
+    "title": "California: The Land of the Sun",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 44764,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/austin-mary/california-the-land-of-the-sun",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/austin-mary/california-the-land-of-the-sun/output/Austin%2C%20Mary%3A%20California%3A%20The%20Land%20of%20the%20Sun.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers",
+      "California",
+      "Travel"
+    ]
+  },
+  {
+    "id": "english-surnames",
+    "author_last": "Bardsley",
+    "author_first": "Charles Wareing Endell",
+    "title": "English Surnames",
+    "translator": "",
+    "original_date": "1873",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 59959,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/bardsley-charles-wareing-endell/english-surnames",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/bardsley-charles-wareing-endell/english-surnames/output/Bardsley%2C%20Charles%20Wareing%20Endell%3A%20English%20Surnames.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "a-treatise-on-domestic-economy",
+    "author_last": "Beecher",
+    "author_first": "Catharine Esther",
+    "title": "A Treatise on Domestic Economy",
+    "translator": "",
+    "original_date": "1841",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 21829,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/beecher-catharine-esther/a-treatise-on-domestic-economy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/beecher-catharine-esther/a-treatise-on-domestic-economy/output/Beecher%2C%20Catharine%20Esther%3A%20A%20Treatise%20on%20Domestic%20Economy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-memoirs-of-admiral-lord-beresford",
+    "author_last": "Beresford",
+    "author_first": "Charles William De la Poer Beresford, Baron",
+    "title": "The Memoirs of Admiral Lord Beresford",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 50508,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/beresford-charles-william-de-la-poer-beresford-baron/the-memoirs-of-admiral-lord-beresford",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/beresford-charles-william-de-la-poer-beresford-baron/the-memoirs-of-admiral-lord-beresford/output/Beresford%2C%20Charles%20William%20De%20la%20Poer%20Beresford%2C%20Baron%3A%20The%20Memoirs%20of%20Admiral%20Lord%20Beresford.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "impressions-of-south-africa",
+    "author_last": "Bryce",
+    "author_first": "James Bryce, Viscount",
+    "title": "Impressions of South Africa",
+    "translator": "",
+    "original_date": "1897",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 22323,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/bryce-james-bryce-viscount/impressions-of-south-africa",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/bryce-james-bryce-viscount/impressions-of-south-africa/output/Bryce%2C%20James%20Bryce%2C%20Viscount%3A%20Impressions%20of%20South%20Africa.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Travel"
+    ]
+  },
+  {
+    "id": "the-book-of-the-sword",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "The Book of the Sword",
+    "translator": "",
+    "original_date": "1884",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 61751,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/the-book-of-the-sword",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/the-book-of-the-sword/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20The%20Book%20of%20the%20Sword.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "the-french-revolution",
+    "author_last": "Carlyle",
+    "author_first": "Thomas",
+    "title": "The French Revolution",
+    "translator": "",
+    "original_date": "1837",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 1301,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/carlyle-thomas/the-french-revolution",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/carlyle-thomas/the-french-revolution/output/Carlyle%2C%20Thomas%3A%20The%20French%20Revolution.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "a-tangled-tale",
+    "author_last": "Carroll",
+    "author_first": "Lewis",
+    "title": "A Tangled Tale",
+    "translator": "",
+    "original_date": "1885",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 29042,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/carroll-lewis/a-tangled-tale",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/carroll-lewis/a-tangled-tale/output/Carroll%2C%20Lewis%3A%20A%20Tangled%20Tale.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Comedy & Satire",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "letters-of-anton-chekhov-to-his-family-and-friends",
+    "author_last": "Chekhov",
+    "author_first": "Anton Pavlovich",
+    "title": "Letters of Anton Chekhov to His Family and Friends",
+    "translator": "Constance Garnett",
+    "original_date": "1920",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 6408,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/chekhov-anton-pavlovich/letters-of-anton-chekhov-to-his-family-and-friends",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/chekhov-anton-pavlovich/letters-of-anton-chekhov-to-his-family-and-friends/output/Chekhov%2C%20Anton%20Pavlovich%3A%20Letters%20of%20Anton%20Chekhov%20to%20His%20Family%20and%20Friends.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Russian",
+      "Memoir",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-wife-and-other-stories",
+    "author_last": "Chekhov",
+    "author_first": "Anton Pavlovich",
+    "title": "The Wife, and Other Stories",
+    "translator": "Constance Garnett",
+    "original_date": "1918",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 1883,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/chekhov-anton-pavlovich/the-wife-and-other-stories",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/chekhov-anton-pavlovich/the-wife-and-other-stories/output/Chekhov%2C%20Anton%20Pavlovich%3A%20The%20Wife%2C%20and%20Other%20Stories.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Russian",
+      "Stories",
+      "Translated"
+    ]
+  },
+  {
+    "id": "uncle-vanya",
+    "author_last": "Chekhov",
+    "author_first": "Anton Pavlovich",
+    "title": "Uncle Vanya",
+    "translator": "",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 1756,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/chekhov-anton-pavlovich/uncle-vanya",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/chekhov-anton-pavlovich/uncle-vanya/output/Chekhov%2C%20Anton%20Pavlovich%3A%20Uncle%20Vanya.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Russian",
+      "Drama",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "letters-to-his-son-complete-on-the-fine-art-of-becoming-a-man-of-the-w",
+    "author_last": "Chesterfield",
+    "author_first": "Philip Dormer Stanhope, Earl of",
+    "title": "Letters to His Son, Complete On the Fine Art of Becoming a Man of the World and a Gentleman",
+    "translator": "",
+    "original_date": "1774",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 3361,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/chesterfield-philip-dormer-stanhope-earl-of/letters-to-his-son-complete-on-the-fine-art-of-becoming-a-man-of-the-w",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/chesterfield-philip-dormer-stanhope-earl-of/letters-to-his-son-complete-on-the-fine-art-of-becoming-a-man-of-the-w/output/Chesterfield%2C%20Philip%20Dormer%20Stanhope%2C%20Earl%20of%3A%20Letters%20to%20His%20Son%2C%20Complete%20On%20the%20Fine%20Art%20of%20Becoming%20a%20Man%20of%20the%20World%20and%20a%20Gentleman.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "British"
+    ]
+  },
+  {
+    "id": "treatises-on-friendship-and-old-age",
+    "author_last": "Cicero",
+    "author_first": "Marcus Tullius",
+    "title": "Treatises on Friendship and Old Age",
+    "translator": "Evelyn S. Shuckburgh",
+    "original_date": "44 BC",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 2808,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/cicero-marcus-tullius/treatises-on-friendship-and-old-age",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/cicero-marcus-tullius/treatises-on-friendship-and-old-age/output/Cicero%2C%20Marcus%20Tullius%3A%20Treatises%20on%20Friendship%20and%20Old%20Age.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Ancient World",
+      "Classics",
+      "Philosophy",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "chapters-on-the-history-of-the-southern-pacific",
+    "author_last": "Daggett",
+    "author_first": "Stuart",
+    "title": "Chapters on the History of the Southern Pacific",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 48879,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/daggett-stuart/chapters-on-the-history-of-the-southern-pacific",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/daggett-stuart/chapters-on-the-history-of-the-southern-pacific/output/Daggett%2C%20Stuart%3A%20Chapters%20on%20the%20History%20of%20the%20Southern%20Pacific.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "History",
+      "Economics",
+      "California"
+    ]
+  },
+  {
+    "id": "the-expression-of-the-emotions-in-man-and-animals",
+    "author_last": "Darwin",
+    "author_first": "Charles",
+    "title": "The Expression of the Emotions in Man and Animals",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 1227,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/darwin-charles/the-expression-of-the-emotions-in-man-and-animals",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/darwin-charles/the-expression-of-the-emotions-in-man-and-animals/output/Darwin%2C%20Charles%3A%20The%20Expression%20of%20the%20Emotions%20in%20Man%20and%20Animals.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "the-voyage-of-the-beagle",
+    "author_last": "Darwin",
+    "author_first": "Charles",
+    "title": "The Voyage of the Beagle",
+    "translator": "",
+    "original_date": "1839",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 944,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/darwin-charles/the-voyage-of-the-beagle",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/darwin-charles/the-voyage-of-the-beagle/output/Darwin%2C%20Charles%3A%20The%20Voyage%20of%20the%20Beagle.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Travel",
+      "British"
+    ]
+  },
+  {
+    "id": "simplex-munditiis-gentlemen",
+    "author_last": "Delano de Lannoy",
+    "author_first": "Mortimer and Reginald Harvey Arnold",
+    "title": "Simplex Munditiis, Gentlemen",
+    "translator": "",
+    "original_date": "1916",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 56287,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/delano-de-lannoy-mortimer/simplex-munditiis-gentlemen",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/delano-de-lannoy-mortimer/simplex-munditiis-gentlemen/output/Delano%20de%20Lannoy%2C%20Mortimer%20and%20Reginald%20Harvey%20Arnold%3A%20Simplex%20Munditiis%2C%20Gentlemen.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "short-stories",
+    "author_last": "Dostoyevsky",
+    "author_first": "Fyodor",
+    "title": "Short Stories",
+    "translator": "",
+    "original_date": "1840s",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 40745,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dostoyevsky-fyodor/short-stories",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dostoyevsky-fyodor/short-stories/output/Dostoyevsky%2C%20Fyodor%3A%20Short%20Stories.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Russian",
+      "Stories"
+    ]
+  },
+  {
+    "id": "celebrated-crimes-complete",
+    "author_last": "Dumas",
+    "author_first": "Alexandre",
+    "title": "Celebrated Crimes (Complete)",
+    "translator": "",
+    "original_date": "1840",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 2760,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dumas-alexandre/celebrated-crimes-complete",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dumas-alexandre/celebrated-crimes-complete/output/Dumas%2C%20Alexandre%3A%20Celebrated%20Crimes%20%28Complete%29.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "French"
+    ]
+  },
+  {
+    "id": "the-task-of-social-hygiene",
+    "author_last": "Ellis",
+    "author_first": "Havelock",
+    "title": "The Task of Social Hygiene",
+    "translator": "",
+    "original_date": "1912",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 22090,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ellis-havelock/the-task-of-social-hygiene",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ellis-havelock/the-task-of-social-hygiene/output/Ellis%2C%20Havelock%3A%20The%20Task%20of%20Social%20Hygiene.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "British"
+    ]
+  },
+  {
+    "id": "the-condition-of-the-working-class-in-england-in-1844",
+    "author_last": "Engels",
+    "author_first": "Friedrich",
+    "title": "The Condition of the Working-Class in England in 1844",
+    "translator": "Florence Kelley",
+    "original_date": "1845",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 17306,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/engels-friedrich/the-condition-of-the-working-class-in-england-in-1844",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/engels-friedrich/the-condition-of-the-working-class-in-england-in-1844/output/Engels%2C%20Friedrich%3A%20The%20Condition%20of%20the%20Working-Class%20in%20England%20in%201844.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Politics & Society",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "a-guide-to-modern-cookery",
+    "author_last": "Escoffier",
+    "author_first": "A.",
+    "title": "A Guide to Modern Cookery",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 71395,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/escoffier-a/a-guide-to-modern-cookery",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/escoffier-a/a-guide-to-modern-cookery/output/Escoffier%2C%20A.%3A%20A%20Guide%20to%20Modern%20Cookery.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "French"
+    ]
+  },
+  {
+    "id": "the-boston-cooking-school-cook-book",
+    "author_last": "Farmer",
+    "author_first": "Fannie Merritt",
+    "title": "The Boston Cooking-school Cook Book",
+    "translator": "",
+    "original_date": "1896",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 65061,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/farmer-fannie-merritt/the-boston-cooking-school-cook-book",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/farmer-fannie-merritt/the-boston-cooking-school-cook-book/output/Farmer%2C%20Fannie%20Merritt%3A%20The%20Boston%20Cooking-school%20Cook%20Book.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-rise-of-the-mediaeval-church-and-its-influence-on-the-civilization",
+    "author_last": "Flick",
+    "author_first": "Alexander Clarence",
+    "title": "The Rise of the Mediaeval Church And Its Influence on the Civilization of Western Europe from the First to the Thirteenth Century",
+    "translator": "",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 41910,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/flick-alexander-clarence/the-rise-of-the-mediaeval-church-and-its-influence-on-the-civilization",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/flick-alexander-clarence/the-rise-of-the-mediaeval-church-and-its-influence-on-the-civilization/output/Flick%2C%20Alexander%20Clarence%3A%20The%20Rise%20of%20the%20Mediaeval%20Church%20And%20Its%20Influence%20on%20the%20Civilization%20of%20Western%20Europe%20from%20the%20First%20to%20the%20Thirteenth%20Century.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "Religion",
+      "American"
+    ]
+  },
+  {
+    "id": "aspects-of-the-novel",
+    "author_last": "Forster",
+    "author_first": "E. M.",
+    "title": "Aspects of the Novel",
+    "translator": "",
+    "original_date": "1927",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 70492,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/forster-e-m/aspects-of-the-novel",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/forster-e-m/aspects-of-the-novel/output/Forster%2C%20E.%20M.%3A%20Aspects%20of%20the%20Novel.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Essays"
+    ]
+  },
+  {
+    "id": "one-thousand-ways-to-make-money",
+    "author_last": "Fox",
+    "author_first": "Page",
+    "title": "One Thousand Ways to Make Money",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 56006,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/fox-page/one-thousand-ways-to-make-money",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/fox-page/one-thousand-ways-to-make-money/output/Fox%2C%20Page%3A%20One%20Thousand%20Ways%20to%20Make%20Money.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Economics"
+    ]
+  },
+  {
+    "id": "fox-s-book-of-martyrs-or-a-history-of-the-lives-sufferings-and-triumph",
+    "author_last": "Foxe",
+    "author_first": "John",
+    "title": "Fox's Book of Martyrs Or A History of the Lives, Sufferings, and Triumphant Deaths of the Primitive Protestant Martyrs",
+    "translator": "",
+    "original_date": "1563",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 22400,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/foxe-john/fox-s-book-of-martyrs-or-a-history-of-the-lives-sufferings-and-triumph",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/foxe-john/fox-s-book-of-martyrs-or-a-history-of-the-lives-sufferings-and-triumph/output/Foxe%2C%20John%3A%20Fox%27s%20Book%20of%20Martyrs%20Or%20A%20History%20of%20the%20Lives%2C%20Sufferings%2C%20and%20Triumphant%20Deaths%20of%20the%20Primitive%20Protestant%20Martyrs.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "British"
+    ]
+  },
+  {
+    "id": "three-contributions-to-the-theory-of-sex",
+    "author_last": "Freud",
+    "author_first": "Sigmund",
+    "title": "Three Contributions to the Theory of Sex",
+    "translator": "A. A. Brill",
+    "original_date": "1905",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 14969,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/freud-sigmund/three-contributions-to-the-theory-of-sex",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/freud-sigmund/three-contributions-to-the-theory-of-sex/output/Freud%2C%20Sigmund%3A%20Three%20Contributions%20to%20the%20Theory%20of%20Sex.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Science",
+      "Translated"
+    ]
+  },
+  {
+    "id": "goethe-s-theory-of-colours",
+    "author_last": "Goethe",
+    "author_first": "Johann Wolfgang von",
+    "title": "Goethe's Theory of Colours",
+    "translator": "Charles Lock, Sir Eastlake",
+    "original_date": "1810",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 50572,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/goethe-johann-wolfgang-von/goethe-s-theory-of-colours",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/goethe-johann-wolfgang-von/goethe-s-theory-of-colours/output/Goethe%2C%20Johann%20Wolfgang%20von%3A%20Goethe%27s%20Theory%20of%20Colours.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "criminal-psychology",
+    "author_last": "Gross",
+    "author_first": "Hans",
+    "title": "Criminal Psychology",
+    "translator": "Horace Meyer Kallen",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 1320,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gross-hans/criminal-psychology",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gross-hans/criminal-psychology/output/Gross%2C%20Hans%3A%20Criminal%20Psychology.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "Translated"
+    ]
+  },
+  {
+    "id": "a-concise-anglo-saxon-dictionary-for-the-use-of-students",
+    "author_last": "Hall",
+    "author_first": "J. R. Clark",
+    "title": "A Concise Anglo-Saxon Dictionary For the Use of Students",
+    "translator": "",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 31543,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hall-j-r-clark/a-concise-anglo-saxon-dictionary-for-the-use-of-students",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hall-j-r-clark/a-concise-anglo-saxon-dictionary-for-the-use-of-students/output/Hall%2C%20J.%20R.%20Clark%3A%20A%20Concise%20Anglo-Saxon%20Dictionary%20For%20the%20Use%20of%20Students.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "the-ladies-book-of-etiquette-and-manual-of-politeness-a-complete-hand",
+    "author_last": "Hartley",
+    "author_first": "Florence",
+    "title": "The Ladies' Book of Etiquette, and Manual of Politeness A Complete Hand Book for the Use of the Lady in Polite Society",
+    "translator": "",
+    "original_date": "1860",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 35123,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hartley-florence/the-ladies-book-of-etiquette-and-manual-of-politeness-a-complete-hand",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hartley-florence/the-ladies-book-of-etiquette-and-manual-of-politeness-a-complete-hand/output/Hartley%2C%20Florence%3A%20The%20Ladies%27%20Book%20of%20Etiquette%2C%20and%20Manual%20of%20Politeness%20A%20Complete%20Hand%20Book%20for%20the%20Use%20of%20the%20Lady%20in%20Polite%20Society.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "the-love-letters-of-henry-viii-to-anne-boleyn",
+    "author_last": "Henry VIII",
+    "author_first": "King of England",
+    "title": "The Love Letters of Henry VIII to Anne Boleyn",
+    "translator": "",
+    "original_date": "1714",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 32155,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/henry-viii-king-of-england/the-love-letters-of-henry-viii-to-anne-boleyn",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/henry-viii-king-of-england/the-love-letters-of-henry-viii-to-anne-boleyn/output/Henry%20VIII%2C%20King%20of%20England%3A%20The%20Love%20Letters%20of%20Henry%20VIII%20to%20Anne%20Boleyn.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Love & Marriage",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "an-account-of-egypt",
+    "author_last": "Herodotus",
+    "author_first": "",
+    "title": "An Account of Egypt",
+    "translator": "G. C. Macaulay",
+    "original_date": "c. 430 BC",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 2131,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/herodotus/an-account-of-egypt",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/herodotus/an-account-of-egypt/output/Herodotus%3A%20An%20Account%20of%20Egypt.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Ancient World",
+      "Classics",
+      "History",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-starvation-treatment-of-diabetes",
+    "author_last": "Hill",
+    "author_first": "Lewis Webb and Rena S. Eckman",
+    "title": "The Starvation Treatment of Diabetes",
+    "translator": "",
+    "original_date": "1915",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 26058,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hill-lewis-webb/the-starvation-treatment-of-diabetes",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hill-lewis-webb/the-starvation-treatment-of-diabetes/output/Hill%2C%20Lewis%20Webb%20and%20Rena%20S.%20Eckman%3A%20The%20Starvation%20Treatment%20of%20Diabetes.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science"
+    ]
+  },
+  {
+    "id": "the-common-law",
+    "author_last": "Holmes",
+    "author_first": "Oliver Wendell",
+    "title": "The Common Law",
+    "translator": "",
+    "original_date": "1881",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 2449,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/holmes-oliver-wendell/the-common-law",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/holmes-oliver-wendell/the-common-law/output/Holmes%2C%20Oliver%20Wendell%3A%20The%20Common%20Law.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American"
+    ]
+  },
+  {
+    "id": "micrographia-some-physiological-descriptions-of-minute-bodies-made-by",
+    "author_last": "Hooke",
+    "author_first": "Robert",
+    "title": "Micrographia Some Physiological Descriptions of Minute Bodies Made by Magnifying Glasses",
+    "translator": "",
+    "original_date": "1665",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 15491,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hooke-robert/micrographia-some-physiological-descriptions-of-minute-bodies-made-by",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hooke-robert/micrographia-some-physiological-descriptions-of-minute-bodies-made-by/output/Hooke%2C%20Robert%3A%20Micrographia%20Some%20Physiological%20Descriptions%20of%20Minute%20Bodies%20Made%20by%20Magnifying%20Glasses.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "our-vanishing-wild-life",
+    "author_last": "Hornaday",
+    "author_first": "William T.",
+    "title": "Our Vanishing Wild Life",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 13249,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hornaday-william-t/our-vanishing-wild-life",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hornaday-william-t/our-vanishing-wild-life/output/Hornaday%2C%20William%20T.%3A%20Our%20Vanishing%20Wild%20Life.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science"
+    ]
+  },
+  {
+    "id": "mount-everest-the-reconnaissance-1921",
+    "author_last": "Howard-Bury",
+    "author_first": "Charles and George Mallory and A. F. R. Wollaston",
+    "title": "Mount Everest, the Reconnaissance, 1921",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 39421,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/howard-bury-charles/mount-everest-the-reconnaissance-1921",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/howard-bury-charles/mount-everest-the-reconnaissance-1921/output/Howard-Bury%2C%20Charles%20and%20George%20Mallory%20and%20A.%20F.%20R.%20Wollaston%3A%20Mount%20Everest%2C%20the%20Reconnaissance%2C%201921.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Travel"
+    ]
+  },
+  {
+    "id": "contemporary-american-composers",
+    "author_last": "Hughes",
+    "author_first": "Rupert",
+    "title": "Contemporary American Composers",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 23800,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hughes-rupert/contemporary-american-composers",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hughes-rupert/contemporary-american-composers/output/Hughes%2C%20Rupert%3A%20Contemporary%20American%20Composers.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "American"
+    ]
+  },
+  {
+    "id": "newspaper-reporting-and-correspondence-a-manual-for-reporters-correspo",
+    "author_last": "Hyde",
+    "author_first": "Grant Milnor",
+    "title": "Newspaper Reporting and Correspondence A Manual for Reporters, Correspondents, and Students of Newspaper Writing",
+    "translator": "",
+    "original_date": "1912",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 25968,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hyde-grant-milnor/newspaper-reporting-and-correspondence-a-manual-for-reporters-correspo",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hyde-grant-milnor/newspaper-reporting-and-correspondence-a-manual-for-reporters-correspo/output/Hyde%2C%20Grant%20Milnor%3A%20Newspaper%20Reporting%20and%20Correspondence%20A%20Manual%20for%20Reporters%2C%20Correspondents%2C%20and%20Students%20of%20Newspaper%20Writing.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "the-campaign-of-1776-around-new-york-and-brooklyn",
+    "author_last": "Johnston",
+    "author_first": "Henry Phelps",
+    "title": "The Campaign of 1776 Around New York and Brooklyn",
+    "translator": "",
+    "original_date": "1878",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 21990,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/johnston-henry-phelps/the-campaign-of-1776-around-new-york-and-brooklyn",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/johnston-henry-phelps/the-campaign-of-1776-around-new-york-and-brooklyn/output/Johnston%2C%20Henry%20Phelps%3A%20The%20Campaign%20of%201776%20Around%20New%20York%20and%20Brooklyn.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "the-economic-consequences-of-the-peace",
+    "author_last": "Keynes",
+    "author_first": "John Maynard",
+    "title": "The Economic Consequences of the Peace",
+    "translator": "",
+    "original_date": "1919",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 15776,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/keynes-john-maynard/the-economic-consequences-of-the-peace",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/keynes-john-maynard/the-economic-consequences-of-the-peace/output/Keynes%2C%20John%20Maynard%3A%20The%20Economic%20Consequences%20of%20the%20Peace.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "Politics & Society",
+      "British"
+    ]
+  },
+  {
+    "id": "women-s-bathing-and-swimming-costume-in-the-united-states",
+    "author_last": "Kidwell",
+    "author_first": "Claudia Brush",
+    "title": "Women's Bathing and Swimming Costume in the United States",
+    "translator": "",
+    "original_date": "1968",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 37586,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kidwell-claudia-brush/women-s-bathing-and-swimming-costume-in-the-united-states",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kidwell-claudia-brush/women-s-bathing-and-swimming-costume-in-the-united-states/output/Kidwell%2C%20Claudia%20Brush%3A%20Women%27s%20Bathing%20and%20Swimming%20Costume%20in%20the%20United%20States.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "History",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "foods-and-household-management",
+    "author_last": "Kinne",
+    "author_first": "Helen and Anna M. Cooley",
+    "title": "Foods and Household Management",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 40796,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kinne-helen/foods-and-household-management",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kinne-helen/foods-and-household-management/output/Kinne%2C%20Helen%20and%20Anna%20M.%20Cooley%3A%20Foods%20and%20Household%20Management.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-cook-s-oracle",
+    "author_last": "Kitchiner",
+    "author_first": "William",
+    "title": "The Cook's Oracle",
+    "translator": "",
+    "original_date": "1817",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 28681,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kitchiner-william/the-cook-s-oracle",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kitchiner-william/the-cook-s-oracle/output/Kitchiner%2C%20William%3A%20The%20Cook%27s%20Oracle.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "the-magic-and-science-of-jewels-and-stones",
+    "author_last": "Kozminsky",
+    "author_first": "Isidore",
+    "title": "The Magic and Science of Jewels and Stones",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 57980,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kozminsky-isidore/the-magic-and-science-of-jewels-and-stones",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kozminsky-isidore/the-magic-and-science-of-jewels-and-stones/output/Kozminsky%2C%20Isidore%3A%20The%20Magic%20and%20Science%20of%20Jewels%20and%20Stones.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "introduction-to-the-study-of-history",
+    "author_last": "Langlois",
+    "author_first": "Charles Victor and Charles Seignobos",
+    "title": "Introduction to the Study of History",
+    "translator": "George Godfrey Berry",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 29637,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/langlois-charles-victor/introduction-to-the-study-of-history",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/langlois-charles-victor/introduction-to-the-study-of-history/output/Langlois%2C%20Charles%20Victor%20and%20Charles%20Seignobos%3A%20Introduction%20to%20the%20Study%20of%20History.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "French",
+      "History",
+      "Translated"
+    ]
+  },
+  {
+    "id": "a-philosophical-essay-on-probabilities",
+    "author_last": "Laplace",
+    "author_first": "Pierre Simon, marquis de",
+    "title": "A Philosophical Essay on Probabilities",
+    "translator": "Frederick Lincoln Emory, Frederick Wilson Truscott",
+    "original_date": "1814",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 58881,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/laplace-pierre-simon-marquis-de/a-philosophical-essay-on-probabilities",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/laplace-pierre-simon-marquis-de/a-philosophical-essay-on-probabilities/output/Laplace%2C%20Pierre%20Simon%2C%20marquis%20de%3A%20A%20Philosophical%20Essay%20on%20Probabilities.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "lady-chatterley-s-lover",
+    "author_last": "Lawrence",
+    "author_first": "D. H.",
+    "title": "Lady Chatterley's Lover",
+    "translator": "",
+    "original_date": "1928",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 73144,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lawrence-d-h/lady-chatterley-s-lover",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lawrence-d-h/lady-chatterley-s-lover/output/Lawrence%2C%20D.%20H.%3A%20Lady%20Chatterley%27s%20Lover.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Novels",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "modern-greek-folklore-and-ancient-greek-religion",
+    "author_last": "Lawson",
+    "author_first": "J. C.",
+    "title": "Modern Greek Folklore and Ancient Greek Religion",
+    "translator": "",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 66116,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lawson-j-c/modern-greek-folklore-and-ancient-greek-religion",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lawson-j-c/modern-greek-folklore-and-ancient-greek-religion/output/Lawson%2C%20J.%20C.%3A%20Modern%20Greek%20Folklore%20and%20Ancient%20Greek%20Religion.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Ancient World",
+      "Religion"
+    ]
+  },
+  {
+    "id": "the-comic-english-grammar",
+    "author_last": "Leigh",
+    "author_first": "Percival",
+    "title": "The Comic English Grammar",
+    "translator": "",
+    "original_date": "1840",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 44802,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/leigh-percival/the-comic-english-grammar",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/leigh-percival/the-comic-english-grammar/output/Leigh%2C%20Percival%3A%20The%20Comic%20English%20Grammar.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "the-economic-aspect-of-geology",
+    "author_last": "Leith",
+    "author_first": "C. K.",
+    "title": "The Economic Aspect of Geology",
+    "translator": "",
+    "original_date": "1921",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 27842,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/leith-c-k/the-economic-aspect-of-geology",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/leith-c-k/the-economic-aspect-of-geology/output/Leith%2C%20C.%20K.%3A%20The%20Economic%20Aspect%20of%20Geology.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "john-barleycorn",
+    "author_last": "London",
+    "author_first": "Jack",
+    "title": "John Barleycorn",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 318,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/london-jack/john-barleycorn",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/london-jack/john-barleycorn/output/London%2C%20Jack%3A%20John%20Barleycorn.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "old-age-deferred-the-causes-of-old-age-and-its-postponement-by-hygieni",
+    "author_last": "Lorand",
+    "author_first": "Arnold",
+    "title": "Old Age Deferred The Causes of Old Age and its Postponement by Hygienic and Therapeutic Measures",
+    "translator": "",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 64237,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lorand-arnold/old-age-deferred-the-causes-of-old-age-and-its-postponement-by-hygieni",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lorand-arnold/old-age-deferred-the-causes-of-old-age-and-its-postponement-by-hygieni/output/Lorand%2C%20Arnold%3A%20Old%20Age%20Deferred%20The%20Causes%20of%20Old%20Age%20and%20its%20Postponement%20by%20Hygienic%20and%20Therapeutic%20Measures.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science"
+    ]
+  },
+  {
+    "id": "impressions-of-a-war-correspondent",
+    "author_last": "Lynch",
+    "author_first": "George",
+    "title": "Impressions of a War Correspondent",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 21661,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lynch-george/impressions-of-a-war-correspondent",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lynch-george/impressions-of-a-war-correspondent/output/Lynch%2C%20George%3A%20Impressions%20of%20a%20War%20Correspondent.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "History"
+    ]
+  },
+  {
+    "id": "an-essay-on-the-principle-of-population",
+    "author_last": "Malthus",
+    "author_first": "T. R.",
+    "title": "An Essay on the Principle of Population",
+    "translator": "",
+    "original_date": "1798",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 4239,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/malthus-t-r/an-essay-on-the-principle-of-population",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/malthus-t-r/an-essay-on-the-principle-of-population/output/Malthus%2C%20T.%20R.%3A%20An%20Essay%20on%20the%20Principle%20of%20Population.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "Politics & Society",
+      "British"
+    ]
+  },
+  {
+    "id": "vegetable-teratology-an-account-of-the-principal-deviations-from-the-u",
+    "author_last": "Masters",
+    "author_first": "Maxwell T.",
+    "title": "Vegetable Teratology An Account of the Principal Deviations from the Usual Construction of Plants",
+    "translator": "",
+    "original_date": "1869",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 23354,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/masters-maxwell-t/vegetable-teratology-an-account-of-the-principal-deviations-from-the-u",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/masters-maxwell-t/vegetable-teratology-an-account-of-the-principal-deviations-from-the-u/output/Masters%2C%20Maxwell%20T.%3A%20Vegetable%20Teratology%20An%20Account%20of%20the%20Principal%20Deviations%20from%20the%20Usual%20Construction%20of%20Plants.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "a-concise-dictionary-of-middle-english-from-a-d-1150-to-1580",
+    "author_last": "Mayhew",
+    "author_first": "A. L. and Walter W. Skeat",
+    "title": "A Concise Dictionary of Middle English from A.D. 1150 to 1580",
+    "translator": "",
+    "original_date": "1888",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 10625,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mayhew-a-l/a-concise-dictionary-of-middle-english-from-a-d-1150-to-1580",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mayhew-a-l/a-concise-dictionary-of-middle-english-from-a-d-1150-to-1580/output/Mayhew%2C%20A.%20L.%20and%20Walter%20W.%20Skeat%3A%20A%20Concise%20Dictionary%20of%20Middle%20English%20from%20A.D.%201150%20to%201580.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "mcguffey-s-first-eclectic-reader-revised-edition",
+    "author_last": "McGuffey",
+    "author_first": "William Holmes",
+    "title": "McGuffey's First Eclectic Reader, Revised Edition",
+    "translator": "",
+    "original_date": "1879",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 14640,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mcguffey-william-holmes/mcguffey-s-first-eclectic-reader-revised-edition",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mcguffey-william-holmes/mcguffey-s-first-eclectic-reader-revised-edition/output/McGuffey%2C%20William%20Holmes%3A%20McGuffey%27s%20First%20Eclectic%20Reader%2C%20Revised%20Edition.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Children's",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-prolongation-of-life",
+    "author_last": "Metchnikoff",
+    "author_first": "Elie",
+    "title": "The Prolongation of Life",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 51521,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/metchnikoff-elie/the-prolongation-of-life",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/metchnikoff-elie/the-prolongation-of-life/output/Metchnikoff%2C%20Elie%3A%20The%20Prolongation%20of%20Life.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science"
+    ]
+  },
+  {
+    "id": "practical-english-composition",
+    "author_last": "Miller",
+    "author_first": "Edwin L.",
+    "title": "Practical English Composition",
+    "translator": "",
+    "original_date": "1918",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 21341,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/miller-edwin-l/practical-english-composition",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/miller-edwin-l/practical-english-composition/output/Miller%2C%20Edwin%20L.%3A%20Practical%20English%20Composition.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "the-montessori-method-scientific-pedagogy-as-applied-to-child-educatio",
+    "author_last": "Montessori",
+    "author_first": "Maria",
+    "title": "The Montessori Method Scientific Pedagogy as Applied to Child Education in 'The Children's Houses'",
+    "translator": "Anne E. George",
+    "original_date": "1912",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 39863,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/montessori-maria/the-montessori-method-scientific-pedagogy-as-applied-to-child-educatio",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/montessori-maria/the-montessori-method-scientific-pedagogy-as-applied-to-child-educatio/output/Montessori%2C%20Maria%3A%20The%20Montessori%20Method%20Scientific%20Pedagogy%20as%20Applied%20to%20Child%20Education%20in%20%27The%20Children%27s%20Houses%27.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Italian",
+      "Women Writers",
+      "Translated"
+    ]
+  },
+  {
+    "id": "memorabilia-mathematica",
+    "author_last": "Moritz",
+    "author_first": "Robert Édouard",
+    "title": "Memorabilia Mathematica",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 44730,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/memorabilia-mathematica",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/memorabilia-mathematica/output/Moritz%2C%20Robert%20%C3%89douard%3A%20Memorabilia%20Mathematica.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "the-story-of-alchemy-and-the-beginnings-of-chemistry",
+    "author_last": "Muir",
+    "author_first": "M. M. Pattison",
+    "title": "The Story of Alchemy and the Beginnings of Chemistry",
+    "translator": "",
+    "original_date": "1902",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 14218,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/muir-m-m-pattison/the-story-of-alchemy-and-the-beginnings-of-chemistry",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/muir-m-m-pattison/the-story-of-alchemy-and-the-beginnings-of-chemistry/output/Muir%2C%20M.%20M.%20Pattison%3A%20The%20Story%20of%20Alchemy%20and%20the%20Beginnings%20of%20Chemistry.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "History"
+    ]
+  },
+  {
+    "id": "psychology-and-industrial-efficiency",
+    "author_last": "Münsterberg",
+    "author_first": "Hugo",
+    "title": "Psychology and Industrial Efficiency",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 15154,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/munsterberg-hugo/psychology-and-industrial-efficiency",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/munsterberg-hugo/psychology-and-industrial-efficiency/output/M%C3%BCnsterberg%2C%20Hugo%3A%20Psychology%20and%20Industrial%20Efficiency.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science",
+      "Economics"
+    ]
+  },
+  {
+    "id": "glaucoma",
+    "author_last": "Nance",
+    "author_first": "Willis O.",
+    "title": "Glaucoma",
+    "translator": "",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 23544,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/glaucoma",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/glaucoma/output/Nance%2C%20Willis%20O.%3A%20Glaucoma.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "hygiene",
+    "author_last": "Newsholme",
+    "author_first": "Arthur, Sir",
+    "title": "Hygiene",
+    "translator": "",
+    "original_date": "1902",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 58591,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/newsholme-arthur-sir/hygiene",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/newsholme-arthur-sir/hygiene/output/Newsholme%2C%20Arthur%2C%20Sir%3A%20Hygiene.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Science"
+    ]
+  },
+  {
+    "id": "ontario-teachers-manuals",
+    "author_last": "Ontario. Department of Education",
+    "author_first": "",
+    "title": "Ontario Teachers' Manuals",
+    "translator": "",
+    "original_date": "1915",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 24974,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ontario-department-of-education/ontario-teachers-manuals",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ontario-department-of-education/ontario-teachers-manuals/output/Ontario.%20Department%20of%20Education%3A%20Ontario%20Teachers%27%20Manuals.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Canadian"
+    ]
+  },
+  {
+    "id": "camp-cookery-how-to-live-in-camp",
+    "author_last": "Parloa",
+    "author_first": "Maria",
+    "title": "Camp Cookery. How to Live in Camp",
+    "translator": "",
+    "original_date": "1878",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 54138,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/parloa-maria/camp-cookery-how-to-live-in-camp",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/parloa-maria/camp-cookery-how-to-live-in-camp/output/Parloa%2C%20Maria%3A%20Camp%20Cookery.%20How%20to%20Live%20in%20Camp.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-fight-for-conservation",
+    "author_last": "Pinchot",
+    "author_first": "Gifford",
+    "title": "The Fight for Conservation",
+    "translator": "",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 11238,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/pinchot-gifford/the-fight-for-conservation",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/pinchot-gifford/the-fight-for-conservation/output/Pinchot%2C%20Gifford%3A%20The%20Fight%20for%20Conservation.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Politics & Society",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-foundations-of-science",
+    "author_last": "Poincaré",
+    "author_first": "Henri",
+    "title": "The Foundations of Science",
+    "translator": "George Bruce Halsted",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 39713,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/poincare-henri/the-foundations-of-science",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/poincare-henri/the-foundations-of-science/output/Poincar%C3%A9%2C%20Henri%3A%20The%20Foundations%20of%20Science.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "French",
+      "Philosophy",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-history-of-mary-prince-a-west-indian-slave",
+    "author_last": "Prince",
+    "author_first": "Mary",
+    "title": "The History of Mary Prince, a West Indian Slave",
+    "translator": "",
+    "original_date": "1831",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 17851,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/prince-mary/the-history-of-mary-prince-a-west-indian-slave",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/prince-mary/the-history-of-mary-prince-a-west-indian-slave/output/Prince%2C%20Mary%3A%20The%20History%20of%20Mary%20Prince%2C%20a%20West%20Indian%20Slave.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Black Voices",
+      "Memoir",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "eugene-oneguine-a-romance-of-russian-life-in-verse",
+    "author_last": "Pushkin",
+    "author_first": "Aleksandr Sergeevich",
+    "title": "Eugene Oneguine A Romance of Russian Life in Verse",
+    "translator": "Henry Spalding",
+    "original_date": "1833",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 23997,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/pushkin-aleksandr-sergeevich/eugene-oneguine-a-romance-of-russian-life-in-verse",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/pushkin-aleksandr-sergeevich/eugene-oneguine-a-romance-of-russian-life-in-verse/output/Pushkin%2C%20Aleksandr%20Sergeevich%3A%20Eugene%20Oneguine%20A%20Romance%20of%20Russian%20Life%20in%20Verse.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Russian",
+      "Poetry",
+      "Novels",
+      "Translated"
+    ]
+  },
+  {
+    "id": "on-the-art-of-writing-lectures-delivered-in-the-university-of-cambridg",
+    "author_last": "Quiller-Couch",
+    "author_first": "Arthur",
+    "title": "On the Art of Writing Lectures Delivered in the University of Cambridge 1913-1914",
+    "translator": "",
+    "original_date": "1916",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 17470,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/quiller-couch-arthur/on-the-art-of-writing-lectures-delivered-in-the-university-of-cambridg",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/quiller-couch-arthur/on-the-art-of-writing-lectures-delivered-in-the-university-of-cambridg/output/Quiller-Couch%2C%20Arthur%3A%20On%20the%20Art%20of%20Writing%20Lectures%20Delivered%20in%20the%20University%20of%20Cambridge%201913-1914.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Essays"
+    ]
+  },
+  {
+    "id": "fools-of-fortune",
+    "author_last": "Quinn",
+    "author_first": "John Philip",
+    "title": "Fools of Fortune",
+    "translator": "",
+    "original_date": "1890",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 58280,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/quinn-john-philip/fools-of-fortune",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/quinn-john-philip/fools-of-fortune/output/Quinn%2C%20John%20Philip%3A%20Fools%20of%20Fortune.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "random-reminiscences-of-men-and-events",
+    "author_last": "Rockefeller",
+    "author_first": "John D.",
+    "title": "Random Reminiscences of Men and Events",
+    "translator": "",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 17090,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/rockefeller-john-d/random-reminiscences-of-men-and-events",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/rockefeller-john-d/random-reminiscences-of-men-and-events/output/Rockefeller%2C%20John%20D.%3A%20Random%20Reminiscences%20of%20Men%20and%20Events.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "American",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "darwin-and-after-darwin-volumes-1-and-3-an-exposition-of-the-darwinian",
+    "author_last": "Romanes",
+    "author_first": "George John",
+    "title": "Darwin, and After Darwin, Volumes 1 and 3 An Exposition of the Darwinian Theory and a Discussion of Post-Darwinian Questions",
+    "translator": "",
+    "original_date": "1892",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 24800,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/romanes-george-john/darwin-and-after-darwin-volumes-1-and-3-an-exposition-of-the-darwinian",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/romanes-george-john/darwin-and-after-darwin-volumes-1-and-3-an-exposition-of-the-darwinian/output/Romanes%2C%20George%20John%3A%20Darwin%2C%20and%20After%20Darwin%2C%20Volumes%201%20and%203%20An%20Exposition%20of%20the%20Darwinian%20Theory%20and%20a%20Discussion%20of%20Post-Darwinian%20Questions.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "mechanical-drawing-self-taught",
+    "author_last": "Rose",
+    "author_first": "Joshua",
+    "title": "Mechanical Drawing Self-Taught",
+    "translator": "",
+    "original_date": "1883",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 23319,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/rose-joshua/mechanical-drawing-self-taught",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/rose-joshua/mechanical-drawing-self-taught/output/Rose%2C%20Joshua%3A%20Mechanical%20Drawing%20Self-Taught.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "the-elements-of-drawing-in-three-letters-to-beginners",
+    "author_last": "Ruskin",
+    "author_first": "John",
+    "title": "The Elements of Drawing, in Three Letters to Beginners",
+    "translator": "",
+    "original_date": "1857",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 30325,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ruskin-john/the-elements-of-drawing-in-three-letters-to-beginners",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ruskin-john/the-elements-of-drawing-in-three-letters-to-beginners/output/Ruskin%2C%20John%3A%20The%20Elements%20of%20Drawing%2C%20in%20Three%20Letters%20to%20Beginners.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "the-seven-lamps-of-architecture",
+    "author_last": "Ruskin",
+    "author_first": "John",
+    "title": "The Seven Lamps of Architecture",
+    "translator": "",
+    "original_date": "1849",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 35898,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ruskin-john/the-seven-lamps-of-architecture",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ruskin-john/the-seven-lamps-of-architecture/output/Ruskin%2C%20John%3A%20The%20Seven%20Lamps%20of%20Architecture.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "the-storm-cloud-of-the-nineteenth-century-two-lectures-delivered-at-th",
+    "author_last": "Ruskin",
+    "author_first": "John",
+    "title": "The Storm-Cloud of the Nineteenth Century Two Lectures Delivered at the London Institution, February 4th and 11th, 1884",
+    "translator": "",
+    "original_date": "1884",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 20204,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ruskin-john/the-storm-cloud-of-the-nineteenth-century-two-lectures-delivered-at-th",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ruskin-john/the-storm-cloud-of-the-nineteenth-century-two-lectures-delivered-at-th/output/Ruskin%2C%20John%3A%20The%20Storm-Cloud%20of%20the%20Nineteenth%20Century%20Two%20Lectures%20Delivered%20at%20the%20London%20Institution%2C%20February%204th%20and%2011th%2C%201884.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Essays",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "an-essay-on-the-foundations-of-geometry",
+    "author_last": "Russell",
+    "author_first": "Bertrand",
+    "title": "An Essay on the Foundations of Geometry",
+    "translator": "",
+    "original_date": "1897",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 52091,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/russell-bertrand/an-essay-on-the-foundations-of-geometry",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/russell-bertrand/an-essay-on-the-foundations-of-geometry/output/Russell%2C%20Bertrand%3A%20An%20Essay%20on%20the%20Foundations%20of%20Geometry.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Philosophy"
+    ]
+  },
+  {
+    "id": "the-puzzle-king",
+    "author_last": "Scott",
+    "author_first": "John",
+    "title": "The Puzzle King",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 52052,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/scott-john/the-puzzle-king",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/scott-john/the-puzzle-king/output/Scott%2C%20John%3A%20The%20Puzzle%20King.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "the-oxford-reformers",
+    "author_last": "Seebohm",
+    "author_first": "Frederic",
+    "title": "The Oxford Reformers",
+    "translator": "",
+    "original_date": "1867",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 43735,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/seebohm-frederic/the-oxford-reformers",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/seebohm-frederic/the-oxford-reformers/output/Seebohm%2C%20Frederic%3A%20The%20Oxford%20Reformers.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Religion"
+    ]
+  },
+  {
+    "id": "best-russian-short-stories",
+    "author_last": "Seltzer",
+    "author_first": "Thomas",
+    "title": "Best Russian Short Stories",
+    "translator": "",
+    "original_date": "1917",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 13437,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/best-russian-short-stories",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/best-russian-short-stories/output/Seltzer%2C%20Thomas%3A%20Best%20Russian%20Short%20Stories.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Russian",
+      "Stories"
+    ]
+  },
+  {
+    "id": "canoe-and-camp-cookery-a-practical-cook-book-for-canoeists-corinthian",
+    "author_last": "Seneca",
+    "author_first": "",
+    "title": "Canoe and Camp Cookery A Practical Cook Book for Canoeists, Corinthian Sailors and Outers",
+    "translator": "",
+    "original_date": "1885",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 55705,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/seneca/canoe-and-camp-cookery-a-practical-cook-book-for-canoeists-corinthian",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/seneca/canoe-and-camp-cookery-a-practical-cook-book-for-canoeists-corinthian/output/Seneca%3A%20Canoe%20and%20Camp%20Cookery%20A%20Practical%20Cook%20Book%20for%20Canoeists%2C%20Corinthian%20Sailors%20and%20Outers.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-english-peasantry-and-the-enclosure-of-common-fields",
+    "author_last": "Slater",
+    "author_first": "Gilbert",
+    "title": "The English Peasantry and the Enclosure of Common Fields",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 55643,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/slater-gilbert/the-english-peasantry-and-the-enclosure-of-common-fields",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/slater-gilbert/the-english-peasantry-and-the-enclosure-of-common-fields/output/Slater%2C%20Gilbert%3A%20The%20English%20Peasantry%20and%20the%20Enclosure%20of%20Common%20Fields.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Economics"
+    ]
+  },
+  {
+    "id": "on-the-mode-of-communication-of-cholera",
+    "author_last": "Snow",
+    "author_first": "John",
+    "title": "On the Mode of Communication of Cholera",
+    "translator": "",
+    "original_date": "1849",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 72894,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/snow-john/on-the-mode-of-communication-of-cholera",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/snow-john/on-the-mode-of-communication-of-cholera/output/Snow%2C%20John%3A%20On%20the%20Mode%20of%20Communication%20of%20Cholera.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Science",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "human-foods-and-their-nutritive-value",
+    "author_last": "Snyder",
+    "author_first": "Harry",
+    "title": "Human Foods and Their Nutritive Value",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 20871,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/snyder-harry/human-foods-and-their-nutritive-value",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/snyder-harry/human-foods-and-their-nutritive-value/output/Snyder%2C%20Harry%3A%20Human%20Foods%20and%20Their%20Nutritive%20Value.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science"
+    ]
+  },
+  {
+    "id": "cape-cod",
+    "author_last": "Thoreau",
+    "author_first": "Henry David",
+    "title": "Cape Cod",
+    "translator": "",
+    "original_date": "1865",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 34392,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/thoreau-henry-david/cape-cod",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/thoreau-henry-david/cape-cod/output/Thoreau%2C%20Henry%20David%3A%20Cape%20Cod.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Travel",
+      "Essays"
+    ]
+  },
+  {
+    "id": "walking",
+    "author_last": "Thoreau",
+    "author_first": "Henry David",
+    "title": "Walking",
+    "translator": "",
+    "original_date": "1862",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 1022,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/thoreau-henry-david/walking",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/thoreau-henry-david/walking/output/Thoreau%2C%20Henry%20David%3A%20Walking.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Essays",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "campaigns-of-a-non-combatant-and-his-romaunt-abroad-during-the-war",
+    "author_last": "Townsend",
+    "author_first": "George Alfred",
+    "title": "Campaigns of a Non-Combatant, and His Romaunt Abroad During the War",
+    "translator": "",
+    "original_date": "1866",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 23340,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/townsend-george-alfred/campaigns-of-a-non-combatant-and-his-romaunt-abroad-during-the-war",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/townsend-george-alfred/campaigns-of-a-non-combatant-and-his-romaunt-abroad-during-the-war/output/Townsend%2C%20George%20Alfred%3A%20Campaigns%20of%20a%20Non-Combatant%2C%20and%20His%20Romaunt%20Abroad%20During%20the%20War.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "a-tramp-abroad",
+    "author_last": "Twain",
+    "author_first": "Mark",
+    "title": "A Tramp Abroad",
+    "translator": "",
+    "original_date": "1880",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 119,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/twain-mark/a-tramp-abroad",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/twain-mark/a-tramp-abroad/output/Twain%2C%20Mark%3A%20A%20Tramp%20Abroad.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "American",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "special-report-on-diseases-of-the-horse",
+    "author_last": "United States. Bureau of Animal Industry",
+    "author_first": "",
+    "title": "Special Report on Diseases of the Horse",
+    "translator": "",
+    "original_date": "1890",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 23403,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/united-states-bureau-of-animal-industry/special-report-on-diseases-of-the-horse",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/united-states-bureau-of-animal-industry/special-report-on-diseases-of-the-horse/output/United%20States.%20Bureau%20of%20Animal%20Industry%3A%20Special%20Report%20on%20Diseases%20of%20the%20Horse.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science"
+    ]
+  },
+  {
+    "id": "no-animal-food",
+    "author_last": "Wheldon",
+    "author_first": "Rupert H.",
+    "title": "No Animal Food",
+    "translator": "",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 22829,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/wheldon-rupert-h/no-animal-food",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/wheldon-rupert-h/no-animal-food/output/Wheldon%2C%20Rupert%20H.%3A%20No%20Animal%20Food.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "history-of-the-inductive-sciences-from-the-earliest-to-the-present-tim",
+    "author_last": "Whewell",
+    "author_first": "William",
+    "title": "History of the Inductive Sciences, from the Earliest to the Present Time",
+    "translator": "",
+    "original_date": "1837",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 68693,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/whewell-william/history-of-the-inductive-sciences-from-the-earliest-to-the-present-tim",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/whewell-william/history-of-the-inductive-sciences-from-the-earliest-to-the-present-tim/output/Whewell%2C%20William%3A%20History%20of%20the%20Inductive%20Sciences%2C%20from%20the%20Earliest%20to%20the%20Present%20Time.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "History"
+    ]
+  },
+  {
+    "id": "the-natural-history-of-selborne",
+    "author_last": "White",
+    "author_first": "Gilbert",
+    "title": "The Natural History of Selborne",
+    "translator": "",
+    "original_date": "1789",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 1408,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/white-gilbert/the-natural-history-of-selborne",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/white-gilbert/the-natural-history-of-selborne/output/White%2C%20Gilbert%3A%20The%20Natural%20History%20of%20Selborne.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Science"
+    ]
+  },
+  {
+    "id": "how-it-works-dealing-in-simple-language",
+    "author_last": "Williams",
+    "author_first": "Archibald",
+    "title": "How It Works Dealing in Simple Language",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 28553,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/williams-archibald/how-it-works-dealing-in-simple-language",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/williams-archibald/how-it-works-dealing-in-simple-language/output/Williams%2C%20Archibald%3A%20How%20It%20Works%20Dealing%20in%20Simple%20Language.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "egyptian-literature",
+    "author_last": "Wilson",
+    "author_first": "Epiphanius",
+    "title": "Egyptian Literature",
+    "translator": "",
+    "original_date": "1901",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 28282,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/egyptian-literature",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/egyptian-literature/output/Wilson%2C%20Epiphanius%3A%20Egyptian%20Literature.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Ancient World",
+      "Religion"
+    ]
+  },
+  {
+    "id": "a-practical-handbook-on-the-distillation-of-alcohol-from-farm-products",
+    "author_last": "Wright",
+    "author_first": "F. B.",
+    "title": "A Practical Handbook on the Distillation of Alcohol from Farm Products",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 46377,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/wright-f-b/a-practical-handbook-on-the-distillation-of-alcohol-from-farm-products",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/wright-f-b/a-practical-handbook-on-the-distillation-of-alcohol-from-farm-products/output/Wright%2C%20F.%20B.%3A%20A%20Practical%20Handbook%20on%20the%20Distillation%20of%20Alcohol%20from%20Farm%20Products.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "electricity-for-boys",
+    "author_last": "Zerbe",
+    "author_first": "James Slough",
+    "title": "Electricity for Boys",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-16",
+    "gutenberg": 22766,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/zerbe-james-slough/electricity-for-boys",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/zerbe-james-slough/electricity-for-boys/output/Zerbe%2C%20James%20Slough%3A%20Electricity%20for%20Boys.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Children's",
+      "Science"
+    ]
   }
 ]
