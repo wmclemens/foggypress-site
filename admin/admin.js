@@ -69,7 +69,12 @@
   function b64decode(s) { var bin = atob(s.replace(/\s/g, '')); var bytes = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i); return new TextDecoder().decode(bytes); }
   function b64encode(str) { var bytes = new TextEncoder().encode(str), bin = ''; for (var i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(bin); }
   function readFile(path) {
-    return gh('/repos/' + REPO + '/contents/' + path + '?ref=' + BRANCH).then(function (j) { return {json: JSON.parse(b64decode(j.content)), sha: j.sha}; });
+    // the contents API leaves out files over 1 MB (catalog/books.json passed that on 16 Nov 2026 at ~1,500 books):
+    // then the text comes from the git blob, which works up to 100 MB
+    return gh('/repos/' + REPO + '/contents/' + path + '?ref=' + BRANCH).then(function (j) {
+      var text = j.content && j.encoding === 'base64' ? Promise.resolve(j.content) : gh('/repos/' + REPO + '/git/blobs/' + j.sha).then(function (b) { return b.content; });
+      return text.then(function (c) { return {json: JSON.parse(b64decode(c)), sha: j.sha}; });
+    });
   }
   function writeFile(path, obj, sha, message) {
     return gh('/repos/' + REPO + '/contents/' + path, {method: 'PUT', body: {message: message, content: b64encode(JSON.stringify(obj, null, 2) + '\n'), sha: sha, branch: BRANCH}})
