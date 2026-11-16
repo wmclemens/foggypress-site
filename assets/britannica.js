@@ -5,6 +5,8 @@
   if (!inp) return;
   // the articles and their data: files.foggypress.com/britannica/ (R2), or /britannica/ on a site that keeps its own files
   var DATA = inp.dataset.base || '/britannica/', R2 = /^https?:/.test(DATA);
+  // titles.json and the search index: on the site itself (same address as this page, so no cross-site rule needed)
+  var SEARCH = inp.dataset.search || DATA;
   function artHref(slug, extra) { return DATA + slug + '/' + (R2 ? 'index.html' : '') + (extra || ''); }
   var STOP = {};
   ('a about after all also an and any are as at be been but by can could did do does for from had has have he her him his how i if in into is it its may me more most my no not now of on one only or our out over she so some such than that the their them then there these they this those to up upon us was we were what when where which who whom why will with would you your').split(' ').forEach(function (w) { STOP[w] = 1; });
@@ -13,7 +15,7 @@
     return s.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[’‘]/g, "'").replace(/æ/g, 'ae').replace(/œ/g, 'oe').replace(/ß/g, 'ss').replace(/'s\b/g, '').replace(/'/g, '');
   }
   function toks(s) { return fold(s).match(/[a-z0-9]+/g) || []; }
-  function get(p) { return fetch(DATA + p).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); }
+  function get(p) { return fetch(SEARCH + p).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); }
   var titlesP = get('titles.json'), rowsP = null, keysP = null, cache = {};
   function li(slug, title, vol, page, extra) {
     return '<li><a href="' + esc(artHref(slug, extra)) + '">' + esc(title) + '</a><span class="mono">Vol. ' + vol + (page ? ', p. ' + esc(page) : '') + '</span></li>';
@@ -25,7 +27,7 @@
     return null;
   }
   function file(key) {
-    if (!cache[key]) cache[key] = fetch(DATA + 'search/p/' + key + '.bin').then(function (r) {
+    if (!cache[key]) cache[key] = fetch(SEARCH + 'search/p/' + key + '.bin').then(function (r) {
       if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); }).then(function (buf) {
       var u = new Uint8Array(buf), at = {}, i = 0;
       while (i < u.length) {
@@ -118,9 +120,12 @@
         box.innerHTML = '<div class="eyebrow">Inside the articles · ' + res.length + (res.length > 50 ? ' (top 50, most mentions first)' : '') + '</div>' +
           (top.length ? '<ul>' + top.map(function (r) { return li(r.row.id, r.row.t, r.row.v, r.row.p, extra); }).join('') + '</ul>' : (toks(q).length > 1 ? '<p class="none">No article has that exact phrase.</p>' : '<p class="none">No article mentions that.</p>'));
       }).catch(function () { box.innerHTML = '<p class="none">Couldn’t search inside the articles just now.</p>'; });
+    }).catch(function () {
+      if (my === seq) out.innerHTML = '<p class="none">Search couldn’t load just now. Please try again in a moment.</p>';
     });
   }
   inp.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(render, 200); });
+  inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); clearTimeout(timer); render(); } });
   var q0 = new URLSearchParams(location.search).get('q');
   if (q0) { inp.value = q0; render(); }
 })();

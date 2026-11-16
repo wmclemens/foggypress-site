@@ -92,13 +92,15 @@ def build(site):
         return
     if not site.pdf_base:
         stage(site, site.out, vols)
+    else:
+        search_data(site, site.out, vols)
     front_page(site, vols)
     for v in vols:
         volume_page(site, v)
 
 
 def stage(site, root, vols=None):
-    """article pages, pictures, titles.json and the search index under root/britannica/ (R2, or the site)"""
+    """article pages and pictures under root/britannica/ (R2, or the site; on the site, the search data too)"""
     if not enabled(site):
         return 0
     vols = vols if vols is not None else load(site.files)
@@ -112,18 +114,30 @@ def stage(site, root, vols=None):
         src = v['dir'] / 'img'
         if src.is_dir():
             shutil.copytree(src, out / 'img', dirs_exist_ok=True)
-    rows = []
     for i, (v, a) in enumerate(allarts):
         art = (v['dir'] / 'articles' / f"{a['slug']}.html").read_text(encoding='utf-8')
         prev_a = allarts[i - 1] if i > 0 else None
         next_a = allarts[i + 1] if i + 1 < len(allarts) else None
         article_page(site, out, v, a, art, prev_a, next_a, remote)
-        rows.append(({'id': a['slug'], 't': a['title'], 'v': v['n'], 'p': a['page']}, art))
+    if not remote:
+        search_data(site, root, vols)
+    print(f'Britannica: {len(allarts)} article pages in {len(vols)} volume(s).')
+    return len(allarts)
+
+
+def search_data(site, root, vols):
+    """titles.json and the article search index, always on the site itself: the front page reads them,
+    and fetching them from files.foggypress.com depends on R2's cross-site (CORS) rule, which failed on
+    16 Nov 2026. About 8 MB a volume."""
+    out = Path(root) / 'britannica'
+    out.mkdir(parents=True, exist_ok=True)
+    allarts = [(v, a) for v in vols for a in v['articles']]
+    rows = [({'id': a['slug'], 't': a['title'], 'v': v['n'], 'p': a['page']},
+             (v['dir'] / 'articles' / f"{a['slug']}.html").read_text(encoding='utf-8')) for v, a in allarts]
     (out / 'titles.json').write_text(json.dumps([[a['slug'], a['title'], v['n'], a['page']] for v, a in allarts if not a.get('front')],
                                                 ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     nw, ns = search_index.write_index(out / 'search', rows)
-    print(f'Britannica: {len(allarts)} articles in {len(vols)} volume(s); search index {nw} words in {ns} files.')
-    return len(allarts)
+    print(f'Britannica search: {len(allarts)} articles, {nw} words in {ns} files.')
 
 
 def front_page(site, vols):
@@ -143,7 +157,7 @@ def front_page(site, vols):
 <p class="sub">The Eleventh Edition of the Britannica, published 1910–1911 in 29 volumes, often called the last great encyclopaedia of the age of scholarship. Every article is its own page, ready to read or print.</p></div>
 <section class="eb-find" role="search">
   <label class="eyebrow" for="ebq">Find an article</label>
-  <div class="sbox"><input id="ebq" data-base="{esc(data_base(site))}" type="search" placeholder="Article title, or any word in the articles" autocomplete="off" enterkeyhint="search"></div>
+  <div class="sbox"><input id="ebq" data-base="{esc(data_base(site))}" data-search="/britannica/" type="search" placeholder="Article title, or any word in the articles" autocomplete="off" enterkeyhint="search"></div>
   <div id="eb-results" aria-live="polite"></div>
 </section>
 <section class="sec"><div class="sec-h"><h2>Volumes</h2><span class="eyebrow">{n_arts:,} articles</span></div>{soon}<ul class="recs">{''.join(vl)}</ul></section>
