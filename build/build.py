@@ -290,8 +290,8 @@ class Site:
     <div class="rail-end"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div>
   </aside>
   <main>{body}</main>
-  <footer class="foot mono"><span data-t>Foggy Press · public-domain books, free to print</span>{'<a href="/privacy/" data-t>Privacy</a>' if self.accounts else ''}{tn('{n} books', len(self.live))}</footer>
 </div>
+<footer class="wrap foot mono"><span data-t>Foggy Press · public-domain books, free to print</span>{'<a href="/privacy/" data-t>Privacy</a>' if self.accounts else ''}{tn('{n} books', len(self.live))}</footer>
 <script src="/assets/i18n.js"></script>
 <script src="/assets/site.js" defer></script>
 {'<script src="/assets/search.js" defer></script>' if current == 'search' else ''}

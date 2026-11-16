@@ -27,7 +27,7 @@ p{margin:0}
 .wrap{max-width:76rem;margin:0 auto}
 
 /* shell */
-.shell{display:grid;grid-template-columns:15rem minmax(0,1fr);grid-template-areas:"brand main" "rail main";grid-template-rows:auto 1fr;column-gap:3.5rem;padding-block:2.5rem 4rem}
+.shell{display:grid;grid-template-columns:15rem minmax(0,1fr);grid-template-areas:"brand main" "rail main";grid-template-rows:auto 1fr;column-gap:3.5rem;padding-block:2.5rem 0}
 .brand{grid-area:brand;display:block;padding-bottom:1.5rem}
 .brand .n{font-size:1.45rem;font-weight:600;letter-spacing:-.03em;display:block}
 .brand .s{font-size:1.45rem;font-weight:300;letter-spacing:-.03em;color:var(--muted);display:block}
@@ -54,12 +54,13 @@ p{margin:0}
 /* letter-spacing and capitals are for the Latin alphabet; joined and complex scripts need neither */
 :root:is([lang="ar"],[lang="hi"],[lang="bn"],[lang="mr"],[lang="te"],[lang="zh-Hans"],[lang="ja"]) :is(.mono,.eyebrow,.theme,.act,.seg button,.rb-pdf,.langpick select,.chip,.cnt,.lst){letter-spacing:0;text-transform:none;font-family:var(--sans)}
 main{grid-area:main;min-width:0}
-.foot{grid-column:1/-1;margin-top:4rem;padding-top:1rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:.5rem 2rem;flex-wrap:wrap;color:var(--faint)}
+/* the footer sits outside .shell, so the sticky rail stops above it instead of sliding over it */
+.foot{margin:4rem auto;padding-top:1rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:.5rem 2rem;flex-wrap:wrap;color:var(--faint)}
 @media (max-width:760px){
-  .shell{grid-template-columns:minmax(0,1fr);grid-template-areas:"brand" "main" "rail" "foot";padding-block:1.5rem 3rem}
+  .shell{grid-template-columns:minmax(0,1fr);grid-template-areas:"brand" "main" "rail";padding-block:1.5rem 0}
   .brand{padding-bottom:1.75rem;border-bottom:1px solid var(--ink);margin-bottom:1.75rem}
   .rail{position:static;margin-top:3rem}
-  .foot{grid-area:foot}
+  .foot{margin-bottom:3rem}
 }
 
 /* sections */
@@ -187,7 +188,7 @@ mark{background:var(--hit);color:var(--hit-ink);border-radius:2px;padding:0 .05e
 .sbox:focus-within button,.sbox button:hover{color:var(--accent)}
 .msrch{display:none}
 @media (max-width:760px){
-  .shell{grid-template-areas:"brand" "msrch" "main" "rail" "foot"}
+  .shell{grid-template-areas:"brand" "msrch" "main" "rail"}
   .msrch{display:grid;grid-area:msrch;margin:-.75rem 0 1.75rem}
   .rail .srch{display:none}
 }
@@ -339,7 +340,7 @@ ol.listitems{counter-reset:li}
 .newtag{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:0 .4rem;margin-inline-start:.45rem;vertical-align:1px;white-space:nowrap}
 .mask{display:none}
 @media (max-width:760px){
-  .shell{grid-template-areas:"brand" "msrch" "mask" "main" "rail" "foot"}
+  .shell{grid-template-areas:"brand" "msrch" "mask" "main" "rail"}
   .mask{display:block;grid-area:mask;margin:-1rem 0 1.75rem}
   .mask a{display:inline-flex;gap:.5rem;align-items:center;border:1px solid var(--line-2);border-radius:999px;padding:.35rem .9rem;color:var(--accent);font-size:.9rem}
   .mask a::after{content:"→"}
