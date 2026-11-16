@@ -1,0 +1,253 @@
+"""The 1911 Encyclopædia Britannica on foggypress.com: one read-online page per article.
+
+Articles are made in foggy-press-files by pipeline/britannica/ and live under
+books/1911Britannica/volume-NN/output/html/ (articles/<slug>.html, img/, index.json).
+This module turns them into:
+
+  /britannica/                 the work's front page: about, find an article, the volumes
+  /britannica/volume-N/        every article in volume N, A to Z
+  /britannica/<slug>/          one article, in the Foggy Press reading page, printable
+  /britannica/img/             pictures
+  /britannica/titles.json      [slug, title, volume, page] for "find an article"
+  /britannica/search/          full-text index of the articles (same format as search_index.py,
+                               one row per article)
+
+When the site's files are on Cloudflare R2 (PDF_BASE set), the article pages, pictures, titles.json and
+the search index go there too, under files.foggypress.com/britannica/ (staged by stage(), uploaded by
+build.yml with the read-online pages), and only the front and volume pages stay on GitHub Pages:
+all 29 volumes come to about 1 GB, the whole Pages limit.
+
+Nothing is built unless catalog/reference.json has "britannica": {"live": true}, or the
+environment sets BRITANNICA=1 (for a preview build). "listed": false keeps it out of the left rail.
+"""
+import html
+import json
+import os
+import re
+import shutil
+from pathlib import Path
+
+import search_index
+
+TITLE = 'Encyclopædia Britannica (1911)'
+LONG_TITLE = 'Encyclopædia Britannica, Eleventh Edition (1911)'
+VOLUMES = 29
+
+
+def esc(s):
+    return html.escape(str(s or ''), quote=True)
+
+
+def _conf():
+    p = Path(__file__).resolve().parent.parent / 'catalog' / 'reference.json'
+    try:
+        return json.loads(p.read_text()).get('britannica', {})
+    except (OSError, ValueError):
+        return {}
+
+
+def enabled(site=None):
+    return os.environ.get('BRITANNICA', '').strip() == '1' or bool(_conf().get('live'))
+
+
+def listed(site=None):
+    return enabled() and _conf().get('listed', True) is not False
+
+
+def data_base(site):
+    """where the article pages and their data are: R2 when the site's files are there, else the site itself"""
+    return f'{site.pdf_base}/britannica/' if site.pdf_base else '/britannica/'
+
+
+def art_url(site, slug, extra=''):
+    return f'{site.pdf_base}/britannica/{slug}/index.html{extra}' if site.pdf_base else f'/britannica/{slug}/{extra}'
+
+
+def load(files):
+    vols = []
+    for d in sorted((Path(files) / 'books' / '1911Britannica').glob('volume-*/output/html')):
+        ip = d / 'index.json'
+        if not ip.exists():
+            continue
+        data = json.loads(ip.read_text(encoding='utf-8'))
+        vols.append({'n': int(data['volume']), 'dir': d, 'articles': data['articles']})
+    return sorted(vols, key=lambda v: v['n'])
+
+
+def group_key(title):
+    """the first two letters, accents dropped ("Ælfric" and "Aelia" both go under "Ae")"""
+    import unicodedata
+    t = title.replace('Æ', 'Ae').replace('æ', 'ae').replace('Œ', 'Oe').replace('œ', 'oe')
+    t = ''.join(c for c in unicodedata.normalize('NFKD', t) if not unicodedata.combining(c))
+    t = re.sub(r"[^A-Za-z]", '', t)
+    return (t[:2] or '?').capitalize()
+
+
+def build(site):
+    """the front and volume pages, and (when the site keeps its own files) the articles themselves"""
+    if not enabled(site):
+        return
+    vols = load(site.files)
+    if not vols:
+        return
+    if not site.pdf_base:
+        stage(site, site.out, vols)
+    front_page(site, vols)
+    for v in vols:
+        volume_page(site, v)
+
+
+def stage(site, root, vols=None):
+    """article pages, pictures, titles.json and the search index under root/britannica/ (R2, or the site)"""
+    if not enabled(site):
+        return 0
+    vols = vols if vols is not None else load(site.files)
+    if not vols:
+        return 0
+    out = Path(root) / 'britannica'
+    out.mkdir(parents=True, exist_ok=True)
+    remote = Path(root) != Path(site.out)
+    allarts = [(v, a) for v in vols for a in v['articles']]
+    for v in vols:
+        src = v['dir'] / 'img'
+        if src.is_dir():
+            shutil.copytree(src, out / 'img', dirs_exist_ok=True)
+    rows = []
+    for i, (v, a) in enumerate(allarts):
+        art = (v['dir'] / 'articles' / f"{a['slug']}.html").read_text(encoding='utf-8')
+        prev_a = allarts[i - 1] if i > 0 else None
+        next_a = allarts[i + 1] if i + 1 < len(allarts) else None
+        article_page(site, out, v, a, art, prev_a, next_a, remote)
+        rows.append(({'id': a['slug'], 't': a['title'], 'v': v['n'], 'p': a['page']}, art))
+    (out / 'titles.json').write_text(json.dumps([[a['slug'], a['title'], v['n'], a['page']] for v, a in allarts if not a.get('front')],
+                                                ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    nw, ns = search_index.write_index(out / 'search', rows)
+    print(f'Britannica: {len(allarts)} articles in {len(vols)} volume(s); search index {nw} words in {ns} files.')
+    return len(allarts)
+
+
+def front_page(site, vols):
+    have = {v['n']: v for v in vols}
+    vl = []
+    for n in range(1, VOLUMES + 1):
+        v = have.get(n)
+        if v:
+            arts = [a for a in v['articles'] if not a.get('front')]
+            span = f"{arts[0]['title']} to {arts[-1]['title']}" if arts else ''
+            vl.append(f'<li class="rec"><a class="main" href="/britannica/volume-{n}/"><span class="t">Volume {n}</span>'
+                      f'<span class="a">{esc(span)}</span></a><span class="m mono">{len(arts):,} articles</span></li>')
+    n_arts = sum(1 for v in vols for a in v['articles'] if not a.get('front'))
+    soon = '' if len(vols) == VOLUMES else ('<p class="sub">Only Volume 1 is here so far. The other 28 are on the way.</p>' if len(vols) == 1
+            else f'<p class="sub">{len(vols)} of the {VOLUMES} volumes are here so far. The rest are on the way.</p>')
+    body = f'''<link rel="stylesheet" href="/assets/britannica.css"><div class="ph"><span class="crumb"><a href="/">Home</a> / Reference</span><h1>{esc(TITLE)}</h1>
+<p class="sub">The Eleventh Edition of the Britannica, published 1910–1911 in 29 volumes, often called the last great encyclopaedia of the age of scholarship. Every article is its own page, ready to read or print.</p></div>
+<section class="eb-find" role="search">
+  <label class="eyebrow" for="ebq">Find an article</label>
+  <div class="sbox"><input id="ebq" data-base="{esc(data_base(site))}" type="search" placeholder="Article title, or any word in the articles" autocomplete="off" enterkeyhint="search"></div>
+  <div id="eb-results" aria-live="polite"></div>
+</section>
+<section class="sec"><div class="sec-h"><h2>Volumes</h2><span class="eyebrow">{n_arts:,} articles</span></div>{soon}<ul class="recs">{''.join(vl)}</ul></section>
+<section class="sec prose eb-note"><h2>About this edition</h2>
+<p>The text is the volunteer transcription at Wikisource, proofread against scans of the 1911 printing, newly set by Foggy Press. Each article keeps its original volume and page numbers, and the initials of its contributor where the original gives them.</p>
+<p>These articles are more than a century old. Science, geography and history have moved on, and some articles, particularly on race, religion and colonial peoples, reflect views that were common in 1911 and are offensive today. They are kept as written, as a historical record.</p></section>
+<script src="/assets/britannica.js" defer></script>'''
+    site.page('britannica/index.html', f'{TITLE} · Foggy Press', body, 'britannica',
+              'The 1911 Encyclopædia Britannica, every article free to read and print, from Foggy Press.')
+
+
+def volume_page(site, v):
+    arts = [a for a in v['articles'] if not a.get('front')]
+    front = [a for a in v['articles'] if a.get('front')]
+    groups, order = {}, []
+    for a in arts:  # the volume's own (printed) order
+        k = group_key(a['title'])
+        if k not in groups:
+            groups[k] = []
+            order.append(k)
+        groups[k].append(a)
+    jump = ''.join(f'<a href="#g-{esc(k)}">{esc(k)}</a>' for k in order)
+    def li(a):
+        return f'<li><a href="{esc(art_url(site, a["slug"]))}">{esc(a["title"])}</a><span class="mono">{esc(a["page"])}</span></li>'
+    parts = []
+    if front:
+        parts.append('<div class="letter">Front matter</div><ul class="eb-list">' + ''.join(li(a) for a in front) + '</ul>')
+    for k in order:
+        parts.append(f'<div class="letter" id="g-{esc(k)}">{esc(k)}</div><ul class="eb-list">' + ''.join(li(a) for a in groups[k]) + '</ul>')
+    first, last = (arts[0]['title'], arts[-1]['title']) if arts else ('', '')
+    body = f'''<link rel="stylesheet" href="/assets/britannica.css"><div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/britannica/">{esc(TITLE)}</a></span><h1>Volume {v["n"]}</h1>
+<p class="sub">{esc(first)} to {esc(last)} · {len(arts):,} articles, in the order they are printed. The number beside each is its page in the volume.</p></div>
+<nav class="eb-jump mono" aria-label="Jump to">{jump}</nav>{''.join(parts)}'''
+    site.page(f'britannica/volume-{v["n"]}/index.html', f'Volume {v["n"]} · {TITLE} · Foggy Press', body, 'britannica')
+
+
+def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
+    gc = ''
+    if site.gc_code:
+        gc = f'<script data-goatcounter="https://{esc(site.gc_code)}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+    # the running head when printed, in the house style: work · Foggy Press on the left, page and article on the right
+    pg = f"Volume {v['n']}, page {a['page']}" if a['page'] else f"Volume {v['n']}"
+    head = (f'<div class="eb-runhead" aria-hidden="true"><span>{esc(TITLE)} · Foggy Press</span>'
+            f'<span>{esc(pg)}, {esc(a["title"])}</span></div>')
+    art = art.replace('<article class="book eb"', head + '<article class="book eb"', 1)
+    # a picture whose file isn't there yet (still being fetched from Wikimedia) is left out until it is
+    imgdir = v['dir'] / 'img'
+    art = re.sub(r'<img [^>]*src="\.\./img/([^"]+)"[^>]*/?>', lambda m: m.group(0) if (imgdir / m.group(1)).exists() else '', art)
+    def link(x, rel):
+        if not x:
+            return '<span></span>'
+        xv, xa = x
+        arrow = '←' if rel == 'prev' else '→'
+        lab = f'{arrow} {esc(xa["title"])}' if rel == 'prev' else f'{esc(xa["title"])} {arrow}'
+        return f'<a rel="{rel}" href="../{esc(xa["slug"])}/{"index.html" if remote else ""}">{lab}</a>'
+    nav = f'<nav class="eb-nav" aria-label="Neighbouring articles">{link(prev_a, "prev")}<a class="up" href="/britannica/volume-{v["n"]}/">Volume {v["n"]}</a>{link(next_a, "next")}</nav>'
+    src = f'<p class="eb-src mono">Text: <a href="{esc(a["source"])}">Wikisource</a> transcription of the 1911 printing.</p>'
+    desc = f'{a["title"]}: the article from the 1911 Encyclopædia Britannica, {pg.lower()}. Free to read and print.'
+    doc = f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{esc(a['title'])} · {esc(TITLE)} · Foggy Press</title>
+<meta name="description" content="{esc(desc)}">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/book.css">
+<link rel="stylesheet" href="/assets/britannica.css">
+<script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
+</head>
+<body class="reading eb-page">
+<div class="readtop">
+<nav class="readbar" aria-label="Foggy Press">
+  <a class="rb-home" href="/">Foggy Press</a>
+  <span class="rb-acts"><a class="rb-pdf" href="/britannica/">Britannica<span class="wide"> 1911</span></a><button class="rb-pdf rb-print" type="button" onclick="window.print()">Print<span class="wide"> this article</span></button><button class="theme" id="theme" type="button">Dark mode</button></span>
+</nav>
+<div class="bsearch" role="search">
+  <div class="in">
+    <label class="fld" for="find"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input id="find" type="search" placeholder="Find in this article" autocomplete="off" enterkeyhint="search" aria-describedby="find-count"></label>
+    <span class="cnt" id="find-count" aria-live="polite"></span>
+    <span class="nav"><button type="button" id="find-prev" aria-label="Previous match" disabled>↑</button><button type="button" id="find-next" aria-label="Next match" disabled>↓</button></span>
+    <button type="button" class="lst" id="find-all" aria-expanded="false" aria-controls="find-hits" disabled>All</button>
+  </div>
+  <div class="hits" id="find-hits" hidden><ol></ol></div>
+</div>
+</div>
+{art}
+{nav}
+{src}
+<footer class="readfoot mono"><a href="/">Foggy Press</a><span>Public-domain books, free to read and print</span><a href="/britannica/">{esc(TITLE)}</a></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/assets/search.js" defer></script>
+{gc}
+</body>
+</html>
+'''
+    if remote:  # on files.foggypress.com: R2 has no folder index pages, and the site's own files are on foggypress.com
+        doc = re.sub(r'href="\.\./([^"/]+)/(#[^"]*)?"', lambda mm: f'href="../{mm.group(1)}/index.html{mm.group(2) or ""}"', doc)
+    prefix = site.site_origin() if remote else site.base
+    if prefix:
+        doc = re.sub(r'(href|src)="/(?!/)', lambda mm: f'{mm.group(1)}="{prefix}/', doc)
+    d = out / a['slug']
+    d.mkdir(parents=True, exist_ok=True)
+    (d / 'index.html').write_text(doc, encoding='utf-8')
