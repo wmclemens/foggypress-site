@@ -113,3 +113,53 @@ Deno.test('a question end to end', async () => {
   eq([r4.status, (await r4.json()).error], [429, 'limit'], 'daily limit');
   await model.srv.shutdown();
 });
+
+Deno.test('the 1911 Britannica', async () => {
+  const lib = new Library(SITE);
+  const ref = await lib.reference();
+  eq(ref?.volumes, [1], 'volumes from ask.json');
+  eq((await lib.articleTitles('alhambra'))[0]?.id, 'alhambra-the', 'title search ("Alhambra, The")');
+  const hits = await lib.articlePhrase('flanked by thirteen towers');
+  eq(hits[0]?.art.id, 'alhambra-the', 'text search');
+  const a = (await lib.article('alhambra-the'))!;
+  eq((await lib.articleUrl(a)).endsWith('/britannica/alhambra-the/'), true, 'article url');
+  const { blocks, bad } = await toBlocks(lib, 'From 1911:\n[[article alhambra-the]] The palace at Granada.\n[[aquote alhambra-the#]] It is enclosed by a strongly fortified wall, which is flanked by thirteen towers.\n[[aquote alhambra-the#]] A palace made of cheese.\n[[article not-an-article]] Gone.');
+  eq(blocks.map((b) => b.t), ['p', 'article', 'aquote', 'p'], 'block kinds');
+  eq(bad.length, 1, 'made-up article quote caught');
+  const q = blocks[2] as any;
+  eq([q.title, q.url.endsWith('/britannica/alhambra-the/')], ['Alhambra, The', true], 'article quote');
+
+  // a question asked from the article page: the reference tools are offered, the article is named, the chat remembers it
+  const model = fakeModel([
+    (b) => {
+      if (!b.tools.some((t: any) => t.name === 'read_article')) throw new Error('reference tools missing');
+      if (!b.system[0].text.includes('volume 1 of 29 (1,699 articles)')) throw new Error('volumes not in rules');
+      if (!String(b.messages.at(-1).content).includes('slug alhambra-the')) throw new Error('article not named');
+      return [{ type: 'tool_use', id: 't1', name: 'read_article', input: { slug: 'alhambra-the' } }];
+    },
+    (b) => {
+      const res = String(b.messages.at(-1).content[0].content);
+      if (!res.includes('flanked by thirteen towers') || !res.includes('part 1 of')) throw new Error('article text missing: ' + res.slice(0, 200));
+      return [{ type: 'text', text: 'A walled hilltop palace.\n[[aquote alhambra-the#]] flanked by thirteen towers' }];
+    },
+    (b) => {
+      if (!String(b.messages.at(-1).content).includes('slug alhambra-the')) throw new Error('article lost in follow-up');
+      return [{ type: 'tool_use', id: 't2', name: 'search_britannica', input: { phrase: 'Alhambra' } }];
+    },
+    (b) => {
+      const res = String(b.messages.at(-1).content[0].content);
+      if (!res.includes('Articles titled "Alhambra"') || !res.includes('slug alhambra-the')) throw new Error('search result: ' + res.slice(0, 300));
+      return [{ type: 'text', text: 'Done.' }];
+    },
+  ]);
+  const { s, store } = memStore();
+  const client = new Anthropic({ apiKey: 'test', baseURL: model.url, maxRetries: 0 });
+  const h = handler({ store, client, lib, origins: ['https://foggypress.com'] });
+  const post = (body: unknown) => h(new Request('http://x/ask', { method: 'POST', headers: { Authorization: 'Bearer good' }, body: JSON.stringify(body) }));
+  const j1 = await (await post({ question: 'Sum up this article', article_id: 'alhambra-the' })).json();
+  eq(j1.blocks.map((b: any) => b.t), ['p', 'aquote'], 'answer blocks');
+  eq(s.chats.get(j1.chat_id)!.book, 'eb:alhambra-the', 'chat keeps the article');
+  const j2 = await (await post({ question: 'Any others?', chat_id: j1.chat_id })).json();
+  eq(j2.blocks[0].text, 'Done.', 'follow-up');
+  await model.srv.shutdown();
+});

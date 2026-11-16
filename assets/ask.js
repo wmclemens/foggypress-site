@@ -2,6 +2,7 @@
 // (supabase/functions/ask). Two places:
 //  - /ask/: the Ask page, with starter questions, the conversation and past chats (#past).
 //  - read-online pages: the "Ask about this book" drawer.
+//  - 1911 Britannica article pages (body data-article): the same drawer, "Ask about this article".
 // Turned on by <meta name="fp-ask" content="<function url>"> (the build writes it when ASK_ON is set) and needs
 // assets/account.js: asking needs a signed-in reader, so the daily limit is per person.
 (function () {
@@ -16,6 +17,7 @@
   var STARTERS = [['Find me a book', 'Something like Treasure Island, but true'], ['Explain a book', 'What is Walden really about?'],
     ['Find a passage', 'Where does Ishmael say why he goes to sea?'], ['Compare', 'How do the Grant biographies differ?']];
   var BOOK_STARTERS = ['What is this book about?', 'Who are the main characters?', 'What should I know before I start?'];
+  var ARTICLE_STARTERS = ['Sum up this article', 'What has changed since 1911?', 'Explain the hardest part simply'];
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
   function inline(s) { return esc(s).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/\*([^*]+)\*/g, '<i>$1</i>'); }
@@ -24,6 +26,7 @@
 
   // ---------- state ----------
   var page = document.getElementById('ask'), bookId = document.body.dataset.book || '';
+  var articleId = document.body.dataset.article || '', articleTitle = document.body.dataset.title || '', here = bookId || (articleId && 'eb:' + articleId);
   var cat = {}, msgs = [], chatId = '', status = null, busy = false, signed = false, drawer = null;
 
   // ---------- talking to the ask function ----------
@@ -31,7 +34,7 @@
     return acc.token().then(function (tok) {
       if (!tok) return {status: 401, body: {error: 'signin'}};
       return fetch(FN, {method: 'POST', headers: {'Authorization': 'Bearer ' + tok, 'apikey': KEY, 'Content-Type': 'application/json'},
-        body: JSON.stringify({question: question, chat_id: chatId || undefined, book_id: bookId || undefined, tz: TZ, lang: window.fpLang ? window.fpLang() : 'en'})})
+        body: JSON.stringify({question: question, chat_id: chatId || undefined, book_id: bookId || undefined, article_id: articleId || undefined, tz: TZ, lang: window.fpLang ? window.fpLang() : 'en'})})
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (b) { return {status: r.status, body: b}; }); });
     }).catch(function () { return {status: 0, body: {error: 'network'}}; });
   }
@@ -56,6 +59,16 @@
     if (b.t === 'request') {
       return '<p class="reqlink"><a class="btn ghost sm" href="' + BASE + 'request/?title=' + encodeURIComponent(b.title) + (b.author ? '&author=' + encodeURIComponent(b.author) : '') + '">' +
         esc(T('Request this book')) + ': ' + esc(b.title) + ' →</a></p>';
+    }
+    if (b.t === 'article') {
+      return '<ul class="recs cards"><li class="rec"><a class="main" href="' + esc(b.url) + '"><span class="t">' + esc(b.title) + '</span><span class="a">' + esc(T('Encyclopædia Britannica, 1911')) + '</span>' +
+        (b.why ? '<span class="d">' + inline(b.why) + '</span>' : '') + '</a><span class="m mono">' + esc(T('Vol. {v}', {v: b.v})) + (b.p ? ', p. ' + esc(b.p) : '') + '</span>' +
+        '<span class="acts"><a class="act" href="' + esc(b.url) + '">' + esc(T('Read article')) + '</a></span></li></ul>';
+    }
+    if (b.t === 'aquote') {
+      var hereA = articleId && b.id === articleId, at = b.url + '?q=' + encodeURIComponent(b.q) + (b.ch ? '#' + encodeURIComponent(b.ch) : '');
+      return '<blockquote class="qt">' + esc(b.text) + '</blockquote><div class="src"><span>' + esc(hereA ? T('This article') : b.title + ' · ' + T('Britannica 1911')) + '</span>' +
+        '<a href="' + esc(at) + '" data-ask-go>' + esc(hereA ? T('Show in article') : T('Open at this passage')) + ' →</a></div>';
     }
     if (b.t === 'quote') {
       var here = bookId && b.id === bookId, where = readLink(bk || {id: b.id}, '?q=' + encodeURIComponent(b.q) + (b.ch ? '#' + encodeURIComponent(b.ch) : ''));
@@ -154,15 +167,16 @@
 
   // ---------- the drawer on read pages ----------
   function drawDrawer() {
-    var b = cat[bookId] || {t: ''};
+    var b = articleId ? {t: articleTitle} : (cat[bookId] || {t: ''});
+    var label = articleId ? T('Ask about this article') : T('Ask about this book');
     if (!drawer) {
       drawer = document.createElement('aside');
       drawer.className = 'drawer'; drawer.id = 'askdrawer'; drawer.hidden = true;
       document.body.appendChild(drawer);
     }
-    drawer.setAttribute('aria-label', T('Ask about this book'));
-    var body = msgs.length ? convoHtml() : '<div class="dstart">' + BOOK_STARTERS.map(function (q) { return '<button type="button" data-ask-q="' + esc(T(q)) + '">' + esc(T(q)) + '</button>'; }).join('') + '</div>';
-    drawer.innerHTML = '<div class="dh"><div><b>' + esc(T('Ask about this book')) + '</b><span>' + esc(T('Answers come from this book’s text')) + '</span></div>' +
+    drawer.setAttribute('aria-label', label);
+    var body = msgs.length ? convoHtml() : '<div class="dstart">' + (articleId ? ARTICLE_STARTERS : BOOK_STARTERS).map(function (q) { return '<button type="button" data-ask-q="' + esc(T(q)) + '">' + esc(T(q)) + '</button>'; }).join('') + '</div>';
+    drawer.innerHTML = '<div class="dh"><div><b>' + esc(label) + '</b><span>' + esc(articleId ? T('Answers come from the 1911 text') : T('Answers come from this book’s text')) + '</span></div>' +
       '<span class="dacts">' + (msgs.length ? '<button type="button" class="linkish" data-ask-new>' + esc(T('New chat')) + '</button>' : '') +
       '<button class="x" type="button" data-ask-close aria-label="' + esc(T('Close')) + '">×</button></span></div>' +
       '<div class="db" aria-live="polite">' + (signed ? '' : gateHtml()) + body + noticeHtml() + '</div>' + composerHtml(T('Ask about {title}', {title: b.t}));
@@ -180,8 +194,8 @@
     if (open) { var ta = drawer.querySelector('textarea'); if (ta && !ta.disabled && matchMedia('(min-width: 760px)').matches) ta.focus(); }
   }
   // the drawer stays open, on the same chat, when a quote link reloads the page
-  function keep() { try { sessionStorage.setItem('fp-ask-' + bookId, JSON.stringify({c: chatId, o: drawer && !drawer.hidden})); } catch (e) {} }
-  function kept() { try { return JSON.parse(sessionStorage.getItem('fp-ask-' + bookId) || 'null'); } catch (e) { return null; } }
+  function keep() { try { sessionStorage.setItem('fp-ask-' + here, JSON.stringify({c: chatId, o: drawer && !drawer.hidden})); } catch (e) {} }
+  function kept() { try { return JSON.parse(sessionStorage.getItem('fp-ask-' + here) || 'null'); } catch (e) { return null; } }
 
   function redraw() { if (page) drawPage(); else if (drawer) drawDrawer(); }
 
@@ -203,7 +217,7 @@
     msgs.push({role: 'user', content: q.slice(0, 1000)}, {role: 'assistant', wait: true});
     redraw();
     scrollEnd();
-    ev(bookId ? 'ask: book' : 'ask');
+    ev(articleId ? 'ask: article' : bookId ? 'ask: book' : 'ask');
     ask(q.slice(0, 1000)).then(function (r) {
       busy = false;
       var last = msgs[msgs.length - 1], b = r.body || {};
@@ -276,7 +290,7 @@
       var c = new URLSearchParams(location.search).get('c');
       return (signed && c ? openChat(c) : Promise.resolve()).then(drawPage);
     });
-  } else if (bookId) {
+  } else if (here) {
     var btn = document.getElementById('rbask');
     if (btn) {
       btn.hidden = false;

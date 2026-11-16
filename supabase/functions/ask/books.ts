@@ -7,6 +7,11 @@ export type Book = {
 };
 export type Chapter = { id: string; head: string; text: string };
 export type Hit = { book: Book; chapters: { ci: number; n: number }[]; n: number };
+// a 1911 Britannica article, as a row of britannica/search/books.json (build/britannica.py search_data)
+export type Article = { id: string; t: string; v: number; p: string; ch?: [string, string][] };
+export type ArticleHit = { art: Article; chapters: { ci: number; n: number }[]; n: number };
+// britannica/ask.json: where the article pages are and which volumes are in
+export type Reference = { page: string; volumes: number[]; articles: number };
 
 // keep in step with STOP in build/search_index.py
 const STOP = new Set(('a about after all also an and any are as at be been but by can could did do does for from had has have he her ' +
@@ -39,7 +44,7 @@ const squash = (s: string) => s.replace(/\s+/g, ' ').trim();
 // the chapters of a read-online page, cut exactly as build/search_index.py chapters() cuts them, so that
 // chapter numbers in the index match
 export function chapters(page: string): Chapter[] {
-  const m = page.match(/<article class="book"[\s\S]*<\/article>/);
+  const m = page.match(/<article class="book(?: [^"]*)?"[\s\S]*<\/article>/);
   let art = m ? m[0] : page;
   art = art.replace(/<details class="toc">[\s\S]*?<\/details>/g, '').replace(/<header class="book-head">[\s\S]*?<\/header>/, '');
   const out: Chapter[] = [];
@@ -100,45 +105,19 @@ export function around(s: string, a: number, z: number, room = 260): string {
 type Cached<T> = { at: number; v: Promise<T> };
 const TTL = 10 * 60 * 1000;
 
-export class Library {
-  private cat?: Cached<Book[]>;
+// one full-text index (format: build/search_index.py write_index) under base: p.json, p/<key>.bin
+class PostingIndex {
   private keys?: Cached<Set<string>>;
   private files = new Map<string, Promise<{ u: Uint8Array; at: Map<string, [number, number]> }>>();
-  private pages = new Map<string, Promise<Chapter[]>>();
+  constructor(private base: string, private get: typeof fetch) {}
 
-  constructor(public site: string, private get: typeof fetch = fetch) {
-    this.site = site.replace(/\/$/, '');
-  }
-
-  private async json<T>(path: string): Promise<T> {
-    const r = await this.get(this.site + path);
-    if (!r.ok) throw new Error(`${path}: ${r.status}`);
-    return await r.json() as T;
-  }
-
-  catalog(): Promise<Book[]> {
-    if (!this.cat || Date.now() - this.cat.at > TTL) {
-      const v = this.json<Book[]>('/search/books.json');
-      v.catch(() => { this.cat = undefined; });
-      this.cat = { at: Date.now(), v };
-      this.files.clear();   // a new catalog means a new index: book numbers may have moved
-      this.keys = undefined;
-    }
-    return this.cat.v;
-  }
-  async book(id: string): Promise<Book | undefined> { return (await this.catalog()).find((b) => b.id === id); }
-
-  // the catalog as lines for the model's instructions
-  async catalogText(): Promise<string> {
-    const rows = await this.catalog();
-    return rows.map((b) => [b.id, b.t, b.a + (b.tr ? ` (tr. ${b.tr})` : ''), b.d || '', (b.tg || []).join(', '), b.desc || '']
-      .map((x) => String(x).replace(/\s*\|\s*/g, ' / ')).join(' | ')).join('\n');
-  }
-
-  // ---- the full-text index (format: build/search_index.py)
+  reset() { this.files.clear(); this.keys = undefined; }
   private keySet(): Promise<Set<string>> {
     if (!this.keys || Date.now() - this.keys.at > TTL) {
-      const v = this.json<string[]>('/search/p.json').then((ks) => new Set(ks));
+      const v = this.get(this.base + 'p.json').then(async (r) => {
+        if (!r.ok) throw new Error(`${this.base}p.json: ${r.status}`);
+        return new Set(await r.json() as string[]);
+      });
       v.catch(() => { this.keys = undefined; });
       this.keys = { at: Date.now(), v };
     }
@@ -147,7 +126,7 @@ export class Library {
   private file(key: string) {
     let f = this.files.get(key);
     if (!f) {
-      f = this.get(`${this.site}/search/p/${key}.bin`).then(async (r) => {
+      f = this.get(`${this.base}p/${key}.bin`).then(async (r) => {
         if (!r.ok) throw new Error(`index ${key}: ${r.status}`);
         const u = new Uint8Array(await r.arrayBuffer()), at = new Map<string, [number, number]>();
         let i = 0;
@@ -162,6 +141,7 @@ export class Library {
         return { u, at };
       });
       f.catch(() => this.files.delete(key));
+      if (this.files.size > 200) this.files.delete(this.files.keys().next().value!);
       this.files.set(key, f);
     }
     return f;
@@ -195,13 +175,13 @@ export class Library {
     return out;
   }
 
-  // books and chapters where the words stand together as a phrase (a single word also matches its plurals),
-  // most matches first
-  async phrase(text: string, onlyBook?: string): Promise<Hit[]> {
-    const toks = tokens(text), cat = await this.catalog();
+  // book number -> chapter number -> matches, where the words stand together as a phrase (a single word also
+  // matches its plurals)
+  async phrase(text: string): Promise<Map<number, Map<number, number>>> {
+    const toks = tokens(text);
     const idx = toks.map((w, k) => (indexed(w) ? k : -1)).filter((k) => k >= 0);
-    if (!idx.length) return [];
     const per = new Map<number, Map<number, number>>();
+    if (!idx.length) return per;
     if (idx.length === 1) {
       const w = toks[idx[0]], vs = [w, w + 's', w + 'es'];
       if (w.length > 3 && w.endsWith('s')) vs.push(w.slice(0, -1));
@@ -229,14 +209,121 @@ export class Library {
         }
       }
     }
-    const hits: Hit[] = [];
-    for (const [bk, chs] of per) {
-      const book = cat[bk];
-      if (!book || (onlyBook && book.id !== onlyBook)) continue;
-      const list = [...chs].map(([ci, n]) => ({ ci, n }));
-      hits.push({ book, chapters: list, n: list.reduce((s, c) => s + c.n, 0) });
+    return per;
+  }
+}
+
+function ranked<T>(per: Map<number, Map<number, number>>, rows: T[], keep: (r: T) => boolean) {
+  const hits: { row: T; chapters: { ci: number; n: number }[]; n: number }[] = [];
+  for (const [bk, chs] of per) {
+    const row = rows[bk];
+    if (!row || !keep(row)) continue;
+    const list = [...chs].map(([ci, n]) => ({ ci, n }));
+    hits.push({ row, chapters: list, n: list.reduce((s, c) => s + c.n, 0) });
+  }
+  return hits.sort((a, b) => b.n - a.n);
+}
+
+export class Library {
+  private cat?: Cached<Book[]>;
+  private idx: PostingIndex;
+  private pages = new Map<string, Promise<Chapter[]>>();
+  // the 1911 Britannica (build/britannica.py): its index sits on the site, its article pages on R2. New volumes
+  // come in by themselves: ask.json and the index are rebuilt from whatever volumes are there.
+  private ref?: Cached<Reference | null>;
+  private arts?: Cached<{ rows: Article[]; by: Map<string, Article> }>;
+  private ebIdx: PostingIndex;
+
+  constructor(public site: string, private get: typeof fetch = fetch) {
+    this.site = site.replace(/\/$/, '');
+    this.idx = new PostingIndex(this.site + '/search/', get);
+    this.ebIdx = new PostingIndex(this.site + '/britannica/search/', get);
+  }
+
+  private async json<T>(path: string): Promise<T> {
+    const r = await this.get(this.site + path);
+    if (!r.ok) throw new Error(`${path}: ${r.status}`);
+    return await r.json() as T;
+  }
+
+  catalog(): Promise<Book[]> {
+    if (!this.cat || Date.now() - this.cat.at > TTL) {
+      const v = this.json<Book[]>('/search/books.json');
+      v.catch(() => { this.cat = undefined; });
+      this.cat = { at: Date.now(), v };
+      this.idx.reset();   // a new catalog means a new index: book numbers may have moved
     }
-    return hits.sort((a, b) => b.n - a.n);
+    return this.cat.v;
+  }
+  async book(id: string): Promise<Book | undefined> { return (await this.catalog()).find((b) => b.id === id); }
+
+  // the catalog as lines for the model's instructions
+  async catalogText(): Promise<string> {
+    const rows = await this.catalog();
+    return rows.map((b) => [b.id, b.t, b.a + (b.tr ? ` (tr. ${b.tr})` : ''), b.d || '', (b.tg || []).join(', '), b.desc || '']
+      .map((x) => String(x).replace(/\s*\|\s*/g, ' / ')).join(' | ')).join('\n');
+  }
+
+  // books and chapters where the words stand together as a phrase, most matches first
+  async phrase(text: string, onlyBook?: string): Promise<Hit[]> {
+    const cat = await this.catalog();
+    return ranked(await this.idx.phrase(text), cat, (b) => !onlyBook || b.id === onlyBook)
+      .map((h) => ({ book: h.row, chapters: h.chapters, n: h.n }));
+  }
+
+  // ---- the 1911 Britannica
+  // null when the Britannica isn't on the site
+  reference(): Promise<Reference | null> {
+    if (!this.ref || Date.now() - this.ref.at > TTL) {
+      const v = this.get(this.site + '/britannica/ask.json').then(async (r) => {
+        if (r.status === 404) return null;
+        if (!r.ok) throw new Error(`britannica/ask.json: ${r.status}`);
+        const j = await r.json() as Reference;
+        return j && j.page && j.volumes?.length ? j : null;
+      });
+      v.catch(() => { this.ref = undefined; });
+      this.ref = { at: Date.now(), v };
+    }
+    return this.ref.v;
+  }
+  private articleRows() {
+    if (!this.arts || Date.now() - this.arts.at > TTL) {
+      const v = this.json<Article[]>('/britannica/search/books.json').then((rows) => ({ rows, by: new Map(rows.map((a) => [a.id, a])) }));
+      v.catch(() => { this.arts = undefined; });
+      this.arts = { at: Date.now(), v };
+      this.ebIdx.reset();
+    }
+    return this.arts.v;
+  }
+  async article(slug: string): Promise<Article | undefined> {
+    if (!slug || !(await this.reference())) return undefined;
+    return (await this.articleRows()).by.get(slug);
+  }
+  // articles whose title is the words (or starts with them), then where the words stand in the articles' text
+  async articleTitles(text: string, max = 8): Promise<Article[]> {
+    const want = tokens(text).join(' ');
+    if (!want) return [];
+    const { rows } = await this.articleRows();
+    const same: Article[] = [], starts: Article[] = [];
+    for (const a of rows) {
+      const t = tokens(a.t).join(' ');
+      if (t === want) same.push(a);
+      else if (t.startsWith(want + ' ')) starts.push(a);
+      if (same.length >= max) break;
+    }
+    return [...same, ...starts].slice(0, max);
+  }
+  async articlePhrase(text: string): Promise<ArticleHit[]> {
+    const { rows } = await this.articleRows();
+    return ranked(await this.ebIdx.phrase(text), rows, () => true).map((h) => ({ art: h.row, chapters: h.chapters, n: h.n }));
+  }
+  async articleUrl(a: Article): Promise<string> {
+    const ref = await this.reference();
+    const page = ref ? ref.page : '/britannica/{slug}/';
+    return (/^https?:/.test(page) ? page : this.site + page).replace('{slug}', encodeURIComponent(a.id));
+  }
+  chaptersOfArticle(a: Article): Promise<Chapter[]> {
+    return this.cachedPage('eb:' + a.id, () => this.articleUrl(a));
   }
 
   // ---- read-online pages
@@ -245,15 +332,18 @@ export class Library {
     return /^https?:/.test(rd) ? rd : this.site + rd;
   }
   chaptersOf(b: Book): Promise<Chapter[]> {
-    let p = this.pages.get(b.id);
+    return this.cachedPage(b.id, async () => this.pageUrl(b));
+  }
+  private cachedPage(key: string, url: () => Promise<string>): Promise<Chapter[]> {
+    let p = this.pages.get(key);
     if (!p) {
-      p = this.get(this.pageUrl(b)).then(async (r) => {
-        if (!r.ok) throw new Error(`${b.id} page: ${r.status}`);
+      p = url().then((u) => this.get(u)).then(async (r) => {
+        if (!r.ok) throw new Error(`${key} page: ${r.status}`);
         return chapters(await r.text());
       });
-      p.catch(() => this.pages.delete(b.id));
+      p.catch(() => this.pages.delete(key));
       if (this.pages.size > 12) this.pages.delete(this.pages.keys().next().value!);
-      this.pages.set(b.id, p);
+      this.pages.set(key, p);
     }
     return p;
   }

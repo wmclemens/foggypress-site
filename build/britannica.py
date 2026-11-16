@@ -137,6 +137,11 @@ def search_data(site, root, vols):
     (out / 'titles.json').write_text(json.dumps([[a['slug'], a['title'], v['n'], a['page']] for v, a in allarts if not a.get('front')],
                                                 ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     nw, ns = search_index.write_index(out / 'search', rows)
+    # for Ask Foggy Press (supabase/functions/ask/books.ts): where the article pages are and which volumes are in.
+    # Rebuilt from whatever volumes are there, so a new volume reaches Ask with the next build.
+    page = (f'{site.pdf_base}/britannica/{{slug}}/index.html' if site.pdf_base
+            else f'{site.site_origin() or ""}{site.base}/britannica/{{slug}}/')
+    (out / 'ask.json').write_text(json.dumps({'page': page, 'volumes': [v['n'] for v in vols], 'articles': len(rows)}), encoding='utf-8')
     print(f'Britannica search: {len(allarts)} articles, {nw} words in {ns} files.')
 
 
@@ -215,6 +220,8 @@ def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
         return f'<a rel="{rel}" href="../{esc(xa["slug"])}/{"index.html" if remote else ""}">{lab}</a>'
     nav = f'<nav class="eb-nav" aria-label="Neighbouring articles">{link(prev_a, "prev")}<a class="up" href="/britannica/volume-{v["n"]}/">Volume {v["n"]}</a>{link(next_a, "next")}</nav>'
     src = f'<p class="eb-src mono">Text: <a href="{esc(a["source"])}">Wikisource</a> transcription of the 1911 printing.</p>'
+    ask_btn = ('<button class="rb-ask" id="rbask" type="button" aria-expanded="false" aria-controls="askdrawer" hidden>'
+               'Ask about this article</button>') if site.ask else ''
     desc = f'{a["title"]}: the article from the 1911 Encyclopædia Britannica, {pg.lower()}. Free to read and print.'
     doc = f'''<!doctype html>
 <html lang="en">
@@ -228,13 +235,14 @@ def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="stylesheet" href="/assets/book.css">
 <link rel="stylesheet" href="/assets/britannica.css">
+{site.account_head()}
 <script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
-<body class="reading eb-page">
+<body class="reading eb-page" data-article="{esc(a['slug'])}" data-title="{esc(a['title'])}">
 <div class="readtop">
 <nav class="readbar" aria-label="Foggy Press">
   <a class="rb-home" href="/">Foggy Press</a>
-  <span class="rb-acts"><a class="rb-pdf" href="/britannica/">Britannica<span class="wide"> 1911</span></a><button class="rb-pdf rb-print" type="button" onclick="window.print()">Print<span class="wide"> this article</span></button><button class="theme" id="theme" type="button">Dark mode</button></span>
+  <span class="rb-acts">{ask_btn}<a class="rb-pdf" href="/britannica/">Britannica<span class="wide"> 1911</span></a><button class="rb-pdf rb-print" type="button" onclick="window.print()">Print<span class="wide"> this article</span></button><button class="theme" id="theme" type="button">Dark mode</button></span>
 </nav>
 <div class="bsearch" role="search">
   <div class="in">
@@ -253,6 +261,7 @@ def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
 <footer class="readfoot mono"><a href="/">Foggy Press</a><span>Public-domain books, free to read and print</span><a href="/britannica/">{esc(TITLE)}</a></footer>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/search.js" defer></script>
+{site.account_script()}
 {gc}
 </body>
 </html>
