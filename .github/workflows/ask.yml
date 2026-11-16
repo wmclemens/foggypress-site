@@ -36,4 +36,5 @@ jobs:
           supabase functions deploy ask --project-ref "$ref"
       - name: Skipped
         if: env.SUPABASE_ACCESS_TOKEN == '' || env.SUPABASE_URL == ''
-        run: echo "::notice::Ask isn't deployed: add the SUPABASE_ACCESS_TOKEN secret and the SUPABASE_URL variable (supabase/README.md)."
+        run: |
+          echo "::notice::Ask isn't deployed yet. Add the SUPABASE_ACCESS_TOKEN secret and the SUPABASE_URL variable (supabase/README.md)."
