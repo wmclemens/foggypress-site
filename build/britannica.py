@@ -32,6 +32,12 @@ import search_index
 TITLE = 'Encyclopædia Britannica (1911)'
 LONG_TITLE = 'Encyclopædia Britannica, Eleventh Edition (1911)'
 VOLUMES = 29
+SUPPLEMENT = (30, 31, 32)  # the three 1922 volumes that, with the 29, made the Twelfth Edition
+SUP_TITLE = 'Encyclopædia Britannica (1922 supplement)'
+
+
+def vol_title(v):
+    return SUP_TITLE if v['n'] in SUPPLEMENT else TITLE
 
 
 def esc(s):
@@ -70,7 +76,7 @@ def load(files):
         if not ip.exists():
             continue
         data = json.loads(ip.read_text(encoding='utf-8'))
-        vols.append({'n': int(data['volume']), 'dir': d, 'articles': data['articles']})
+        vols.append({'n': int(data['volume']), 'dir': d, 'articles': data['articles'], 'edition': int(data.get('edition', 1911))})
     return sorted(vols, key=lambda v: v['n'])
 
 
@@ -147,17 +153,25 @@ def search_data(site, root, vols):
 
 def front_page(site, vols):
     have = {v['n']: v for v in vols}
-    vl = []
-    for n in range(1, VOLUMES + 1):
+    vl, sl = [], []
+    for n in list(range(1, VOLUMES + 1)) + list(SUPPLEMENT):
         v = have.get(n)
         if v:
             arts = [a for a in v['articles'] if not a.get('front')]
             span = f"{arts[0]['title']} to {arts[-1]['title']}" if arts else ''
-            vl.append(f'<li class="rec"><a class="main" href="/britannica/volume-{n}/"><span class="t">Volume {n}</span>'
+            if not arts:  # Volume 29: the index, contents and contributors
+                arts, span = v['articles'], 'Index, classified contents and contributors'
+            (sl if n in SUPPLEMENT else vl).append(f'<li class="rec"><a class="main" href="/britannica/volume-{n}/"><span class="t">Volume {n}</span>'
                       f'<span class="a">{esc(span)}</span></a><span class="m mono">{len(arts):,} articles</span></li>')
     n_arts = sum(1 for v in vols for a in v['articles'] if not a.get('front'))
-    soon = '' if len(vols) == VOLUMES else ('<p class="sub">Only Volume 1 is here so far. The other 28 are on the way.</p>' if len(vols) == 1
-            else f'<p class="sub">{len(vols)} of the {VOLUMES} volumes are here so far. The rest are on the way.</p>')
+    n1911 = sum(1 for v in vols if v['n'] <= VOLUMES)
+    soon = '' if n1911 == VOLUMES else ('<p class="sub">Only Volume 1 is here so far. The other 28 are on the way.</p>' if len(vols) == 1
+            else f'<p class="sub">{n1911} of the {VOLUMES} volumes are here so far. The rest are on the way.</p>')
+    sup = ''
+    if sl:
+        sup = ('<section class="sec"><div class="sec-h"><h2>The 1922 supplement</h2><span class="eyebrow">Volumes 30–32</span></div>'
+               '<p class="sub">Three new volumes published in 1922 on the years 1910 to 1921, the World War above all. With the 29 they made the Twelfth Edition.</p>'
+               f'<ul class="recs">{"".join(sl)}</ul></section>')
     body = f'''<link rel="stylesheet" href="/assets/britannica.css"><div class="ph"><span class="crumb"><a href="/">Home</a> / Reference</span><h1>{esc(TITLE)}</h1>
 <p class="sub">The Eleventh Edition of the Britannica, published 1910–1911 in 29 volumes, often called the last great encyclopaedia of the age of scholarship. Every article is its own page, ready to read or print.</p></div>
 <section class="eb-find" role="search">
@@ -165,9 +179,10 @@ def front_page(site, vols):
   <div class="sbox"><input id="ebq" data-base="{esc(data_base(site))}" data-search="/britannica/" type="search" placeholder="Article title, or any word in the articles" autocomplete="off" enterkeyhint="search"></div>
   <div id="eb-results" aria-live="polite"></div>
 </section>
-<section class="sec"><div class="sec-h"><h2>Volumes</h2><span class="eyebrow">{n_arts:,} articles</span></div>{soon}<ul class="recs">{''.join(vl)}</ul></section>
+<section class="sec"><div class="sec-h"><h2>Volumes</h2><span class="eyebrow">{n_arts:,} articles</span></div>{soon}<ul class="recs">{''.join(vl)}</ul></section>{sup}
 <section class="sec prose eb-note"><h2>About this edition</h2>
 <p>The text is the volunteer transcription at Wikisource, proofread against scans of the 1911 printing, newly set by Foggy Press. Each article keeps its original volume and page numbers, and the initials of its contributor where the original gives them.</p>
+<p>Wikisource has transcribed only about half of the 1922 supplement so far. The other half here was read by machine from scans of the 1922 printing at archive.org and has not been corrected, and each of those articles says so at the top.</p>
 <p>These articles are more than a century old. Science, geography and history have moved on, and some articles, particularly on race, religion and colonial peoples, reflect views that were common in 1911 and are offensive today. They are kept as written, as a historical record.</p></section>
 <script src="/assets/britannica.js" defer></script>'''
     site.page('britannica/index.html', f'{TITLE} · Foggy Press', body, 'britannica',
@@ -194,18 +209,20 @@ def volume_page(site, v):
         parts.append(f'<div class="letter" id="g-{esc(k)}">{esc(k)}</div><ul class="eb-list">' + ''.join(li(a) for a in groups[k]) + '</ul>')
     first, last = (arts[0]['title'], arts[-1]['title']) if arts else ('', '')
     body = f'''<link rel="stylesheet" href="/assets/britannica.css"><div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/britannica/">{esc(TITLE)}</a></span><h1>Volume {v["n"]}</h1>
-<p class="sub">{esc(first)} to {esc(last)} · {len(arts):,} articles, in the order they are printed. The number beside each is its page in the volume.</p></div>
+<p class="sub">{"The 1922 supplement. " if v["n"] in SUPPLEMENT else ""}{esc(first)} to {esc(last)} · {len(arts):,} articles, in the order they are printed. The number beside each is its page in the volume.</p></div>
 <nav class="eb-jump mono" aria-label="Jump to">{jump}</nav>{''.join(parts)}'''
-    site.page(f'britannica/volume-{v["n"]}/index.html', f'Volume {v["n"]} · {TITLE} · Foggy Press', body, 'britannica')
+    site.page(f'britannica/volume-{v["n"]}/index.html', f'Volume {v["n"]} · {vol_title(v)} · Foggy Press', body, 'britannica')
 
 
 def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
+    T = vol_title(v)
+    year = '1922' if v['n'] in SUPPLEMENT else '1911'
     gc = ''
     if site.gc_code:
         gc = f'<script data-goatcounter="https://{esc(site.gc_code)}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
     # the running head when printed, in the house style: work · Foggy Press on the left, page and article on the right
     pg = f"Volume {v['n']}, page {a['page']}" if a['page'] else f"Volume {v['n']}"
-    head = (f'<div class="eb-runhead" aria-hidden="true"><span>{esc(TITLE)} · Foggy Press</span>'
+    head = (f'<div class="eb-runhead" aria-hidden="true"><span>{esc(T)} · Foggy Press</span>'
             f'<span>{esc(pg)}, {esc(a["title"])}</span></div>')
     art = art.replace('<article class="book eb"', head + '<article class="book eb"', 1)
     # a picture whose file isn't there yet (still being fetched from Wikimedia) is left out until it is
@@ -219,16 +236,19 @@ def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
         lab = f'{arrow} {esc(xa["title"])}' if rel == 'prev' else f'{esc(xa["title"])} {arrow}'
         return f'<a rel="{rel}" href="../{esc(xa["slug"])}/{"index.html" if remote else ""}">{lab}</a>'
     nav = f'<nav class="eb-nav" aria-label="Neighbouring articles">{link(prev_a, "prev")}<a class="up" href="/britannica/volume-{v["n"]}/">Volume {v["n"]}</a>{link(next_a, "next")}</nav>'
-    src = f'<p class="eb-src mono">Text: <a href="{esc(a["source"])}">Wikisource</a> transcription of the 1911 printing.</p>'
+    if a.get('ocr'):
+        src = f'<p class="eb-src mono">Text: read by machine from a <a href="{esc(a["source"])}">scan</a> of the 1922 printing, uncorrected.</p>'
+    else:
+        src = f'<p class="eb-src mono">Text: <a href="{esc(a["source"])}">Wikisource</a> transcription of the {year} printing.</p>'
     ask_btn = ('<button class="rb-ask" id="rbask" type="button" aria-expanded="false" aria-controls="askdrawer" hidden>'
                'Ask about this article</button>') if site.ask else ''
-    desc = f'{a["title"]}: the article from the 1911 Encyclopædia Britannica, {pg.lower()}. Free to read and print.'
+    desc = f'{a["title"]}: the article from the {year} Encyclopædia Britannica, {pg.lower()}. Free to read and print.'
     doc = f'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{esc(a['title'])} · {esc(TITLE)} · Foggy Press</title>
+<title>{esc(a['title'])} · {esc(T)} · Foggy Press</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
@@ -258,7 +278,7 @@ def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
 {art}
 {nav}
 {src}
-<footer class="readfoot mono"><a href="/">Foggy Press</a><span>Public-domain books, free to read and print</span><a href="/britannica/">{esc(TITLE)}</a></footer>
+<footer class="readfoot mono"><a href="/">Foggy Press</a><span>Public-domain books, free to read and print</span><a href="/britannica/">{esc(T)}</a></footer>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/search.js" defer></script>
 {site.account_script()}

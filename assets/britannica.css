@@ -64,3 +64,5 @@
   a{color:inherit}
 }
 @media (max-width:480px){.readbar .wide{display:none}}
+.eb-ocr{font-size:.9em;color:var(--muted);border-left:3px solid var(--rule,#ccc);padding:.4em .8em;margin:0 0 1.2em}
+.eb-ocr a{color:var(--accent)}
