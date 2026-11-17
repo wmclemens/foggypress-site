@@ -116,28 +116,67 @@ def pdf_pages(path):
         return None
 
 
+def _gc_get(url, token, tries=5):
+    """One GoatCounter API call, tried again on failure: GoatCounter now and then answers a good
+    request with a 404 or 5xx for a minute or so (17 Nov 2026: four nightly builds lost every count to
+    one such 404, while the same request worked minutes earlier and later)."""
+    import time
+    for i in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return json.load(r)
+        except Exception as e:
+            body = ''
+            try:
+                body = e.read()[:200].decode('utf-8', 'replace')     # HTTPError: say what GoatCounter said
+            except Exception:
+                pass
+            print(f'warning: GoatCounter try {i + 1} of {tries}: {e} {body}'.rstrip(), file=sys.stderr)
+            if i == tries - 1:
+                raise
+            time.sleep(min(10 * 2 ** i, 60))
+
+
 def fetch_downloads(code, token):
-    """Total clicks per path from GoatCounter. Returns {} on any failure."""
+    """Total clicks per path from GoatCounter. Returns None if the counts could not be fetched
+    (the caller then keeps the last published counts rather than showing zeros)."""
     if not (code and token):
         return {}
     counts, after = {}, None
+    end = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1)).strftime('%Y-%m-%dT%H:00:00Z')
     try:
         for _ in range(50):
-            q = {'start': '2026-01-01T00:00:00Z', 'limit': '100'}
+            q = {'start': '2026-01-01T00:00:00Z', 'end': end, 'limit': '100'}
             if after:
                 q['exclude_paths'] = ','.join(after)
-            url = f'https://{code}.goatcounter.com/api/v0/stats/hits?' + urllib.parse.urlencode(q)
-            req = urllib.request.Request(url, headers={'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'})
-            with urllib.request.urlopen(req, timeout=30) as r:
-                data = json.load(r)
-            for h in data.get('hits', []):
-                counts[h['path']] = counts.get(h['path'], 0) + int(h.get('count', 0))
-            if not data.get('more'):
+            data = _gc_get(f'https://{code}.goatcounter.com/api/v0/stats/hits?' + urllib.parse.urlencode(q), token)
+            hits = data.get('hits') or []
+            for h in hits:
+                k = h['path'].split('?')[0]     # a read page opened from search arrives as /read/<id>/index.html?q=...
+                counts[k] = counts.get(k, 0) + int(h.get('count', 0))
+            if not data.get('more') or not hits:
                 break
-            after = [str(h['path_id']) for h in data.get('hits', [])] + (after or [])
+            after = [str(h['path_id']) for h in hits] + (after or [])
     except Exception as e:
         print(f'warning: could not fetch download counts: {e}', file=sys.stderr)
+        return None
+    print(f'GoatCounter: counts for {len(counts)} pages and clicks', file=sys.stderr)
     return counts
+
+
+def last_published_counts(domain):
+    """{book id: (downloads, views)} from the live site's admin/stats.json, for when GoatCounter can't be reached."""
+    if not domain:
+        return {}
+    try:
+        req = urllib.request.Request(f'https://{domain}/admin/stats.json', headers={'User-Agent': 'FoggyPress-site-build/1.0'})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            books = json.load(r).get('books') or {}
+        return {k: (int(v.get('downloads') or 0), int(v.get('views') or 0)) for k, v in books.items()}
+    except Exception as e:
+        print(f'warning: could not read the last published counts either: {e}', file=sys.stderr)
+        return {}
 
 
 def fmt_dl(n):
@@ -175,6 +214,11 @@ class Site:
         self.tags = json.loads((ROOT / 'catalog/tags.json').read_text())
         self.gc_code = os.environ.get('GOATCOUNTER_CODE', '').strip()
         self.downloads = fetch_downloads(self.gc_code, os.environ.get('GOATCOUNTER_TOKEN', '').strip())
+        # GoatCounter unreachable: keep the counts the site last published instead of zeros
+        self.prev_counts = last_published_counts(os.environ.get('SITE_DOMAIN', '').strip()) if self.downloads is None else {}
+        if self.downloads is None:
+            print(f'Using last published counts for {len(self.prev_counts)} books', file=sys.stderr)
+            self.downloads = {}
         self.today = datetime.date.today().isoformat()
         self.problems = []
         # Without a custom domain, GitHub Pages serves the site under /<repo-name>/.
@@ -250,6 +294,8 @@ class Site:
             b['_downloads'] = self.downloads.get(f"pdf-{b['id']}", 0)
             # visits to the read-online page (GoatCounter records it as an ordinary page view)
             b['_views'] = sum(self.downloads.get(f"/read/{b['id']}{t}", 0) for t in ('/', '', '/index.html'))
+            if b['id'] in self.prev_counts:
+                b['_downloads'], b['_views'] = self.prev_counts[b['id']]
             if src and src.exists():
                 b['_mb'] = round(src.stat().st_size / 1e6, 2)
                 b['_pages'] = pdf_pages(src)
