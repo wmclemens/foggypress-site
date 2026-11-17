@@ -29576,5 +29576,20 @@
       "Religion",
       "Translated"
     ]
+  },
+  {
+    "id": "risk-uncertainty-and-profit",
+    "author_last": "Knight",
+    "author_first": "Frank H.",
+    "title": "Risk, Uncertainty and Profit",
+    "translator": "",
+    "original_date": "1921",
+    "foggy_press_date": "2026-11-17",
+    "github_dir": "https://github.com/wmclemens/foggy-press-files/tree/main/books/knight-frank-h/risk-uncertainty-and-profit",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-files/blob/main/books/knight-frank-h/risk-uncertainty-and-profit/output/Knight%2C%20Frank%20H.%3A%20Risk%2C%20Uncertainty%20and%20Profit.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "American"
+    ]
   }
 ]
