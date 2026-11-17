@@ -205,7 +205,7 @@
     if (past && signed) { page.innerHTML = head + '<div id="past"><p class="sub">' + esc(T('Loading…')) + '</p></div>'; drawPast(); return; }
     var lede = '<p class="lede">' + esc(T('Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.', {n: Object.keys(cat).length})) + '</p>';
     page.innerHTML = head + (msgs.length ? '' : lede + startersHtml()) + (canAsk() ? '' : gateHtml()) +
-      '<div class="convo" aria-live="polite">' + convoHtml() + '</div>' + noticeHtml() + composerHtml(T('Ask about a book, an author or a subject'));
+      '<div class="convo" aria-live="polite">' + convoHtml() + '</div>' + noticeHtml() + composerHtml(T('Ask about a book, an author or a subject, or get recommendations'));
     acc.star(page);
     wireComposer(page);
   }
@@ -214,8 +214,9 @@
     var links = (signed ? '<a href="' + BASE + 'ask/#past">' + esc(T('Past chats')) + '</a>' : '') +
       (msgs.length ? '<button type="button" class="linkish" data-ask-new>' + esc(T('New chat')) + '</button>' : '<a href="' + BASE + 'ask/">' + esc(T('Open the Ask page')) + ' →</a>');
     page.innerHTML = '<div class="sec-h"><h2>' + esc(T('Ask Foggy Press')) + '</h2><div class="who">' + links + '</div></div>' +
-      (msgs.length ? '' : '<p class="lede">' + esc(T('Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.', {n: Object.keys(cat).length.toLocaleString(window.fpLang ? window.fpLang() : undefined)})) + '</p>' + startersHtml()) +
-      (canAsk() ? '' : gateHtml()) + '<div class="convo" aria-live="polite">' + convoHtml() + '</div>' + noticeHtml() + composerHtml(T('Ask about a book, an author or a subject'));
+      // no starter questions here (Will, 17 Nov 2026: they took up a lot of space); the Ask page keeps them
+      (msgs.length ? '' : '<p class="lede">' + esc(T('Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.', {n: Object.keys(cat).length.toLocaleString(window.fpLang ? window.fpLang() : undefined)})) + '</p>') +
+      (canAsk() ? '' : gateHtml()) + '<div class="convo" aria-live="polite">' + convoHtml() + '</div>' + noticeHtml() + composerHtml(T('Ask about a book, an author or a subject, or get recommendations'));
     acc.star(page);
     wireComposer(page);
   }

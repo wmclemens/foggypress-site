@@ -209,7 +209,7 @@ En quoi les biographies de Grant diffèrent-elles ?
 Retour à la conversation
 Nouvelle conversation
 Demandez une recommandation, l’explication d’un livre ou de l’aide pour trouver un passage. Les réponses viennent uniquement des {n} livres de Foggy Press, et chaque citation renvoie à la page d’où elle vient.
-Posez une question sur un livre, un auteur ou un sujet
+Posez une question sur un livre, un auteur ou un sujet, ou demandez des conseils de lecture
 Pas encore de conversations précédentes.
 Tout supprimer
 Conversation sans titre

@@ -209,7 +209,7 @@ Apa bedanya biografi-biografi Grant?
 Kembali ke percakapan
 Percakapan baru
 Minta rekomendasi buku, penjelasan sebuah buku, atau bantuan mencari sebuah bagian. Jawaban hanya berasal dari {n} buku di Foggy Press, dan setiap kutipan ditautkan ke halaman asalnya.
-Tanya tentang buku, penulis, atau topik
+Tanya tentang buku, penulis, atau topik, atau minta rekomendasi
 Belum ada percakapan sebelumnya.
 Hapus semua
 Percakapan tanpa judul

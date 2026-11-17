@@ -209,7 +209,7 @@ Comparar
 Volver a la conversación
 Nueva conversación
 Pida una recomendación, la explicación de un libro o ayuda para encontrar un pasaje. Las respuestas salen solo de los {n} libros de Foggy Press, y cada cita enlaza con la página de donde viene.
-Pregunte sobre un libro, un autor o un tema
+Pregunte sobre un libro, un autor o un tema, o pida recomendaciones
 Aún no hay conversaciones anteriores.
 Borrar todo
 Conversación sin título
