@@ -432,6 +432,9 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 .homeask .composer{position:static;padding-bottom:0}
 .homeask .convo{gap:1.4rem}
 .homeask .gate{max-width:none}
+.homeask .sec-h .linkish{text-decoration:none}
+/* phones: keep the box near the top: no intro, starters as one-line questions */
+@media (max-width:560px){.homeask .lede{display:none}.homeask .starter b{display:none}.homeask .starter{padding:.6rem .8rem}.homeask .starter span{color:var(--ink);font-size:.92rem}}
 .cguest{font-size:.82rem;color:var(--muted)}
 .cguest a{color:var(--accent)}
 /* thumbs up or down under each answer */
