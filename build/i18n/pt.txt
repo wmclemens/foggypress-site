@@ -209,7 +209,7 @@ Em que as biografias de Grant diferem?
 Voltar à conversa
 Nova conversa
 Peça uma recomendação, a explicação de um livro ou ajuda para encontrar um trecho. As respostas vêm só dos {n} livros da Foggy Press, e cada citação leva à página de onde veio.
-Pergunte sobre um livro, um autor ou um assunto
+Pergunte sobre um livro, um autor ou um assunto, ou peça recomendações
 Ainda não há conversas anteriores.
 Excluir tudo
 Conversa sem título
@@ -251,6 +251,18 @@ Você já pediu esse livro. Ele está a caminho.
 Você já fez 3 pedidos hoje. Peça de novo amanhã.
 Você tem 10 pedidos aguardando. Espere alguns terminarem.
 Obrigado. Avisaremos por e-mail quando “{title}” estiver no site, ou se não pudermos adicioná-lo.
+Verificando se você é uma pessoa…
+Foi útil?
+Boa resposta
+Não é uma boa resposta
+O que estava errado? (opcional)
+Obrigado por nos contar.
+Não é preciso ter conta.
+Entre para guardar suas conversas e fazer mais perguntas por dia.
+Muitas pessoas estão perguntando hoje.
+Entre para continuar perguntando, ou volte amanhã.
+Abrir a página Perguntar
+Não conseguimos verificar este navegador. Tente de novo.
 
 @about 2654dd9aaf
 A Foggy Press compõe livros de domínio público num estilo próprio e simples e os publica de graça: para ler on-line, imprimir em casa a partir de um PDF em papel carta americano ou baixar como EPUB para um leitor digital.

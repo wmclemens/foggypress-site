@@ -209,7 +209,7 @@ Comparar
 Volver a la conversación
 Nueva conversación
 Pida una recomendación, la explicación de un libro o ayuda para encontrar un pasaje. Las respuestas salen solo de los {n} libros de Foggy Press, y cada cita enlaza con la página de donde viene.
-Pregunte sobre un libro, un autor o un tema
+Pregunte sobre un libro, un autor o un tema, o pida recomendaciones
 Aún no hay conversaciones anteriores.
 Borrar todo
 Conversación sin título
@@ -251,6 +251,18 @@ Ya pidió ese libro. Está en camino.
 Ya hizo 3 solicitudes hoy. Vuelva a pedir mañana.
 Tiene 10 solicitudes en espera. Espere a que terminen algunas.
 Gracias. Le escribiremos cuando «{title}» esté en el sitio, o si no podemos añadirlo.
+Comprobando que es una persona…
+¿Le ha sido útil?
+Buena respuesta
+No es una buena respuesta
+¿Qué estaba mal? (opcional)
+Gracias por decírnoslo.
+No necesita una cuenta.
+Inicie sesión para guardar sus chats y hacer más preguntas cada día.
+Hoy pregunta mucha gente.
+Inicie sesión para seguir preguntando, o vuelva mañana.
+Abrir la página Preguntar
+No pudimos comprobar este navegador. Inténtelo de nuevo.
 
 @about 2654dd9aaf
 Foggy Press compone libros de dominio público en un estilo propio y sencillo y los publica gratis: para leer en línea, para imprimir en casa desde un PDF en papel carta de EE. UU. o para descargar como EPUB para un lector electrónico.

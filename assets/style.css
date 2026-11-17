@@ -274,13 +274,13 @@ mark{background:var(--hit);color:var(--hit-ink);border-radius:2px;padding:0 .05e
 .toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,1rem);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:40;
   background:var(--ink);color:var(--bg);padding:.6rem 1rem;border-radius:8px;font-size:.88rem;max-width:min(32rem,calc(100vw - 32px))}
 .toast.on{opacity:1;transform:translate(-50%,0)}
-#continue{margin-bottom:2.5rem}
-.conts{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.75rem;margin-top:1rem}
-.cont{display:grid;gap:.3rem;align-content:start;background:var(--surface);border:1px solid var(--line);padding:.9rem 1rem}
-.cont .t{font-weight:500}
-.cont .a{color:var(--muted);font-size:.86rem}
-.cont .mono{color:var(--faint)}
-.cont:hover .t{color:var(--accent)}
+/* Continue reading: a signed-in reader's last books, in the left rail (assets/account.js) */
+.railhist nav a.rh{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem;align-items:center}
+.railhist .rht{display:grid;gap:.35rem;min-width:0}
+.railhist .rht .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.railhist .pg{display:block;height:2px;background:var(--line)}
+.railhist .pg i{display:block;height:100%;background:var(--accent)}
+.railhist .rhnone{color:var(--faint);font-size:.88rem;padding:.6rem 0;border-bottom:1px solid var(--line)}
 .pg{display:block;height:3px;background:var(--line);border-radius:2px;margin-top:.3rem;overflow:hidden}
 .pg i{display:block;height:100%;background:var(--accent)}
 .tabs{margin:1rem 0 1.25rem;flex-wrap:wrap}
@@ -424,7 +424,32 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 .dstart button{border:1px solid var(--line-2);background:var(--bg);border-radius:999px;padding:.25rem .7rem;font-size:.82rem;text-align:left}
 .dstart button:hover{border-color:var(--accent);color:var(--accent)}
 @media (min-width:1100px){body.reading.asking{padding-right:25rem}body.reading.asking .readtop{margin-right:0}}
-@media print{.drawer,.rb-ask,.askrail,.mask{display:none!important}}
+/* the home page's Ask, above the featured collections */
+.homeask{max-width:44rem;margin-bottom:3.25rem}
+.homeask .sec-h .who{display:flex;gap:1.1rem;align-items:center;font-size:.88rem}
+.homeask .sec-h .who a{color:var(--accent)}
+.homeask .sec-h .who a:hover{text-decoration:underline;text-underline-offset:3px}
+.homeask .composer{position:static;padding-bottom:0}
+.homeask .convo{gap:1.4rem}
+.homeask .gate{max-width:none}
+.homeask .sec-h .linkish{text-decoration:none}
+/* phones: keep the box near the top: no intro, starters as one-line questions */
+@media (max-width:560px){.homeask .lede{display:none}.homeask .starter b{display:none}.homeask .starter{padding:.6rem .8rem}.homeask .starter span{color:var(--ink);font-size:.92rem}}
+.cguest{font-size:.82rem;color:var(--muted)}
+.cguest a{color:var(--accent)}
+/* thumbs up or down under each answer */
+.fb{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .5rem;font-family:var(--mono);font-size:.7rem;color:var(--faint)}
+.thumb{border:1px solid var(--line-2);background:none;border-radius:999px;width:1.9rem;height:1.7rem;display:grid;place-items:center;color:var(--muted);padding:0}
+.thumb:hover{border-color:var(--accent);color:var(--accent)}
+.thumb[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.fbnote{display:flex;gap:.5rem;align-items:center;flex:1 1 14rem;min-width:0}
+.fbnote input{flex:1;min-width:0;border:0;border-bottom:1px solid var(--line-2);background:none;font:inherit;font-family:var(--sans);font-size:16px;color:var(--ink);padding:.2rem 0;outline:none}
+.fbnote input:focus{border-color:var(--accent)}
+.fbnote .linkish{font-family:var(--mono);font-size:.72rem;color:var(--accent)}
+.fbthanks{color:var(--muted)}
+/* the Turnstile check, shown only when Cloudflare asks for a click */
+.askts{position:fixed;z-index:30;left:50%;bottom:1rem;transform:translateX(-50%);background:var(--surface);border:1px solid var(--line-2);border-radius:12px;padding:.75rem;display:grid;gap:.5rem;box-shadow:0 8px 28px rgba(0,0,0,.12);font-size:.85rem;color:var(--muted)}
+@media print{.drawer,.rb-ask,.askrail,.mask,.homeask,.railhist,.askts{display:none!important}}
 
 /* ---------- Request a book (assets/request.js) ---------- */
 .reqform{max-width:38rem;margin:1.75rem 0 2.5rem}

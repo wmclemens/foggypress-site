@@ -85,3 +85,16 @@ table.rk .rk-b span{display:block;height:8px;border-radius:0 4px 4px 0;backgroun
 .split{height:10px;border-radius:5px;background:var(--line-2);overflow:hidden}
 .split span{display:block;height:100%;background:var(--accent)}
 .rp-sec{font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:2rem 0 0}
+/* Chat tab */
+.dchart .bar2{fill:var(--line-2)}
+.key{display:inline-block;width:.7rem;height:.7rem;margin:0 .35rem 0 .9rem;vertical-align:-1px}
+.key.k1{background:var(--accent);margin-left:0}.key.k2{background:var(--line-2)}
+.rated{display:grid;border-top:1px solid var(--ink);margin-top:.75rem}
+.rated-i{border-bottom:1px solid var(--line);padding:.7rem 0}
+.rated-i summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.75rem;align-items:baseline;cursor:pointer;list-style:none}
+.rated-i summary::-webkit-details-marker{display:none}
+.rated-i .rq{font-weight:500;overflow-wrap:anywhere}
+.rated-i .rd{color:var(--faint);white-space:nowrap}
+.rated-i .rnote{margin:.6rem 0 0 2rem;color:var(--bad);font-size:.9rem}
+.rated-i .rans{margin:.6rem 0 0 2rem;white-space:pre-wrap;font-size:.88rem;color:var(--muted);line-height:1.55;max-width:46rem}
+@media (max-width:560px){.rated-i summary{grid-template-columns:auto minmax(0,1fr)}.rated-i .rd{grid-column:2}}

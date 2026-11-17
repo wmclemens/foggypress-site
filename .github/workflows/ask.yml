@@ -2,7 +2,7 @@ name: Deploy Ask Foggy Press
 
 # Puts supabase/functions/ask on the Supabase project and gives it the Claude API key.
 # Needs two repository secrets: SUPABASE_ACCESS_TOKEN (supabase.com, Account, Access Tokens) and ANTHROPIC_API_KEY,
-# and the SUPABASE_URL repository variable. Without them it does nothing. See supabase/README.md.
+# and the SUPABASE_URL repository variable. Optional: TURNSTILE_SECRET_KEY (asking without an account). Without them it does nothing. See supabase/README.md.
 on:
   push:
     branches: [main]
@@ -18,6 +18,8 @@ jobs:
     env:
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      # optional: lets people ask without an account, after the Turnstile check (the same widget as sign-in)
+      TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
       SUPABASE_URL: ${{ vars.SUPABASE_URL }}
     steps:
       - uses: actions/checkout@v4
@@ -33,7 +35,11 @@ jobs:
           if [ -n "$ANTHROPIC_API_KEY" ]; then
             supabase secrets set --yes --project-ref "$ref" ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" > /dev/null
           fi
-          supabase functions deploy ask --yes --project-ref "$ref"
+          if [ -n "$TURNSTILE_SECRET_KEY" ]; then
+            supabase secrets set --yes --project-ref "$ref" TURNSTILE_SECRET_KEY="$TURNSTILE_SECRET_KEY" > /dev/null
+          fi
+          # --no-verify-jwt: guests have no sign-in token; the function itself checks who is asking
+          supabase functions deploy ask --yes --no-verify-jwt --project-ref "$ref"
       - name: Skipped
         if: env.SUPABASE_ACCESS_TOKEN == '' || env.SUPABASE_URL == ''
         run: |

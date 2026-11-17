@@ -120,7 +120,8 @@
   // ---- views ----
   function tabs(cur) {
     return '<div class="tabs"><a href="#" ' + (cur === 'books' ? 'aria-current="page"' : '') + '>Book catalog</a><a href="#tags" ' + (cur === 'tags' ? 'aria-current="page"' : '') + '>Tag file</a>' +
-      '<a href="#reports" ' + (cur === 'reports' ? 'aria-current="page"' : '') + '>Reports</a></div>';
+      '<a href="#reports" ' + (cur === 'reports' ? 'aria-current="page"' : '') + '>Reports</a>' +
+      '<a href="#chat" ' + (cur === 'chat' ? 'aria-current="page"' : '') + '>Chat</a></div>';
   }
 
   function vSignIn(err) {
@@ -465,10 +466,90 @@
     }
   }
 
+  // ---- Chat: Ask Foggy Press usage and the answers readers rated, live from the ask function ----
+  // The function checks that this admin token belongs to the site's owner on GitHub before it answers.
+  var chatData = null, chatFilter = 'down';
+  function vChat(reload) {
+    $('#app').innerHTML = tabs('chat') + '<p class="note" style="padding:2rem 0">Loading chat figures…</p>';
+    if (!stats.ask) { $('#app').innerHTML = tabs('chat') + '<p class="note" style="padding:2rem 0">Ask Foggy Press isn’t turned on in this build (repository variable ASK_ON).</p>'; return; }
+    (chatData && !reload ? Promise.resolve(chatData) : fetch(stats.ask, {method: 'POST', headers: {'Content-Type': 'application/json', 'apikey': stats.ask_key}, body: JSON.stringify({op: 'admin', gh: token})})
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) { var e = new Error(j.error || r.status); e.status = r.status; throw e; } return j; }); }))
+      .then(function (d) { chatData = d; drawChat(d); })
+      .catch(function (e) {
+        $('#app').innerHTML = tabs('chat') + '<p class="note" style="padding:2rem 0">' + (e.status === 403 ? 'The ask function didn’t accept this sign-in. It only answers for the GitHub account wmclemens.' :
+          'Couldn’t load the chat figures (' + esc(e.message) + '). If this is the first time, run the latest supabase/schema.sql in Supabase’s SQL editor.') + '</p>';
+      });
+  }
+  function drawChat(d) {
+    var t = d.totals_30d || {}, rt = d.ratings || {}, cfg = d.config || {}, cost = Number(d.month_cost || 0), cap = Number(cfg.monthly_cap_usd || 0);
+    var tile = function (label, v, sub) { return '<div class="rp-tile"><span class="mono">' + esc(label) + '</span><b>' + (v == null ? '–' : typeof v === 'string' ? esc(v) : num(v)) + '</b>' + (sub ? '<span class="note">' + sub + '</span>' : '') + '</div>'; };
+    var rated = (rt.up_30d || 0) + (rt.down_30d || 0);
+    var titleOf = function (id) { if (id.indexOf('eb:') === 0) return 'Britannica: ' + id.slice(3); var b = data.books.find(function (x) { return x.id === id; }); return b ? b.title : id; };
+    var h = tabs('chat') + '<div class="rp-head"><p class="note">Live from the database, ' + esc(new Date(d.built).toLocaleString()) + '. Last 30 days unless it says otherwise. <button type="button" class="linkish" id="chat-reload">Refresh</button></p></div>' +
+      (!cfg.enabled ? '<div class="banner"><b>Ask is turned off</b> (ask_config.enabled in Supabase).</div>' : cap && cost >= cap ? '<div class="banner"><b>Ask is paused</b>: this month’s spending reached the cap.</div>' : '') +
+      '<div class="rp-tiles">' + tile('Questions', t.questions, num(t.members) + ' signed in · ' + num(t.guests) + ' guests') +
+      tile('People asking', (t.askers || 0) + (t.guest_askers || 0), num(t.askers) + ' accounts · ' + num(t.guest_askers) + ' guest addresses') +
+      tile('Spent this month', '$' + cost.toFixed(2), 'of the $' + cap.toFixed(2) + ' cap' + (t.questions ? ' · about ' + (Number(t.cost) / t.questions * 100).toFixed(2) + '¢ a question' : '')) +
+      tile('Thumbs up', rt.up_30d || 0, rated ? Math.round((rt.up_30d || 0) / rated * 100) + '% of rated answers' : '') +
+      tile('Thumbs down', rt.down_30d || 0, (rt.answers_30d ? Math.round(rated / rt.answers_30d * 100) + '% of ' + num(rt.answers_30d) + ' answers were rated' : '')) + '</div>';
+    // questions per day, signed in and guests stacked
+    var days = d.days || [], W = 720, H = 170, pad = 22, top0 = 10, n = days.length || 1;
+    var max = days.reduce(function (m, r) { return Math.max(m, r.members + r.guests); }, 0) || 1, nice = Math.pow(10, Math.floor(Math.log10(max))), top = Math.ceil(max / nice) * nice;
+    var step = (W - pad) / n, bw = Math.max(2, step - 2), y = function (v) { return (H - pad - top0) * v / top; };
+    var bars = days.map(function (r, i) {
+      var x = pad + i * step + 1, hm = y(r.members), hg = y(r.guests);
+      return '<g class="dbar" data-i="' + i + '"><rect class="hit" x="' + (pad + i * step) + '" y="0" width="' + step + '" height="' + (H - pad) + '"/>' +
+        (hm ? '<rect class="bar" x="' + x + '" y="' + (H - pad - hm) + '" width="' + bw + '" height="' + hm + '"/>' : '') +
+        (hg ? '<rect class="bar2" x="' + x + '" y="' + (H - pad - hm - hg) + '" width="' + bw + '" height="' + hg + '"/>' : '') + '</g>';
+    }).join('');
+    var grid = [0, .5, 1].map(function (f) { var yy = H - pad - (H - pad - top0) * f; return '<line class="grid" x1="' + pad + '" x2="' + W + '" y1="' + yy + '" y2="' + yy + '"/><text class="ax" x="' + (pad - 4) + '" y="' + (yy + 3) + '" text-anchor="end">' + num(Math.round(top * f)) + '</text>'; }).join('');
+    var ticks = days.length ? [0, Math.floor(n / 2), n - 1].map(function (i) { return '<text class="ax" x="' + (i === 0 ? pad : i === n - 1 ? W : pad + i * step + step / 2) + '" y="' + (H - 6) + '" text-anchor="' + (i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle') + '">' + esc(fmtDay(days[i].day)) + '</text>'; }).join('') : '';
+    h += '<section class="rp-card wide"><h2>Questions per day</h2><p class="note"><span class="key k1"></span>Signed in <span class="key k2"></span>Guests</p><div class="dchart"><svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Questions per day, last 30 days">' + grid + bars + ticks + '</svg><div class="tip" hidden></div></div>' +
+      '<details class="rp-tbl"><summary class="mono">Show as a table</summary><table><thead><tr><th>Day</th><th class="num">Signed in</th><th class="num">Guests</th><th class="num">Cost</th><th class="num">👍</th><th class="num">👎</th></tr></thead><tbody>' +
+      days.map(function (r) { return '<tr><td>' + esc(fmtDay(r.day)) + '</td><td class="num">' + num(r.members) + '</td><td class="num">' + num(r.guests) + '</td><td class="num">$' + Number(r.cost).toFixed(3) + '</td><td class="num">' + num(r.up) + '</td><td class="num">' + num(r.down) + '</td></tr>'; }).join('') +
+      '</tbody></table></details></section>';
+    var PL = {home: 'Home page', ask: 'Ask page', book: 'A book’s read page', article: 'A Britannica article'};
+    h += '<div class="rp-grid">' + ranked('Where people ask', Object.keys(d.places || {}).map(function (k) { return [PL[k] || k, d.places[k]]; }).sort(function (a, b) { return b[1] - a[1]; })) +
+      ranked('Books and articles asked about', (d.books || []).map(function (x) { return [titleOf(x[0]), x[1]]; }), {max: 15, note: 'Chats started from a book or article page.'}) +
+      '<section class="rp-card"><h2>Limits</h2><table class="rk"><tbody>' +
+      '<tr><td class="rk-n">Questions a day, signed in</td><td class="num">' + num(cfg.daily_limit) + '</td></tr>' +
+      '<tr><td class="rk-n">Questions a day, guest</td><td class="num">' + (cfg.guest_daily_limit == null ? '–' : num(cfg.guest_daily_limit)) + '</td></tr>' +
+      '<tr><td class="rk-n">All guests together, a day</td><td class="num">' + (cfg.guests_daily_cap == null ? '–' : num(cfg.guests_daily_cap)) + '</td></tr>' +
+      '<tr><td class="rk-n">Monthly spending cap</td><td class="num">$' + cap.toFixed(2) + '</td></tr></tbody></table>' +
+      '<p class="note">Change these in Supabase: Table Editor → ask_config. A guest limit of 0 means only signed-in readers can ask.</p></section></div>';
+    // the rated answers
+    var all = d.rated || [], list = all.filter(function (r) { return chatFilter === 'all' || (chatFilter === 'down' ? r.rating < 0 : r.rating > 0); });
+    h += '<h2 class="rp-sec">Rated answers</h2><div class="rp-head" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><div class="seg" role="group" aria-label="Show">' +
+      [['down', 'Thumbs down (' + all.filter(function (r) { return r.rating < 0; }).length + ')'], ['up', 'Thumbs up (' + all.filter(function (r) { return r.rating > 0; }).length + ')'], ['all', 'All']].map(function (o) {
+        return '<button type="button" data-cf="' + o[0] + '" aria-pressed="' + (chatFilter === o[0]) + '">' + esc(o[1]) + '</button>';
+      }).join('') + '</div><p class="note">The question and the answer, never who asked. The latest 200.</p></div>' +
+      (list.length ? '<div class="rated">' + list.map(function (r) {
+        return '<details class="rated-i"><summary><span class="rv ' + (r.rating > 0 ? 'up' : 'down') + '">' + (r.rating > 0 ? '👍' : '👎') + '</span><span class="rq">' + esc(r.question || '(question not found)') + '</span>' +
+          '<span class="mono rd">' + esc(new Date(r.rated_at).toLocaleDateString(undefined, {month: 'short', day: 'numeric'})) + (r.guest ? ' · guest' : '') + (r.book_id ? ' · ' + esc(titleOf(r.book_id)) : '') + '</span></summary>' +
+          (r.note ? '<p class="rnote"><b>What was wrong:</b> ' + esc(r.note) + '</p>' : '') + '<div class="rans">' + esc(r.answer).replace(/\[\[(\w+) ([^\]]+)\]\]/g, '<span class="mono">[$1 $2]</span>') + '</div></details>';
+      }).join('') + '</div>' : '<p class="note" style="padding:1rem 0">No ' + (chatFilter === 'all' ? '' : chatFilter === 'down' ? 'thumbs-down ' : 'thumbs-up ') + 'answers yet.</p>');
+    $('#app').innerHTML = h;
+    $('#chat-reload').onclick = function () { vChat(true); };
+    $('#app').querySelectorAll('[data-cf]').forEach(function (b) { b.onclick = function () { chatFilter = b.dataset.cf; drawChat(d); }; });
+    var chart = $('#app').querySelector('.dchart');
+    if (chart) {
+      var tip = chart.querySelector('.tip');
+      chart.addEventListener('mousemove', function (e) {
+        var b = e.target.closest('.dbar'); if (!b) { tip.hidden = true; return; }
+        var r = days[+b.dataset.i], box = chart.getBoundingClientRect();
+        tip.innerHTML = '<span class="mono">' + esc(fmtDay(r.day)) + '</span><b>' + num(r.members + r.guests) + '</b> questions (' + num(r.guests) + ' guests) · $' + Number(r.cost).toFixed(3);
+        tip.hidden = false;
+        tip.style.left = Math.min(box.width - tip.offsetWidth, Math.max(0, e.clientX - box.left - tip.offsetWidth / 2)) + 'px';
+      });
+      chart.addEventListener('mouseleave', function () { tip.hidden = true; });
+    }
+  }
+
   function route() {
     if (!data.books) return;
     var h = decodeURIComponent(location.hash.slice(1));
     if (h === 'reports') vReports();
+    else if (h === 'chat') vChat();
     else if (h === 'tags') vTags();
     else if (h.indexOf('tag-') === 0) vTag(h.slice(4));
     else if (h === 'new') vEdit(null);

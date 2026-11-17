@@ -209,7 +209,7 @@ Wasifu wa Grant zinatofautianaje?
 Rudi kwenye mazungumzo
 Mazungumzo mapya
 Omba pendekezo la kitabu, maelezo ya kitabu, au msaada wa kupata kifungu. Majibu yanatoka tu kwenye vitabu {n} vya Foggy Press, na kila nukuu inaunganishwa na ukurasa ilikotoka.
-Uliza kuhusu kitabu, mwandishi au mada
+Uliza kuhusu kitabu, mwandishi au mada, au pata mapendekezo
 Bado hakuna mazungumzo ya awali.
 Futa yote
 Mazungumzo yasiyo na kichwa
@@ -251,6 +251,18 @@ Umeshaomba kitabu hicho. Kinashughulikiwa.
 Hayo ni maombi 3 ya leo. Tafadhali omba tena kesho.
 Una maombi 10 yanayosubiri. Tafadhali subiri baadhi yakamilike.
 Asante. Tutakutumia barua pepe “{title}” kikiwa kwenye tovuti, au tusipoweza kukiongeza.
+Tunahakikisha kwamba wewe ni mtu…
+Imesaidia?
+Jibu zuri
+Si jibu zuri
+Nini kilikuwa kibaya? (si lazima)
+Asante kwa kutuambia.
+Huhitaji akaunti.
+Ingia ili kuhifadhi mazungumzo yako na kuuliza zaidi kila siku.
+Watu wengi wanauliza leo.
+Ingia ili uendelee kuuliza, au rudi kesho.
+Fungua ukurasa wa Uliza
+Hatukuweza kukagua kivinjari hiki. Tafadhali jaribu tena.
 
 @about 2654dd9aaf
 Foggy Press hupanga upya vitabu vya umma kwa mtindo mmoja rahisi na kuvichapisha bure: kusoma mtandaoni, kuchapisha nyumbani kutoka kwenye PDF ya karatasi ya ukubwa wa letter ya Marekani, au kupakua kama EPUB kwa kisomaji cha kielektroniki.

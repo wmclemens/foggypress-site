@@ -1,18 +1,25 @@
 // Ask Foggy Press: questions about the books, answered by an AI model from the catalog and the book texts
-// (supabase/functions/ask). Two places:
+// (supabase/functions/ask). Places:
+//  - the home page (#ask with data-home): the chat at the top, above the featured collections.
 //  - /ask/: the Ask page, with starter questions, the conversation and past chats (#past).
 //  - read-online pages: the "Ask about this book" drawer.
 //  - 1911 Britannica article pages (body data-article): the same drawer, "Ask about this article".
 // Turned on by <meta name="fp-ask" content="<function url>"> (the build writes it when ASK_ON is set) and needs
-// assets/account.js: asking needs a signed-in reader, so the daily limit is per person.
+// assets/account.js. Signed-in readers ask with their account (daily limit per account, past chats kept).
+// Anyone else asks as a guest once the function allows guests (it has the Turnstile secret): the page gets a
+// Turnstile token (the invisible "are you human" check), the function answers with a pass good for a few hours,
+// and the guest's daily limit is per internet address. Every answer can get a thumbs up or down.
 (function () {
   var meta = document.querySelector('meta[name="fp-ask"]'), acc = window.fpAccount;
   if (!meta || !acc) return;
   var FN = meta.content, KEY = (document.querySelector('meta[name="fp-account"]').content.split('|')[1] || '');
   var T = window.fpT || function (s, v) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); };
+  var TS_KEY = (document.querySelector('meta[name="fp-account"]').content.split('|')[2] || '');
   var me = document.currentScript && document.currentScript.src;
   var BASE = me ? me.replace(/assets\/ask\.js(\?.*)?$/, '') : '/';
   var TZ = (function () { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; } catch (e) { return 'UTC'; } })();
+  var UP = '<svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 7v7H2.5V7H5Zm0 0 2.6-5c1 0 1.6.7 1.4 1.7L8.6 6h4c.8 0 1.4.8 1.2 1.6l-1.2 5.2c-.2.7-.8 1.2-1.5 1.2H5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+  var DOWN = UP.replace('aria-hidden="true"', 'aria-hidden="true" style="transform:scaleY(-1)"');
   var SEND = '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var STARTERS = [['Find me a book', 'Something like Treasure Island, but true'], ['Explain a book', 'What is Walden really about?'],
     ['Find a passage', 'Where does Ishmael say why he goes to sea?'], ['Compare', 'How do the Grant biographies differ?']];
@@ -25,23 +32,79 @@
   function readLink(b, extra) { return (b.rd || (BASE + 'read/' + encodeURIComponent(b.id) + '/')) + (extra || ''); }
 
   // ---------- state ----------
-  var page = document.getElementById('ask'), bookId = document.body.dataset.book || '';
+  var page = document.getElementById('ask'), home = !!(page && page.hasAttribute('data-home')), bookId = document.body.dataset.book || '';
   var articleId = document.body.dataset.article || '', articleTitle = document.body.dataset.title || '', here = bookId || (articleId && 'eb:' + articleId);
-  var cat = {}, msgs = [], chatId = '', status = null, busy = false, signed = false, drawer = null;
+  var cat = {}, msgs = [], chatId = '', chatKey = '', status = null, busy = false, signed = false, guests = false, drawer = null;
+  var PLACE = home ? 'home' : page ? 'ask' : articleId ? 'article' : 'book';
+  function canAsk() { return signed || guests; }
 
   // ---------- talking to the ask function ----------
-  function ask(question) {
-    return acc.token().then(function (tok) {
+  // the guest pass (from the function, after the Turnstile check) is kept in this browser until it runs out
+  function getPass() {
+    try { var p = localStorage.getItem('fp-ask-pass') || ''; return +p.split('.')[0] > Date.now() / 1000 + 60 ? p : ''; } catch (e) { return ''; }
+  }
+  function setPass(p) { try { if (p) localStorage.setItem('fp-ask-pass', p); else localStorage.removeItem('fp-ask-pass'); } catch (e) {} }
+  // Turnstile: usually invisible; when Cloudflare wants a click, the box shows at the bottom of the screen
+  var tsBox = null, tsId = null;
+  function loadTurnstile() {
+    if (window.turnstile) return Promise.resolve();
+    return new Promise(function (ok, bad) {
+      var s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; s.async = true;
+      s.onload = function () { ok(); }; s.onerror = bad; document.head.appendChild(s);
+    });
+  }
+  function human() {
+    if (!TS_KEY) return Promise.reject(new Error('no turnstile'));
+    return loadTurnstile().then(function () {
+      if (!tsBox) {
+        tsBox = document.createElement('div'); tsBox.className = 'askts'; tsBox.hidden = true;
+        tsBox.innerHTML = '<span>' + esc(T('Checking that you’re a person…')) + '</span><div></div>';
+        document.body.appendChild(tsBox);
+      }
+      if (tsId != null) { try { window.turnstile.remove(tsId); } catch (e) {} tsId = null; }
+      return new Promise(function (ok, bad) {
+        var done = false, end = function (f, v) { if (done) return; done = true; tsBox.hidden = true; f(v); };
+        setTimeout(function () { end(bad, new Error('timeout')); }, 60000);
+        tsId = window.turnstile.render(tsBox.lastChild, {sitekey: TS_KEY, appearance: 'interaction-only', action: 'ask',
+          callback: function (t) { end(ok, t); }, 'error-callback': function () { end(bad, new Error('turnstile')); },
+          'before-interactive-callback': function () { tsBox.hidden = false; }, 'after-interactive-callback': function () { tsBox.hidden = true; }});
+      });
+    });
+  }
+  function post(body, headers) {
+    return fetch(FN, {method: 'POST', headers: Object.assign({'apikey': KEY, 'Content-Type': 'application/json'}, headers || {}), body: JSON.stringify(body)})
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (b) { return {status: r.status, body: b}; }); })
+      .catch(function () { return {status: 0, body: {error: 'network'}}; });
+  }
+  // one call to the function, as the reader (their token) or as a guest (the pass, or a fresh Turnstile token)
+  function call(body, fresh) {
+    if (signed) return acc.token().then(function (tok) {
       if (!tok) return {status: 401, body: {error: 'signin'}};
-      return fetch(FN, {method: 'POST', headers: {'Authorization': 'Bearer ' + tok, 'apikey': KEY, 'Content-Type': 'application/json'},
-        body: JSON.stringify({question: question, chat_id: chatId || undefined, book_id: bookId || undefined, article_id: articleId || undefined, tz: TZ, lang: window.fpLang ? window.fpLang() : 'en'})})
-        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (b) { return {status: r.status, body: b}; }); });
-    }).catch(function () { return {status: 0, body: {error: 'network'}}; });
+      return post(body, {'Authorization': 'Bearer ' + tok});
+    }, function () { return {status: 0, body: {error: 'network'}}; });
+    var pass = fresh ? '' : getPass();
+    return (pass ? Promise.resolve('') : human()).then(function (ts) {
+      return post(Object.assign({}, body, pass ? {pass: pass} : {ts: ts}));
+    }, function () { return {status: 403, body: {error: 'check'}}; }).then(function (r) {
+      if (r.body && r.body.pass) setPass(r.body.pass);
+      if (r.status === 403 && r.body.error === 'check' && pass && !fresh) { setPass(''); return call(body, true); }   // the pass ran out or the address changed
+      return r;
+    });
+  }
+  function ask(question) {
+    return call({question: question, chat_id: chatId || undefined, chat_key: chatKey || undefined, book_id: bookId || undefined,
+      article_id: articleId || undefined, place: PLACE, tz: TZ, lang: window.fpLang ? window.fpLang() : 'en'});
   }
   function loadStatus() {
     var sb = acc.client();
-    if (!sb || !acc.signedIn()) return Promise.resolve(null);
-    return sb.rpc('ask_status', {p_tz: TZ}).then(function (r) { status = r.error ? null : r.data; return status; });
+    if (sb && acc.signedIn()) return sb.rpc('ask_status', {p_tz: TZ}).then(function (r) { status = r.error ? null : r.data; return status; });
+    // signed out: may guests ask, and how many questions are left from here today
+    return post({op: 'status', tz: TZ}).then(function (r) {
+      guests = r.status === 200 && !!r.body.guests && !!TS_KEY;
+      status = guests ? r.body : null;
+      return status;
+    });
   }
 
   // ---------- drawing ----------
@@ -87,12 +150,19 @@
     if (cards) out += '<ul class="recs cards">' + cards + '</ul>';
     return '<div class="ans"><span class="by">Foggy Press</span>' + out + '</div>';
   }
+  function rateHtml(m) {
+    if (!m.mid) return '';
+    var b = function (v, icon, label) { return '<button type="button" class="thumb" data-ask-rate="' + v + '" aria-pressed="' + (m.rating === v) + '" aria-label="' + esc(T(label)) + '" title="' + esc(T(label)) + '">' + icon + '</button>'; };
+    return '<div class="fb" data-mid="' + m.mid + '"><span>' + esc(T('Helpful?')) + '</span>' + b(1, UP, 'Good answer') + b(-1, DOWN, 'Not a good answer') +
+      (m.rating === -1 && !m.noted ? '<form class="fbnote" data-ask-note><input maxlength="500" placeholder="' + esc(T('What was wrong? (optional)')) + '" aria-label="' + esc(T('What was wrong? (optional)')) + '"><button type="submit" class="linkish">' + esc(T('Send')) + '</button></form>' : '') +
+      (m.noted || m.rating === 1 ? '<span class="fbthanks">' + esc(T('Thanks for telling us.')) + '</span>' : '') + '</div>';
+  }
   function convoHtml() {
     return msgs.map(function (m) {
       if (m.role === 'user') return '<div class="askq">' + esc(m.content) + '</div>';
       if (m.wait) return '<div class="ans"><span class="by">Foggy Press</span><span class="typing" role="status" aria-label="' + esc(T('Thinking')) + '"><i></i><i></i><i></i></span></div>';
       if (m.err) return '<div class="ans"><p class="bad">' + esc(T(m.err)) + '</p></div>';
-      return answerHtml(m.blocks || []);
+      return answerHtml(m.blocks || []).replace(/<\/div>$/, rateHtml(m) + '</div>');
     }).join('');
   }
   function leftText() {
@@ -103,14 +173,16 @@
   function noticeHtml() {
     if (!status) return '';
     if (status.open === false) return '<div class="limit"><b>' + esc(T('Ask is paused for the rest of the month.')) + '</b><span>' + esc(T('It has reached its monthly budget. Search and reading still work.')) + '</span></div>';
+    if (status.guestsFull) return '<div class="limit"><b>' + esc(T('Many people are asking today.')) + '</b><span>' + esc(T('Sign in to keep asking, or come back tomorrow.')) + ' <a href="' + BASE + 'account/?next=ask">' + esc(T('Sign in')) + ' →</a></span></div>';
     if (status.left <= 0) return '<div class="limit"><b>' + esc(T('That’s {n} questions for today.', {n: status.limit})) + '</b><span>' + esc(T('Ask again tomorrow (resets at midnight). Search and reading are unlimited.')) + '</span></div>';
     return '';
   }
   function composerHtml(ph) {
-    var off = !signed || blocked() || busy;
-    return '<div class="composer"><form class="cbox" data-ask-form><textarea rows="1" maxlength="1000" placeholder="' + esc(!signed ? T('Sign in to ask a question') : blocked() ? T('Back tomorrow') : ph) + '" aria-label="' + esc(T('Your question')) + '"' + (off && !busy ? ' disabled' : '') + '></textarea>' +
+    var off = !canAsk() || blocked() || busy;
+    return '<div class="composer"><form class="cbox" data-ask-form><textarea rows="1" maxlength="1000" placeholder="' + esc(!canAsk() ? T('Sign in to ask a question') : blocked() ? T('Back tomorrow') : ph) + '" aria-label="' + esc(T('Your question')) + '"' + (off && !busy ? ' disabled' : '') + '></textarea>' +
       '<button class="send" type="submit" aria-label="' + esc(T('Send')) + '"' + (off ? ' disabled' : '') + '>' + SEND + '</button></form>' +
-      '<div class="cmeta"><span data-ask-left>' + esc(signed ? leftText() : T('Sign in to ask')) + '</span><span>' + esc(T('AI answers · quotes link to the text so you can check them')) + '</span></div></div>';
+      '<div class="cmeta"><span data-ask-left>' + esc(canAsk() ? leftText() : T('Sign in to ask')) + '</span><span>' + esc(T('AI answers · quotes link to the text so you can check them')) + '</span></div>' +
+      (!signed && guests ? '<p class="cguest">' + esc(T('No account needed.')) + ' <a href="' + BASE + 'account/?next=ask">' + esc(T('Sign in to keep your chats and ask more each day.')) + '</a></p>' : '') + '</div>';
   }
   function gateHtml() {
     return '<div class="gate"><h2>' + esc(T('Sign in to ask')) + '</h2><p>' + esc(T('Asking is free. Signing in keeps it fair: everyone gets {n} questions a day.', {n: 20})) + '</p>' +
@@ -125,14 +197,26 @@
 
   // ---------- the Ask page ----------
   function drawPage() {
+    if (home) return drawHome();
     var past = location.hash === '#past';
     var head = '<div class="ask-h"><h1>' + esc(T('Ask Foggy Press')) + '</h1>' + (signed ? '<div class="who">' +
       (past ? '<a href="#">' + esc(T('Back to the chat')) + '</a>' : '<a href="#past">' + esc(T('Past chats')) + '</a>') +
       '<button type="button" class="linkish" data-ask-new>' + esc(T('New chat')) + '</button></div>' : '') + '</div>';
     if (past && signed) { page.innerHTML = head + '<div id="past"><p class="sub">' + esc(T('Loading…')) + '</p></div>'; drawPast(); return; }
     var lede = '<p class="lede">' + esc(T('Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.', {n: Object.keys(cat).length})) + '</p>';
-    page.innerHTML = head + (msgs.length ? '' : lede + startersHtml()) + (signed ? '' : gateHtml()) +
-      '<div class="convo" aria-live="polite">' + convoHtml() + '</div>' + noticeHtml() + composerHtml(T('Ask about a book, an author or a subject'));
+    page.innerHTML = head + (msgs.length ? '' : lede + startersHtml()) + (canAsk() ? '' : gateHtml()) +
+      '<div class="convo" aria-live="polite">' + convoHtml() + '</div>' + noticeHtml() + composerHtml(T('Ask about a book, an author or a subject, or get recommendations'));
+    acc.star(page);
+    wireComposer(page);
+  }
+  // the home page: the chat at the top, above the featured collections
+  function drawHome() {
+    var links = (signed ? '<a href="' + BASE + 'ask/#past">' + esc(T('Past chats')) + '</a>' : '') +
+      (msgs.length ? '<button type="button" class="linkish" data-ask-new>' + esc(T('New chat')) + '</button>' : '<a href="' + BASE + 'ask/">' + esc(T('Open the Ask page')) + ' →</a>');
+    page.innerHTML = '<div class="sec-h"><h2>' + esc(T('Ask Foggy Press')) + '</h2><div class="who">' + links + '</div></div>' +
+      // no starter questions here (Will, 17 Nov 2026: they took up a lot of space); the Ask page keeps them
+      (msgs.length ? '' : '<p class="lede">' + esc(T('Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.', {n: Object.keys(cat).length.toLocaleString(window.fpLang ? window.fpLang() : undefined)})) + '</p>') +
+      (canAsk() ? '' : gateHtml()) + '<div class="convo" aria-live="polite">' + convoHtml() + '</div>' + noticeHtml() + composerHtml(T('Ask about a book, an author or a subject, or get recommendations'));
     acc.star(page);
     wireComposer(page);
   }
@@ -157,10 +241,11 @@
   }
   function openChat(id) {
     var sb = acc.client();
-    return sb.from('chat_messages').select('role,content,blocks').eq('chat_id', id).order('id', {ascending: true}).limit(200).then(function (r) {
+    var get = function (cols) { return sb.from('chat_messages').select(cols).eq('chat_id', id).order('id', {ascending: true}).limit(200); };
+    return get('id,role,content,blocks,rating').then(function (r) { return r.error ? get('id,role,content,blocks') : r; }).then(function (r) {
       if (r.error || !r.data || !r.data.length) return false;
-      chatId = id;
-      msgs = r.data.map(function (m) { return m.role === 'user' ? {role: 'user', content: m.content} : {role: 'assistant', blocks: m.blocks}; });
+      chatId = id; chatKey = '';
+      msgs = r.data.map(function (m) { return m.role === 'user' ? {role: 'user', content: m.content} : {role: 'assistant', blocks: m.blocks, mid: m.id, rating: m.rating || 0}; });
       return true;
     });
   }
@@ -179,7 +264,7 @@
     drawer.innerHTML = '<div class="dh"><div><b>' + esc(label) + '</b><span>' + esc(articleId ? T('Answers come from the 1911 text') : T('Answers come from this book’s text')) + '</span></div>' +
       '<span class="dacts">' + (msgs.length ? '<button type="button" class="linkish" data-ask-new>' + esc(T('New chat')) + '</button>' : '') +
       '<button class="x" type="button" data-ask-close aria-label="' + esc(T('Close')) + '">×</button></span></div>' +
-      '<div class="db" aria-live="polite">' + (signed ? '' : gateHtml()) + body + noticeHtml() + '</div>' + composerHtml(T('Ask about {title}', {title: b.t}));
+      '<div class="db" aria-live="polite">' + (canAsk() ? '' : gateHtml()) + body + noticeHtml() + '</div>' + composerHtml(T('Ask about {title}', {title: b.t}));
     acc.star(drawer);
     wireComposer(drawer);
     var db = drawer.querySelector('.db'); db.scrollTop = db.scrollHeight;
@@ -194,7 +279,8 @@
     if (open) { var ta = drawer.querySelector('textarea'); if (ta && !ta.disabled && matchMedia('(min-width: 760px)').matches) ta.focus(); }
   }
   // the drawer stays open, on the same chat, when a quote link reloads the page
-  function keep() { try { sessionStorage.setItem('fp-ask-' + here, JSON.stringify({c: chatId, o: drawer && !drawer.hidden})); } catch (e) {} }
+  // (a guest's chat isn't in an account, so its messages are kept with it for this browser tab)
+  function keep() { try { sessionStorage.setItem('fp-ask-' + here, JSON.stringify({c: chatId, k: chatKey, o: drawer && !drawer.hidden, m: signed ? undefined : msgs.filter(function (m) { return !m.wait && !m.err; }).slice(-20)})); } catch (e) {} }
   function kept() { try { return JSON.parse(sessionStorage.getItem('fp-ask-' + here) || 'null'); } catch (e) { return null; } }
 
   function redraw() { if (page) drawPage(); else if (drawer) drawDrawer(); }
@@ -211,29 +297,30 @@
   function submit(text) {
     var q = String(text || '').trim();
     if (!q || busy) return;
-    if (!signed) { location.href = BASE + 'account/?next=ask'; return; }
+    if (!canAsk()) { location.href = BASE + 'account/?next=ask'; return; }
     if (blocked()) return;
     busy = true;
     msgs.push({role: 'user', content: q.slice(0, 1000)}, {role: 'assistant', wait: true});
     redraw();
     scrollEnd();
-    ev(articleId ? 'ask: article' : bookId ? 'ask: book' : 'ask');
+    ev((articleId ? 'ask: article' : bookId ? 'ask: book' : home ? 'ask: home' : 'ask') + (signed ? '' : ' (guest)'));
     ask(q.slice(0, 1000)).then(function (r) {
       busy = false;
       var last = msgs[msgs.length - 1], b = r.body || {};
       last.wait = false;
       if (r.status === 200) {
-        last.blocks = b.blocks || []; chatId = b.chat_id || chatId;
+        last.blocks = b.blocks || []; last.mid = b.message_id || 0; last.rating = 0; chatId = b.chat_id || chatId; chatKey = b.chat_key || chatKey;
         if (status) status.left = b.left;
-        if (page) try { history.replaceState(null, '', '?c=' + chatId); } catch (e) {}
+        if (page && !home && signed) try { history.replaceState(null, '', '?c=' + chatId); } catch (e) {}
         keep();
       } else if (r.status === 401) {
-        signed = false; msgs.splice(-2, 2);
+        signed = false; guests = false; msgs.splice(-2, 2);
       } else if (r.status === 429) {
         msgs.splice(-2, 2);
-        status = {limit: b.limit || (status && status.limit) || 20, left: 0, open: b.error !== 'paused'};
+        status = {limit: b.limit || (status && status.limit) || 20, left: 0, open: b.error !== 'paused', guestsFull: b.error === 'guests'};
       } else {
-        last.err = r.status === 503 ? 'Ask is busy right now. Please try again in a minute.' : r.status === 0 ? 'You seem to be offline. Please try again.' : 'Something went wrong. Please try again.';
+        last.err = r.status === 503 ? 'Ask is busy right now. Please try again in a minute.' : r.status === 0 ? 'You seem to be offline. Please try again.' :
+          r.status === 403 ? 'We couldn’t check this browser. Please try again.' : 'Something went wrong. Please try again.';
         if (b.left != null && status) status.left = b.left;
       }
       redraw();
@@ -247,15 +334,16 @@
   }
 
   document.addEventListener('click', function (e) {
-    var t = e.target.closest && e.target.closest('[data-ask-q],[data-ask-new],[data-ask-close],[data-ask-del],[data-ask-delall],#rbask,[data-ask-go]');
+    var t = e.target.closest && e.target.closest('[data-ask-q],[data-ask-new],[data-ask-close],[data-ask-del],[data-ask-delall],#rbask,[data-ask-go],[data-ask-rate]');
     if (!t) return;
+    if (t.hasAttribute('data-ask-rate')) { rate(+t.closest('.fb').dataset.mid, +t.getAttribute('data-ask-rate')); return; }
     if (t.id === 'rbask') { setDrawer(!drawer || drawer.hidden); return; }
     if (t.hasAttribute('data-ask-go')) { keep(); return; }   // follow the link; the drawer comes back after the page loads
     if (t.hasAttribute('data-ask-close')) { setDrawer(false); return; }
     if (t.hasAttribute('data-ask-q')) { submit(t.getAttribute('data-ask-q')); return; }
     if (t.hasAttribute('data-ask-new')) {
-      msgs = []; chatId = ''; keep();
-      if (page) { try { history.replaceState(null, '', location.pathname); } catch (er) {} if (location.hash) location.hash = ''; }
+      msgs = []; chatId = ''; chatKey = ''; keep();
+      if (page && !home) { try { history.replaceState(null, '', location.pathname); } catch (er) {} if (location.hash) location.hash = ''; }
       redraw(); return;
     }
     var sb = acc.client();
@@ -272,14 +360,38 @@
       });
     }
   });
-  addEventListener('hashchange', function () { if (page) drawPage(); });
+  // thumbs up or down: pressing the same thumb again takes it back
+  function rate(mid, v, note) {
+    var m = msgs.filter(function (x) { return x.mid === mid; })[0];
+    if (!m || !chatId) return;
+    var was = [m.rating, m.noted], next = note != null ? -1 : m.rating === v ? 0 : v;
+    m.rating = next; if (note != null) m.noted = true; else m.noted = false;
+    redraw();
+    if (note == null && next) ev(next > 0 ? 'ask: thumbs up' : 'ask: thumbs down');
+    call({op: 'rate', chat_id: chatId, chat_key: chatKey || undefined, message_id: mid, rating: next, note: note || undefined, tz: TZ}).then(function (r) {
+      if (r.status === 200) return;
+      m.rating = was[0]; m.noted = was[1]; redraw();
+      acc.toast(T('That didn’t save. Please try again.'));
+    });
+    if (next === -1 && note == null) setTimeout(function () { var i = document.querySelector('.fb[data-mid="' + mid + '"] input'); if (i) i.focus(); }, 0);
+  }
+  document.addEventListener('submit', function (e) {
+    var f = e.target.closest && e.target.closest('[data-ask-note]');
+    if (!f) return;
+    e.preventDefault();
+    var v = f.querySelector('input').value.trim();
+    var mid = +f.closest('.fb').dataset.mid;
+    if (!v) { var m = msgs.filter(function (x) { return x.mid === mid; })[0]; if (m) { m.noted = true; redraw(); } return; }
+    rate(mid, -1, v.slice(0, 500));
+  });
+  addEventListener('hashchange', function () { if (page && !home) drawPage(); });
   document.addEventListener('fp-lang', redraw);
 
   // ---------- start ----------
   // read pages load the sign-in library and the catalog only when the drawer is first opened (or was left open)
   var booted = null;
   function boot() {
-    if (!booted) booted = (page || acc.hasSession() ? acc.ready() : Promise.resolve()).then(function () {
+    if (!booted) booted = (acc.hasSession() || (page && !home) ? acc.ready() : Promise.resolve()).then(function () {
       signed = acc.signedIn();
       return Promise.all([acc.books().then(function (c) { cat = c; }), loadStatus()]);
     });
@@ -287,7 +399,7 @@
   }
   if (page) {
     boot().then(function () {
-      var c = new URLSearchParams(location.search).get('c');
+      var c = home ? '' : new URLSearchParams(location.search).get('c');
       return (signed && c ? openChat(c) : Promise.resolve()).then(drawPage);
     });
   } else if (here) {
@@ -301,7 +413,7 @@
         boot().then(function () { btn.disabled = false; drawDrawer(); setDrawer(true); });
       });
       var k = kept();
-      if (k && k.o) boot().then(function () { return signed && k.c ? openChat(k.c) : null; }).then(function () { drawDrawer(); setDrawer(true); });
+      if (k && k.o) boot().then(function () { if (!signed && k.c && k.k && k.m) { chatId = k.c; chatKey = k.k; msgs = k.m; } return signed && k.c ? openChat(k.c) : null; }).then(function () { drawDrawer(); setDrawer(true); });
     }
   }
 })();

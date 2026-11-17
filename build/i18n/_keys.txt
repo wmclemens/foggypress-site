@@ -209,7 +209,7 @@ How do the Grant biographies differ?
 Back to the chat
 New chat
 Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.
-Ask about a book, an author or a subject
+Ask about a book, an author or a subject, or get recommendations
 No past chats yet.
 Delete all
 Untitled chat
@@ -251,3 +251,15 @@ You’ve already asked for that book. It’s on its way.
 That’s 3 requests for today. Please ask again tomorrow.
 You have 10 requests waiting. Please wait for some to finish.
 Thanks. We’ll email you when “{title}” is on the site, or if we can’t add it.
+Checking that you’re a person…
+Helpful?
+Good answer
+Not a good answer
+What was wrong? (optional)
+Thanks for telling us.
+No account needed.
+Sign in to keep your chats and ask more each day.
+Many people are asking today.
+Sign in to keep asking, or come back tomorrow.
+Open the Ask page
+We couldn’t check this browser. Please try again.

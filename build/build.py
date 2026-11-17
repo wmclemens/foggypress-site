@@ -290,10 +290,11 @@ class Site:
 <div class="wrap shell">
   <a class="brand" href="/"><span class="n">Foggy Press</span><span class="s" data-t>Printable Books</span></a>
   {self.search_box('qm', 'srch msrch')}
-  {'<div class="mask"><a href="/ask/" data-t>Ask about the books</a></div>' if self.ask and current != 'ask' else ''}
+  {'<div class="mask"><a href="/ask/" data-t>Ask about the books</a></div>' if self.ask and current not in ('ask', 'home') else ''}
   <aside class="rail">
     {self.search_box('q', 'srch')}
     {self.ask_rail(current)}
+    {'<div class="railhist" id="railhist" hidden></div>' if self.accounts else ''}
     <div><div class="eyebrow" style="margin-bottom:.6rem" data-t>List books</div><nav aria-label="Lists">{navhtml}</nav></div>
     {self.reference_nav(current)}<nav aria-label="About">{f'<a href="/account/"{" aria-current=page" if current == "account" else ""}><span data-t>My books</span><span class="mono">→</span></a><a href="/request/"{" aria-current=page" if current == "request" else ""}><span data-t>Request a book</span><span class="mono">→</span></a>' if self.accounts else ''}<a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
     <div class="rail-end"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div>
@@ -490,8 +491,10 @@ class Site:
         nall = len([t for t in self.tags if self.by_tag[t['name']]])
         tiles = ''.join(f'''<a class="ct" href="/tag/{t['slug']}/" data-name="{esc(t['name'].lower())}" data-dl="{self.tag_dl(t['name'])}"><span class="nm">{esc(t['name'])}</span><span class="row mono">{tn('{n} title' if len(self.by_tag[t['name']]) == 1 else '{n} titles', len(self.by_tag[t['name']]))}</span></a>''' for t in alltags)
         featsec = f'''<section class="sec"><div class="sec-h"><h2 data-t>Featured collections</h2><span class="eyebrow">{tn('{n} books · free PDFs', len(self.live))}</span></div><div class="feat">{''.join(fhtml)}</div></section>''' if feat else ''
-        cont = '<section class="sec" id="continue" hidden></section>' if self.accounts else ''
-        body = f'''{cont}{featsec}
+        # Ask Foggy Press at the top (assets/ask.js draws it); a signed-in reader's history is in the left rail
+        ask = ('<section class="sec homeask" id="ask" data-home><div class="sec-h"><h2 data-t>Ask Foggy Press</h2></div>'
+               '<noscript><p class="sub" data-t>Ask needs JavaScript.</p></noscript></section>') if self.ask else ''
+        body = f'''{ask}{featsec}
 <section class="sec"><div class="sec-h"><h2 data-t>Collections</h2>
 <div class="sortbar"><span class="eyebrow" data-t>Sort by</span><div class="seg" role="group" aria-label="Sort collections" data-t-attr="aria-label"><button type="button" data-sort="tag" aria-pressed="true" data-t>Tag</button><button type="button" data-sort="popular" aria-pressed="false" data-t>Popular</button></div></div></div>
 <div class="grid" id="colls" data-page="{COLLECTIONS_PER_PAGE}">{tiles}</div>
@@ -694,7 +697,9 @@ class Site:
             if self.accounts:
                 st['saved'] = saved.get(bid, 0)
         (self.out / 'admin/report.json').write_text(json.dumps(rep, ensure_ascii=False), encoding='utf-8')
-        (self.out / 'admin/stats.json').write_text(json.dumps({'built': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'books': stats, 'unlisted': unlisted, 'problems': self.problems}, ensure_ascii=False))
+        (self.out / 'admin/stats.json').write_text(json.dumps({'built': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%MZ'), 'books': stats, 'unlisted': unlisted, 'problems': self.problems,
+                                                               # the admin Chat tab asks the ask function for its figures
+                                                               'ask': f'{self.sb_url}/functions/v1/ask' if self.ask else '', 'ask_key': self.sb_key if self.ask else ''}, ensure_ascii=False))
 
     def stage_pdfs(self, dest):
         dest = Path(dest)

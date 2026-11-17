@@ -209,7 +209,7 @@ En quoi les biographies de Grant diffèrent-elles ?
 Retour à la conversation
 Nouvelle conversation
 Demandez une recommandation, l’explication d’un livre ou de l’aide pour trouver un passage. Les réponses viennent uniquement des {n} livres de Foggy Press, et chaque citation renvoie à la page d’où elle vient.
-Posez une question sur un livre, un auteur ou un sujet
+Posez une question sur un livre, un auteur ou un sujet, ou demandez des conseils de lecture
 Pas encore de conversations précédentes.
 Tout supprimer
 Conversation sans titre
@@ -251,6 +251,18 @@ Vous avez déjà demandé ce livre. Il est en route.
 Vous avez fait 3 demandes aujourd’hui. Revenez demain.
 Vous avez 10 demandes en attente. Attendez que certaines soient terminées.
 Merci. Nous vous écrirons quand « {title} » sera sur le site, ou si nous ne pouvons pas l’ajouter.
+Vérification que vous êtes une personne…
+Utile ?
+Bonne réponse
+Pas une bonne réponse
+Qu’est-ce qui n’allait pas ? (facultatif)
+Merci de nous l’avoir dit.
+Pas besoin de compte.
+Connectez-vous pour garder vos discussions et poser plus de questions chaque jour.
+Beaucoup de monde pose des questions aujourd’hui.
+Connectez-vous pour continuer, ou revenez demain.
+Ouvrir la page Demander
+Nous n’avons pas pu vérifier ce navigateur. Veuillez réessayer.
 
 @about 2654dd9aaf
 Foggy Press compose des livres du domaine public dans un style maison simple et les publie gratuitement : à lire en ligne, à imprimer chez soi à partir d’un PDF au format Lettre US, ou à télécharger en EPUB pour une liseuse.
