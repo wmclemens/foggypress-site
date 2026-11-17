@@ -251,6 +251,18 @@ Anda sudah meminta buku itu. Sedang diproses.
 Itu 3 permintaan Anda hari ini. Silakan minta lagi besok.
 Ada 10 permintaan Anda yang menunggu. Tunggu sampai beberapa selesai.
 Terima kasih. Kami akan mengirim email saat “{title}” sudah ada di situs, atau jika kami tidak bisa menambahkannya.
+Memeriksa bahwa Anda manusia…
+Membantu?
+Jawaban bagus
+Bukan jawaban yang bagus
+Apa yang salah? (opsional)
+Terima kasih sudah memberi tahu kami.
+Tidak perlu akun.
+Masuk untuk menyimpan obrolan Anda dan bertanya lebih banyak setiap hari.
+Banyak orang bertanya hari ini.
+Masuk untuk terus bertanya, atau kembali besok.
+Buka halaman Tanya
+Kami tidak dapat memeriksa browser ini. Silakan coba lagi.
 
 @about 2654dd9aaf
 Foggy Press menata ulang buku-buku domain publik dalam satu gaya rumah yang sederhana dan menerbitkannya secara gratis: untuk dibaca daring, dicetak di rumah dari PDF berukuran kertas letter AS, atau diunduh sebagai EPUB untuk pembaca e-book.

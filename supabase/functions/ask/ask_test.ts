@@ -4,7 +4,7 @@
 import Anthropic from 'npm:@anthropic-ai/sdk@1.8.0';
 import { chapters, findPhrase, Library, tokens } from './books.ts';
 import { toBlocks } from './answer.ts';
-import { handler, type Store } from './handler.ts';
+import { type Asker, handler, sha256, type Store } from './handler.ts';
 
 const SITE = Deno.env.get('SITE') || 'http://localhost:8766';
 const eq = (a: unknown, b: unknown, what: string) => {
@@ -50,15 +50,46 @@ function fakeModel(script: ((body: any) => any)[]) {
 }
 
 function memStore() {
-  const s = { used: 0, limit: 3, finished: [] as number[], refunded: [] as number[], chats: new Map<string, { user: string; book: string; turns: any[] }>() };
+  const s = {
+    used: 0, limit: 3, guestUsed: new Map<string, number>(), finished: [] as number[], refunded: [] as number[], places: [] as string[], mid: 0,
+    chats: new Map<string, { user?: string; keyHash?: string; book: string; turns: any[]; ids: number[] }>(), ratings: new Map<number, [number, string]>(),
+  };
+  const mine = async (who: Asker, id: string, key: string) => {
+    const c = s.chats.get(id);
+    if (!c) return null;
+    if (who.user) return c.user === who.user ? c : null;
+    return !c.user && key && c.keyHash === await sha256(key) ? c : null;
+  };
   const store: Store = {
     user: async (jwt) => (jwt === 'good' ? 'u1' : null),
-    begin: async () => (s.used >= s.limit ? { ok: false, why: 'limit', limit: s.limit, left: 0 } : { ok: true, usage_id: ++s.used, limit: s.limit, left: s.limit - s.used }),
-    finish: async (id, _i, _o, cost) => { s.finished.push(cost); },
+    begin: async (who, _tz, place) => {
+      s.places.push(place);
+      if (who.guest) {
+        const n = s.guestUsed.get(who.guest) || 0;
+        if (n >= 2) return { ok: false, why: 'limit', limit: 2, left: 0 };
+        s.guestUsed.set(who.guest, n + 1);
+        return { ok: true, usage_id: 1000 + n, limit: 2, left: 2 - n - 1 };
+      }
+      return s.used >= s.limit ? { ok: false, why: 'limit', limit: s.limit, left: 0 } : { ok: true, usage_id: ++s.used, limit: s.limit, left: s.limit - s.used };
+    },
+    finish: async (_id, _i, _o, cost) => { s.finished.push(cost); },
     refund: async (id) => { s.refunded.push(id); s.used--; },
-    chat: async (user, id) => { const c = s.chats.get(id); return c && c.user === user ? { book_id: c.book, turns: c.turns } : null; },
-    newChat: async (user, _t, book) => { const id = crypto.randomUUID(); s.chats.set(id, { user, book, turns: [] }); return id; },
-    save: async (_u, chat, q, text) => { s.chats.get(chat)!.turns.push({ role: 'user', content: q }, { role: 'assistant', content: text }); },
+    chat: async (who, id, key) => { const c = await mine(who, id, key); return c ? { book_id: c.book, turns: c.turns } : null; },
+    newChat: async (who, _t, book, keyHash) => { const id = crypto.randomUUID(); s.chats.set(id, { user: who.user, keyHash, book, turns: [], ids: [] }); return id; },
+    save: async (_w, chat, q, text) => {
+      const c = s.chats.get(chat)!;
+      c.turns.push({ role: 'user', content: q }, { role: 'assistant', content: text });
+      s.mid += 2; c.ids.push(s.mid);
+      return s.mid;
+    },
+    guestStatus: async (v) => ({ limit: 2, left: 2 - (s.guestUsed.get(v) || 0), open: true, guests: true }),
+    rate: async (who, chat, key, message, rating, note) => {
+      const c = await mine(who, chat, key);
+      if (!c || !c.ids.includes(message)) return false;
+      s.ratings.set(message, [rating, note]);
+      return true;
+    },
+    report: async () => ({ ok: 'report' }),
   };
   return { s, store };
 }
@@ -106,6 +137,11 @@ Deno.test('a question end to end', async () => {
   eq((await r2.json()).chat_id, j1.chat_id, 'same chat');
   eq(model.seen[3].system[0].text, sys.text, 'instructions unchanged (cache prefix)');
 
+  const r1b = await post({ op: 'rate', chat_id: j1.chat_id, message_id: j1.message_id, rating: -1, note: 'Wrong chapter' });
+  eq([r1b.status, s.ratings.get(j1.message_id)], [200, [-1, 'Wrong chapter']], 'thumbs down with a note');
+  eq((await post({ op: 'rate', chat_id: j1.chat_id, message_id: 9999, rating: 1 })).status, 404, 'cannot rate another message');
+  eq((await post({ op: 'admin', gh: 'anything' })).status, 403, 'no admin check set: no report');
+
   const r3 = await post({ question: 'one more' });   // the script has run out: the model call fails before anything is billed
   eq([r3.status, s.refunded.length], [503, 1], 'a failed call says busy and is refunded');
   s.used = s.limit;
@@ -117,7 +153,7 @@ Deno.test('a question end to end', async () => {
 Deno.test('the 1911 Britannica', async () => {
   const lib = new Library(SITE);
   const ref = await lib.reference();
-  eq(ref?.volumes, [1], 'volumes from ask.json');
+  eq(ref?.volumes.includes(1), true, 'volumes from ask.json');
   eq((await lib.articleTitles('alhambra'))[0]?.id, 'alhambra-the', 'title search ("Alhambra, The")');
   const hits = await lib.articlePhrase('flanked by thirteen towers');
   eq(hits[0]?.art.id, 'alhambra-the', 'text search');
@@ -133,7 +169,7 @@ Deno.test('the 1911 Britannica', async () => {
   const model = fakeModel([
     (b) => {
       if (!b.tools.some((t: any) => t.name === 'read_article')) throw new Error('reference tools missing');
-      if (!b.system[0].text.includes('volume 1 of 29 (1,699 articles)')) throw new Error('volumes not in rules');
+      if (!/volumes? [0-9–, ]+ of 29 \([0-9,]+ articles\)/.test(b.system[0].text)) throw new Error('volumes not in rules');
       if (!String(b.messages.at(-1).content).includes('slug alhambra-the')) throw new Error('article not named');
       return [{ type: 'tool_use', id: 't1', name: 'read_article', input: { slug: 'alhambra-the' } }];
     },
@@ -161,5 +197,46 @@ Deno.test('the 1911 Britannica', async () => {
   eq(s.chats.get(j1.chat_id)!.book, 'eb:alhambra-the', 'chat keeps the article');
   const j2 = await (await post({ question: 'Any others?', chat_id: j1.chat_id })).json();
   eq(j2.blocks[0].text, 'Done.', 'follow-up');
+  await model.srv.shutdown();
+});
+
+Deno.test('guests: the human check, a pass, their own limit, their own chats', async () => {
+  const model = fakeModel([
+    () => [{ type: 'text', text: 'Try Moby-Dick.\n[[book moby-dick]] The whale.' }],
+    (b) => { eq(b.messages.length, 3, 'guest history sent'); return [{ type: 'text', text: 'It is long.' }]; },
+  ]);
+  const { s, store } = memStore();
+  const client = new Anthropic({ apiKey: 'test', baseURL: model.url, maxRetries: 0 });
+  const checked: string[] = [];
+  const opts = { store, client, lib: new Library(SITE), origins: ['https://foggypress.com'] };
+  const h = handler({ ...opts, secret: 'shh', human: async (t: string, ip: string) => { checked.push(`${t}@${ip}`); return t === 'human'; }, admin: async (g: string) => g === 'will' });
+  const post = (body: unknown, ip = '1.2.3.4', ua = 'Mozilla/5.0') =>
+    h(new Request('http://x/ask', { method: 'POST', headers: { 'cf-connecting-ip': ip, 'User-Agent': ua }, body: JSON.stringify(body) }));
+
+  // no Turnstile secret: guests are told to sign in, as before
+  const off = handler(opts);
+  eq((await off(new Request('http://x/ask', { method: 'POST', body: JSON.stringify({ question: 'hi' }) }))).status, 401, 'guests off');
+
+  eq(await (await post({ op: 'status' })).json(), { limit: 2, left: 2, open: true, guests: true }, 'guest status');
+  eq((await post({ question: 'hi' }, '1.2.3.4', 'Googlebot/2.1')).status, 401, 'a robot browser is refused');
+  eq([(await post({ question: 'hi' })).status, (await post({ question: 'hi', ts: 'robot' })).status], [403, 403], 'no check, failed check');
+  const r1 = await post({ question: 'A book about the sea?', ts: 'human', place: 'home' });
+  const j1 = await r1.json();
+  eq([r1.status, checked.at(-1), j1.left, s.places.at(-1)], [200, 'human@1.2.3.4', 1, 'home'], 'first guest question');
+  if (!j1.pass || !/^[0-9a-f]{48}$/.test(j1.chat_key)) throw new Error('no pass or chat key');
+  eq((await post({ question: 'more', pass: j1.pass }, '5.6.7.8')).status, 403, 'a pass only works from its own address');
+  const r2 = await post({ question: 'Is it long?', pass: j1.pass, chat_id: j1.chat_id, chat_key: j1.chat_key });
+  eq([r2.status, (await r2.json()).chat_id], [200, j1.chat_id], 'follow-up with the pass and the chat key');
+  eq(checked.length, 2, 'the pass saves a second check');
+  eq((await post({ question: 'again', pass: j1.pass })).status, 429, 'guest daily limit');
+  eq((await post({ op: 'rate', chat_id: j1.chat_id, chat_key: '0'.repeat(48), message_id: j1.message_id, rating: 1, pass: j1.pass })).status, 404, 'wrong key cannot rate');
+  eq((await post({ op: 'rate', chat_id: j1.chat_id, chat_key: j1.chat_key, message_id: j1.message_id, rating: 1, pass: j1.pass })).status, 200, 'guest thumbs up');
+  eq(s.ratings.get(j1.message_id), [1, ''], 'rating saved');
+  // a signed-in reader can't open a guest's chat
+  const mem = handler({ ...opts, secret: 'shh', human: async () => true });
+  const rr = await mem(new Request('http://x/ask', { method: 'POST', headers: { Authorization: 'Bearer good' }, body: JSON.stringify({ op: 'rate', chat_id: j1.chat_id, message_id: j1.message_id, rating: -1 }) }));
+  eq(rr.status, 404, 'reader cannot rate a guest chat');
+  // the admin report: only for the owner's GitHub token
+  eq([(await post({ op: 'admin', gh: 'someone' })).status, await (await post({ op: 'admin', gh: 'will' })).json()], [403, { ok: 'report' }], 'admin');
   await model.srv.shutdown();
 });

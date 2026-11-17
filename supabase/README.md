@@ -49,9 +49,20 @@ Claude Haiku through the Claude API; `schema.sql` already has its tables, the da
 4. **Turn it on:** add the repository variable `ASK_ON` = `1`. The next build shows Ask in the menu, on its own page
    (/ask/), and as "Ask about this book" on every read-online page.
 
+5. **Asking without an account (optional).** Add the repository secret `TURNSTILE_SECRET_KEY`: the secret key of the
+   same Turnstile widget as in step 6 above (Cloudflare → Turnstile → the foggypress.com widget → Settings). The next
+   "Deploy Ask Foggy Press" run gives it to the function, and from then on anyone can ask after the invisible
+   "are you human" check, with their own daily limit (`guest_daily_limit`). Without it, asking needs an account.
+   The widget's hostname list must include `foggypress.com` (it covers `files.foggypress.com`, where the read pages are).
+
 **Limits.** Supabase → Table Editor → `ask_config`: `daily_limit` (questions per reader per day, default 20),
+`guest_daily_limit` (questions per day from one internet address without an account, default 10; 0 turns guests off),
+`guests_daily_cap` (all guests together in 24 hours, default 500, a backstop against bots that get past the check),
 `monthly_cap_usd` (the most Ask may spend in a calendar month, default $10; when it is reached Ask pauses until the
-1st and search keeps working) and `enabled` (off pauses Ask at once). The admin Reports tab shows this month's spending.
+1st and search keeps working) and `enabled` (off pauses Ask at once). The admin Chat tab shows questions per day,
+spending, where people ask, and every answer someone gave a thumbs up or down (question and answer, never who asked).
+It reads them live through the function, which answers only for the GitHub account in `ADMIN_GITHUB_LOGINS`
+(function secret, default `wmclemens`).
 A question usually costs a fraction of a cent, so the default cap covers a few thousand questions a month.
 
 **Another model.** Supabase → Edge Functions → ask → Secrets: `ASK_MODEL` (a Claude model id) with `ASK_PRICE_IN` and
@@ -68,6 +79,7 @@ createdb fp_test
 psql -d fp_test -f supabase/tests/fake_supabase.sql -f supabase/schema.sql
 psql -d fp_test -f supabase/tests/isolation.sql
 psql -d fp_test -f supabase/tests/ask.sql
+psql -d fp_test -f supabase/tests/ask_guests.sql
 ```
 
 The ask function's tests use a built copy of the site (served at `SITE`) and a stand-in for the Claude API:

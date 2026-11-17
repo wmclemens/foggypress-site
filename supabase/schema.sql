@@ -293,6 +293,113 @@ do $$ begin
   end if;
 end $$;
 
+-- ---------- Ask without an account, thumbs up or down, the admin Chat tab (17 Nov 2026) ----------
+-- Guests: a chat with no user_id, found again only with the key the page holds (its SHA-256 is guest_key).
+-- Their questions count against a daily limit per internet address, kept only as a scrambled id ("visitor").
+-- Guest chats are deleted after 30 days. Readers' chats stay in their account until they delete them.
+alter table public.chats alter column user_id drop not null;
+alter table public.chats add column if not exists guest_key text check (guest_key is null or guest_key ~ '^[0-9a-f]{64}$');
+alter table public.chat_messages alter column user_id drop not null;
+-- a reader's (or guest's) verdict on an answer: 1 thumbs up, -1 thumbs down, with an optional note on what was wrong
+alter table public.chat_messages add column if not exists rating smallint check (rating in (-1, 1));
+alter table public.chat_messages add column if not exists rating_note text not null default '' check (char_length(rating_note) <= 500);
+alter table public.chat_messages add column if not exists rated_at timestamptz;
+alter table public.ask_usage add column if not exists visitor text check (visitor is null or char_length(visitor) <= 64);
+alter table public.ask_usage add column if not exists place text not null default '' check (char_length(place) <= 16);
+alter table public.ask_config add column if not exists guest_daily_limit integer not null default 10 check (guest_daily_limit >= 0);
+alter table public.ask_config add column if not exists guests_daily_cap integer not null default 500 check (guests_daily_cap >= 0);
+create index if not exists chats_guest_age on public.chats (updated_at) where user_id is null;
+create index if not exists ask_usage_visitor_day on public.ask_usage (visitor, local_day) where visitor is not null;
+create index if not exists chat_messages_rated on public.chat_messages (rated_at desc) where rating is not null;
+
+-- a guest's questions left today (the Ask box shows "7 of 10 questions left today"), for the ask function only
+create or replace function public.ask_guest_status(p_visitor text, p_tz text default 'UTC') returns json language sql security definer set search_path = public stable as $$
+  select json_build_object(
+    'limit', c.guest_daily_limit,
+    'left', greatest(0, c.guest_daily_limit - (select count(*) from ask_usage where visitor = p_visitor and local_day = fp_local_day(p_tz))),
+    'open', c.enabled and (select coalesce(sum(cost_usd), 0) from ask_usage where asked_at >= date_trunc('month', now())) < c.monthly_cap_usd,
+    'guests', c.guest_daily_limit > 0
+      and (select count(*) from ask_usage where visitor is not null and asked_at > now() - interval '1 day') < c.guests_daily_cap)
+  from ask_config c;
+$$;
+
+-- like ask_begin, for a guest: counts the question against their address's daily limit and all guests' daily ceiling
+create or replace function public.ask_begin_guest(p_visitor text, p_tz text, p_place text default '') returns json language plpgsql security definer set search_path = public as $$
+declare c ask_config; used integer; spent numeric; d date := fp_local_day(p_tz); new_id bigint;
+begin
+  perform pg_advisory_xact_lock(hashtext('fp-ask-guest:' || p_visitor));
+  select * into c from ask_config;
+  select coalesce(sum(cost_usd), 0) into spent from ask_usage where asked_at >= date_trunc('month', now());
+  if not c.enabled or spent >= c.monthly_cap_usd then
+    return json_build_object('ok', false, 'why', 'paused', 'limit', c.guest_daily_limit, 'left', 0);
+  end if;
+  if c.guest_daily_limit <= 0 or (select count(*) from ask_usage where visitor is not null and asked_at > now() - interval '1 day') >= c.guests_daily_cap then
+    return json_build_object('ok', false, 'why', 'guests', 'limit', c.guest_daily_limit, 'left', 0);
+  end if;
+  select count(*) into used from ask_usage where visitor = p_visitor and local_day = d;
+  if used >= c.guest_daily_limit then
+    return json_build_object('ok', false, 'why', 'limit', 'limit', c.guest_daily_limit, 'left', 0);
+  end if;
+  -- guest chats older than 30 days go
+  delete from chats where user_id is null and updated_at < now() - interval '30 days';
+  insert into ask_usage (visitor, local_day, place) values (p_visitor, d, left(coalesce(p_place, ''), 16)) returning id into new_id;
+  return json_build_object('ok', true, 'usage_id', new_id, 'limit', c.guest_daily_limit, 'left', c.guest_daily_limit - used - 1);
+end $$;
+
+-- the admin Chat tab (admin/admin.js, through the ask function, only for the site owner's GitHub token):
+-- questions and spending by day, where people ask, the books asked about, and the answers people rated.
+-- Rated answers show the question and the answer, never who asked.
+create or replace function public.ask_admin_report() returns json language sql security definer set search_path = public stable as $$
+  select json_build_object(
+    'built', now(),
+    'config', (select row_to_json(c) from ask_config c),
+    'month_cost', (select coalesce(sum(cost_usd), 0) from ask_usage where asked_at >= date_trunc('month', now())),
+    'totals_30d', (select json_build_object(
+        'questions', count(*),
+        'members', count(*) filter (where visitor is null),
+        'guests', count(*) filter (where visitor is not null),
+        'askers', count(distinct user_id),
+        'guest_askers', count(distinct visitor),
+        'cost', coalesce(sum(cost_usd), 0),
+        'tokens_in', coalesce(sum(input_tokens), 0),
+        'tokens_out', coalesce(sum(output_tokens), 0))
+      from ask_usage where asked_at > now() - interval '30 days'),
+    'days', coalesce((select json_agg(x order by x.day) from (
+        select g.day::date as day,
+          (select count(*) from ask_usage u where u.asked_at >= g.day and u.asked_at < g.day + interval '1 day' and u.visitor is null) as members,
+          (select count(*) from ask_usage u where u.asked_at >= g.day and u.asked_at < g.day + interval '1 day' and u.visitor is not null) as guests,
+          (select coalesce(sum(cost_usd), 0) from ask_usage u where u.asked_at >= g.day and u.asked_at < g.day + interval '1 day') as cost,
+          (select count(*) from chat_messages m where m.rated_at >= g.day and m.rated_at < g.day + interval '1 day' and m.rating = 1) as up,
+          (select count(*) from chat_messages m where m.rated_at >= g.day and m.rated_at < g.day + interval '1 day' and m.rating = -1) as down
+        from generate_series(date_trunc('day', now()) - interval '29 days', date_trunc('day', now()), interval '1 day') g(day)) x), '[]'::json),
+    'places', coalesce((select json_object_agg(p, n) from (select coalesce(nullif(place, ''), 'ask') p, count(*) n from ask_usage where asked_at > now() - interval '30 days' group by 1) s), '{}'::json),
+    'ratings', (select json_build_object('up', count(*) filter (where rating = 1), 'down', count(*) filter (where rating = -1),
+        'up_30d', count(*) filter (where rating = 1 and rated_at > now() - interval '30 days'),
+        'down_30d', count(*) filter (where rating = -1 and rated_at > now() - interval '30 days'),
+        'answers_30d', (select count(*) from chat_messages where role = 'assistant' and created_at > now() - interval '30 days'))
+      from chat_messages where rating is not null),
+    'books', coalesce((select json_agg(json_build_array(book_id, n) order by n desc) from (
+        select book_id, count(*) n from chats where book_id <> '' and created_at > now() - interval '30 days' group by book_id order by n desc limit 15) s), '[]'::json),
+    'rated', coalesce((select json_agg(r order by r.rated_at desc) from (
+        select m.id, m.rating, m.rating_note as note, m.rated_at, c.book_id, (c.user_id is null) as guest,
+          left(m.content, 4000) as answer,
+          (select left(q.content, 1000) from chat_messages q where q.chat_id = m.chat_id and q.id < m.id and q.role = 'user' order by q.id desc limit 1) as question
+        from chat_messages m join chats c on c.id = m.chat_id
+        where m.rating is not null order by m.rated_at desc limit 200) r), '[]'::json)
+  );
+$$;
+
+revoke all on function public.ask_guest_status from public, anon, authenticated;
+revoke all on function public.ask_begin_guest from public, anon, authenticated;
+revoke all on function public.ask_admin_report from public, anon, authenticated;
+do $$ begin
+  if exists (select 1 from pg_roles where rolname = 'service_role') then
+    grant execute on function public.ask_guest_status to service_role;
+    grant execute on function public.ask_begin_guest to service_role;
+    grant execute on function public.ask_admin_report to service_role;
+  end if;
+end $$;
+
 -- ---------- Build me a book: readers ask for a public-domain book we don't have yet ----------
 -- A nightly job (foggy-press-files, .github/workflows/requests.yml) copies new requests into the books repository,
 -- where they are built from approved sources, and writes back what happened; the reader is emailed then.
@@ -369,7 +476,7 @@ create or replace function public.site_totals() returns json language sql securi
     'lists', (select count(*) from lists),
     'list_items', (select count(*) from list_items),
     'ask_30d', (select count(*) from ask_usage where asked_at > now() - interval '30 days'),
-    'ask_askers_30d', (select count(distinct user_id) from ask_usage where asked_at > now() - interval '30 days'),
+    'ask_askers_30d', (select count(distinct coalesce(user_id::text, visitor)) from ask_usage where asked_at > now() - interval '30 days'),
     'ask_cost_month', (select coalesce(sum(cost_usd), 0) from ask_usage where asked_at >= date_trunc('month', now())),
     'ask_cap', (select monthly_cap_usd from ask_config),
     'chats', (select count(*) from chats),

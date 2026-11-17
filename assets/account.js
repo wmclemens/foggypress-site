@@ -352,20 +352,21 @@
     sb.rpc('record_reading', {p_book: k.slice(pdf ? 4 : 5), p_pdf: pdf, p_epub: !pdf}).then(function () {}, function () {});
   });
 
-  // ---------- Continue reading (home page) ----------
+  // ---------- Continue reading (left rail, signed-in readers only) ----------
   function continueRow() {
-    var box = document.getElementById('continue');
+    var box = document.getElementById('railhist');
     if (!box) return;
-    recent(6).then(function (rows) {
-      if (!rows.length) { box.hidden = true; return; }
+    if (!signedIn()) { box.hidden = true; return; }
+    recent(5).then(function (rows) {
       return books().then(function (cat) {
         var items = rows.filter(function (r) { return cat[r.book_id]; }).map(function (r) {
-          var b = cat[r.book_id], ch = chapterName(b, r.chapter);
-          return '<a class="cont" href="' + esc(readLink(b, '?pos=' + (r.progress || 0))) + '"><span class="t">' + esc(b.t) + '</span><span class="a">' + esc(b.a) + '</span>' +
-            '<span class="pg" aria-hidden="true"><i style="width:' + Math.max(2, Math.round(r.progress || 0)) + '%"></i></span><span class="mono sm">' + esc(ch || T('{n}% read', {n: Math.round(r.progress || 0)})) + '</span></a>';
+          var b = cat[r.book_id], pct = Math.round(r.progress || 0);
+          return '<a class="rh" href="' + esc(readLink(b, '?pos=' + (r.progress || 0))) + '" title="' + esc(b.t + (b.a ? ' · ' + b.a : '')) + '"><span class="rht"><span class="t">' + esc(b.t) + '</span>' +
+            '<span class="pg" aria-hidden="true"><i style="width:' + Math.max(2, pct) + '%"></i></span></span><span class="mono">' + esc(T('{n}% read', {n: pct})) + '</span></a>';
         });
-        if (!items.length) { box.hidden = true; return; }
-        box.innerHTML = '<div class="sec-h"><h2>' + esc(T('Continue reading')) + '</h2><a class="eyebrow" href="' + BASE + 'account/#history">' + esc(T('History')) + ' →</a></div><div class="conts">' + items.join('') + '</div>';
+        box.innerHTML = '<div class="eyebrow" style="margin-bottom:.6rem">' + esc(T('Continue reading')) + '</div><nav aria-label="' + esc(T('Continue reading')) + '">' +
+          (items.length ? items.join('') : '<p class="rhnone">' + esc(T('No reading history yet.')) + '</p>') +
+          '<a href="' + BASE + 'account/#history"><span>' + esc(T('History')) + '</span><span class="mono">→</span></a></nav>';
         box.hidden = false;
       });
     }).catch(function () { box.hidden = true; });
