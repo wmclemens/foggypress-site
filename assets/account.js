@@ -276,7 +276,7 @@
     return q(sb.from('lists').insert({name: name}).select('id,name,note,updated_at').single()).then(function (l) { l.items = []; lists.unshift(l); fpEvent('list: new'); return l; }, fail);
   }
   function newLabel(name) {
-    return q(sb.from('labels').insert({name: name}).select('id,name').single()).then(function (lb) { labels.push(lb); labels.sort(function (a, b) { return a.name.localeCompare(b.name); }); fpEvent('tag: new'); return lb; }, fail);
+    return q(sb.from('labels').insert({name: name}).select('id,name').single()).then(function (lb) { labels.push(lb); labels.sort(function (a, b) { return a.name.localeCompare(b.name, 'en', {numeric: true}); }); fpEvent('tag: new'); return lb; }, fail);
   }
   function putOnList(listId, id, on) {
     var l = lists.filter(function (x) { return x.id === listId; })[0];

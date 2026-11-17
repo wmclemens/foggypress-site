@@ -30,12 +30,13 @@ document.addEventListener('click', function (e) {
     });
   }
 
+  var cmp = function (x, y) { return x.localeCompare(y, 'en', {numeric: true}); };   // natural order: "Volume 2" before "Volume 10"
+
   // books on a collection page: Author (A to Z by last name, then title), Title, or Popular (online views + PDF downloads)
   var bar = document.querySelector('.booksort'), list = bar && document.querySelector('ul.recs');
   if (list) {
     var rows = Array.prototype.slice.call(list.children), bsort = 'author';
     try { bsort = sessionStorage.getItem('fp-bsort') || 'author'; } catch (e) {}
-    var cmp = function (x, y) { return x.localeCompare(y, 'en', {numeric: true}); };   // "Volume 2" before "Volume 10"
     var by = {
       author: function (a, b) { return cmp(a.dataset.au, b.dataset.au) || cmp(a.dataset.ti, b.dataset.ti); },
       title: function (a, b) { return cmp(a.dataset.ti, b.dataset.ti) || cmp(a.dataset.au, b.dataset.au); },
@@ -61,8 +62,8 @@ document.addEventListener('click', function (e) {
   try { sort = sessionStorage.getItem('fp-sort') || 'tag'; } catch (e) {}
   function draw() {
     tiles.sort(sort === 'popular'
-      ? function (a, b) { return (+b.dataset.dl - +a.dataset.dl) || a.dataset.name.localeCompare(b.dataset.name); }
-      : function (a, b) { return a.dataset.name.localeCompare(b.dataset.name); });
+      ? function (a, b) { return (+b.dataset.dl - +a.dataset.dl) || cmp(a.dataset.name, b.dataset.name); }
+      : function (a, b) { return cmp(a.dataset.name, b.dataset.name); });
     tiles.forEach(function (t, i) { t.hidden = i >= shown; grid.appendChild(t); });
     var n = Math.min(shown, tiles.length);
     count.textContent = T('Showing {n} of {m}', {n: n, m: tiles.length});

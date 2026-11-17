@@ -226,10 +226,10 @@
       Promise.all([booksP, tagsP]).then(function (got) {
         var books = got[0], tags = got[1];
         if (my !== run) return;
-        var byT = function (a, b) { return sortT(a.t).localeCompare(sortT(b.t)); };
+        var byT = function (a, b) { return sortT(a.t).localeCompare(sortT(b.t), 'en', {numeric: true}); };
         var am = {};
         books.forEach(function (b) { if (b.a && hasPhrase(b.a, ws)) (am[b.a] = am[b.a] || {last: b.al, b: []}).b.push(b); });
-        var authors = Object.keys(am).sort(function (a, b) { return am[a].last.localeCompare(am[b].last) || a.localeCompare(b); });
+        var authors = Object.keys(am).sort(function (a, b) { return am[a].last.localeCompare(am[b].last, 'en', {numeric: true}) || a.localeCompare(b, 'en', {numeric: true}); });
         var titles = books.filter(function (b) { return hasPhrase(b.t, ws); }).sort(byT);
         var colls = tags.filter(function (g) { return hasPhrase(g.n, ws); });
         // no book by that title or author: readers with accounts can ask for it (Build me a book, /request/)

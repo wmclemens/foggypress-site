@@ -25,7 +25,7 @@
   var num = function (n) { return n == null ? '' : Number(n).toLocaleString('en-US'); };
 
   var yearNum = function (y) { var m = String(y || '').match(/(\d+)/); if (!m) return Infinity; var n = +m[1]; return /BC/.test(y) ? -n : n; };
-  var sortedTags = function (b) { return (b.tags || []).slice().sort(function (x, y) { return x.localeCompare(y); }); };
+  var sortedTags = function (b) { return (b.tags || []).slice().sort(function (x, y) { return cmp(x, y); }); };
   var catSort = {key: 'author_last', dir: 1}, tagSort = {key: 'name', dir: 1}, oneTagSort = {key: 'title', dir: 1};
   // A clickable column heading: click sorts by it, click again reverses.
   function th(label, key, state, cls) {
@@ -37,7 +37,7 @@
       b.onclick = function () { var k = b.dataset.sortkey; if (state.key === k) state.dir = -state.dir; else { state.key = k; state.dir = 1; } redraw(); };
     });
   }
-  function cmp(a, b) { if (a === b) return 0; if (a === '' || a == null) return 1; if (b === '' || b == null) return -1; return typeof a === 'number' && typeof b === 'number' ? a - b : String(a).localeCompare(String(b), undefined, {sensitivity: 'base'}); }
+  function cmp(a, b) { if (a === b) return 0; if (a === '' || a == null) return 1; if (b === '' || b == null) return -1; return typeof a === 'number' && typeof b === 'number' ? a - b : String(a).localeCompare(String(b), undefined, {sensitivity: 'base', numeric: true}); }
 
   var token = null, user = null;
   var data = {books: null, booksSha: null, tags: null, tagsSha: null};
@@ -80,13 +80,13 @@
     return gh('/repos/' + REPO + '/contents/' + path, {method: 'PUT', body: {message: message, content: b64encode(JSON.stringify(obj, null, 2) + '\n'), sha: sha, branch: BRANCH}})
       .then(function (j) { return j.content.sha; });
   }
-  function sortBooks() { data.books.sort(function (a, b) { return (a.author_last + a.author_first + sortTitle(a.title)).localeCompare(b.author_last + b.author_first + sortTitle(b.title)); }); }
+  function sortBooks() { data.books.sort(function (a, b) { return cmp(a.author_last + ' ' + a.author_first + ' ' + sortTitle(a.title), b.author_last + ' ' + b.author_first + ' ' + sortTitle(b.title)); }); }
   function saveBooks(message) {
     sortBooks();
     return writeFile(BOOKS, data.books, data.booksSha, message).then(function (sha) { data.booksSha = sha; });
   }
   function saveTags(message) {
-    data.tags.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    data.tags.sort(function (a, b) { return cmp(a.name, b.name); });
     return writeFile(TAGS, data.tags, data.tagsSha, message).then(function (sha) { data.tagsSha = sha; });
   }
   function failed(e) {
@@ -155,7 +155,7 @@
         foggy_press_date: function (b) { return b.foggy_press_date || ''; }, downloads: function (b) { return dlOf(b); }, views: function (b) { return vwOf(b); }, saved: function (b) { return svOf(b); },
         pages: function (b) { return st(b).pages == null ? '' : st(b).pages; }, tags: function (b) { return sortedTags(b).join(', '); }
       }[catSort.key];
-      list.sort(function (a, b) { var r = cmp(val(a), val(b)); return (r * catSort.dir) || cmp(a.author_last + a.author_first + sortTitle(a.title), b.author_last + b.author_first + sortTitle(b.title)); });
+      list.sort(function (a, b) { var r = cmp(val(a), val(b)); return (r * catSort.dir) || cmp(a.author_last + ' ' + a.author_first + ' ' + sortTitle(a.title), b.author_last + ' ' + b.author_first + ' ' + sortTitle(b.title)); });
       $('#chead').innerHTML = '<tr>' + th('Author last', 'author_last', catSort) + th('Author first', 'author_first', catSort) + th('Title', 'title', catSort) + th('Original', 'original_date', catSort) + th('Foggy Press', 'foggy_press_date', catSort) + th('PDF downloads', 'downloads', catSort) + th('Online views', 'views', catSort) + (hasSaved() ? th('Saved', 'saved', catSort) : '') + th('Pages', 'pages', catSort) + th('Tags', 'tags', catSort) + '</tr>';
       wireSort($('#chead'), catSort, draw);
       $('#count').textContent = list.length + ' of ' + data.books.length + ' records · ' + data.books.filter(isLive).length + ' live';
@@ -204,7 +204,7 @@
     $('#f-id').addEventListener('input', function () { $('#f-id').dataset.touched = '1'; });
 
     var draft = sortedTags(b), created = [];
-    var chips = function () { draft.sort(function (x, y) { return x.localeCompare(y); }); $('#tagchips').innerHTML = draft.map(function (t, i) { return '<span class="chip">' + esc(t) + '<button type="button" data-rm="' + i + '" aria-label="Remove ' + esc(t) + '">×</button></span>'; }).join(''); };
+    var chips = function () { draft.sort(function (x, y) { return cmp(x, y); }); $('#tagchips').innerHTML = draft.map(function (t, i) { return '<span class="chip">' + esc(t) + '<button type="button" data-rm="' + i + '" aria-label="Remove ' + esc(t) + '">×</button></span>'; }).join(''); };
     chips();
     var inp = $('#tagin'), sg = $('#sugg'), opts = [], on = 0;
     var all = function () { return tagNames().concat(created); };
@@ -244,7 +244,7 @@
       var rec = {};
       ['id', 'author_last', 'author_first', 'title', 'translator', 'original_date', 'foggy_press_date', 'github_dir', 'github_pdf'].forEach(function (k) { rec[k] = $('#f-' + k).value.trim(); });
       rec.id = slugify(rec.id || rec.title);
-      rec.tags = draft.slice().sort(function (x, y) { return x.localeCompare(y); });
+      rec.tags = draft.slice().sort(function (x, y) { return cmp(x, y); });
       var note = $('#savenote');
       if (!rec.title) { note.innerHTML = '<span class="err">Add a title first.</span>'; return; }
       if (!rec.github_pdf) { note.innerHTML = '<span class="err">Add the GitHub PDF link: the site copies the PDF from there.</span>'; return; }

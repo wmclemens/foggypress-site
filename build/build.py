@@ -76,6 +76,15 @@ def sort_title(t):
     return re.sub(r'^(The|A|An) ', '', t)
 
 
+def nat(s):
+    """Natural sort key: case-insensitive, numbers compare as numbers ("Volume 2" before "Volume 10")."""
+    return [int(p) if i % 2 else p for i, p in enumerate(re.split(r'(\d+)', s.lower()))]
+
+
+def title_key(t):
+    return nat(sort_title(t))
+
+
 def author_name(b):
     return f"{b['author_first']} {b['author_last']}".strip()
 
@@ -329,7 +338,7 @@ class Site:
                           'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'tg': b.get('tags', []), 'pdf': pdf, 'read': bool(art), **({'rd': self.read_url(b) if self.pdf_base else self.base + self.read_url(b)} if art else {}),
                           **({'epub': self.epub_url(b) if self.pdf_base else self.base + self.epub_url(b)} if art else {})}, art))
         nw, ns = search_index.write_index(self.out / 'search', rows)
-        tags = [{'n': t['name'], 's': t['slug'], 'c': len(self.by_tag[t['name']])} for t in sorted(self.tags, key=lambda t: t['name'].lower()) if self.by_tag[t['name']]]
+        tags = [{'n': t['name'], 's': t['slug'], 'c': len(self.by_tag[t['name']])} for t in sorted(self.tags, key=lambda t: nat(t['name'])) if self.by_tag[t['name']]]
         (self.out / 'search' / 'tags.json').write_text(json.dumps(tags, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
         print(f'Search index: {nw} words in {ns} files.')
         self.page('search/index.html', 'Search · Foggy Press',
@@ -472,12 +481,12 @@ class Site:
         feat = [t for t in self.tags if t['_level'] == 1 and self.by_tag[t['name']]][:FEATURED_MAX]
         fhtml = []
         for i, t in enumerate(feat):
-            bs = sorted(self.by_tag[t['name']], key=lambda b: (-b['_downloads'], sort_title(b['title'])))
+            bs = sorted(self.by_tag[t['name']], key=lambda b: (-b['_downloads'], title_key(b['title'])))
             n = len(bs)
             more = tn('More: all {n} titles →', n) if n > 3 else '<span data-t>Open collection →</span>'
             fhtml.append(f'''<a class="ft" href="/tag/{t['slug']}/"><div class="top"><span class="mono i">{i+1:02d}</span><span class="mono c">{tn('{n} title' if n == 1 else '{n} titles', n)}</span></div>
 <h3>{esc(t['name'])}</h3><ul>{''.join(f'<li>{esc(b["title"])}</li>' for b in bs[:3])}</ul><span class="fmore">{more}</span></a>''')
-        alltags = sorted([t for t in self.tags if t['_level'] == 2 and self.by_tag[t['name']]], key=lambda t: t['name'].lower())
+        alltags = sorted([t for t in self.tags if t['_level'] == 2 and self.by_tag[t['name']]], key=lambda t: nat(t['name']))
         nall = len([t for t in self.tags if self.by_tag[t['name']]])
         tiles = ''.join(f'''<a class="ct" href="/tag/{t['slug']}/" data-name="{esc(t['name'].lower())}" data-dl="{self.tag_dl(t['name'])}"><span class="nm">{esc(t['name'])}</span><span class="row mono">{tn('{n} title' if len(self.by_tag[t['name']]) == 1 else '{n} titles', len(self.by_tag[t['name']]))}</span></a>''' for t in alltags)
         featsec = f'''<section class="sec"><div class="sec-h"><h2 data-t>Featured collections</h2><span class="eyebrow">{tn('{n} books · free PDFs', len(self.live))}</span></div><div class="feat">{''.join(fhtml)}</div></section>''' if feat else ''
@@ -491,7 +500,7 @@ class Site:
         self.page('index.html', 'Foggy Press · Printable Books', body, 'home')
 
     def lists(self):
-        by_author = sorted(self.live, key=lambda b: (b['author_last'].lower(), b['author_first'].lower(), sort_title(b['title'])))
+        by_author = sorted(self.live, key=lambda b: (nat(b['author_last']), nat(b['author_first']), title_key(b['title'])))
         parts, cur = [], None
         for b in by_author:
             letter = (b['author_last'] or b['title'])[0].upper()
@@ -500,16 +509,16 @@ class Site:
                 cur = letter
             parts.append(self.recs([b]))
         self.page('authors/index.html', 'By author · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By author</h1><p class="sub">{tn('{n} books, A to Z by the author’s last name. Read any book online, or print it from its PDF.', len(self.live))}</p></div>{''.join(parts)}''', 'authors')
-        by_title = sorted(self.live, key=lambda b: sort_title(b['title']).lower())
+        by_title = sorted(self.live, key=lambda b: title_key(b['title']))
         self.page('titles/index.html', 'By title · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By title</h1><p class="sub">{tn('{n} books, A to Z, ignoring “The”, “A” and “An”. Read any book online, or print it from its PDF.', len(self.live))}</p></div>{self.recs(by_title)}''', 'titles')
-        ts = sorted([t for t in self.tags if self.by_tag[t['name']]], key=lambda t: t['name'].lower())
+        ts = sorted([t for t in self.tags if self.by_tag[t['name']]], key=lambda t: nat(t['name']))
         groups = []
         for lv in sorted({t['_level'] for t in ts}):
             links = ''.join(f'<a href="/tag/{t["slug"]}/"><span>{esc(t["name"])}</span><span class="mono">{len(self.by_tag[t["name"]])}</span></a>' for t in ts if t['_level'] == lv)
             groups.append(f'<section class="tagsec"><h2 class="eyebrow">{tn('Level {n} collections', lv, level_name(lv)) if lv > 3 else f'<span data-t>{esc(level_name(lv))}</span>'}</h2><div class="taglist">{links}</div></section>')
         self.page('tags/index.html', 'By tag · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By tag</h1><p class="sub">{tn('Every tag is a collection. {n} tags.', len(ts))}</p></div>{''.join(groups)}''', 'tags')
         for t in ts:
-            bs = sorted(self.by_tag[t['name']], key=lambda b: (b['author_last'].lower(), sort_title(b['title'])))
+            bs = sorted(self.by_tag[t['name']], key=lambda b: (nat(b['author_last']), title_key(b['title'])))
             n = len(bs)
             self.page(f'tag/{t["slug"]}/index.html', f'{t["name"]} · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <a href="/tags/" data-t>Collections</a></span><h1>{esc(t['name'])}</h1><p class="sub">{tn('{n} book' if n == 1 else '{n} books', n)}{' · <span data-t>Featured collection</span>' if t['_level'] == 1 else ''}</p></div>{self.book_sortbar() if n > 1 else ''}{self.recs(bs, sortable=True)}''', '')
 
