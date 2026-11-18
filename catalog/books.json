@@ -48496,5 +48496,979 @@
       "Translated",
       "Short Reads"
     ]
+  },
+  {
+    "id": "letters-of-abelard-and-heloise",
+    "author_last": "Abelard",
+    "author_first": "Peter and Héloïse",
+    "title": "Letters of Abelard and Heloise",
+    "translator": "John Hughes",
+    "original_date": "1722",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 35977,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/abelard-peter/letters-of-abelard-and-heloise",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/abelard-peter/letters-of-abelard-and-heloise/output/Abelard%2C%20Peter%20and%20H%C3%A9lo%C3%AFse%3A%20Letters%20of%20Abelard%20and%20Heloise.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "French",
+      "Love & Marriage",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-ladies-book-of-useful-information-compiled-from-many-sources",
+    "author_last": "Anonymous",
+    "author_first": "",
+    "title": "The Ladies Book of Useful Information Compiled from Many Sources",
+    "translator": "",
+    "original_date": "1890s",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 26368,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/the-ladies-book-of-useful-information-compiled-from-many-sources",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/the-ladies-book-of-useful-information-compiled-from-many-sources/output/Anonymous%3A%20The%20Ladies%20Book%20of%20Useful%20Information%20Compiled%20from%20Many%20Sources.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Canadian",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-grammar-of-english-grammars",
+    "author_last": "Brown",
+    "author_first": "Goold",
+    "title": "The Grammar of English Grammars",
+    "translator": "",
+    "original_date": "1851",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 11615,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/brown-goold/the-grammar-of-english-grammars",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/brown-goold/the-grammar-of-english-grammars/output/Brown%2C%20Goold%3A%20The%20Grammar%20of%20English%20Grammars.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "the-field-and-garden-vegetables-of-america",
+    "author_last": "Burr",
+    "author_first": "Fearing",
+    "title": "The Field and Garden Vegetables of America",
+    "translator": "",
+    "original_date": "1863",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21682,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burr-fearing/the-field-and-garden-vegetables-of-america",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burr-fearing/the-field-and-garden-vegetables-of-america/output/Burr%2C%20Fearing%3A%20The%20Field%20and%20Garden%20Vegetables%20of%20America.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "the-haunts-of-men",
+    "author_last": "Chambers",
+    "author_first": "Robert W.",
+    "title": "The Haunts of Men",
+    "translator": "",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 77948,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/chambers-robert-w/the-haunts-of-men",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/chambers-robert-w/the-haunts-of-men/output/Chambers%2C%20Robert%20W.%3A%20The%20Haunts%20of%20Men.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American"
+    ]
+  },
+  {
+    "id": "captain-cook-s-journal-during-his-first-voyage-round-the-world-made-in",
+    "author_last": "Cook",
+    "author_first": "James",
+    "title": "Captain Cook's Journal During His First Voyage Round the World Made in H. M. Bark \"Endeavour\", 1768-71",
+    "translator": "",
+    "original_date": "1893",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 8106,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/cook-james/captain-cook-s-journal-during-his-first-voyage-round-the-world-made-in",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/cook-james/captain-cook-s-journal-during-his-first-voyage-round-the-world-made-in/output/Cook%2C%20James%3A%20Captain%20Cook%27s%20Journal%20During%20His%20First%20Voyage%20Round%20the%20World%20Made%20in%20H.%20M.%20Bark%20%22Endeavour%22%2C%201768-71.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "British",
+      "Sea & Ships"
+    ]
+  },
+  {
+    "id": "the-school-and-society",
+    "author_last": "Dewey",
+    "author_first": "John",
+    "title": "The School and Society",
+    "translator": "",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 53910,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dewey-john/the-school-and-society",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dewey-john/the-school-and-society/output/Dewey%2C%20John%3A%20The%20School%20and%20Society.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American",
+      "Philosophy",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-mudfog-papers-etc",
+    "author_last": "Dickens",
+    "author_first": "Charles",
+    "title": "The Mudfog Papers, Etc",
+    "translator": "",
+    "original_date": "1880",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 78245,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dickens-charles/the-mudfog-papers-etc",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dickens-charles/the-mudfog-papers-etc/output/Dickens%2C%20Charles%3A%20The%20Mudfog%20Papers%2C%20Etc.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Comedy & Satire",
+      "British",
+      "Short Reads",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "memoirs-of-the-duchesse-de-dino-afterwards-duchesse-de-talleyrand-et-d",
+    "author_last": "Dino",
+    "author_first": "Dorothée, duchesse de",
+    "title": "Memoirs of the Duchesse De Dino (Afterwards Duchesse De Talleyrand Et De Sagan), 1836-1840",
+    "translator": "",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 44646,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dino-dorothee-duchesse-de/memoirs-of-the-duchesse-de-dino-afterwards-duchesse-de-talleyrand-et-d",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dino-dorothee-duchesse-de/memoirs-of-the-duchesse-de-dino-afterwards-duchesse-de-talleyrand-et-d/output/Dino%2C%20Doroth%C3%A9e%2C%20duchesse%20de%3A%20Memoirs%20of%20the%20Duchesse%20De%20Dino%20%28Afterwards%20Duchesse%20De%20Talleyrand%20Et%20De%20Sagan%29%2C%201836-1840.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "French",
+      "Memoir",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-gambler",
+    "author_last": "Dostoyevsky",
+    "author_first": "Fyodor",
+    "title": "The Gambler",
+    "translator": "C. J. Hogarth",
+    "original_date": "1866",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2197,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dostoyevsky-fyodor/the-gambler",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dostoyevsky-fyodor/the-gambler/output/Dostoyevsky%2C%20Fyodor%3A%20The%20Gambler.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Russian",
+      "Novels",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-fairy-faith-in-celtic-countries",
+    "author_last": "Evans-Wentz",
+    "author_first": "W. Y.",
+    "title": "The Fairy-Faith in Celtic Countries",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 34853,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/evans-wentz-w-y/the-fairy-faith-in-celtic-countries",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/evans-wentz-w-y/the-fairy-faith-in-celtic-countries/output/Evans-Wentz%2C%20W.%20Y.%3A%20The%20Fairy-Faith%20in%20Celtic%20Countries.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Fantasy & Fairy Tales",
+      "Religion"
+    ]
+  },
+  {
+    "id": "dream-psychology",
+    "author_last": "Freud",
+    "author_first": "Sigmund",
+    "title": "Dream Psychology",
+    "translator": "M. D. Eder",
+    "original_date": "1920",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 15489,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/freud-sigmund/dream-psychology",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/freud-sigmund/dream-psychology/output/Freud%2C%20Sigmund%3A%20Dream%20Psychology.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Science",
+      "Translated"
+    ]
+  },
+  {
+    "id": "group-psychology-and-the-analysis-of-the-ego",
+    "author_last": "Freud",
+    "author_first": "Sigmund",
+    "title": "Group Psychology and The Analysis of The Ego",
+    "translator": "James Strachey",
+    "original_date": "1921",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 35877,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/freud-sigmund/group-psychology-and-the-analysis-of-the-ego",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/freud-sigmund/group-psychology-and-the-analysis-of-the-ego/output/Freud%2C%20Sigmund%3A%20Group%20Psychology%20and%20The%20Analysis%20of%20The%20Ego.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "German",
+      "Science",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-ego-and-the-id",
+    "author_last": "Freud",
+    "author_first": "Sigmund",
+    "title": "The Ego and the Id",
+    "translator": "Joan Riviere",
+    "original_date": "1923",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 79682,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/freud-sigmund/the-ego-and-the-id",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/freud-sigmund/the-ego-and-the-id/output/Freud%2C%20Sigmund%3A%20The%20Ego%20and%20the%20Id.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Philosophy",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "totem-and-taboo",
+    "author_last": "Freud",
+    "author_first": "Sigmund",
+    "title": "Totem and Taboo",
+    "translator": "A. A. Brill",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41214,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/freud-sigmund/totem-and-taboo",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/freud-sigmund/totem-and-taboo/output/Freud%2C%20Sigmund%3A%20Totem%20and%20Taboo.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Science",
+      "Religion",
+      "Translated"
+    ]
+  },
+  {
+    "id": "woman-in-the-nineteenth-century-and-kindred-papers-relating-to-the-sph",
+    "author_last": "Fuller",
+    "author_first": "Margaret",
+    "title": "Woman in the Nineteenth Century and Kindred Papers Relating to the Sphere, Condition and Duties, of Woman",
+    "translator": "",
+    "original_date": "1845",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 8642,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/fuller-margaret/woman-in-the-nineteenth-century-and-kindred-papers-relating-to-the-sph",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/fuller-margaret/woman-in-the-nineteenth-century-and-kindred-papers-relating-to-the-sph/output/Fuller%2C%20Margaret%3A%20Woman%20in%20the%20Nineteenth%20Century%20and%20Kindred%20Papers%20Relating%20to%20the%20Sphere%2C%20Condition%20and%20Duties%2C%20of%20Woman.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "a-history-of-economic-doctrines",
+    "author_last": "Gide",
+    "author_first": "Charles and Charles Rist",
+    "title": "A History of Economic Doctrines",
+    "translator": "R. Richards, William Smart",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57500,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gide-charles/a-history-of-economic-doctrines",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gide-charles/a-history-of-economic-doctrines/output/Gide%2C%20Charles%20and%20Charles%20Rist%3A%20A%20History%20of%20Economic%20Doctrines.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "wealth-of-the-world-s-waste-places-and-oceania",
+    "author_last": "Gilson",
+    "author_first": "Jewett C.",
+    "title": "Wealth of the World's Waste Places and Oceania",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 23546,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gilson-jewett-c/wealth-of-the-world-s-waste-places-and-oceania",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gilson-jewett-c/wealth-of-the-world-s-waste-places-and-oceania/output/Gilson%2C%20Jewett%20C.%3A%20Wealth%20of%20the%20World%27s%20Waste%20Places%20and%20Oceania.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "maxims-and-reflections",
+    "author_last": "Goethe",
+    "author_first": "Johann Wolfgang von",
+    "title": "Maxims and Reflections",
+    "translator": "T. Bailey Saunders",
+    "original_date": "1833",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 33670,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/goethe-johann-wolfgang-von/maxims-and-reflections",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/goethe-johann-wolfgang-von/maxims-and-reflections/output/Goethe%2C%20Johann%20Wolfgang%20von%3A%20Maxims%20and%20Reflections.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Philosophy",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-princess-and-the-tiger",
+    "author_last": "Goethe",
+    "author_first": "Johann Wolfgang von",
+    "title": "The Princess and the Tiger",
+    "translator": "R. Dillon Boylan",
+    "original_date": "1828",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 78269,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/goethe-johann-wolfgang-von/the-princess-and-the-tiger",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/goethe-johann-wolfgang-von/the-princess-and-the-tiger/output/Goethe%2C%20Johann%20Wolfgang%20von%3A%20The%20Princess%20and%20the%20Tiger.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Stories",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "charles-carleton-coffin",
+    "author_last": "Griffis",
+    "author_first": "William Elliot",
+    "title": "Charles Carleton Coffin",
+    "translator": "",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22238,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/griffis-william-elliot/charles-carleton-coffin",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/griffis-william-elliot/charles-carleton-coffin/output/Griffis%2C%20William%20Elliot%3A%20Charles%20Carleton%20Coffin.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "1811-dictionary-of-the-vulgar-tongue",
+    "author_last": "Grose",
+    "author_first": "Francis",
+    "title": "1811 Dictionary of the Vulgar Tongue",
+    "translator": "",
+    "original_date": "1811",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5402,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/grose-francis/1811-dictionary-of-the-vulgar-tongue",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/grose-francis/1811-dictionary-of-the-vulgar-tongue/output/Grose%2C%20Francis%3A%201811%20Dictionary%20of%20the%20Vulgar%20Tongue.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "the-oldest-code-of-laws-in-the-world-the-code-of-laws-promulgated-by-h",
+    "author_last": "Hammurabi",
+    "author_first": "King of Babylonia",
+    "title": "The Oldest Code of Laws in the World The Code of Laws Promulgated by Hammurabi, King of Babylon, B.C. 2285-2242",
+    "translator": "C. H. W. Johns",
+    "original_date": "c. 1750 BC",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 17150,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hammurabi-king-of-babylonia/the-oldest-code-of-laws-in-the-world-the-code-of-laws-promulgated-by-h",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hammurabi-king-of-babylonia/the-oldest-code-of-laws-in-the-world-the-code-of-laws-promulgated-by-h/output/Hammurabi%2C%20King%20of%20Babylonia%3A%20The%20Oldest%20Code%20of%20Laws%20in%20the%20World%20The%20Code%20of%20Laws%20Promulgated%20by%20Hammurabi%2C%20King%20of%20Babylon%2C%20B.C.%202285-2242.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "Ancient World",
+      "Short Reads",
+      "Translated"
+    ]
+  },
+  {
+    "id": "bride-roses",
+    "author_last": "Howells",
+    "author_first": "William Dean",
+    "title": "Bride Roses",
+    "translator": "",
+    "original_date": "1893",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 33608,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/howells-william-dean/bride-roses",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/howells-william-dean/bride-roses/output/Howells%2C%20William%20Dean%3A%20Bride%20Roses.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "views-of-nature",
+    "author_last": "Humboldt",
+    "author_first": "Alexander von",
+    "title": "Views of Nature",
+    "translator": "Henry G. Bohn, E. C. Otté",
+    "original_date": "1808",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 67684,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/humboldt-alexander-von/views-of-nature",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/humboldt-alexander-von/views-of-nature/output/Humboldt%2C%20Alexander%20von%3A%20Views%20of%20Nature.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "German",
+      "Travel",
+      "Translated"
+    ]
+  },
+  {
+    "id": "preventable-diseases",
+    "author_last": "Hutchinson",
+    "author_first": "Woods",
+    "title": "Preventable Diseases",
+    "translator": "",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21965,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hutchinson-woods/preventable-diseases",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hutchinson-woods/preventable-diseases/output/Hutchinson%2C%20Woods%3A%20Preventable%20Diseases.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "treatise-on-light",
+    "author_last": "Huygens",
+    "author_first": "Christiaan",
+    "title": "Treatise on Light",
+    "translator": "Silvanus P. Thompson",
+    "original_date": "1690",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 14725,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/huygens-christiaan/treatise-on-light",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/huygens-christiaan/treatise-on-light/output/Huygens%2C%20Christiaan%3A%20Treatise%20on%20Light.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Translated"
+    ]
+  },
+  {
+    "id": "salmagundi",
+    "author_last": "Irving",
+    "author_first": "William and Washington Irving and James Kirke Paulding",
+    "title": "Salmagundi",
+    "translator": "",
+    "original_date": "1807",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 77926,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/irving-william/salmagundi",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/irving-william/salmagundi/output/Irving%2C%20William%20and%20Washington%20Irving%20and%20James%20Kirke%20Paulding%3A%20Salmagundi.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Comedy & Satire",
+      "American",
+      "Essays"
+    ]
+  },
+  {
+    "id": "psychology-briefer-course",
+    "author_last": "James",
+    "author_first": "William",
+    "title": "Psychology: Briefer Course",
+    "translator": "",
+    "original_date": "1892",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 55262,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-william/psychology-briefer-course",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-william/psychology-briefer-course/output/James%2C%20William%3A%20Psychology%3A%20Briefer%20Course.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science",
+      "Philosophy"
+    ]
+  },
+  {
+    "id": "anecdotes-of-dogs",
+    "author_last": "Jesse",
+    "author_first": "Edward",
+    "title": "Anecdotes of Dogs",
+    "translator": "",
+    "original_date": "1846",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 26500,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/jesse-edward/anecdotes-of-dogs",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/jesse-edward/anecdotes-of-dogs/output/Jesse%2C%20Edward%3A%20Anecdotes%20of%20Dogs.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "byways-in-british-archaeology",
+    "author_last": "Johnson",
+    "author_first": "Walter",
+    "title": "Byways in British Archaeology",
+    "translator": "",
+    "original_date": "1912",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57846,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/johnson-walter/byways-in-british-archaeology",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/johnson-walter/byways-in-british-archaeology/output/Johnson%2C%20Walter%3A%20Byways%20in%20British%20Archaeology.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "British"
+    ]
+  },
+  {
+    "id": "collected-papers-on-analytical-psychology",
+    "author_last": "Jung",
+    "author_first": "C. G.",
+    "title": "Collected Papers on Analytical Psychology",
+    "translator": "",
+    "original_date": "1916",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 48225,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/jung-c-g/collected-papers-on-analytical-psychology",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/jung-c-g/collected-papers-on-analytical-psychology/output/Jung%2C%20C.%20G.%3A%20Collected%20Papers%20on%20Analytical%20Psychology.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science"
+    ]
+  },
+  {
+    "id": "concerning-the-spiritual-in-art",
+    "author_last": "Kandinsky",
+    "author_first": "Wassily",
+    "title": "Concerning the Spiritual in Art",
+    "translator": "Michael Sadleir",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5321,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kandinsky-wassily/concerning-the-spiritual-in-art",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kandinsky-wassily/concerning-the-spiritual-in-art/output/Kandinsky%2C%20Wassily%3A%20Concerning%20the%20Spiritual%20in%20Art.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "pagan-and-christian-rome",
+    "author_last": "Lanciani",
+    "author_first": "Rodolfo Amedeo",
+    "title": "Pagan and Christian Rome",
+    "translator": "",
+    "original_date": "1892",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22153,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lanciani-rodolfo-amedeo/pagan-and-christian-rome",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lanciani-rodolfo-amedeo/pagan-and-christian-rome/output/Lanciani%2C%20Rodolfo%20Amedeo%3A%20Pagan%20and%20Christian%20Rome.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "Italian",
+      "Ancient World"
+    ]
+  },
+  {
+    "id": "elements-of-chemistry-in-a-new-systematic-order",
+    "author_last": "Lavoisier",
+    "author_first": "Antoine Laurent",
+    "title": "Elements of Chemistry, In a New Systematic Order",
+    "translator": "Robert Kerr",
+    "original_date": "1789",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 30775,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lavoisier-antoine-laurent/elements-of-chemistry-in-a-new-systematic-order",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lavoisier-antoine-laurent/elements-of-chemistry-in-a-new-systematic-order/output/Lavoisier%2C%20Antoine%20Laurent%3A%20Elements%20of%20Chemistry%2C%20In%20a%20New%20Systematic%20Order.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "superstition-and-force-essays-on-the-wager-of-law-the-wager-of-battle",
+    "author_last": "Lea",
+    "author_first": "Henry Charles",
+    "title": "Superstition and Force Essays on the Wager of Law, the Wager of Battle, the Ordeal, Torture",
+    "translator": "",
+    "original_date": "1866",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 58750,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lea-henry-charles/superstition-and-force-essays-on-the-wager-of-law-the-wager-of-battle",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lea-henry-charles/superstition-and-force-essays-on-the-wager-of-law-the-wager-of-battle/output/Lea%2C%20Henry%20Charles%3A%20Superstition%20and%20Force%20Essays%20on%20the%20Wager%20of%20Law%2C%20the%20Wager%20of%20Battle%2C%20the%20Ordeal%2C%20Torture.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American",
+      "History",
+      "Medieval"
+    ]
+  },
+  {
+    "id": "a-treatise-on-painting",
+    "author_last": "Leonardo",
+    "author_first": "da Vinci",
+    "title": "A Treatise on Painting",
+    "translator": "J. F. Rigaud",
+    "original_date": "1651",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 46915,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/leonardo-da-vinci/a-treatise-on-painting",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/leonardo-da-vinci/a-treatise-on-painting/output/Leonardo%2C%20da%20Vinci%3A%20A%20Treatise%20on%20Painting.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Italian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "modern-women-and-what-is-said-of-them",
+    "author_last": "Linton",
+    "author_first": "E. Lynn",
+    "title": "Modern Women and What Is Said of Them",
+    "translator": "",
+    "original_date": "1868",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 26948,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/linton-e-lynn/modern-women-and-what-is-said-of-them",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/linton-e-lynn/modern-women-and-what-is-said-of-them/output/Linton%2C%20E.%20Lynn%3A%20Modern%20Women%20and%20What%20Is%20Said%20of%20Them.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Women Writers",
+      "Essays"
+    ]
+  },
+  {
+    "id": "wood-folk-at-school",
+    "author_last": "Long",
+    "author_first": "William J.",
+    "title": "Wood Folk at School",
+    "translator": "",
+    "original_date": "1902",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22101,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/long-william-j/wood-folk-at-school",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/long-william-j/wood-folk-at-school/output/Long%2C%20William%20J.%3A%20Wood%20Folk%20at%20School.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Children's"
+    ]
+  },
+  {
+    "id": "sibylla",
+    "author_last": "Mace",
+    "author_first": "C. A.",
+    "title": "Sibylla",
+    "translator": "",
+    "original_date": "1927",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 76731,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mace-c-a/sibylla",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mace-c-a/sibylla/output/Mace%2C%20C.%20A.%3A%20Sibylla.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "surgical-anatomy",
+    "author_last": "Maclise",
+    "author_first": "Joseph",
+    "title": "Surgical Anatomy",
+    "translator": "",
+    "original_date": "1851",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 24440,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/maclise-joseph/surgical-anatomy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/maclise-joseph/surgical-anatomy/output/Maclise%2C%20Joseph%3A%20Surgical%20Anatomy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science"
+    ]
+  },
+  {
+    "id": "ancient-law",
+    "author_last": "Maine",
+    "author_first": "Henry Sumner, Sir",
+    "title": "Ancient Law",
+    "translator": "",
+    "original_date": "1861",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22910,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/maine-henry-sumner-sir/ancient-law",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/maine-henry-sumner-sir/ancient-law/output/Maine%2C%20Henry%20Sumner%2C%20Sir%3A%20Ancient%20Law.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "British",
+      "History"
+    ]
+  },
+  {
+    "id": "the-ontario-high-school-reader",
+    "author_last": "Marty",
+    "author_first": "Aletta E.",
+    "title": "The Ontario High School Reader",
+    "translator": "",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22795,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/marty-aletta-e/the-ontario-high-school-reader",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/marty-aletta-e/the-ontario-high-school-reader/output/Marty%2C%20Aletta%20E.%3A%20The%20Ontario%20High%20School%20Reader.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Canadian",
+      "Poetry"
+    ]
+  },
+  {
+    "id": "the-authorized-life-of-marie-c-stopes",
+    "author_last": "Maude",
+    "author_first": "Aylmer",
+    "title": "The Authorized Life of Marie C. Stopes",
+    "translator": "",
+    "original_date": "1924",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 78278,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/maude-aylmer/the-authorized-life-of-marie-c-stopes",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/maude-aylmer/the-authorized-life-of-marie-c-stopes/output/Maude%2C%20Aylmer%3A%20The%20Authorized%20Life%20of%20Marie%20C.%20Stopes.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "dr-montessori-s-own-handbook",
+    "author_last": "Montessori",
+    "author_first": "Maria",
+    "title": "Dr. Montessori's Own Handbook",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 29635,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/montessori-maria/dr-montessori-s-own-handbook",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/montessori-maria/dr-montessori-s-own-handbook/output/Montessori%2C%20Maria%3A%20Dr.%20Montessori%27s%20Own%20Handbook.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Italian",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-idea-of-a-university-defined-and-illustrated-in-nine-discourses-de",
+    "author_last": "Newman",
+    "author_first": "John Henry",
+    "title": "The Idea of a University Defined and Illustrated In Nine Discourses Delivered to the Catholics of Dublin",
+    "translator": "",
+    "original_date": "1852",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 24526,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/newman-john-henry/the-idea-of-a-university-defined-and-illustrated-in-nine-discourses-de",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/newman-john-henry/the-idea-of-a-university-defined-and-illustrated-in-nine-discourses-de/output/Newman%2C%20John%20Henry%3A%20The%20Idea%20of%20a%20University%20Defined%20and%20Illustrated%20In%20Nine%20Discourses%20Delivered%20to%20the%20Catholics%20of%20Dublin.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Philosophy"
+    ]
+  },
+  {
+    "id": "poems-rilke",
+    "author_last": "Rilke",
+    "author_first": "Rainer Maria",
+    "title": "Poems",
+    "translator": "Jessie Lemont",
+    "original_date": "1918",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 38594,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/rilke-rainer-maria/poems",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/rilke-rainer-maria/poems/output/Rilke%2C%20Rainer%20Maria%3A%20Poems.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Poetry",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-analysis-of-mind",
+    "author_last": "Russell",
+    "author_first": "Bertrand",
+    "title": "The Analysis of Mind",
+    "translator": "",
+    "original_date": "1921",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2529,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/russell-bertrand/the-analysis-of-mind",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/russell-bertrand/the-analysis-of-mind/output/Russell%2C%20Bertrand%3A%20The%20Analysis%20of%20Mind.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Philosophy"
+    ]
+  },
+  {
+    "id": "old-english-libraries",
+    "author_last": "Savage",
+    "author_first": "Ernest Albert",
+    "title": "Old English Libraries",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 1615,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/savage-ernest-albert/old-english-libraries",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/savage-ernest-albert/old-english-libraries/output/Savage%2C%20Ernest%20Albert%3A%20Old%20English%20Libraries.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "British"
+    ]
+  },
+  {
+    "id": "history-of-education",
+    "author_last": "Seeley",
+    "author_first": "Levi",
+    "title": "History of Education",
+    "translator": "",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 27963,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/seeley-levi/history-of-education",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/seeley-levi/history-of-education/output/Seeley%2C%20Levi%3A%20History%20of%20Education.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "influences-of-geographic-environment-on-the-basis-of-ratzel-s-system-o",
+    "author_last": "Semple",
+    "author_first": "Ellen Churchill",
+    "title": "Influences of Geographic Environment On the Basis of Ratzel's System of Anthropo-Geography",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 15293,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/semple-ellen-churchill/influences-of-geographic-environment-on-the-basis-of-ratzel-s-system-o",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/semple-ellen-churchill/influences-of-geographic-environment-on-the-basis-of-ratzel-s-system-o/output/Semple%2C%20Ellen%20Churchill%3A%20Influences%20of%20Geographic%20Environment%20On%20the%20Basis%20of%20Ratzel%27s%20System%20of%20Anthropo-Geography.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "sailing-alone-around-the-world",
+    "author_last": "Slocum",
+    "author_first": "Joshua",
+    "title": "Sailing Alone Around the World",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 6317,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/slocum-joshua/sailing-alone-around-the-world",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/slocum-joshua/sailing-alone-around-the-world/output/Slocum%2C%20Joshua%3A%20Sailing%20Alone%20Around%20the%20World.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "American",
+      "Sea & Ships",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "the-wedding-ring-a-series-of-discourses-for-husbands-and-wives-and-tho",
+    "author_last": "Talmage",
+    "author_first": "T. De Witt",
+    "title": "The Wedding Ring A Series of Discourses for Husbands and Wives and Those Contemplating Matrimony",
+    "translator": "",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22343,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/talmage-t-de-witt/the-wedding-ring-a-series-of-discourses-for-husbands-and-wives-and-tho",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/talmage-t-de-witt/the-wedding-ring-a-series-of-discourses-for-husbands-and-wives-and-tho/output/Talmage%2C%20T.%20De%20Witt%3A%20The%20Wedding%20Ring%20A%20Series%20of%20Discourses%20for%20Husbands%20and%20Wives%20and%20Those%20Contemplating%20Matrimony.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Religion",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "the-life-of-st-teresa-of-jesus-of-the-order-of-our-lady-of-carmel",
+    "author_last": "Teresa",
+    "author_first": "of Avila, Saint",
+    "title": "The Life of St. Teresa of Jesus, of the Order of Our Lady of Carmel",
+    "translator": "David Lewis",
+    "original_date": "1588",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 8120,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/teresa-of-avila-saint/the-life-of-st-teresa-of-jesus-of-the-order-of-our-lady-of-carmel",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/teresa-of-avila-saint/the-life-of-st-teresa-of-jesus-of-the-order-of-our-lady-of-carmel/output/Teresa%2C%20of%20Avila%2C%20Saint%3A%20The%20Life%20of%20St.%20Teresa%20of%20Jesus%2C%20of%20the%20Order%20of%20Our%20Lady%20of%20Carmel.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "Spanish",
+      "Memoir",
+      "Women Writers",
+      "Translated"
+    ]
+  },
+  {
+    "id": "poine-a-study-in-ancient-greek-blood-vengeance",
+    "author_last": "Treston",
+    "author_first": "Hubert Joseph",
+    "title": "Poine: a Study in Ancient Greek Blood-vengeance",
+    "translator": "",
+    "original_date": "1923",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 69344,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/treston-hubert-joseph/poine-a-study-in-ancient-greek-blood-vengeance",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/treston-hubert-joseph/poine-a-study-in-ancient-greek-blood-vengeance/output/Treston%2C%20Hubert%20Joseph%3A%20Poine%3A%20a%20Study%20in%20Ancient%20Greek%20Blood-vengeance.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "Ancient World"
+    ]
+  },
+  {
+    "id": "the-united-states-bill-of-rights-the-ten-original-amendments-to-the-co",
+    "author_last": "United States",
+    "author_first": "",
+    "title": "The United States Bill of Rights The Ten Original Amendments to the Constitution of the United States",
+    "translator": "",
+    "original_date": "1791",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/united-states/the-united-states-bill-of-rights-the-ten-original-amendments-to-the-co",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/united-states/the-united-states-bill-of-rights-the-ten-original-amendments-to-the-co/output/United%20States%3A%20The%20United%20States%20Bill%20of%20Rights%20The%20Ten%20Original%20Amendments%20to%20the%20Constitution%20of%20the%20United%20States.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American",
+      "History",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-complete-golfer",
+    "author_last": "Vardon",
+    "author_first": "Harry",
+    "title": "The Complete Golfer",
+    "translator": "",
+    "original_date": "1905",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 28107,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/vardon-harry/the-complete-golfer",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/vardon-harry/the-complete-golfer/output/Vardon%2C%20Harry%3A%20The%20Complete%20Golfer.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "the-origin-and-development-of-the-moral-ideas",
+    "author_last": "Westermarck",
+    "author_first": "Edward",
+    "title": "The Origin and Development of the Moral Ideas",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 52106,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/westermarck-edward/the-origin-and-development-of-the-moral-ideas",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/westermarck-edward/the-origin-and-development-of-the-moral-ideas/output/Westermarck%2C%20Edward%3A%20The%20Origin%20and%20Development%20of%20the%20Moral%20Ideas.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "Philosophy"
+    ]
   }
 ]
