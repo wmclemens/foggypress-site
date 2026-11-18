@@ -50399,5 +50399,301 @@
       "Women Writers",
       "Politics & Society"
     ]
+  },
+  {
+    "id": "the-categories",
+    "author_last": "Aristotle",
+    "author_first": "",
+    "title": "The Categories",
+    "translator": "E. M. Edghill",
+    "original_date": "c. 350 BC",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2412,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/aristotle/the-categories",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/aristotle/the-categories/output/Aristotle%3A%20The%20Categories.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Ancient World",
+      "Classics",
+      "Philosophy",
+      "Short Reads",
+      "Translated"
+    ]
+  },
+  {
+    "id": "on-the-economy-of-machinery-and-manufactures",
+    "author_last": "Babbage",
+    "author_first": "Charles",
+    "title": "On the Economy of Machinery and Manufactures",
+    "translator": "",
+    "original_date": "1832",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 4238,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/babbage-charles/on-the-economy-of-machinery-and-manufactures",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/babbage-charles/on-the-economy-of-machinery-and-manufactures/output/Babbage%2C%20Charles%3A%20On%20the%20Economy%20of%20Machinery%20and%20Manufactures.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "British",
+      "Science"
+    ]
+  },
+  {
+    "id": "monopolies-and-the-people",
+    "author_last": "Baker",
+    "author_first": "Charles Whiting",
+    "title": "Monopolies and the People",
+    "translator": "",
+    "original_date": "1889",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21837,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/baker-charles-whiting/monopolies-and-the-people",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/baker-charles-whiting/monopolies-and-the-people/output/Baker%2C%20Charles%20Whiting%3A%20Monopolies%20and%20the%20People.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "American"
+    ]
+  },
+  {
+    "id": "the-burgess-animal-book-for-children",
+    "author_last": "Burgess",
+    "author_first": "Thornton W.",
+    "title": "The Burgess Animal Book for Children",
+    "translator": "",
+    "original_date": "1919",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2441,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burgess-thornton-w/the-burgess-animal-book-for-children",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burgess-thornton-w/the-burgess-animal-book-for-children/output/Burgess%2C%20Thornton%20W.%3A%20The%20Burgess%20Animal%20Book%20for%20Children.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Children's"
+    ]
+  },
+  {
+    "id": "successful-stock-speculation",
+    "author_last": "Butler",
+    "author_first": "John James",
+    "title": "Successful Stock Speculation",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 26841,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/butler-john-james/successful-stock-speculation",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/butler-john-james/successful-stock-speculation/output/Butler%2C%20John%20James%3A%20Successful%20Stock%20Speculation.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-american-frugal-housewife",
+    "author_last": "Child",
+    "author_first": "Lydia Maria",
+    "title": "The American Frugal Housewife",
+    "translator": "",
+    "original_date": "1829",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 13493,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/child-lydia-maria/the-american-frugal-housewife",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/child-lydia-maria/the-american-frugal-housewife/output/Child%2C%20Lydia%20Maria%3A%20The%20American%20Frugal%20Housewife.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-orbis-pictus",
+    "author_last": "Comenius",
+    "author_first": "Johann Amos",
+    "title": "The Orbis Pictus",
+    "translator": "Charles Hoole",
+    "original_date": "1658",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 28299,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/comenius-johann-amos/the-orbis-pictus",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/comenius-johann-amos/the-orbis-pictus/output/Comenius%2C%20Johann%20Amos%3A%20The%20Orbis%20Pictus.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-romance-of-mathematics",
+    "author_last": "Ditchfield",
+    "author_first": "P. H.",
+    "title": "The Romance of Mathematics",
+    "translator": "",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 26481,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ditchfield-p-h/the-romance-of-mathematics",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ditchfield-p-h/the-romance-of-mathematics/output/Ditchfield%2C%20P.%20H.%3A%20The%20Romance%20of%20Mathematics.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-language-of-flowers",
+    "author_last": "Dumont",
+    "author_first": "Henrietta",
+    "title": "The Language of Flowers",
+    "translator": "",
+    "original_date": "1851",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 71779,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dumont-henrietta/the-language-of-flowers",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dumont-henrietta/the-language-of-flowers/output/Dumont%2C%20Henrietta%3A%20The%20Language%20of%20Flowers.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-criminal-prosecution-and-capital-punishment-of-animals",
+    "author_last": "Evans",
+    "author_first": "E. P.",
+    "title": "The Criminal Prosecution and Capital Punishment of Animals",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 43286,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/evans-e-p/the-criminal-prosecution-and-capital-punishment-of-animals",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/evans-e-p/the-criminal-prosecution-and-capital-punishment-of-animals/output/Evans%2C%20E.%20P.%3A%20The%20Criminal%20Prosecution%20and%20Capital%20Punishment%20of%20Animals.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "the-psychology-of-management-the-function-of-the-mind-in-determining-t",
+    "author_last": "Gilbreth",
+    "author_first": "Lillian Moller",
+    "title": "The Psychology of Management The Function of the Mind in Determining, Teaching and Installing Methods of Least Waste",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 16256,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gilbreth-lillian-moller/the-psychology-of-management-the-function-of-the-mind-in-determining-t",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gilbreth-lillian-moller/the-psychology-of-management-the-function-of-the-mind-in-determining-t/output/Gilbreth%2C%20Lillian%20Moller%3A%20The%20Psychology%20of%20Management%20The%20Function%20of%20the%20Mind%20in%20Determining%2C%20Teaching%20and%20Installing%20Methods%20of%20Least%20Waste.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers",
+      "Economics"
+    ]
+  },
+  {
+    "id": "modern-magic",
+    "author_last": "Hoffmann",
+    "author_first": "Professor",
+    "title": "Modern Magic",
+    "translator": "",
+    "original_date": "1876",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 58057,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hoffmann-professor/modern-magic",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hoffmann-professor/modern-magic/output/Hoffmann%2C%20Professor%3A%20Modern%20Magic.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "plain-facts-for-old-and-young",
+    "author_last": "Kellogg",
+    "author_first": "John Harvey",
+    "title": "Plain Facts for Old and Young",
+    "translator": "",
+    "original_date": "1877",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 19924,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kellogg-john-harvey/plain-facts-for-old-and-young",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kellogg-john-harvey/plain-facts-for-old-and-young/output/Kellogg%2C%20John%20Harvey%3A%20Plain%20Facts%20for%20Old%20and%20Young.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "bibliomania-in-the-middle-ages",
+    "author_last": "Merryweather",
+    "author_first": "F. Somner",
+    "title": "Bibliomania in the Middle Ages",
+    "translator": "",
+    "original_date": "1849",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21630,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/merryweather-f-somner/bibliomania-in-the-middle-ages",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/merryweather-f-somner/bibliomania-in-the-middle-ages/output/Merryweather%2C%20F.%20Somner%3A%20Bibliomania%20in%20the%20Middle%20Ages.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "British"
+    ]
+  },
+  {
+    "id": "discovery-of-witches-the-wonderfull-discoverie-of-witches-in-the-count",
+    "author_last": "Potts",
+    "author_first": "Thomas, active 1612-1618",
+    "title": "Discovery of Witches The Wonderfull Discoverie of Witches in the Countie of Lancaster",
+    "translator": "",
+    "original_date": "1613",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 18253,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/potts-thomas-active-1612-1618/discovery-of-witches-the-wonderfull-discoverie-of-witches-in-the-count",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/potts-thomas-active-1612-1618/discovery-of-witches-the-wonderfull-discoverie-of-witches-in-the-count/output/Potts%2C%20Thomas%2C%20active%201612-1618%3A%20Discovery%20of%20Witches%20The%20Wonderfull%20Discoverie%20of%20Witches%20in%20the%20Countie%20of%20Lancaster.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "psychology-of-the-stock-market",
+    "author_last": "Selden",
+    "author_first": "G. C.",
+    "title": "Psychology of the Stock Market",
+    "translator": "",
+    "original_date": "1912",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 75570,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/selden-g-c/psychology-of-the-stock-market",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/selden-g-c/psychology-of-the-stock-market/output/Selden%2C%20G.%20C.%3A%20Psychology%20of%20the%20Stock%20Market.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "experiments",
+    "author_last": "Tesla",
+    "author_first": "Nikola",
+    "title": "Experiments",
+    "translator": "",
+    "original_date": "1892",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 13476,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/tesla-nikola/experiments",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/tesla-nikola/experiments/output/Tesla%2C%20Nikola%3A%20Experiments.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "english-composition-and-literature",
+    "author_last": "Webster",
+    "author_first": "W. F.",
+    "title": "English: Composition and Literature",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 28097,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/webster-w-f/english-composition-and-literature",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/webster-w-f/english-composition-and-literature/output/Webster%2C%20W.%20F.%3A%20English%3A%20Composition%20and%20Literature.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
   }
 ]
