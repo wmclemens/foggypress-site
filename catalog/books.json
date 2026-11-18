@@ -50145,5 +50145,259 @@
       "British",
       "Short Reads"
     ]
+  },
+  {
+    "id": "shelters-shacks-and-shanties",
+    "author_last": "Beard",
+    "author_first": "Daniel Carter",
+    "title": "Shelters, Shacks and Shanties",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 28255,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/beard-daniel-carter/shelters-shacks-and-shanties",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/beard-daniel-carter/shelters-shacks-and-shanties/output/Beard%2C%20Daniel%20Carter%3A%20Shelters%2C%20Shacks%20and%20Shanties.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Children's"
+    ]
+  },
+  {
+    "id": "cuore-heart",
+    "author_last": "De Amicis",
+    "author_first": "Edmondo",
+    "title": "Cuore (Heart)",
+    "translator": "Isabel Florence Hapgood",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 28961,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/de-amicis-edmondo/cuore-heart",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/de-amicis-edmondo/cuore-heart/output/De%20Amicis%2C%20Edmondo%3A%20Cuore%20%28Heart%29.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Italian",
+      "Children's",
+      "Novels",
+      "Translated"
+    ]
+  },
+  {
+    "id": "wee-tim-rous-beasties",
+    "author_last": "English",
+    "author_first": "Douglas",
+    "title": "\"Wee Tim'rous Beasties\"",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22129,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/english-douglas/wee-tim-rous-beasties",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/english-douglas/wee-tim-rous-beasties/output/English%2C%20Douglas%3A%20%22Wee%20Tim%27rous%20Beasties%22.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "astronomy-for-amateurs",
+    "author_last": "Flammarion",
+    "author_first": "Camille",
+    "title": "Astronomy for Amateurs",
+    "translator": "Frances A. Welby",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 25267,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/flammarion-camille/astronomy-for-amateurs",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/flammarion-camille/astronomy-for-amateurs/output/Flammarion%2C%20Camille%3A%20Astronomy%20for%20Amateurs.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "steam-ships",
+    "author_last": "Fletcher",
+    "author_first": "R. A.",
+    "title": "Steam-ships",
+    "translator": "",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 72847,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/fletcher-r-a/steam-ships",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/fletcher-r-a/steam-ships/output/Fletcher%2C%20R.%20A.%3A%20Steam-ships.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Sea & Ships",
+      "History"
+    ]
+  },
+  {
+    "id": "miss-pat-at-artemis-lodge",
+    "author_last": "Ginther",
+    "author_first": "Pemberton",
+    "title": "Miss Pat at Artemis Lodge",
+    "translator": "",
+    "original_date": "1919",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22244,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ginther-pemberton/miss-pat-at-artemis-lodge",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ginther-pemberton/miss-pat-at-artemis-lodge/output/Ginther%2C%20Pemberton%3A%20Miss%20Pat%20at%20Artemis%20Lodge.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "American",
+      "Women Writers",
+      "Novels"
+    ]
+  },
+  {
+    "id": "psychopathia-sexualis",
+    "author_last": "Krafft-Ebing",
+    "author_first": "R. von",
+    "title": "Psychopathia Sexualis",
+    "translator": "Charles Gilbert Chaddock",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 64931,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/krafft-ebing-r-von/psychopathia-sexualis",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/krafft-ebing-r-von/psychopathia-sexualis/output/Krafft-Ebing%2C%20R.%20von%3A%20Psychopathia%20Sexualis.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "German",
+      "Science",
+      "Translated"
+    ]
+  },
+  {
+    "id": "a-contribution-to-the-critique-of-political-economy",
+    "author_last": "Marx",
+    "author_first": "Karl",
+    "title": "A Contribution to the Critique of Political Economy",
+    "translator": "N. I. Stone",
+    "original_date": "1859",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 46423,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/marx-karl/a-contribution-to-the-critique-of-political-economy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/marx-karl/a-contribution-to-the-critique-of-political-economy/output/Marx%2C%20Karl%3A%20A%20Contribution%20to%20the%20Critique%20of%20Political%20Economy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "bell-s-cathedrals",
+    "author_last": "Massé",
+    "author_first": "H. J. L. J.",
+    "title": "Bell's Cathedrals",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 25682,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/masse-h-j-l-j/bell-s-cathedrals",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/masse-h-j-l-j/bell-s-cathedrals/output/Mass%C3%A9%2C%20H.%20J.%20L.%20J.%3A%20Bell%27s%20Cathedrals.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "History"
+    ]
+  },
+  {
+    "id": "letters-of-felix-mendelssohn-bartholdy-from-1833-to-1847",
+    "author_last": "Mendelssohn-Bartholdy",
+    "author_first": "Felix",
+    "title": "Letters of Felix Mendelssohn-Bartholdy from 1833 to 1847",
+    "translator": "Grace, Lady Wallace",
+    "original_date": "1863",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 50473,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mendelssohn-bartholdy-felix/letters-of-felix-mendelssohn-bartholdy-from-1833-to-1847",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mendelssohn-bartholdy-felix/letters-of-felix-mendelssohn-bartholdy-from-1833-to-1847/output/Mendelssohn-Bartholdy%2C%20Felix%3A%20Letters%20of%20Felix%20Mendelssohn-Bartholdy%20from%201833%20to%201847.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "German",
+      "Memoir",
+      "Translated"
+    ]
+  },
+  {
+    "id": "wagner-as-man-artist",
+    "author_last": "Newman",
+    "author_first": "Ernest",
+    "title": "Wagner as Man & Artist",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 58068,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/newman-ernest/wagner-as-man-artist",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/newman-ernest/wagner-as-man-artist/output/Newman%2C%20Ernest%3A%20Wagner%20as%20Man%20%26%20Artist.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "British"
+    ]
+  },
+  {
+    "id": "ocean-steam-navigation-and-the-ocean-post",
+    "author_last": "Rainey",
+    "author_first": "Thomas",
+    "title": "Ocean Steam Navigation and the Ocean Post",
+    "translator": "",
+    "original_date": "1858",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 25104,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/rainey-thomas/ocean-steam-navigation-and-the-ocean-post",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/rainey-thomas/ocean-steam-navigation-and-the-ocean-post/output/Rainey%2C%20Thomas%3A%20Ocean%20Steam%20Navigation%20and%20the%20Ocean%20Post.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Sea & Ships"
+    ]
+  },
+  {
+    "id": "the-history-of-prostitution",
+    "author_last": "Sanger",
+    "author_first": "William W.",
+    "title": "The History of Prostitution",
+    "translator": "",
+    "original_date": "1858",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41873,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/sanger-william-w/the-history-of-prostitution",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/sanger-william-w/the-history-of-prostitution/output/Sanger%2C%20William%20W.%3A%20The%20History%20of%20Prostitution.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "the-itching-palm",
+    "author_last": "Scott",
+    "author_first": "William R.",
+    "title": "The Itching Palm",
+    "translator": "",
+    "original_date": "1916",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 33170,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/scott-william-r/the-itching-palm",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/scott-william-r/the-itching-palm/output/Scott%2C%20William%20R.%3A%20The%20Itching%20Palm.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "eighty-years-and-more",
+    "author_last": "Stanton",
+    "author_first": "Elizabeth Cady",
+    "title": "Eighty Years and More",
+    "translator": "",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 11982,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/stanton-elizabeth-cady/eighty-years-and-more",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/stanton-elizabeth-cady/eighty-years-and-more/output/Stanton%2C%20Elizabeth%20Cady%3A%20Eighty%20Years%20and%20More.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Memoir",
+      "Women Writers",
+      "Politics & Society"
+    ]
   }
 ]
