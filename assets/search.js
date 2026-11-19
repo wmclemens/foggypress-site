@@ -192,6 +192,23 @@
       var rx = new RegExp('(?:^|[^a-z0-9])(' + toks.map(rxEsc).join('[^a-z0-9]+') + ')', 'g');
       return marked(text, findAll(String(text || ''), rx));
     }
+    // authors: "Jane Austen", "Austen Jane" and "austen, jane" all name Jane Austen. A query that names an author
+    // in either order (middle initials may be left out) is an exact author match: that author comes first, and
+    // their books lead the titles and the books found inside.
+    function nameWords(b) {
+      var all = words(b.a), last = words(b.al);
+      var first = b.af != null ? words(b.af) : all.slice(0, Math.max(0, all.length - last.length));
+      return {all: all, rev: last.concat(first)};
+    }
+    function authorHit(b, ws) {
+      if (!b.a || !ws.length) return 0;
+      var nw = nameWords(b), cut = function (a) { return a.filter(function (w) { return w.length > 1; }); };
+      var q = cut(ws), n = cut(nw.all);
+      // exact: the same words as the name, in either order, give or take the initials
+      if (q.length && q.length === n.length && (q.join(' ') === n.join(' ') || q.join(' ') === cut(nw.rev).join(' ')) &&
+          ws.every(function (w) { return nw.all.indexOf(w) >= 0 || (w.length === 1 && n.some(function (x) { return x[0] === w; })); })) return 2;
+      return hasPhrase(b.a, ws) || hasPhrase(nw.rev.join(' '), ws) ? 1 : 0;
+    }
     function sortT(t) { return t.replace(/^(The|A|An) /, '').toLowerCase(); }
     // counted phrases: the English key is "{n} books"; translations pick their own plural form
     function plural(n, one, many) { return T(n === 1 ? '{n} ' + one : '{n} ' + many, {n: n}); }
@@ -227,20 +244,31 @@
         var books = got[0], tags = got[1];
         if (my !== run) return;
         var byT = function (a, b) { return sortT(a.t).localeCompare(sortT(b.t), 'en', {numeric: true}); };
-        var am = {};
-        books.forEach(function (b) { if (b.a && hasPhrase(b.a, ws)) (am[b.a] = am[b.a] || {last: b.al, b: []}).b.push(b); });
-        var authors = Object.keys(am).sort(function (a, b) { return am[a].last.localeCompare(am[b].last, 'en', {numeric: true}) || a.localeCompare(b, 'en', {numeric: true}); });
-        var titles = books.filter(function (b) { return hasPhrase(b.t, ws); }).sort(byT);
+        var am = {}, mine = {};
+        books.forEach(function (b, i) {
+          var h = authorHit(b, ws);
+          if (!h) return;
+          var e = am[b.a] = am[b.a] || {last: b.al, b: [], x: 0};
+          e.b.push(b);
+          if (h === 2) { e.x = 1; mine[i] = 1; }
+        });
+        var authors = Object.keys(am).sort(function (a, b) { return (am[b].x - am[a].x) || am[a].last.localeCompare(am[b].last, 'en', {numeric: true}) || a.localeCompare(b, 'en', {numeric: true}); });
+        var exact = authors.filter(function (a) { return am[a].x; });
+        var isMine = function (b) { return am[b.a] && am[b.a].x ? 1 : 0; };
+        var titles = books.filter(function (b) { return hasPhrase(b.t, ws); }).sort(function (a, b) { return (isMine(b) - isMine(a)) || byT(a, b); });
         var colls = tags.filter(function (g) { return hasPhrase(g.n, ws); });
         // no book by that title or author: readers with accounts can ask for it (Build me a book, /request/)
-        var ask = !titles.length && !authors.length && document.querySelector('meta[name="fp-account"]')
+        var ask = !titles.length && !authors.length && !exact.length && document.querySelector('meta[name="fp-account"]')
           ? '<p class="sub reqhint">' + T('Not on Foggy Press yet?') + ' <a href="' + BASE + 'request/?title=' + encodeURIComponent(q) + '">' + T('Request this book') + ' →</a></p>' : '';
         var top = head + '<h1 lang="">“' + esc(q) + '”</h1><p class="sub" id="sr-sum"></p>' + ask + '</div>';
         var body = '';
         if (authors.length) body += '<section class="rgroup"><div class="sec-h"><h2>' + T('Authors') + '</h2><span class="eyebrow">' + authors.length + '</span></div><ul class="authors">' +
           authors.map(function (a) {
             var bs = am[a].b.slice().sort(byT);
-            return '<li class="au"><span class="n">' + hl(a, ws) + '</span><span class="c mono">' + plural(bs.length, 'book', 'books') + '</span><span class="bk">' +
+            // the author's place on the By author page: build.py slugify(last + ' ' + first)
+            var b0 = am[a].b[0], fst = b0.af != null ? b0.af : b0.a.slice(-b0.al.length) === b0.al ? b0.a.slice(0, b0.a.length - b0.al.length).trim() : '';
+            var aid = (b0.al + ' ' + fst).toLowerCase().replace(/&/g, 'and').replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            return '<li class="au' + (am[a].x ? ' exact' : '') + '"><a class="n" href="' + BASE + 'authors/#' + esc(aid) + '">' + (am[a].x ? esc(a) : hl(a, ws)) + '</a><span class="c mono">' + plural(bs.length, 'book', 'books') + '</span><span class="bk">' +
               bs.map(function (b) { return '<a href="' + esc(mainHref(b)) + '">' + esc(b.t) + '</a>'; }).join('') + '</span></li>';
           }).join('') + '</ul></section>';
         if (colls.length) body += '<section class="rgroup"><div class="sec-h"><h2>' + T('Collections') + '</h2><span class="eyebrow">' + colls.length + '</span></div><div class="taglist">' +
@@ -262,6 +290,8 @@
         fullText(ws).then(function (res) {
           if (my !== run) return;
           res = res || [];
+          // an exact author match: that author's own books first, then the rest by mentions
+          if (exact.length) res = res.filter(function (r) { return mine[r.book]; }).concat(res.filter(function (r) { return !mine[r.book]; }));
           logSearch(q, res.length + authors.length + titles.length + colls.length);
           var sec = document.getElementById('sr-in');
           sum(res.length);

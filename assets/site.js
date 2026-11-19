@@ -53,6 +53,25 @@ document.addEventListener('click', function (e) {
     drawBooks();
   }
 
+  // the By author page: each author's titles are folded under the name; open one, or all, or the one in the link (#austen-jane)
+  var auAll = document.getElementById('au-all');
+  if (auAll) {
+    var groups = Array.prototype.slice.call(document.querySelectorAll('details.augrp'));
+    var setAll = function (open) {
+      groups.forEach(function (d) { d.open = open; });
+      auAll.dataset.open = open ? '1' : '';
+      auAll.setAttribute('data-t', open ? 'Collapse all' : 'Expand all');
+      auAll.textContent = T(open ? 'Collapse all' : 'Expand all');
+    };
+    auAll.addEventListener('click', function () { setAll(!auAll.dataset.open); });
+    var openHash = function () {
+      var d = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (d && d.tagName === 'DETAILS') { d.open = true; d.scrollIntoView(); }
+    };
+    window.addEventListener('hashchange', openHash);
+    openHash();
+  }
+
   var grid = document.getElementById('colls');
   if (!grid) return;
   var per = +grid.dataset.page || 25, shown = per;
