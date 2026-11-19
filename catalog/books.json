@@ -54399,5 +54399,94 @@
       "British",
       "Victorian"
     ]
+  },
+  {
+    "id": "origin-of-cultivated-plants",
+    "author_last": "Candolle",
+    "author_first": "Alphonse de",
+    "title": "Origin of Cultivated Plants",
+    "translator": "",
+    "original_date": "1883",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 45917,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/candolle-alphonse-de/origin-of-cultivated-plants",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/candolle-alphonse-de/origin-of-cultivated-plants/output/Candolle%2C%20Alphonse%20de%3A%20Origin%20of%20Cultivated%20Plants.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Science",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "report-on-the-radiolaria-collected-by-h-m-s-challenger-during-the-year",
+    "author_last": "Haeckel",
+    "author_first": "Ernst",
+    "title": "Report on the Radiolaria Collected by H.M.S. Challenger During the Years 1873-1876",
+    "translator": "",
+    "original_date": "1887",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 44525,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/haeckel-ernst/report-on-the-radiolaria-collected-by-h-m-s-challenger-during-the-year",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/haeckel-ernst/report-on-the-radiolaria-collected-by-h-m-s-challenger-during-the-year/output/Haeckel%2C%20Ernst%3A%20Report%20on%20the%20Radiolaria%20Collected%20by%20H.M.S.%20Challenger%20During%20the%20Years%201873-1876.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "German",
+      "Sea & Ships"
+    ]
+  },
+  {
+    "id": "hegel-s-lectures-on-the-history-of-philosophy",
+    "author_last": "Hegel",
+    "author_first": "Georg Wilhelm Friedrich",
+    "title": "Hegel's Lectures on the History of Philosophy",
+    "translator": "Elizabeth Sanderson Haldane, Frances H. Simson",
+    "original_date": "1833",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 58169,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hegel-georg-wilhelm-friedrich/hegel-s-lectures-on-the-history-of-philosophy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hegel-georg-wilhelm-friedrich/hegel-s-lectures-on-the-history-of-philosophy/output/Hegel%2C%20Georg%20Wilhelm%20Friedrich%3A%20Hegel%27s%20Lectures%20on%20the%20History%20of%20Philosophy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "Philosophy",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "a-history-of-the-inquisition-of-the-middle-ages",
+    "author_last": "Lea",
+    "author_first": "Henry Charles",
+    "title": "A History of the Inquisition of the Middle Ages",
+    "translator": "",
+    "original_date": "1888",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 39580,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lea-henry-charles/a-history-of-the-inquisition-of-the-middle-ages",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lea-henry-charles/a-history-of-the-inquisition-of-the-middle-ages/output/Lea%2C%20Henry%20Charles%3A%20A%20History%20of%20the%20Inquisition%20of%20the%20Middle%20Ages.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "Religion",
+      "American"
+    ]
+  },
+  {
+    "id": "london-and-the-kingdom",
+    "author_last": "Sharpe",
+    "author_first": "Reginald R.",
+    "title": "London and the Kingdom",
+    "translator": "",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 20990,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/sharpe-reginald-r/london-and-the-kingdom",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/sharpe-reginald-r/london-and-the-kingdom/output/Sharpe%2C%20Reginald%20R.%3A%20London%20and%20the%20Kingdom.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Victorian"
+    ]
   }
 ]
