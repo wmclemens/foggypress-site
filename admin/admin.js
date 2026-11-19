@@ -18,6 +18,10 @@
   var KEY = 'fp-admin-token';
 
   var $ = function (s) { return document.querySelector(s); };
+  // "?" notes (less busy, 19 Nov 2026): how-it-works and setup notes sit behind a "?" beside their heading;
+  // assets/site.js opens and closes them. html is trusted admin text.
+  var helpN = 0;
+  var help = function (html, label) { helpN++; return window.fpHelp ? window.fpHelp('a' + helpN, label || 'About this', [html]) : ''; };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); };
   var slugify = function (s) { return s.toLowerCase().replace(/&/g, 'and').replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); };
   var sortTitle = function (t) { return t.replace(/^(The|A|An) /, ''); };
@@ -194,9 +198,8 @@
       f('id', 'Web address', 'text', isNew ? 'Used in links: /read/<id>/ and the PDF file name <id>.pdf. Filled from the title.' : 'Changing this breaks old links and resets the book’s download count.') +
       f('github_dir', 'GitHub directory link', 'url', '', true) +
       f('github_pdf', 'GitHub PDF link', 'url', 'Admin only. Visitors get the site’s own copy of this PDF.', true) +
-      '<div class="fld full"><label for="tagin">Tags</label><div class="picker" id="picker"><span class="chips" id="tagchips"></span>' +
-      '<input id="tagin" type="text" placeholder="Type to add a tag" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sugg"><div class="sugg" id="sugg" hidden></div></div>' +
-      '<span class="hint">Checked against the tag file as you type. “Create new tag” adds it to the tag file when you save.</span></div>' +
+      '<div class="fld full"><label for="tagin">Tags' + help('Checked against the tag file as you type. “Create new tag” adds it to the tag file when you save.') + '</label><div class="picker" id="picker"><span class="chips" id="tagchips"></span>' +
+      '<input id="tagin" type="text" placeholder="Type to add a tag" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sugg"><div class="sugg" id="sugg" hidden></div></div></div>' +
       '</div>' +
       '<div class="saverow"><button class="btn" id="save" type="button">' + (isNew ? 'Add to catalog' : 'Save record') + '</button><a class="btn ghost" href="#">Cancel</a>' +
       (isNew ? '' : '<span class="confirm" id="delwrap"><button class="star danger" id="del" type="button">Remove from catalog</button></span>') + '<span class="note" id="savenote"></span></div>';
@@ -384,7 +387,7 @@
     opts = opts || {};
     rows = (rows || []).filter(function (r) { return r[1] > 0; }).slice(0, opts.max || 10);
     var top = rows.reduce(function (m, r) { return Math.max(m, r[1]); }, 0) || 1;
-    return '<section class="rp-card' + (opts.wide ? ' wide' : '') + '"><h2>' + esc(title) + '</h2>' + (opts.note ? '<p class="note">' + opts.note + '</p>' : '') +
+    return '<section class="rp-card' + (opts.wide ? ' wide' : '') + '"><h2>' + esc(title) + (opts.note ? help(opts.note) : '') + '</h2>' +
       (rows.length ? '<table class="rk"><tbody>' + rows.map(function (r) {
         return '<tr><td class="rk-n" title="' + esc(r[0]) + '">' + esc(opts.label ? opts.label(r[0]) : r[0]) + '</td><td class="rk-b"><span style="width:' + Math.max(2, Math.round(r[1] / top * 100)) + '%"></span></td><td class="num">' + num(r[1]) + '</td></tr>';
       }).join('') + '</tbody></table>' : '<p class="note">Nothing yet.</p>') + '</section>';
@@ -408,7 +411,7 @@
     var g = r.goatcounter, c = r.cloudflare, f = {};
     ((g && g.features) || []).forEach(function (x) { f[x[0]] = x[1]; });
     var tile = function (label, v, sub) { return '<div class="rp-tile"><span class="mono">' + esc(label) + '</span><b>' + (v == null ? '–' : typeof v === 'string' ? esc(v) : num(v)) + '</b>' + (sub ? '<span class="note">' + sub + '</span>' : '') + '</div>'; };
-    var h = tabs('reports') + '<div class="rp-head"><p class="note">' + (g ? 'Last 30 days (' + esc(fmtDay(g.start)) + ' to ' + esc(fmtDay(g.end)) + '). ' : '') + 'Updated with each site build, last ' + esc((r.built || '').replace('T', ' ')) + ' UTC. Counts come from GoatCounter, which leaves out known bots.</p></div>';
+    var h = tabs('reports') + '<div class="rp-head"><p class="note">' + (g ? 'Last 30 days (' + esc(fmtDay(g.start)) + ' to ' + esc(fmtDay(g.end)) + '). ' : '') + 'Updated with each site build, last ' + esc((r.built || '').replace('T', ' ')) + ' UTC.' + help('Counts come from GoatCounter, which leaves out known bots.') + '</p></div>';
     if (r.missing && r.missing.length) h += '<div class="banner"><b>Not included this time</b><ul>' + r.missing.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul></div>';
     if (g) {
       h += '<div class="rp-tiles">' + tile('Visitors', g.visitors) + tile('Read-online views', f['Read-online page views']) + tile('PDF downloads', f['PDF downloads']) + tile('EPUB downloads', f['EPUB downloads']) + tile('Searches', f['Searches'] || 0, f['Searches that found nothing'] ? num(f['Searches that found nothing']) + ' found nothing' : '') + '</div>';
@@ -427,27 +430,24 @@
       h += '<h2 class="rp-sec">Reader accounts</h2><div class="rp-tiles">' + tile('Accounts', a.accounts) + tile('New in 7 days', a.new_7d) + tile('Active in 30 days', a.active_30d) + tile('Saved books', a.favorites) + tile('Reading lists', a.lists, num(a.list_items) + ' books on lists') + '</div>' +
         '<div class="rp-grid">' + ranked('Most-saved books', (a.top_saved || []).map(function (x) { return [titleOf(x[0]), x[1]]; }), {max: 20, note: 'Totals only: who saved what is never shown here.'}) + '</div>';
       if (a.requests_waiting != null) {
-        h += '<h2 class="rp-sec">Book requests</h2><div class="rp-tiles">' + tile('Waiting or being built', a.requests_waiting) + tile('Published', a.requests_published) + tile('Not possible', a.requests_declined) + '</div>' +
-          '<p class="note">Readers ask on /request/. Each night the books repository picks up new requests, builds the ones it can from approved sources, and emails the reader. The list itself is in foggy-press-files, requests/queue.json.</p>';
+        h += '<h2 class="rp-sec">Book requests' + help('Readers ask on /request/. Each night the books repository picks up new requests, builds the ones it can from approved sources, and emails the reader. The list itself is in foggy-press-files, requests/queue.json.') + '</h2><div class="rp-tiles">' + tile('Waiting or being built', a.requests_waiting) + tile('Published', a.requests_published) + tile('Not possible', a.requests_declined) + '</div>';
       }
       if (a.ask_cap != null) {
         var cost = Number(a.ask_cost_month || 0), cap = Number(a.ask_cap || 0);
-        h += '<h2 class="rp-sec">Ask Foggy Press</h2><div class="rp-tiles">' + tile('Questions in 30 days', a.ask_30d) + tile('People asking, 30 days', a.ask_askers_30d) +
-          tile('Spent this month', '$' + cost.toFixed(2), 'of the $' + cap.toFixed(2) + ' monthly cap' + (cap && cost >= cap ? ': Ask is paused' : '')) + tile('Saved chats', a.chats) + '</div>' +
-          '<p class="note">Change the daily limit or the monthly cap in Supabase: Table Editor → ask_config. Questions and answers are never shown here.</p>';
+        h += '<h2 class="rp-sec">Ask Foggy Press' + help('Change the daily limit or the monthly cap in Supabase: Table Editor → ask_config. Questions and answers are never shown here.') + '</h2><div class="rp-tiles">' + tile('Questions in 30 days', a.ask_30d) + tile('People asking, 30 days', a.ask_askers_30d) +
+          tile('Spent this month', '$' + cost.toFixed(2), 'of the $' + cap.toFixed(2) + ' monthly cap' + (cap && cost >= cap ? ': Ask is paused' : '')) + tile('Saved chats', a.chats) + '</div>';
       }
     }
     h += '<div class="rp-grid">';
     if (c) {
       var tot = (c.people + c.bots) || 1;
-      h += '<section class="rp-card"><h2>files.foggypress.com requests: people and bots</h2><p class="note">' + esc(c.host) + ', last 7 days, from Cloudflare. Bots are requests whose browser name says crawler, bot, script and the like.</p>' +
+      h += '<section class="rp-card"><h2>files.foggypress.com requests: people and bots' + help('Bots are requests whose browser name says crawler, bot, script and the like.</span><span>Bots may read the read-online pages here, but PDF and EPUB downloads refuse them (Cloudflare rule from build/cloudflare_rules.py).') + '</h2><p class="note">' + esc(c.host) + ', last 7 days, from Cloudflare.</p>' +
         '<div class="split"><span style="width:' + Math.round(c.people / tot * 100) + '%"></span></div>' +
         '<table class="rk"><tbody><tr><td class="rk-n">People</td><td class="num">' + num(c.people) + ' (' + Math.round(c.people / tot * 100) + '%)</td></tr><tr><td class="rk-n">Bots</td><td class="num">' + num(c.bots) + ' (' + Math.round(c.bots / tot * 100) + '%)</td></tr>' +
-        (c.blocked != null ? '<tr><td class="rk-n">Bot requests refused</td><td class="num">' + num(c.blocked) + '</td></tr>' : '') + '</tbody></table>' +
-        '<p class="note">Bots may read the read-online pages here, but PDF and EPUB downloads refuse them (Cloudflare rule from build/cloudflare_rules.py).</p></section>' +
+        (c.blocked != null ? '<tr><td class="rk-n">Bot requests refused</td><td class="num">' + num(c.blocked) + '</td></tr>' : '') + '</tbody></table></section>' +
         ranked('Busiest bots', c.bot_agents) + ranked('People’s countries (downloads)', c.countries);
     } else {
-      h += '<section class="rp-card"><h2>PDF and EPUB requests: people and bots</h2><p class="note">Not connected yet. Pages on GitHub keep no visit logs, so bots can only be counted for the PDFs and EPUBs, which Cloudflare serves. To turn this on: in Cloudflare, My Profile → API Tokens → Create token → “Read analytics and logs” template, limited to the foggypress.com zone. Add it to the foggypress-site repository as the secret <span class="mono">CLOUDFLARE_API_TOKEN</span>, and the zone ID (on the foggypress.com Overview page) as <span class="mono">CLOUDFLARE_ZONE_ID</span>.</p></section>';
+      h += '<section class="rp-card"><h2>PDF and EPUB requests: people and bots' + help('Pages on GitHub keep no visit logs, so bots can only be counted for the PDFs and EPUBs, which Cloudflare serves. To turn this on: in Cloudflare, My Profile → API Tokens → Create token → “Read analytics and logs” template, limited to the foggypress.com zone. Add it to the foggypress-site repository as the secret <span class="mono">CLOUDFLARE_API_TOKEN</span>, and the zone ID (on the foggypress.com Overview page) as <span class="mono">CLOUDFLARE_ZONE_ID</span>.', 'How to connect it') + '</h2><p class="note">Not connected yet.</p></section>';
     }
     h += '</div>';
     $('#app').innerHTML = h;
@@ -511,18 +511,17 @@
     var PL = {home: 'Home page', ask: 'Ask page', book: 'A book’s read page', article: 'A Britannica article'};
     h += '<div class="rp-grid">' + ranked('Where people ask', Object.keys(d.places || {}).map(function (k) { return [PL[k] || k, d.places[k]]; }).sort(function (a, b) { return b[1] - a[1]; })) +
       ranked('Books and articles asked about', (d.books || []).map(function (x) { return [titleOf(x[0]), x[1]]; }), {max: 15, note: 'Chats started from a book or article page.'}) +
-      '<section class="rp-card"><h2>Limits</h2><table class="rk"><tbody>' +
+      '<section class="rp-card"><h2>Limits' + help('Change these in Supabase: Table Editor → ask_config. A guest limit of 0 means only signed-in readers can ask.') + '</h2><table class="rk"><tbody>' +
       '<tr><td class="rk-n">Questions a day, signed in</td><td class="num">' + num(cfg.daily_limit) + '</td></tr>' +
       '<tr><td class="rk-n">Questions a day, guest</td><td class="num">' + (cfg.guest_daily_limit == null ? '–' : num(cfg.guest_daily_limit)) + '</td></tr>' +
       '<tr><td class="rk-n">All guests together, a day</td><td class="num">' + (cfg.guests_daily_cap == null ? '–' : num(cfg.guests_daily_cap)) + '</td></tr>' +
-      '<tr><td class="rk-n">Monthly spending cap</td><td class="num">$' + cap.toFixed(2) + '</td></tr></tbody></table>' +
-      '<p class="note">Change these in Supabase: Table Editor → ask_config. A guest limit of 0 means only signed-in readers can ask.</p></section></div>';
+      '<tr><td class="rk-n">Monthly spending cap</td><td class="num">$' + cap.toFixed(2) + '</td></tr></tbody></table></section></div>';
     // the rated answers
     var all = d.rated || [], list = all.filter(function (r) { return chatFilter === 'all' || (chatFilter === 'down' ? r.rating < 0 : r.rating > 0); });
-    h += '<h2 class="rp-sec">Rated answers</h2><div class="rp-head" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><div class="seg" role="group" aria-label="Show">' +
+    h += '<h2 class="rp-sec">Rated answers' + help('The question and the answer, never who asked. The latest 200.') + '</h2><div class="rp-head" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><div class="seg" role="group" aria-label="Show">' +
       [['down', 'Thumbs down (' + all.filter(function (r) { return r.rating < 0; }).length + ')'], ['up', 'Thumbs up (' + all.filter(function (r) { return r.rating > 0; }).length + ')'], ['all', 'All']].map(function (o) {
         return '<button type="button" data-cf="' + o[0] + '" aria-pressed="' + (chatFilter === o[0]) + '">' + esc(o[1]) + '</button>';
-      }).join('') + '</div><p class="note">The question and the answer, never who asked. The latest 200.</p></div>' +
+      }).join('') + '</div></div>' +
       (list.length ? '<div class="rated">' + list.map(function (r) {
         return '<details class="rated-i"><summary><span class="rv ' + (r.rating > 0 ? 'up' : 'down') + '">' + (r.rating > 0 ? '👍' : '👎') + '</span><span class="rq">' + esc(r.question || '(question not found)') + '</span>' +
           '<span class="mono rd">' + esc(new Date(r.rated_at).toLocaleDateString(undefined, {month: 'short', day: 'numeric'})) + (r.guest ? ' · guest' : '') + (r.book_id ? ' · ' + esc(titleOf(r.book_id)) : '') + '</span></summary>' +

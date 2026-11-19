@@ -469,3 +469,43 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 .reqhint a{color:var(--accent)}
 .reqlink{margin:0}
 @media (max-width:560px){.req{grid-template-columns:minmax(0,1fr)}.req .st,.req .linkish{grid-column:1;grid-row:auto;text-align:left;justify-self:start}}
+
+/* "?" help: a small round button beside a heading that opens a short note on tap or click (works on phones,
+   where hover doesn't). site.js opens and closes it; Esc or a tap outside closes it. */
+.qwrap{position:relative;display:inline-block;vertical-align:middle;margin-inline-start:.45rem;line-height:1}
+.qm{display:inline-flex;align-items:center;justify-content:center;width:1.25rem;height:1.25rem;padding:0;border-radius:50%;
+  border:1px solid var(--line-2);background:transparent;color:var(--muted);font:500 .7rem/1 var(--mono);letter-spacing:0;text-transform:none;position:relative;top:-.1em}
+.qm::before{content:"";position:absolute;inset:-.6rem}   /* a bigger target for fingers */
+.qm:hover{border-color:var(--accent);color:var(--accent)}
+.qm[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.qpop{position:absolute;z-index:40;top:calc(100% + .55rem);left:-.75rem;width:min(20rem,calc(100vw - 32px));
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-2);border-radius:12px;box-shadow:0 10px 30px rgba(11,19,32,.14);
+  padding:.85rem 2.2rem .9rem 1rem;font:400 .88rem/1.5 var(--sans);letter-spacing:0;text-transform:none;text-align:start;white-space:normal;text-wrap:wrap;display:grid;gap:.5rem}
+.qpop a{color:var(--accent)}
+.qpop .qx{position:absolute;top:.45rem;right:.45rem;border:0;background:none;color:var(--faint);font-size:1.05rem;line-height:1;padding:.25rem .4rem}
+.qpop .qx:hover{color:var(--ink)}
+[dir="rtl"] .qpop .qx{right:auto;left:.45rem}
+[dir="rtl"] .qpop{padding:.85rem 1rem .9rem 2.2rem}
+
+/* less busy (19 Nov 2026): descriptions in book lists take one line (two on phones); the full sentence is on the read page */
+.rec .d{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;line-clamp:1;overflow:hidden}
+@media (max-width:760px){
+  .rec .d{-webkit-line-clamp:2;line-clamp:2}
+  /* phones: Save shows as just the star so a book's buttons fit on one row */
+  .rec .acts .savebox{padding:.3rem .55rem}
+  .rec .acts .act{padding:.35rem .65rem;margin-right:.35rem}
+  .rec .acts .savebox .star .lb{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+.cmeta a{color:inherit}
+.cmeta a:hover{color:var(--accent)}
+
+/* read pages: Dark mode and the language menu sit in one small "Aa" menu in the top bar */
+.rb-menu{position:relative}
+.rb-menu>summary{list-style:none;cursor:pointer;font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--muted);
+  border:1px solid var(--line-2);border-radius:999px;padding:.12rem .6rem;line-height:1.4}
+.rb-menu>summary::-webkit-details-marker{display:none}
+.rb-menu>summary:hover,.rb-menu[open]>summary{color:var(--ink);border-color:var(--accent)}
+.rb-menu .rb-pop{position:absolute;right:0;top:calc(100% + .5rem);z-index:20;display:grid;gap:.75rem;justify-items:start;min-width:11rem;
+  background:var(--surface);border:1px solid var(--line-2);border-radius:12px;box-shadow:0 10px 30px rgba(11,19,32,.14);padding:.85rem 1rem}
+[dir="rtl"] .rb-menu .rb-pop{right:auto;left:0}
+.rb-menu .rb-pop .langpick select{max-width:none}

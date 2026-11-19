@@ -263,8 +263,20 @@ Muitas pessoas estão perguntando hoje.
 Entre para continuar perguntando, ou volte amanhã.
 Abrir a página Perguntar
 Não conseguimos verificar este navegador. Tente de novo.
+Entre para perguntar mais
+Peça uma recomendação, a explicação de um livro ou ajuda para encontrar um trecho.
+As respostas são escritas por IA apenas a partir dos {n} livros da Foggy Press, e cada citação leva à página de onde veio para você conferir.
+Sobre o Pergunte à Foggy Press
+Peça um livro em domínio público que ainda não está na Foggy Press.
+Como funcionam os pedidos
+Procuramos o livro em nossas fontes aprovadas de livros em domínio público.
+Se encontrarmos uma edição que possamos publicar, nós a preparamos e avisamos você por e-mail quando estiver no site, geralmente em poucos dias. Se não for possível, explicamos o motivo por e-mail.
+Entre para ter seus livros, listas e histórico em todos os seus aparelhos.
+Como funciona o acesso
+Entre para ter seus livros salvos, listas de leitura, etiquetas e histórico em todos os seus aparelhos.
+Exibição: modo escuro e idioma
 
-@about 2654dd9aaf
+@about 351cb8b251
 A Foggy Press compõe livros de domínio público num estilo próprio e simples e os publica de graça: para ler on-line, imprimir em casa a partir de um PDF em papel carta americano ou baixar como EPUB para um leitor digital.
 
 ## Direitos e fontes
@@ -273,7 +285,7 @@ Os livros deste site são textos de domínio público nos Estados Unidos, onde a
 
 Nossos textos vêm de transcrições e digitalizações de domínio público: principalmente do [Project Gutenberg](https://www.gutenberg.org) e também do [Internet Archive](https://archive.org), do [Wikisource](https://wikisource.org), do [HathiTrust](https://www.hathitrust.org) e do [Google Books](https://books.google.com). Recompomos cada texto com nosso próprio layout e não acrescentamos nada além dos cabeçalhos de página e, nas coletâneas, um breve sumário. A ficha de cada livro informa a data da publicação original e, quando houver, o tradutor.
 
-A Foggy Press é uma edição de leitura gratuita e sem fins comerciais. Não há anúncios, nem contas, nem nada à venda.
+A Foggy Press é uma edição de leitura gratuita e sem fins comerciais. Não há anúncios nem nada à venda, e você nunca precisa de uma conta para ler, imprimir ou baixar um livro.
 
 ## Correções e pedidos de remoção
 

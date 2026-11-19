@@ -6,7 +6,7 @@ The books here are public-domain texts in the United States, where Foggy Press i
 
 Our texts come from public-domain transcriptions and scans: mostly [Project Gutenberg](https://www.gutenberg.org), and also the [Internet Archive](https://archive.org), [Wikisource](https://wikisource.org), [HathiTrust](https://www.hathitrust.org) and [Google Books](https://books.google.com). We reset each text in our own layout and add nothing but page headings and, for collections, a short contents list. Each book’s record names its original publication date and, where there is one, its translator.
 
-Foggy Press is a free, non-commercial reading edition. There are no ads, no accounts and nothing for sale.
+Foggy Press is a free, non-commercial reading edition. There are no ads and nothing for sale, and you never need an account to read, print or download a book.
 
 ## Corrections and takedown requests
 

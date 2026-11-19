@@ -263,3 +263,15 @@ Many people are asking today.
 Sign in to keep asking, or come back tomorrow.
 Open the Ask page
 We couldn’t check this browser. Please try again.
+Sign in to ask more
+Ask for a book recommendation, an explanation of a book, or help finding a passage.
+Answers are written by AI from the {n} books on Foggy Press only, and every quote links to the page it came from so you can check it.
+About Ask Foggy Press
+Ask for a public-domain book that isn’t on Foggy Press yet.
+How requests work
+We look for it in our approved sources of public-domain books.
+If we find an edition we can publish, we build it and email you when it’s on the site, usually within a few days. If we can’t, we email you why.
+Sign in to keep your books, lists and history on every device.
+How sign-in works
+Sign in to keep your saved books, reading lists, tags and history on every device.
+Display: dark mode and language

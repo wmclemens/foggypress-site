@@ -480,7 +480,7 @@ class Site:
 <div class="readtop">
 <nav class="readbar" aria-label="Foggy Press">
   <a class="rb-home" href="/">Foggy Press</a>
-  <span class="rb-acts">{'<button class="rb-ask" id="rbask" type="button" aria-expanded="false" aria-controls="askdrawer" hidden data-t>Ask about this book</button>' if self.ask and self.accounts else ''}<a class="rb-pdf" href="{pdf}" {click} data-t>Print this book</a>{self.epub_link(b, 'rb-pdf')}<button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</span>
+  <span class="rb-acts">{'<button class="rb-ask" id="rbask" type="button" aria-expanded="false" aria-controls="askdrawer" hidden data-t>Ask about this book</button>' if self.ask and self.accounts else ''}<a class="rb-pdf" href="{pdf}" {click} data-t>Print this book</a>{self.epub_link(b, 'rb-pdf')}<details class="rb-menu"><summary aria-label="Display: dark mode and language" data-t-attr="aria-label">Aa</summary><div class="rb-pop"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div></details></span>
 </nav>
 <div class="bsearch" role="search">
   <div class="in">

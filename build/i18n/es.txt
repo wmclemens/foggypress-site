@@ -263,8 +263,20 @@ Hoy pregunta mucha gente.
 Inicie sesión para seguir preguntando, o vuelva mañana.
 Abrir la página Preguntar
 No pudimos comprobar este navegador. Inténtelo de nuevo.
+Inicie sesión para preguntar más
+Pida una recomendación, la explicación de un libro o ayuda para encontrar un pasaje.
+Las respuestas las escribe una IA solo a partir de los {n} libros de Foggy Press, y cada cita enlaza con la página de donde viene para que pueda comprobarla.
+Acerca de Preguntar a Foggy Press
+Pida un libro de dominio público que aún no esté en Foggy Press.
+Cómo funcionan las solicitudes
+Lo buscamos en nuestras fuentes aprobadas de libros de dominio público.
+Si encontramos una edición que podamos publicar, la preparamos y le escribimos cuando esté en el sitio, normalmente en pocos días. Si no podemos, le escribimos para explicarle por qué.
+Inicie sesión para tener sus libros, listas e historial en todos sus dispositivos.
+Cómo funciona el inicio de sesión
+Inicie sesión para tener sus libros guardados, listas de lectura, etiquetas e historial en todos sus dispositivos.
+Pantalla: modo oscuro e idioma
 
-@about 2654dd9aaf
+@about 351cb8b251
 Foggy Press compone libros de dominio público en un estilo propio y sencillo y los publica gratis: para leer en línea, para imprimir en casa desde un PDF en papel carta de EE. UU. o para descargar como EPUB para un lector electrónico.
 
 ## Derechos y fuentes
@@ -273,7 +285,7 @@ Los libros de este sitio son textos de dominio público en los Estados Unidos, d
 
 Nuestros textos proceden de transcripciones y escaneos de dominio público: sobre todo de [Project Gutenberg](https://www.gutenberg.org), y también de [Internet Archive](https://archive.org), [Wikisource](https://wikisource.org), [HathiTrust](https://www.hathitrust.org) y [Google Books](https://books.google.com). Volvemos a componer cada texto con nuestro propio diseño y no añadimos nada más que los encabezados de página y, en las colecciones, un breve índice. La ficha de cada libro indica su fecha de publicación original y, cuando lo hay, su traductor.
 
-Foggy Press es una edición de lectura gratuita y sin fines comerciales. No hay anuncios, ni cuentas, ni nada a la venta.
+Foggy Press es una edición de lectura gratuita y sin fines comerciales. No hay anuncios ni nada a la venta, y nunca necesita una cuenta para leer, imprimir o descargar un libro.
 
 ## Correcciones y solicitudes de retirada
 
