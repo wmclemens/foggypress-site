@@ -52664,5 +52664,312 @@
       "British",
       "Women Writers"
     ]
+  },
+  {
+    "id": "the-city-of-god",
+    "author_last": "Augustine",
+    "author_first": "of Hippo, Saint",
+    "title": "The City of God",
+    "translator": "",
+    "original_date": "426",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 45304,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/augustine-of-hippo-saint/the-city-of-god",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/augustine-of-hippo-saint/the-city-of-god/output/Augustine%2C%20of%20Hippo%2C%20Saint%3A%20The%20City%20of%20God.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Ancient World",
+      "Religion",
+      "Philosophy",
+      "Classics",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-life-of-florence-nightingale",
+    "author_last": "Cook",
+    "author_first": "Edward Tyas, Sir",
+    "title": "The Life of Florence Nightingale",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 40058,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/cook-edward-tyas-sir/the-life-of-florence-nightingale",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/cook-edward-tyas-sir/the-life-of-florence-nightingale/output/Cook%2C%20Edward%20Tyas%2C%20Sir%3A%20The%20Life%20of%20Florence%20Nightingale.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "the-propaganda-for-reform-in-proprietary-medicines",
+    "author_last": "Council on Pharmacy and Chemistry",
+    "author_first": "",
+    "title": "The Propaganda for Reform in Proprietary Medicines",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 47766,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/council-on-pharmacy-and-chemistry/the-propaganda-for-reform-in-proprietary-medicines",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/council-on-pharmacy-and-chemistry/the-propaganda-for-reform-in-proprietary-medicines/output/Council%20on%20Pharmacy%20and%20Chemistry%3A%20The%20Propaganda%20for%20Reform%20in%20Proprietary%20Medicines.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "a-history-of-epidemics-in-britain",
+    "author_last": "Creighton",
+    "author_first": "Charles",
+    "title": "A History of Epidemics in Britain",
+    "translator": "",
+    "original_date": "1891",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 43671,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/creighton-charles/a-history-of-epidemics-in-britain",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/creighton-charles/a-history-of-epidemics-in-britain/output/Creighton%2C%20Charles%3A%20A%20History%20of%20Epidemics%20in%20Britain.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Science",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "railroad-reorganization",
+    "author_last": "Daggett",
+    "author_first": "Stuart",
+    "title": "Railroad Reorganization",
+    "translator": "",
+    "original_date": "1908",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 55397,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/daggett-stuart/railroad-reorganization",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/daggett-stuart/railroad-reorganization/output/Daggett%2C%20Stuart%3A%20Railroad%20Reorganization.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Economics",
+      "History"
+    ]
+  },
+  {
+    "id": "battles-of-the-nineteenth-century-volume-1",
+    "author_last": "Forbes",
+    "author_first": "Archibald and Arthur Griffiths and G. A. Henty",
+    "title": "Battles of the Nineteenth Century, Volume 1",
+    "translator": "",
+    "original_date": "1896",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 77688,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/forbes-archibald/battles-of-the-nineteenth-century-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/forbes-archibald/battles-of-the-nineteenth-century-volume-1/output/Forbes%2C%20Archibald%20and%20Arthur%20Griffiths%20and%20G.%20A.%20Henty%3A%20Battles%20of%20the%20Nineteenth%20Century%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-building-of-a-book-a-series-of-practical-articles-written-by-exper",
+    "author_last": "Hitchcock",
+    "author_first": "Frederick H.",
+    "title": "The Building of a Book A Series of Practical Articles Written by Experts in the Various Departments of Book Making and Distributing",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 23754,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/the-building-of-a-book-a-series-of-practical-articles-written-by-exper",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/the-building-of-a-book-a-series-of-practical-articles-written-by-exper/output/Hitchcock%2C%20Frederick%20H.%3A%20The%20Building%20of%20a%20Book%20A%20Series%20of%20Practical%20Articles%20Written%20by%20Experts%20in%20the%20Various%20Departments%20of%20Book%20Making%20and%20Distributing.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "behind-the-scenes",
+    "author_last": "Keckley",
+    "author_first": "Elizabeth",
+    "title": "Behind the Scenes",
+    "translator": "",
+    "original_date": "1868",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 24968,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/keckley-elizabeth/behind-the-scenes",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/keckley-elizabeth/behind-the-scenes/output/Keckley%2C%20Elizabeth%3A%20Behind%20the%20Scenes.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Memoir",
+      "Women Writers",
+      "Black Voices"
+    ]
+  },
+  {
+    "id": "le-morte-d-arthur",
+    "author_last": "Malory",
+    "author_first": "Thomas, Sir",
+    "title": "Le Morte D'Arthur",
+    "translator": "",
+    "original_date": "1485",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 1251,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/malory-thomas-sir/le-morte-d-arthur",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/malory-thomas-sir/le-morte-d-arthur/output/Malory%2C%20Thomas%2C%20Sir%3A%20Le%20Morte%20D%27Arthur.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Fantasy & Fairy Tales",
+      "Medieval",
+      "British",
+      "Epic"
+    ]
+  },
+  {
+    "id": "the-chemistry-properties-and-tests-of-precious-stones",
+    "author_last": "Mastin",
+    "author_first": "John",
+    "title": "The Chemistry, Properties and Tests of Precious Stones",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 23626,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mastin-john/the-chemistry-properties-and-tests-of-precious-stones",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mastin-john/the-chemistry-properties-and-tests-of-precious-stones/output/Mastin%2C%20John%3A%20The%20Chemistry%2C%20Properties%20and%20Tests%20of%20Precious%20Stones.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-plague-of-lust",
+    "author_last": "Rosenbaum",
+    "author_first": "Julius",
+    "title": "The Plague of Lust",
+    "translator": "",
+    "original_date": "1839",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 63246,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/rosenbaum-julius/the-plague-of-lust",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/rosenbaum-julius/the-plague-of-lust/output/Rosenbaum%2C%20Julius%3A%20The%20Plague%20of%20Lust.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Ancient World",
+      "Science",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-teaching-of-geometry",
+    "author_last": "Smith",
+    "author_first": "David Eugene",
+    "title": "The Teaching of Geometry",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 37681,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/smith-david-eugene/the-teaching-of-geometry",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/smith-david-eugene/the-teaching-of-geometry/output/Smith%2C%20David%20Eugene%3A%20The%20Teaching%20of%20Geometry.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "the-geographical-distribution-of-animals",
+    "author_last": "Wallace",
+    "author_first": "Alfred Russel",
+    "title": "The Geographical Distribution of Animals",
+    "translator": "",
+    "original_date": "1876",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 56506,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/wallace-alfred-russel/the-geographical-distribution-of-animals",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/wallace-alfred-russel/the-geographical-distribution-of-animals/output/Wallace%2C%20Alfred%20Russel%3A%20The%20Geographical%20Distribution%20of%20Animals.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "when-patty-went-to-college",
+    "author_last": "Webster",
+    "author_first": "Jean",
+    "title": "When Patty Went to College",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21639,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/webster-jean/when-patty-went-to-college",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/webster-jean/when-patty-went-to-college/output/Webster%2C%20Jean%3A%20When%20Patty%20Went%20to%20College.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Women Writers",
+      "Novels"
+    ]
+  },
+  {
+    "id": "floor-games",
+    "author_last": "Wells",
+    "author_first": "H. G.",
+    "title": "Floor Games",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 3690,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/wells-h-g/floor-games",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/wells-h-g/floor-games/output/Wells%2C%20H.%20G.%3A%20Floor%20Games.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-chemistry-of-cookery",
+    "author_last": "Williams",
+    "author_first": "W. Mattieu",
+    "title": "The Chemistry of Cookery",
+    "translator": "",
+    "original_date": "1885",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 53458,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/williams-w-mattieu/the-chemistry-of-cookery",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/williams-w-mattieu/the-chemistry-of-cookery/output/Williams%2C%20W.%20Mattieu%3A%20The%20Chemistry%20of%20Cookery.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "woodward-s-country-homes",
+    "author_last": "Woodward",
+    "author_first": "George E. and F. W. Woodward",
+    "title": "Woodward's Country Homes",
+    "translator": "",
+    "original_date": "1865",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 26354,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/woodward-george-e/woodward-s-country-homes",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/woodward-george-e/woodward-s-country-homes/output/Woodward%2C%20George%20E.%20and%20F.%20W.%20Woodward%3A%20Woodward%27s%20Country%20Homes.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "chronicles-of-pharmacy",
+    "author_last": "Wootton",
+    "author_first": "A. C.",
+    "title": "Chronicles of Pharmacy",
+    "translator": "",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 65872,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/wootton-a-c/chronicles-of-pharmacy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/wootton-a-c/chronicles-of-pharmacy/output/Wootton%2C%20A.%20C.%3A%20Chronicles%20of%20Pharmacy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Science",
+      "British"
+    ]
   }
 ]
