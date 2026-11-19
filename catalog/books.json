@@ -52306,5 +52306,363 @@
       "Politics & Society",
       "American"
     ]
+  },
+  {
+    "id": "a-complete-history-of-music-for-schools-clubs-and-private-reading",
+    "author_last": "Baltzell",
+    "author_first": "W. J.",
+    "title": "A Complete History of Music for Schools, Clubs, and Private Reading",
+    "translator": "",
+    "original_date": "1905",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 54392,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/baltzell-w-j/a-complete-history-of-music-for-schools-clubs-and-private-reading",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/baltzell-w-j/a-complete-history-of-music-for-schools-clubs-and-private-reading/output/Baltzell%2C%20W.%20J.%3A%20A%20Complete%20History%20of%20Music%20for%20Schools%2C%20Clubs%2C%20and%20Private%20Reading.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "American"
+    ]
+  },
+  {
+    "id": "the-stock-feeder-s-manual-the-chemistry-of-food-in-relation-to-the-bre",
+    "author_last": "Cameron",
+    "author_first": "Charles Alexander, Sir",
+    "title": "The Stock-Feeder's Manual the Chemistry of Food in Relation to the Breeding and Feeding of Live Stock",
+    "translator": "",
+    "original_date": "1868",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 25520,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/cameron-charles-alexander-sir/the-stock-feeder-s-manual-the-chemistry-of-food-in-relation-to-the-bre",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/cameron-charles-alexander-sir/the-stock-feeder-s-manual-the-chemistry-of-food-in-relation-to-the-bre/output/Cameron%2C%20Charles%20Alexander%2C%20Sir%3A%20The%20Stock-Feeder%27s%20Manual%20the%20Chemistry%20of%20Food%20in%20Relation%20to%20the%20Breeding%20and%20Feeding%20of%20Live%20Stock.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "the-romance-of-old-new-england-rooftrees",
+    "author_last": "Crawford",
+    "author_first": "Mary Caroline",
+    "title": "The Romance of Old New England Rooftrees",
+    "translator": "",
+    "original_date": "1902",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21645,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/crawford-mary-caroline/the-romance-of-old-new-england-rooftrees",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/crawford-mary-caroline/the-romance-of-old-new-england-rooftrees/output/Crawford%2C%20Mary%20Caroline%3A%20The%20Romance%20of%20Old%20New%20England%20Rooftrees.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "life-and-letters-of-charles-darwin",
+    "author_last": "Darwin",
+    "author_first": "Charles",
+    "title": "Life and Letters of Charles Darwin",
+    "translator": "",
+    "original_date": "1887",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2087,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/darwin-charles/life-and-letters-of-charles-darwin",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/darwin-charles/life-and-letters-of-charles-darwin/output/Darwin%2C%20Charles%3A%20Life%20and%20Letters%20of%20Charles%20Darwin.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Science",
+      "Memoir",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "two-centuries-of-costume-in-america-1620-1820-volume-1",
+    "author_last": "Earle",
+    "author_first": "Alice Morse",
+    "title": "Two Centuries of Costume in America, 1620-1820, Volume 1",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 10115,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/earle-alice-morse/two-centuries-of-costume-in-america-1620-1820-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/earle-alice-morse/two-centuries-of-costume-in-america-1620-1820-volume-1/output/Earle%2C%20Alice%20Morse%3A%20Two%20Centuries%20of%20Costume%20in%20America%2C%201620-1820%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "experimental-researches-in-electricity-volume-1",
+    "author_last": "Faraday",
+    "author_first": "Michael",
+    "title": "Experimental Researches in Electricity, Volume 1",
+    "translator": "",
+    "original_date": "1839",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 14986,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/faraday-michael/experimental-researches-in-electricity-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/faraday-michael/experimental-researches-in-electricity-volume-1/output/Faraday%2C%20Michael%3A%20Experimental%20Researches%20in%20Electricity%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-care-and-feeding-of-children-a-catechism-for-the-use-of-mothers-an",
+    "author_last": "Holt",
+    "author_first": "L. Emmett",
+    "title": "The Care and Feeding of Children A Catechism for the Use of Mothers and Children's Nurses",
+    "translator": "",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 15484,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/holt-l-emmett/the-care-and-feeding-of-children-a-catechism-for-the-use-of-mothers-an",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/holt-l-emmett/the-care-and-feeding-of-children-a-catechism-for-the-use-of-mothers-an/output/Holt%2C%20L.%20Emmett%3A%20The%20Care%20and%20Feeding%20of%20Children%20A%20Catechism%20for%20the%20Use%20of%20Mothers%20and%20Children%27s%20Nurses.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "cosmos-a-sketch-of-the-physical-description-of-the-universe-volume-1",
+    "author_last": "Humboldt",
+    "author_first": "Alexander von",
+    "title": "Cosmos: A Sketch of the Physical Description of the Universe, Volume 1",
+    "translator": "E. C. Otté",
+    "original_date": "1845",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 14565,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/humboldt-alexander-von/cosmos-a-sketch-of-the-physical-description-of-the-universe-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/humboldt-alexander-von/cosmos-a-sketch-of-the-physical-description-of-the-universe-volume-1/output/Humboldt%2C%20Alexander%20von%3A%20Cosmos%3A%20A%20Sketch%20of%20the%20Physical%20Description%20of%20the%20Universe%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "narrative-of-the-surveying-voyages-of-his-majesty-s-ships-adventure-an",
+    "author_last": "King",
+    "author_first": "Philip Parker",
+    "title": "Narrative of the Surveying Voyages of His Majesty's Ships Adventure and Beagle, Between the Years 1826 and 1836, Volume 1",
+    "translator": "",
+    "original_date": "1839",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 38961,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/king-philip-parker/narrative-of-the-surveying-voyages-of-his-majesty-s-ships-adventure-an",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/king-philip-parker/narrative-of-the-surveying-voyages-of-his-majesty-s-ships-adventure-an/output/King%2C%20Philip%20Parker%3A%20Narrative%20of%20the%20Surveying%20Voyages%20of%20His%20Majesty%27s%20Ships%20Adventure%20and%20Beagle%2C%20Between%20the%20Years%201826%20and%201836%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "Sea & Ships",
+      "British",
+      "Victorian",
+      "Science"
+    ]
+  },
+  {
+    "id": "machiavelli-volume-1",
+    "author_last": "Machiavelli",
+    "author_first": "Niccolò",
+    "title": "Machiavelli, Volume 1",
+    "translator": "Edward Dacres, Peter Whitehorne",
+    "original_date": "1905",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 15772,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/machiavelli-niccolo/machiavelli-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/machiavelli-niccolo/machiavelli-volume-1/output/Machiavelli%2C%20Niccol%C3%B2%3A%20Machiavelli%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Philosophy",
+      "Politics & Society",
+      "Italian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "garcia-the-centenarian-and-his-times",
+    "author_last": "Mackinlay",
+    "author_first": "M. Sterling",
+    "title": "Garcia the Centenarian and His Times",
+    "translator": "",
+    "original_date": "1908",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 37298,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mackinlay-m-sterling/garcia-the-centenarian-and-his-times",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mackinlay-m-sterling/garcia-the-centenarian-and-his-times/output/Mackinlay%2C%20M.%20Sterling%3A%20Garcia%20the%20Centenarian%20and%20His%20Times.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "British"
+    ]
+  },
+  {
+    "id": "a-selection-from-the-writings-of-guy-de-maupassant-volume-1",
+    "author_last": "Maupassant",
+    "author_first": "Guy de",
+    "title": "A Selection from the Writings of Guy De Maupassant, Volume 1",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 593,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/maupassant-guy-de/a-selection-from-the-writings-of-guy-de-maupassant-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/maupassant-guy-de/a-selection-from-the-writings-of-guy-de-maupassant-volume-1/output/Maupassant%2C%20Guy%20de%3A%20A%20Selection%20from%20the%20Writings%20of%20Guy%20De%20Maupassant%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-letters-of-wolfgang-amadeus-mozart-volume-1",
+    "author_last": "Mozart",
+    "author_first": "Wolfgang Amadeus",
+    "title": "The Letters of Wolfgang Amadeus Mozart, Volume 1",
+    "translator": "Grace, Lady Wallace",
+    "original_date": "1865",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5307,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mozart-wolfgang-amadeus/the-letters-of-wolfgang-amadeus-mozart-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mozart-wolfgang-amadeus/the-letters-of-wolfgang-amadeus-mozart-volume-1/output/Mozart%2C%20Wolfgang%20Amadeus%3A%20The%20Letters%20of%20Wolfgang%20Amadeus%20Mozart%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "Memoir",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-story-of-the-sun",
+    "author_last": "O'Brien",
+    "author_first": "Frank Michael",
+    "title": "The Story of the Sun",
+    "translator": "",
+    "original_date": "1918",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 65868,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/o-brien-frank-michael/the-story-of-the-sun",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/o-brien-frank-michael/the-story-of-the-sun/output/O%27Brien%2C%20Frank%20Michael%3A%20The%20Story%20of%20the%20Sun.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "cathedrals-and-cloisters-of-the-south-of-france-volume-1",
+    "author_last": "Rose",
+    "author_first": "Elise Whitlock",
+    "title": "Cathedrals and Cloisters of the South of France, Volume 1",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22718,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/rose-elise-whitlock/cathedrals-and-cloisters-of-the-south-of-france-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/rose-elise-whitlock/cathedrals-and-cloisters-of-the-south-of-france-volume-1/output/Rose%2C%20Elise%20Whitlock%3A%20Cathedrals%20and%20Cloisters%20of%20the%20South%20of%20France%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "American",
+      "Women Writers",
+      "French"
+    ]
+  },
+  {
+    "id": "the-danish-history-books-i-ix",
+    "author_last": "Saxo",
+    "author_first": "Grammaticus",
+    "title": "The Danish History, Books I-IX",
+    "translator": "Oliver Elton",
+    "original_date": "c. 1200",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 1150,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/saxo-grammaticus/the-danish-history-books-i-ix",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/saxo-grammaticus/the-danish-history-books-i-ix/output/Saxo%2C%20Grammaticus%3A%20The%20Danish%20History%2C%20Books%20I-IX.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "Translated",
+      "Fantasy & Fairy Tales"
+    ]
+  },
+  {
+    "id": "the-general-historie-of-virginia-new-england-the-summer-isles-volume-1",
+    "author_last": "Smith",
+    "author_first": "John",
+    "title": "The General Historie of Virginia, New England & the Summer Isles, Volume 1",
+    "translator": "",
+    "original_date": "1624",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 56347,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/smith-john/the-general-historie-of-virginia-new-england-the-summer-isles-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/smith-john/the-general-historie-of-virginia-new-england-the-summer-isles-volume-1/output/Smith%2C%20John%3A%20The%20General%20Historie%20of%20Virginia%2C%20New%20England%20%26%20the%20Summer%20Isles%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "American",
+      "British"
+    ]
+  },
+  {
+    "id": "married-love",
+    "author_last": "Stopes",
+    "author_first": "Marie Carmichael",
+    "title": "Married Love",
+    "translator": "",
+    "original_date": "1918",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 47501,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/stopes-marie-carmichael/married-love",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/stopes-marie-carmichael/married-love/output/Stopes%2C%20Marie%20Carmichael%3A%20Married%20Love.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Women Writers",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "soap-making-manual",
+    "author_last": "Thomssen",
+    "author_first": "E. G.",
+    "title": "Soap-making Manual",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 34114,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/thomssen-e-g/soap-making-manual",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/thomssen-e-g/soap-making-manual/output/Thomssen%2C%20E.%20G.%3A%20Soap-making%20Manual.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "medical-jurisprudence-forensic-medicine-and-toxicology-volume-1",
+    "author_last": "Witthaus",
+    "author_first": "R. A. and Tracy C. Becker",
+    "title": "Medical Jurisprudence, Forensic Medicine and Toxicology, Volume 1",
+    "translator": "",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 49027,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/witthaus-r-a/medical-jurisprudence-forensic-medicine-and-toxicology-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/witthaus-r-a/medical-jurisprudence-forensic-medicine-and-toxicology-volume-1/output/Witthaus%2C%20R.%20A.%20and%20Tracy%20C.%20Becker%3A%20Medical%20Jurisprudence%2C%20Forensic%20Medicine%20and%20Toxicology%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "the-queen-like-closet-or-rich-cabinet-stored",
+    "author_last": "Woolley",
+    "author_first": "Hannah, active 1670",
+    "title": "The Queen-like Closet or Rich Cabinet Stored",
+    "translator": "",
+    "original_date": "1670",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 14377,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/woolley-hannah-active-1670/the-queen-like-closet-or-rich-cabinet-stored",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/woolley-hannah-active-1670/the-queen-like-closet-or-rich-cabinet-stored/output/Woolley%2C%20Hannah%2C%20active%201670%3A%20The%20Queen-like%20Closet%20or%20Rich%20Cabinet%20Stored.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Women Writers"
+    ]
   }
 ]
