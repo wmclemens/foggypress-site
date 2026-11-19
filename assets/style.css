@@ -142,6 +142,16 @@ body.reading{padding:0}
 .readfoot{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:center;padding:2rem 16px 3rem;border-top:1px solid var(--line);color:var(--muted)}
 .readfoot a{color:var(--accent)}
 .letter{font-family:var(--mono);font-size:.75rem;color:var(--accent);padding:1.5rem 0 .35rem;border-bottom:1px solid var(--line-2);letter-spacing:.06em}
+.aubar{display:flex;align-items:center;justify-content:space-between;gap:1rem;color:var(--faint);font-size:.75rem;padding-top:.5rem}
+.augrp{border-bottom:1px solid var(--line)}
+.augrp summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:.6rem;padding:.75rem 0}
+.augrp summary::-webkit-details-marker{display:none}
+.augrp summary::before{content:"";width:.4rem;height:.4rem;border-right:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:translateY(-.15rem) rotate(-45deg);transition:transform .15s}
+.augrp[open] summary::before{transform:translateY(-.2rem) rotate(45deg)}
+.augrp summary .n{font-size:1.02rem;font-weight:500;letter-spacing:-.01em}
+.augrp summary .c{color:var(--faint);text-align:right;font-size:.75rem}
+.augrp summary:hover .n{color:var(--accent)}
+.augrp > .recs{padding-left:1rem;padding-bottom:.5rem}
 .taglist{columns:14rem 3;column-gap:2.5rem;padding-top:1rem}
 .tagsec{padding-top:1.75rem}
 .tagsec h2{padding-bottom:.6rem;border-bottom:1px solid var(--ink)}
@@ -199,6 +209,7 @@ mark{background:var(--hit);color:var(--hit-ink);border-radius:2px;padding:0 .05e
 .authors{list-style:none;margin:0;padding:0}
 .au{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem 1.5rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
 .au .n{font-size:1.02rem;font-weight:500;letter-spacing:-.01em}
+.au a.n:hover{color:var(--accent)}
 .au .c{color:var(--faint);text-align:right}
 .au .bk{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.25rem 1.1rem;font-size:.88rem;color:var(--muted)}
 .au .bk a:hover{color:var(--accent)}

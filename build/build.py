@@ -553,14 +553,30 @@ class Site:
 
     def lists(self):
         by_author = sorted(self.live, key=lambda b: (nat(b['author_last']), nat(b['author_first']), title_key(b['title'])))
-        parts, cur = [], None
+        # one folded group per author ("Jane Austen · 10 books"); a click opens that author's titles (assets/site.js)
+        parts, cur, groups = [], None, []
         for b in by_author:
-            letter = (b['author_last'] or b['title'])[0].upper()
+            key = (b['author_last'], b['author_first'])
+            if groups and groups[-1][0] == key:
+                groups[-1][1].append(b)
+            else:
+                groups.append((key, [b]))
+        used = set()
+        for (last, first), bs in groups:
+            letter = (last or bs[0]['title'])[0].upper()
             if letter != cur:
                 parts.append(f'<div class="letter">{esc(letter)}</div>')
                 cur = letter
-            parts.append(self.recs([b]))
-        self.page('authors/index.html', 'By author · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By author</h1><p class="sub">{tn('{n} books, A to Z by the author’s last name. Read any book online, or print it from its PDF.', len(self.live))}</p></div>{''.join(parts)}''', 'authors')
+            aid = slugify(f'{last} {first}') or 'author'
+            while aid in used:
+                aid += '-x'
+            used.add(aid)
+            name = author_name(bs[0]) or '—'
+            parts.append(f'<details class="augrp" id="{esc(aid)}"><summary><span class="n">{esc(name)}</span>'
+                         f'<span class="c mono">{tn("{n} book" if len(bs) == 1 else "{n} books", len(bs))}</span></summary>{self.recs(bs)}</details>')
+        tools = ('<div class="aubar"><span class="mono">' + tn('{n} authors', len(groups)) + '</span>'
+                 '<button type="button" class="chip" id="au-all" data-t>Expand all</button></div>')
+        self.page('authors/index.html', 'By author · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By author</h1><p class="sub">{tn('{n} books, A to Z by the author’s last name. Read any book online, or print it from its PDF.', len(self.live))}</p></div>{tools}{''.join(parts)}''', 'authors')
         by_title = sorted(self.live, key=lambda b: title_key(b['title']))
         self.page('titles/index.html', 'By title · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By title</h1><p class="sub">{tn('{n} books, A to Z, ignoring “The”, “A” and “An”. Read any book online, or print it from its PDF.', len(self.live))}</p></div>{self.recs(by_title)}''', 'titles')
         ts = sorted([t for t in self.tags if self.by_tag[t['name']]], key=lambda t: nat(t['name']))
