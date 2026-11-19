@@ -53133,5 +53133,165 @@
       "Science",
       "American"
     ]
+  },
+  {
+    "id": "aunt-jo-s-scrap-bag",
+    "author_last": "Alcott",
+    "author_first": "Louisa May",
+    "title": "Aunt Jo's Scrap Bag",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22022,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/alcott-louisa-may/aunt-jo-s-scrap-bag",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/alcott-louisa-may/aunt-jo-s-scrap-bag/output/Alcott%2C%20Louisa%20May%3A%20Aunt%20Jo%27s%20Scrap%20Bag.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Comedy & Satire",
+      "Travel",
+      "Children's",
+      "Stories",
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "my-memoirs",
+    "author_last": "Dumas",
+    "author_first": "Alexandre",
+    "title": "My Memoirs",
+    "translator": "E. M. Waller",
+    "original_date": "1852",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 49678,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dumas-alexandre/my-memoirs",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dumas-alexandre/my-memoirs/output/Dumas%2C%20Alexandre%3A%20My%20Memoirs.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "French",
+      "History",
+      "Memoir",
+      "Translated"
+    ]
+  },
+  {
+    "id": "studies-in-the-psychology-of-sex",
+    "author_last": "Ellis",
+    "author_first": "Havelock",
+    "title": "Studies in the Psychology of Sex",
+    "translator": "",
+    "original_date": "1897",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 13610,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ellis-havelock/studies-in-the-psychology-of-sex",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ellis-havelock/studies-in-the-psychology-of-sex/output/Ellis%2C%20Havelock%3A%20Studies%20in%20the%20Psychology%20of%20Sex.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "history-of-the-decline-and-fall-of-the-roman-empire",
+    "author_last": "Gibbon",
+    "author_first": "Edward",
+    "title": "History of the Decline and Fall of the Roman Empire",
+    "translator": "",
+    "original_date": "1776",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 731,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gibbon-edward/history-of-the-decline-and-fall-of-the-roman-empire",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gibbon-edward/history-of-the-decline-and-fall-of-the-roman-empire/output/Gibbon%2C%20Edward%3A%20History%20of%20the%20Decline%20and%20Fall%20of%20the%20Roman%20Empire.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Ancient World",
+      "British",
+      "Medieval"
+    ]
+  },
+  {
+    "id": "the-history-of-herodotus",
+    "author_last": "Herodotus",
+    "author_first": "",
+    "title": "The History of Herodotus",
+    "translator": "G. C. Macaulay",
+    "original_date": "c. 430 BC",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2456,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/herodotus/the-history-of-herodotus",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/herodotus/the-history-of-herodotus/output/Herodotus%3A%20The%20History%20of%20Herodotus.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Ancient World",
+      "Classics",
+      "Translated"
+    ]
+  },
+  {
+    "id": "my-past-and-thoughts",
+    "author_last": "Herzen",
+    "author_first": "Aleksandr",
+    "title": "My Past and Thoughts",
+    "translator": "Constance Garnett",
+    "original_date": "1870",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 76599,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/herzen-aleksandr/my-past-and-thoughts",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/herzen-aleksandr/my-past-and-thoughts/output/Herzen%2C%20Aleksandr%3A%20My%20Past%20and%20Thoughts.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Memoir",
+      "Russian",
+      "Translated",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "an-essay-concerning-humane-understanding",
+    "author_last": "Locke",
+    "author_first": "John",
+    "title": "An Essay Concerning Humane Understanding",
+    "translator": "",
+    "original_date": "1690",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 10616,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/locke-john/an-essay-concerning-humane-understanding",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/locke-john/an-essay-concerning-humane-understanding/output/Locke%2C%20John%3A%20An%20Essay%20Concerning%20Humane%20Understanding.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "British"
+    ]
+  },
+  {
+    "id": "international-law-a-treatise",
+    "author_last": "Oppenheim",
+    "author_first": "L.",
+    "title": "International Law. A Treatise",
+    "translator": "",
+    "original_date": "1905",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41046,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/oppenheim-l/international-law-a-treatise",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/oppenheim-l/international-law-a-treatise/output/Oppenheim%2C%20L.%3A%20International%20Law.%20A%20Treatise.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "British"
+    ]
+  },
+  {
+    "id": "mark-twain-s-letters",
+    "author_last": "Twain",
+    "author_first": "Mark",
+    "title": "Mark Twain's Letters",
+    "translator": "",
+    "original_date": "1917",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 3193,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/twain-mark/mark-twain-s-letters",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/twain-mark/mark-twain-s-letters/output/Twain%2C%20Mark%3A%20Mark%20Twain%27s%20Letters.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "American",
+      "Memoir",
+      "Comedy & Satire"
+    ]
   }
 ]
