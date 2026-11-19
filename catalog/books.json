@@ -50695,5 +50695,389 @@
     "tags": [
       "American"
     ]
+  },
+  {
+    "id": "william-the-conqueror-makers-of-history",
+    "author_last": "Abbott",
+    "author_first": "Jacob",
+    "title": "William the Conqueror Makers of History",
+    "translator": "",
+    "original_date": "1849",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 25848,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/abbott-jacob/william-the-conqueror-makers-of-history",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/abbott-jacob/william-the-conqueror-makers-of-history/output/Abbott%2C%20Jacob%3A%20William%20the%20Conqueror%20Makers%20of%20History.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Children's"
+    ]
+  },
+  {
+    "id": "a-selection-of-cases-on-the-law-of-torts",
+    "author_last": "Ames",
+    "author_first": "James Barr",
+    "title": "A Selection of Cases on the Law of Torts",
+    "translator": "",
+    "original_date": "1893",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 67258,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/a-selection-of-cases-on-the-law-of-torts",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/a-selection-of-cases-on-the-law-of-torts/output/Ames%2C%20James%20Barr%3A%20A%20Selection%20of%20Cases%20on%20the%20Law%20of%20Torts.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American"
+    ]
+  },
+  {
+    "id": "the-sceptical-chymist-or-chymico-physical-doubts-paradoxes-touching-th",
+    "author_last": "Boyle",
+    "author_first": "Robert",
+    "title": "The Sceptical Chymist or Chymico-Physical Doubts & Paradoxes, Touching the Spagyrist's Principles Commonly Call'd Hypostatical",
+    "translator": "",
+    "original_date": "1661",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22914,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/boyle-robert/the-sceptical-chymist-or-chymico-physical-doubts-paradoxes-touching-th",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/boyle-robert/the-sceptical-chymist-or-chymico-physical-doubts-paradoxes-touching-th/output/Boyle%2C%20Robert%3A%20The%20Sceptical%20Chymist%20or%20Chymico-Physical%20Doubts%20%26%20Paradoxes%2C%20Touching%20the%20Spagyrist%27s%20Principles%20Commonly%20Call%27d%20Hypostatical.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Irish"
+    ]
+  },
+  {
+    "id": "the-book-of-business-etiquette",
+    "author_last": "Braddy",
+    "author_first": "Nella",
+    "title": "The Book of Business Etiquette",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 23025,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/braddy-nella/the-book-of-business-etiquette",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/braddy-nella/the-book-of-business-etiquette/output/Braddy%2C%20Nella%3A%20The%20Book%20of%20Business%20Etiquette.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-game-of-logic",
+    "author_last": "Carroll",
+    "author_first": "Lewis",
+    "title": "The Game of Logic",
+    "translator": "",
+    "original_date": "1887",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 4763,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/carroll-lewis/the-game-of-logic",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/carroll-lewis/the-game-of-logic/output/Carroll%2C%20Lewis%3A%20The%20Game%20of%20Logic.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "how-to-write-letters-formerly-the-book-of-letters-a-complete-guide-to",
+    "author_last": "Crowther",
+    "author_first": "Mary Owens",
+    "title": "How to Write Letters (Formerly The Book of Letters) A Complete Guide to Correct Business and Personal Correspondence",
+    "translator": "",
+    "original_date": "1922",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22222,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/crowther-mary-owens/how-to-write-letters-formerly-the-book-of-letters-a-complete-guide-to",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/crowther-mary-owens/how-to-write-letters-formerly-the-book-of-letters-a-complete-guide-to/output/Crowther%2C%20Mary%20Owens%3A%20How%20to%20Write%20Letters%20%28Formerly%20The%20Book%20of%20Letters%29%20A%20Complete%20Guide%20to%20Correct%20Business%20and%20Personal%20Correspondence.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "robert-curthose-duke-of-normandy",
+    "author_last": "David",
+    "author_first": "Charles W.",
+    "title": "Robert Curthose, Duke of Normandy",
+    "translator": "",
+    "original_date": "1920",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 59231,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/david-charles-w/robert-curthose-duke-of-normandy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/david-charles-w/robert-curthose-duke-of-normandy/output/David%2C%20Charles%20W.%3A%20Robert%20Curthose%2C%20Duke%20of%20Normandy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Medieval"
+    ]
+  },
+  {
+    "id": "expansion-and-conflict",
+    "author_last": "Dodd",
+    "author_first": "William Edward",
+    "title": "Expansion and Conflict",
+    "translator": "",
+    "original_date": "1915",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21537,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dodd-william-edward/expansion-and-conflict",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dodd-william-edward/expansion-and-conflict/output/Dodd%2C%20William%20Edward%3A%20Expansion%20and%20Conflict.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "the-book-of-the-damned",
+    "author_last": "Fort",
+    "author_first": "Charles",
+    "title": "The Book of the Damned",
+    "translator": "",
+    "original_date": "1919",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22472,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/fort-charles/the-book-of-the-damned",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/fort-charles/the-book-of-the-damned/output/Fort%2C%20Charles%3A%20The%20Book%20of%20the%20Damned.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "the-history-of-the-psychoanalytic-movement",
+    "author_last": "Freud",
+    "author_first": "Sigmund",
+    "title": "The History of the Psychoanalytic Movement",
+    "translator": "A. A. Brill",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 76298,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/freud-sigmund/the-history-of-the-psychoanalytic-movement",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/freud-sigmund/the-history-of-the-psychoanalytic-movement/output/Freud%2C%20Sigmund%3A%20The%20History%20of%20the%20Psychoanalytic%20Movement.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Science",
+      "Translated",
+      "German",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-bravest-of-the-brave-or",
+    "author_last": "Henty",
+    "author_first": "G. A.",
+    "title": "The Bravest of the Brave — or",
+    "translator": "",
+    "original_date": "1887",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 7318,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/henty-g-a/the-bravest-of-the-brave-or",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/henty-g-a/the-bravest-of-the-brave-or/output/Henty%2C%20G.%20A.%3A%20The%20Bravest%20of%20the%20Brave%20%E2%80%94%20or.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Adventure",
+      "British",
+      "Victorian",
+      "History"
+    ]
+  },
+  {
+    "id": "familiar-spanish-travels",
+    "author_last": "Howells",
+    "author_first": "William Dean",
+    "title": "Familiar Spanish Travels",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 7430,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/howells-william-dean/familiar-spanish-travels",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/howells-william-dean/familiar-spanish-travels/output/Howells%2C%20William%20Dean%3A%20Familiar%20Spanish%20Travels.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "American",
+      "Essays"
+    ]
+  },
+  {
+    "id": "the-toilers-of-the-field",
+    "author_last": "Jefferies",
+    "author_first": "Richard",
+    "title": "The Toilers of the Field",
+    "translator": "",
+    "original_date": "1892",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 27516,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/jefferies-richard/the-toilers-of-the-field",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/jefferies-richard/the-toilers-of-the-field/output/Jefferies%2C%20Richard%3A%20The%20Toilers%20of%20the%20Field.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Essays"
+    ]
+  },
+  {
+    "id": "english-wayfaring-life-in-the-middle-ages-xivth-century",
+    "author_last": "Jusserand",
+    "author_first": "J. J.",
+    "title": "English Wayfaring Life in the Middle Ages (XIVth Century)",
+    "translator": "Lucy Toulmin Smith",
+    "original_date": "1889",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 58530,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/jusserand-j-j/english-wayfaring-life-in-the-middle-ages-xivth-century",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/jusserand-j-j/english-wayfaring-life-in-the-middle-ages-xivth-century/output/Jusserand%2C%20J.%20J.%3A%20English%20Wayfaring%20Life%20in%20the%20Middle%20Ages%20%28XIVth%20Century%29.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-eyes-of-asia",
+    "author_last": "Kipling",
+    "author_first": "Rudyard",
+    "title": "The Eyes of Asia",
+    "translator": "",
+    "original_date": "1918",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 23163,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kipling-rudyard/the-eyes-of-asia",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kipling-rudyard/the-eyes-of-asia/output/Kipling%2C%20Rudyard%3A%20The%20Eyes%20of%20Asia.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "British",
+      "History",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-sexual-life-of-woman-in-its-physiological-pathological-and-hygieni",
+    "author_last": "Kisch",
+    "author_first": "E. Heinrich",
+    "title": "The Sexual Life of Woman in its Physiological, Pathological and Hygienic Aspects",
+    "translator": "Eden Paul",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 63274,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kisch-e-heinrich/the-sexual-life-of-woman-in-its-physiological-pathological-and-hygieni",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kisch-e-heinrich/the-sexual-life-of-woman-in-its-physiological-pathological-and-hygieni/output/Kisch%2C%20E.%20Heinrich%3A%20The%20Sexual%20Life%20of%20Woman%20in%20its%20Physiological%2C%20Pathological%20and%20Hygienic%20Aspects.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Science",
+      "Translated"
+    ]
+  },
+  {
+    "id": "mutual-aid",
+    "author_last": "Kropotkin",
+    "author_first": "Petr Alekseevich, kniaz",
+    "title": "Mutual Aid",
+    "translator": "",
+    "original_date": "1902",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 4341,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kropotkin-petr-alekseevich-kniaz/mutual-aid",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kropotkin-petr-alekseevich-kniaz/mutual-aid/output/Kropotkin%2C%20Petr%20Alekseevich%2C%20kniaz%3A%20Mutual%20Aid.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Russian",
+      "Science",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "enquire-within-upon-everything-the-great-victorian-era-domestic-standb",
+    "author_last": "Philp",
+    "author_first": "Robert Kemp",
+    "title": "Enquire Within upon Everything The Great Victorian-era Domestic Standby",
+    "translator": "",
+    "original_date": "1856",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 10766,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/philp-robert-kemp/enquire-within-upon-everything-the-great-victorian-era-domestic-standb",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/philp-robert-kemp/enquire-within-upon-everything-the-great-victorian-era-domestic-standb/output/Philp%2C%20Robert%20Kemp%3A%20Enquire%20Within%20upon%20Everything%20The%20Great%20Victorian-era%20Domestic%20Standby.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "woodcraft-and-camping",
+    "author_last": "Sears",
+    "author_first": "George Washington",
+    "title": "Woodcraft and Camping",
+    "translator": "",
+    "original_date": "1884",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 34607,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/sears-george-washington/woodcraft-and-camping",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/sears-george-washington/woodcraft-and-camping/output/Sears%2C%20George%20Washington%3A%20Woodcraft%20and%20Camping.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "american-cookery",
+    "author_last": "Simmons",
+    "author_first": "Amelia",
+    "title": "American Cookery",
+    "translator": "",
+    "original_date": "1796",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 12815,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/simmons-amelia/american-cookery",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/simmons-amelia/american-cookery/output/Simmons%2C%20Amelia%3A%20American%20Cookery.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "essays-in-the-art-of-writing",
+    "author_last": "Stevenson",
+    "author_first": "Robert Louis",
+    "title": "Essays in the Art of Writing",
+    "translator": "",
+    "original_date": "1905",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 492,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/stevenson-robert-louis/essays-in-the-art-of-writing",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/stevenson-robert-louis/essays-in-the-art-of-writing/output/Stevenson%2C%20Robert%20Louis%3A%20Essays%20in%20the%20Art%20of%20Writing.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Essays",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "china-revolutionized",
+    "author_last": "Thomson",
+    "author_first": "John Stuart",
+    "title": "China Revolutionized",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57247,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/thomson-john-stuart/china-revolutionized",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/thomson-john-stuart/china-revolutionized/output/Thomson%2C%20John%20Stuart%3A%20China%20Revolutionized.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Chinese"
+    ]
+  },
+  {
+    "id": "facts-about-champagne-and-other-sparkling-wines",
+    "author_last": "Vizetelly",
+    "author_first": "Henry",
+    "title": "Facts About Champagne and Other Sparkling Wines",
+    "translator": "",
+    "original_date": "1879",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 20889,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/vizetelly-henry/facts-about-champagne-and-other-sparkling-wines",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/vizetelly-henry/facts-about-champagne-and-other-sparkling-wines/output/Vizetelly%2C%20Henry%3A%20Facts%20About%20Champagne%20and%20Other%20Sparkling%20Wines.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
   }
 ]
