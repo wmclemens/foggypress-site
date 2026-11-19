@@ -197,7 +197,7 @@
     // their books lead the titles and the books found inside.
     function nameWords(b) {
       var all = words(b.a), last = words(b.al);
-      var first = all.slice(0, Math.max(0, all.length - last.length));
+      var first = b.af != null ? words(b.af) : all.slice(0, Math.max(0, all.length - last.length));
       return {all: all, rev: last.concat(first)};
     }
     function authorHit(b, ws) {
@@ -266,7 +266,7 @@
           authors.map(function (a) {
             var bs = am[a].b.slice().sort(byT);
             // the author's place on the By author page: build.py slugify(last + ' ' + first)
-            var b0 = am[a].b[0], fst = b0.a.slice(-b0.al.length) === b0.al ? b0.a.slice(0, b0.a.length - b0.al.length).trim() : '';
+            var b0 = am[a].b[0], fst = b0.af != null ? b0.af : b0.a.slice(-b0.al.length) === b0.al ? b0.a.slice(0, b0.a.length - b0.al.length).trim() : '';
             var aid = (b0.al + ' ' + fst).toLowerCase().replace(/&/g, 'and').replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
             return '<li class="au' + (am[a].x ? ' exact' : '') + '"><a class="n" href="' + BASE + 'authors/#' + esc(aid) + '">' + (am[a].x ? esc(a) : hl(a, ws)) + '</a><span class="c mono">' + plural(bs.length, 'book', 'books') + '</span><span class="bk">' +
               bs.map(function (b) { return '<a href="' + esc(mainHref(b)) + '">' + esc(b.t) + '</a>'; }).join('') + '</span></li>';

@@ -86,7 +86,14 @@ def title_key(t):
 
 
 def author_name(b):
-    return f"{b['author_first']} {b['author_last']}".strip()
+    """'Jane Austen'. Co-authors are kept in the first-name field ('Mark and Charles Dudley Warner' + 'Twain'):
+    the last name goes after the first author's own first name -> 'Mark Twain and Charles Dudley Warner'.
+    A lone second first name ('Jacob and Wilhelm' + 'Grimm') shares the last name and stays as it is."""
+    first, last = b['author_first'] or '', b['author_last'] or ''
+    head, sep, rest = first.partition(' and ')
+    if sep and last and len(rest.split()) > 1:
+        return f"{head} {last} and {rest}".strip()
+    return f"{first} {last}".strip()
 
 
 def pdf_repo_path(link):
@@ -381,7 +388,7 @@ class Site:
             pdf = self.pdf_url(b)
             if pdf.startswith('/'):
                 pdf = self.base + pdf
-            yield (({'id': b['id'], 't': b['title'], 'a': author_name(b), 'al': b['author_last'], 'tr': b.get('translator') or '',
+            yield (({'id': b['id'], 't': b['title'], 'a': author_name(b), 'al': b['author_last'], 'af': b['author_first'], 'tr': b.get('translator') or '',
                           'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'tg': b.get('tags', []), 'pdf': pdf, 'read': bool(art), **({'rd': self.read_url(b) if self.pdf_base else self.base + self.read_url(b)} if art else {}),
                           **({'epub': self.epub_url(b) if self.pdf_base else self.base + self.epub_url(b)} if art else {})}, art))
 
