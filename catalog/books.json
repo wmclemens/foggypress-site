@@ -53473,5 +53473,76 @@
       "British",
       "French"
     ]
+  },
+  {
+    "id": "more-letters-of-charles-darwin",
+    "author_last": "Darwin",
+    "author_first": "Charles",
+    "title": "More Letters of Charles Darwin",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2739,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/darwin-charles/more-letters-of-charles-darwin",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/darwin-charles/more-letters-of-charles-darwin/output/Darwin%2C%20Charles%3A%20More%20Letters%20of%20Charles%20Darwin.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "History",
+      "Science",
+      "Memoir",
+      "British"
+    ]
+  },
+  {
+    "id": "the-principles-of-chemistry",
+    "author_last": "Mendeleyev",
+    "author_first": "Dmitry Ivanovich",
+    "title": "The Principles of Chemistry",
+    "translator": "George Kamensky",
+    "original_date": "1891",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 51326,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mendeleyev-dmitry-ivanovich/the-principles-of-chemistry",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mendeleyev-dmitry-ivanovich/the-principles-of-chemistry/output/Mendeleyev%2C%20Dmitry%20Ivanovich%3A%20The%20Principles%20of%20Chemistry.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Russian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-tribes-and-castes-of-the-central-provinces-of-india",
+    "author_last": "Russell",
+    "author_first": "R. V.",
+    "title": "The Tribes and Castes of the Central Provinces of India",
+    "translator": "",
+    "original_date": "1916",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 20583,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/russell-r-v/the-tribes-and-castes-of-the-central-provinces-of-india",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/russell-r-v/the-tribes-and-castes-of-the-central-provinces-of-india/output/Russell%2C%20R.%20V.%3A%20The%20Tribes%20and%20Castes%20of%20the%20Central%20Provinces%20of%20India.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "the-poems-of-jonathan-swift",
+    "author_last": "Swift",
+    "author_first": "Jonathan",
+    "title": "The Poems of Jonathan Swift",
+    "translator": "",
+    "original_date": "1735",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 13621,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/swift-jonathan/the-poems-of-jonathan-swift",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/swift-jonathan/the-poems-of-jonathan-swift/output/Swift%2C%20Jonathan%3A%20The%20Poems%20of%20Jonathan%20Swift.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "British",
+      "Irish",
+      "Comedy & Satire"
+    ]
   }
 ]
