@@ -52971,5 +52971,167 @@
       "Science",
       "British"
     ]
+  },
+  {
+    "id": "the-naval-history-of-the-united-states",
+    "author_last": "Abbot",
+    "author_first": "Willis J.",
+    "title": "The Naval History of the United States",
+    "translator": "",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 26416,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/abbot-willis-j/the-naval-history-of-the-united-states",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/abbot-willis-j/the-naval-history-of-the-united-states/output/Abbot%2C%20Willis%20J.%3A%20The%20Naval%20History%20of%20the%20United%20States.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "American",
+      "Sea & Ships"
+    ]
+  },
+  {
+    "id": "history-of-the-rise-of-the-huguenots",
+    "author_last": "Baird",
+    "author_first": "Henry Martyn",
+    "title": "History of the Rise of the Huguenots",
+    "translator": "",
+    "original_date": "1879",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22762,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/baird-henry-martyn/history-of-the-rise-of-the-huguenots",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/baird-henry-martyn/history-of-the-rise-of-the-huguenots/output/Baird%2C%20Henry%20Martyn%3A%20History%20of%20the%20Rise%20of%20the%20Huguenots.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "American",
+      "French"
+    ]
+  },
+  {
+    "id": "institutes-of-the-christian-religion",
+    "author_last": "Calvin",
+    "author_first": "Jean",
+    "title": "Institutes of the Christian Religion",
+    "translator": "John Allen",
+    "original_date": "1536",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 45001,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/calvin-jean/institutes-of-the-christian-religion",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/calvin-jean/institutes-of-the-christian-religion/output/Calvin%2C%20Jean%3A%20Institutes%20of%20the%20Christian%20Religion.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-memoirs-of-the-conquistador-bernal-diaz-del-castillo",
+    "author_last": "Díaz del Castillo",
+    "author_first": "Bernal",
+    "title": "The Memoirs of the Conquistador Bernal Diaz Del Castillo",
+    "translator": "John Ingram Lockhart",
+    "original_date": "1632",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 32474,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/diaz-del-castillo-bernal/the-memoirs-of-the-conquistador-bernal-diaz-del-castillo",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/diaz-del-castillo-bernal/the-memoirs-of-the-conquistador-bernal-diaz-del-castillo/output/D%C3%ADaz%20del%20Castillo%2C%20Bernal%3A%20The%20Memoirs%20of%20the%20Conquistador%20Bernal%20Diaz%20Del%20Castillo.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Memoir",
+      "Spanish",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-history-of-england",
+    "author_last": "Hume",
+    "author_first": "David and T. Smollett and Edward Farr",
+    "title": "The History of England",
+    "translator": "",
+    "original_date": "1754",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 19217,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hume-david/the-history-of-england",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hume-david/the-history-of-england/output/Hume%2C%20David%20and%20T.%20Smollett%20and%20Edward%20Farr%3A%20The%20History%20of%20England.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "england-under-the-angevin-kings",
+    "author_last": "Norgate",
+    "author_first": "Kate",
+    "title": "England Under the Angevin Kings",
+    "translator": "",
+    "original_date": "1887",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 68347,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/norgate-kate/england-under-the-angevin-kings",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/norgate-kate/england-under-the-angevin-kings/output/Norgate%2C%20Kate%3A%20England%20Under%20the%20Angevin%20Kings.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "Religion",
+      "British",
+      "Victorian",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "lorenzo-de-medici-the-magnificent",
+    "author_last": "Reumont",
+    "author_first": "Alfred von",
+    "title": "Lorenzo de' Medici, the Magnificent",
+    "translator": "Robert Harrison",
+    "original_date": "1876",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 50624,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/reumont-alfred-von/lorenzo-de-medici-the-magnificent",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/reumont-alfred-von/lorenzo-de-medici-the-magnificent/output/Reumont%2C%20Alfred%20von%3A%20Lorenzo%20de%27%20Medici%2C%20the%20Magnificent.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Italian",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-modern-regime",
+    "author_last": "Taine",
+    "author_first": "Hippolyte",
+    "title": "The Modern Regime",
+    "translator": "John Durand",
+    "original_date": "1890",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2582,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/taine-hippolyte/the-modern-regime",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/taine-hippolyte/the-modern-regime/output/Taine%2C%20Hippolyte%3A%20The%20Modern%20Regime.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Politics & Society",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "a-history-of-magic-and-experimental-science",
+    "author_last": "Thorndike",
+    "author_first": "Lynn",
+    "title": "A History of Magic and Experimental Science",
+    "translator": "",
+    "original_date": "1923",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 67330,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/thorndike-lynn/a-history-of-magic-and-experimental-science",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/thorndike-lynn/a-history-of-magic-and-experimental-science/output/Thorndike%2C%20Lynn%3A%20A%20History%20of%20Magic%20and%20Experimental%20Science.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "Science",
+      "American"
+    ]
   }
 ]
