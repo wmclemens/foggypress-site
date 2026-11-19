@@ -53293,5 +53293,185 @@
       "Memoir",
       "Comedy & Satire"
     ]
+  },
+  {
+    "id": "the-variation-of-animals-and-plants-under-domestication",
+    "author_last": "Darwin",
+    "author_first": "Charles",
+    "title": "The Variation of Animals and Plants Under Domestication",
+    "translator": "",
+    "original_date": "1868",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 24923,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/darwin-charles/the-variation-of-animals-and-plants-under-domestication",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/darwin-charles/the-variation-of-animals-and-plants-under-domestication/output/Darwin%2C%20Charles%3A%20The%20Variation%20of%20Animals%20and%20Plants%20Under%20Domestication.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "a-budget-of-paradoxes",
+    "author_last": "De Morgan",
+    "author_first": "Augustus",
+    "title": "A Budget of Paradoxes",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 23100,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/de-morgan-augustus/a-budget-of-paradoxes",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/de-morgan-augustus/a-budget-of-paradoxes/output/De%20Morgan%2C%20Augustus%3A%20A%20Budget%20of%20Paradoxes.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Comedy & Satire",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-traditional-games-of-england-scotland-and-ireland",
+    "author_last": "Gomme",
+    "author_first": "Alice Bertha",
+    "title": "The Traditional Games of England, Scotland, and Ireland",
+    "translator": "",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41727,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gomme-alice-bertha/the-traditional-games-of-england-scotland-and-ireland",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gomme-alice-bertha/the-traditional-games-of-england-scotland-and-ireland/output/Gomme%2C%20Alice%20Bertha%3A%20The%20Traditional%20Games%20of%20England%2C%20Scotland%2C%20and%20Ireland.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Victorian",
+      "Women Writers",
+      "Children's"
+    ]
+  },
+  {
+    "id": "the-portrait-of-a-lady",
+    "author_last": "James",
+    "author_first": "Henry",
+    "title": "The Portrait of a Lady",
+    "translator": "",
+    "original_date": "1881",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2833,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-henry/the-portrait-of-a-lady",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-henry/the-portrait-of-a-lady/output/James%2C%20Henry%3A%20The%20Portrait%20of%20a%20Lady.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "American",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "the-principles-of-psychology",
+    "author_last": "James",
+    "author_first": "William",
+    "title": "The Principles of Psychology",
+    "translator": "",
+    "original_date": "1890",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57628,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-william/the-principles-of-psychology",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-william/the-principles-of-psychology/output/James%2C%20William%3A%20The%20Principles%20of%20Psychology.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Philosophy",
+      "American"
+    ]
+  },
+  {
+    "id": "a-system-of-logic",
+    "author_last": "Mill",
+    "author_first": "John Stuart",
+    "title": "A System of Logic",
+    "translator": "",
+    "original_date": "1843",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 35421,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mill-john-stuart/a-system-of-logic",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mill-john-stuart/a-system-of-logic/output/Mill%2C%20John%20Stuart%3A%20A%20System%20of%20Logic.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "thoughts-out-of-season",
+    "author_last": "Nietzsche",
+    "author_first": "Friedrich Wilhelm",
+    "title": "Thoughts Out of Season",
+    "translator": "Anthony M. Ludovici",
+    "original_date": "1873",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5652,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/nietzsche-friedrich-wilhelm/thoughts-out-of-season",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/nietzsche-friedrich-wilhelm/thoughts-out-of-season/output/Nietzsche%2C%20Friedrich%20Wilhelm%3A%20Thoughts%20Out%20of%20Season.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Philosophy",
+      "Essays",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-metamorphoses-of-ovid",
+    "author_last": "Ovid",
+    "author_first": "",
+    "title": "The Metamorphoses of Ovid",
+    "translator": "Henry T. Riley",
+    "original_date": "8",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21765,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ovid/the-metamorphoses-of-ovid",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ovid/the-metamorphoses-of-ovid/output/Ovid%3A%20The%20Metamorphoses%20of%20Ovid.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Fantasy & Fairy Tales",
+      "Poetry",
+      "Ancient World",
+      "Classics",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-natural-history-of-pliny",
+    "author_last": "Pliny",
+    "author_first": "",
+    "title": "The Natural History of Pliny",
+    "translator": "John Bostock, Henry T. Riley",
+    "original_date": "77",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57493,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/pliny/the-natural-history-of-pliny",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/pliny/the-natural-history-of-pliny/output/Pliny%3A%20The%20Natural%20History%20of%20Pliny.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Ancient World",
+      "Science",
+      "Classics",
+      "Translated"
+    ]
+  },
+  {
+    "id": "life-of-napoleon-bonaparte",
+    "author_last": "Scott",
+    "author_first": "Walter",
+    "title": "Life of Napoleon Bonaparte",
+    "translator": "",
+    "original_date": "1827",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 48837,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/scott-walter/life-of-napoleon-bonaparte",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/scott-walter/life-of-napoleon-bonaparte/output/Scott%2C%20Walter%3A%20Life%20of%20Napoleon%20Bonaparte.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "French"
+    ]
   }
 ]
