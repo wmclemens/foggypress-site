@@ -370,9 +370,9 @@ class Site:
                 f'<div class="sbox"><input id="{iid}" name="q" type="search" placeholder="Title, author or any word" data-t-attr="placeholder" autocomplete="off" enterkeyhint="search">'
                 f'<button type="submit" aria-label="Search" data-t-attr="aria-label">→</button></div></form>')
 
-    def search(self):
-        """/search/ page plus the index it reads (search/books.json, search/p.json, search/p/*.bin): see search_index.py"""
-        rows = []
+    def _search_rows(self):
+        """(book record, article html) for the search index, one book at a time: holding every book's
+        text at once took several GB once the catalog passed ~3,000 books (19 Nov 2026)"""
         for b in self.live:
             art = None
             if b.get('_html'):
@@ -381,10 +381,13 @@ class Site:
             pdf = self.pdf_url(b)
             if pdf.startswith('/'):
                 pdf = self.base + pdf
-            rows.append(({'id': b['id'], 't': b['title'], 'a': author_name(b), 'al': b['author_last'], 'tr': b.get('translator') or '',
+            yield (({'id': b['id'], 't': b['title'], 'a': author_name(b), 'al': b['author_last'], 'tr': b.get('translator') or '',
                           'd': b.get('original_date') or '', 'desc': b.get('_desc') or '', 'tg': b.get('tags', []), 'pdf': pdf, 'read': bool(art), **({'rd': self.read_url(b) if self.pdf_base else self.base + self.read_url(b)} if art else {}),
                           **({'epub': self.epub_url(b) if self.pdf_base else self.base + self.epub_url(b)} if art else {})}, art))
-        nw, ns = search_index.write_index(self.out / 'search', rows)
+
+    def search(self):
+        """/search/ page plus the index it reads (search/books.json, search/p.json, search/p/*.bin): see search_index.py"""
+        nw, ns = search_index.write_index(self.out / 'search', self._search_rows())
         tags = [{'n': t['name'], 's': t['slug'], 'c': len(self.by_tag[t['name']])} for t in sorted(self.tags, key=lambda t: nat(t['name'])) if self.by_tag[t['name']]]
         (self.out / 'search' / 'tags.json').write_text(json.dumps(tags, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
         print(f'Search index: {nw} words in {ns} files.')
@@ -751,7 +754,13 @@ class Site:
         dest = Path(dest)
         dest.mkdir(parents=True, exist_ok=True)
         for b in self.live:
-            shutil.copyfile(b['_src'], dest / f"{b['id']}.pdf")
+            dst = dest / f"{b['id']}.pdf"
+            try:  # a hard link where it can: a full copy of every PDF used several GB of the runner's disk
+                if dst.exists():
+                    dst.unlink()
+                os.link(b['_src'], dst)
+            except OSError:
+                shutil.copyfile(b['_src'], dst)
 
     def stage_epubs(self, dest):
         """an EPUB for every live book with a web edition (epub.py); unchanged books give identical files"""
