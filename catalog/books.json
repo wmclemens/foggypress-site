@@ -53544,5 +53544,287 @@
       "Irish",
       "Comedy & Satire"
     ]
+  },
+  {
+    "id": "abeokuta-and-the-camaroons-mountains",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "Abeokuta and the Camaroons Mountains",
+    "translator": "",
+    "original_date": "1863",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 79409,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/abeokuta-and-the-camaroons-mountains",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/abeokuta-and-the-camaroons-mountains/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20Abeokuta%20and%20the%20Camaroons%20Mountains.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "personal-narrative-of-a-pilgrimage-to-al-madinah-meccah",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "Personal Narrative of a Pilgrimage to Al-Madinah & Meccah",
+    "translator": "",
+    "original_date": "1855",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 4657,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/personal-narrative-of-a-pilgrimage-to-al-madinah-meccah",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/personal-narrative-of-a-pilgrimage-to-al-madinah-meccah/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20Personal%20Narrative%20of%20a%20Pilgrimage%20to%20Al-Madinah%20%26%20Meccah.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "Religion",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-life-of-charlotte-bronte",
+    "author_last": "Gaskell",
+    "author_first": "Elizabeth Cleghorn",
+    "title": "The Life of Charlotte Brontë",
+    "translator": "",
+    "original_date": "1857",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 1700,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gaskell-elizabeth-cleghorn/the-life-of-charlotte-bronte",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gaskell-elizabeth-cleghorn/the-life-of-charlotte-bronte/output/Gaskell%2C%20Elizabeth%20Cleghorn%3A%20The%20Life%20of%20Charlotte%20Bront%C3%AB.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Memoir",
+      "Victorian",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "wilhelm-meister-s-apprenticeship-and-travels",
+    "author_last": "Goethe",
+    "author_first": "Johann Wolfgang von",
+    "title": "Wilhelm Meister's Apprenticeship and Travels",
+    "translator": "Thomas Carlyle",
+    "original_date": "1796",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 36483,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/goethe-johann-wolfgang-von/wilhelm-meister-s-apprenticeship-and-travels",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/goethe-johann-wolfgang-von/wilhelm-meister-s-apprenticeship-and-travels/output/Goethe%2C%20Johann%20Wolfgang%20von%3A%20Wilhelm%20Meister%27s%20Apprenticeship%20and%20Travels.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "German",
+      "Coming of Age",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-eugenic-marriage",
+    "author_last": "Hague",
+    "author_first": "W. Grant",
+    "title": "The Eugenic Marriage",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21418,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hague-w-grant/the-eugenic-marriage",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hague-w-grant/the-eugenic-marriage/output/Hague%2C%20W.%20Grant%3A%20The%20Eugenic%20Marriage.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "the-marble-faun",
+    "author_last": "Hawthorne",
+    "author_first": "Nathaniel",
+    "title": "The Marble Faun",
+    "translator": "",
+    "original_date": "1860",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2181,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hawthorne-nathaniel/the-marble-faun",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hawthorne-nathaniel/the-marble-faun/output/Hawthorne%2C%20Nathaniel%3A%20The%20Marble%20Faun.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Italian"
+    ]
+  },
+  {
+    "id": "the-bostonians",
+    "author_last": "James",
+    "author_first": "Henry",
+    "title": "The Bostonians",
+    "translator": "",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 19717,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-henry/the-bostonians",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-henry/the-bostonians/output/James%2C%20Henry%3A%20The%20Bostonians.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Politics & Society",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "the-letters-of-henry-james",
+    "author_last": "James",
+    "author_first": "Henry",
+    "title": "The Letters of Henry James",
+    "translator": "",
+    "original_date": "1920",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 38035,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-henry/the-letters-of-henry-james",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-henry/the-letters-of-henry-james/output/James%2C%20Henry%3A%20The%20Letters%20of%20Henry%20James.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "American",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "the-irish-guards-in-the-great-war",
+    "author_last": "Kipling",
+    "author_first": "Rudyard",
+    "title": "The Irish Guards in the Great War",
+    "translator": "",
+    "original_date": "1923",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 64638,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kipling-rudyard/the-irish-guards-in-the-great-war",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kipling-rudyard/the-irish-guards-in-the-great-war/output/Kipling%2C%20Rudyard%3A%20The%20Irish%20Guards%20in%20the%20Great%20War.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Irish"
+    ]
+  },
+  {
+    "id": "myth-ritual-and-religion",
+    "author_last": "Lang",
+    "author_first": "Andrew",
+    "title": "Myth, Ritual and Religion",
+    "translator": "",
+    "original_date": "1887",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2832,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lang-andrew/myth-ritual-and-religion",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lang-andrew/myth-ritual-and-religion/output/Lang%2C%20Andrew%3A%20Myth%2C%20Ritual%20and%20Religion.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Religion",
+      "History",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "a-history-of-the-inquisition-of-spain",
+    "author_last": "Lea",
+    "author_first": "Henry Charles",
+    "title": "A History of the Inquisition of Spain",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 43296,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lea-henry-charles/a-history-of-the-inquisition-of-spain",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lea-henry-charles/a-history-of-the-inquisition-of-spain/output/Lea%2C%20Henry%20Charles%3A%20A%20History%20of%20the%20Inquisition%20of%20Spain.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "American",
+      "Spanish"
+    ]
+  },
+  {
+    "id": "the-history-of-rome",
+    "author_last": "Livy",
+    "author_first": "",
+    "title": "The History of Rome",
+    "translator": "D. Spillan",
+    "original_date": "c. 10 BC",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 19725,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/livy/the-history-of-rome",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/livy/the-history-of-rome/output/Livy%3A%20The%20History%20of%20Rome.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Ancient World",
+      "Classics",
+      "Translated"
+    ]
+  },
+  {
+    "id": "mardi-and-a-voyage-thither",
+    "author_last": "Melville",
+    "author_first": "Herman",
+    "title": "Mardi, and a Voyage Thither",
+    "translator": "",
+    "original_date": "1849",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 13720,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/melville-herman/mardi-and-a-voyage-thither",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/melville-herman/mardi-and-a-voyage-thither/output/Melville%2C%20Herman%3A%20Mardi%2C%20and%20a%20Voyage%20Thither.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Adventure",
+      "Novels",
+      "American",
+      "Sea & Ships"
+    ]
+  },
+  {
+    "id": "the-letters-of-robert-louis-stevenson",
+    "author_last": "Stevenson",
+    "author_first": "Robert Louis",
+    "title": "The Letters of Robert Louis Stevenson",
+    "translator": "",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 622,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/stevenson-robert-louis/the-letters-of-robert-louis-stevenson",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/stevenson-robert-louis/the-letters-of-robert-louis-stevenson/output/Stevenson%2C%20Robert%20Louis%3A%20The%20Letters%20of%20Robert%20Louis%20Stevenson.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "British",
+      "Memoir",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "personal-recollections-of-joan-of-arc",
+    "author_last": "Twain",
+    "author_first": "Mark",
+    "title": "Personal Recollections of Joan of Arc",
+    "translator": "",
+    "original_date": "1896",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2874,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/twain-mark/personal-recollections-of-joan-of-arc",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/twain-mark/personal-recollections-of-joan-of-arc/output/Twain%2C%20Mark%3A%20Personal%20Recollections%20of%20Joan%20of%20Arc.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "History",
+      "French"
+    ]
+  },
+  {
+    "id": "the-early-short-fiction-of-edith-wharton",
+    "author_last": "Wharton",
+    "author_first": "Edith",
+    "title": "The Early Short Fiction of Edith Wharton",
+    "translator": "",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 295,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/wharton-edith/the-early-short-fiction-of-edith-wharton",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/wharton-edith/the-early-short-fiction-of-edith-wharton/output/Wharton%2C%20Edith%3A%20The%20Early%20Short%20Fiction%20of%20Edith%20Wharton.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American",
+      "Women Writers"
+    ]
   }
 ]
