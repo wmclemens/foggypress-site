@@ -100,45 +100,49 @@ def write_index(out_dir, rows):
     pdir = out_dir / 'p'
     pdir.mkdir(exist_ok=True)
     books = []
-    places = defaultdict(list)  # word -> [(book, chapter, [positions])], in book then chapter order
+    # Each word's record is built as bytes while the books are read, one book at a time: holding every
+    # position of every word as Python numbers until the end took ~16 GB once the catalog passed ~3,000
+    # books, and the GitHub runner was killed for lack of memory (19 Nov 2026).
+    nbooks = defaultdict(int)     # word -> number of books it is in
+    lastb = defaultdict(int)      # word -> place of the last book it was in
+    body = defaultdict(bytearray)  # word -> the record so far, after its book count
     for bi, (rec, article) in enumerate(rows):
         secs = chapters(article) if article else []
         books.append(dict(rec, ch=[[sid, head] for sid, head, _ in secs]))
+        inbook = defaultdict(list)  # word -> [(chapter, [positions])] for this book only
         for ci, (_, _, text) in enumerate(secs):
             at = defaultdict(list)
             for i, w in enumerate(tokens(text)):
                 if indexed(w):
                     at[w].append(i)
             for w, ps in at.items():
-                places[w].append((bi, ci, ps))
-
-    def record(w):
-        body = bytearray()
-        by_book = []
-        for bi, ci, ps in places[w]:
-            if not by_book or by_book[-1][0] != bi:
-                by_book.append((bi, []))
-            by_book[-1][1].append((ci, ps))
-        varint(len(by_book), body)
-        last_b = 0
-        for bi, chs in by_book:
-            varint(bi - last_b, body)
-            last_b = bi
-            varint(len(chs), body)
+                inbook[w].append((ci, ps))
+        for w, chs in inbook.items():
+            out = body[w]
+            varint(bi - lastb[w], out)
+            lastb[w] = bi
+            nbooks[w] += 1
+            varint(len(chs), out)
             last_c = 0
             for ci, ps in chs:
-                varint(ci - last_c, body)
+                varint(ci - last_c, out)
                 last_c = ci
-                varint(len(ps), body)
+                varint(len(ps), out)
                 last_p = 0
                 for p in ps:
-                    varint(p - last_p, body)
+                    varint(p - last_p, out)
                     last_p = p
-        head = bytearray(w.encode('ascii') + b'\0')
-        varint(len(body), head)
-        return bytes(head + body)
+        del inbook
 
-    recs = {w: record(w) for w in places}
+    def record(w):
+        b = bytearray()
+        varint(nbooks[w], b)
+        b += body.pop(w)
+        head = bytearray(w.encode('ascii') + b'\0')
+        varint(len(b), head)
+        return bytes(head + b)
+
+    recs = {w: record(w) for w in list(body)}
     keys = []
 
     def put(key, ws):

@@ -61,7 +61,8 @@ jobs:
         if: steps.lib.outcome == 'success'
         run: |
           if [ -d library/books ]; then
-            cp -rn library/books/. files/books/
+            # hard links, not copies: the batch books are ~6 GB and a second copy filled the runner's disk
+            cp -rln library/books/. files/books/
             (cd library && find books -path '*/output/*.pdf') > files/.library-pdfs
           fi
 
@@ -113,6 +114,8 @@ jobs:
           else
             echo "::warning::$PDF_BASE/$one is not reachable yet; keeping PDFs on GitHub Pages this run"
           fi
+          rm -rf _pdfs   # uploaded; free the disk for the Build step
+          df -h / | tail -1
 
       - name: Build
         env:
