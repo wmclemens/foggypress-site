@@ -510,7 +510,10 @@
     sentEmail = sentTo || '';
     var l = local();
     acct.innerHTML = '<div class="ph"><span class="crumb"><a href="' + BASE + '">' + esc(T('Home')) + '</a></span><h1>' + esc(T('My books')) + '</h1>' +
-      '<p class="sub">' + esc(T('Sign in to keep your saved books, reading lists, tags and history on every device. No password: we email you a link.')) + '</p></div>' +
+      // less busy (19 Nov 2026): a shorter line; how sign-in works is in the "?" beside it
+      '<p class="sub">' + esc(T('Sign in to keep your books, lists and history on every device.')) +
+      (window.fpHelp ? window.fpHelp('signin', T('How sign-in works'), [esc(T('Sign in to keep your saved books, reading lists, tags and history on every device.')),
+        esc(T('No password: we email you a link.'))]) : '') + '</p></div>' +
       '<div class="signin card">' + (sentTo
         ? '<p>' + esc(T('We sent a sign-in link to {email}. Open it on this device, or type the 6-digit code from the email here.', {email: sentTo})) + '</p>' +
           '<form id="codeform"><label class="eyebrow" for="code">' + esc(T('Code')) + '</label><div class="sbox"><input id="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" pattern="[0-9 ]*"><button type="submit" class="btn sm">' + esc(T('Sign in')) + '</button></div><div id="ts"></div></form>' +

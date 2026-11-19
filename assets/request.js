@@ -29,9 +29,14 @@
   function draw() {
     var signed = acc.signedIn();
     var head = '<div class="ph"><span class="crumb"><a href="' + BASE + '">' + esc(T('Home')) + '</a></span><h1>' + esc(T('Request a book')) + '</h1>' +
-      '<p class="sub">' + esc(T('Ask for a public-domain book that isn’t on Foggy Press yet. We look for it in our approved sources of public-domain books. If we find an edition we can publish, we build it and email you when it’s on the site, usually within a few days. If we can’t, we email you why.')) + '</p></div>';
+      // less busy (19 Nov 2026): one line here; how requests work is in the "?" beside it
+      '<p class="sub">' + esc(T('Ask for a public-domain book that isn’t on Foggy Press yet.')) +
+      (window.fpHelp ? window.fpHelp('request', T('How requests work'), [
+        esc(T('We look for it in our approved sources of public-domain books.')),
+        esc(T('If we find an edition we can publish, we build it and email you when it’s on the site, usually within a few days. If we can’t, we email you why.')),
+        esc(T('We email you when your book is ready, so requests need an account.'))]) : '') + '</p></div>';
     if (!signed) {
-      box.innerHTML = head + '<div class="gate"><h2>' + esc(T('Sign in to request a book')) + '</h2><p>' + esc(T('We email you when your book is ready, so requests need an account.')) + '</p>' +
+      box.innerHTML = head + '<div class="gate"><h2>' + esc(T('Sign in to request a book')) + '</h2>' +
         '<a class="btn" href="' + BASE + 'account/?next=request' + esc(location.search ? '&' + location.search.slice(1) : '') + '">' + esc(T('Sign in with your email')) + '</a>' +
         '<p class="fine">' + esc(T('No password: we email you a link.')) + ' <a href="' + BASE + 'privacy/">' + esc(T('Privacy')) + '</a></p></div>';
       return;

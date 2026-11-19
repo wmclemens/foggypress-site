@@ -263,8 +263,20 @@ Banyak orang bertanya hari ini.
 Masuk untuk terus bertanya, atau kembali besok.
 Buka halaman Tanya
 Kami tidak dapat memeriksa browser ini. Silakan coba lagi.
+Masuk untuk bertanya lebih banyak
+Minta rekomendasi buku, penjelasan sebuah buku, atau bantuan mencari suatu bagian.
+Jawaban ditulis oleh AI hanya dari {n} buku di Foggy Press, dan setiap kutipan tertaut ke halaman asalnya agar Anda dapat memeriksanya.
+Tentang Tanya Foggy Press
+Minta buku domain publik yang belum ada di Foggy Press.
+Cara kerja permintaan
+Kami mencarinya di sumber buku domain publik yang telah kami setujui.
+Jika kami menemukan edisi yang bisa diterbitkan, kami menyiapkannya dan mengirimi Anda email saat buku itu sudah ada di situs, biasanya dalam beberapa hari. Jika tidak bisa, kami mengirim email berisi alasannya.
+Masuk untuk menyimpan buku, daftar, dan riwayat Anda di semua perangkat.
+Cara kerja masuk
+Masuk untuk menyimpan buku, daftar bacaan, tag, dan riwayat Anda di semua perangkat.
+Tampilan: mode gelap dan bahasa
 
-@about 2654dd9aaf
+@about 351cb8b251
 Foggy Press menata ulang buku-buku domain publik dalam satu gaya rumah yang sederhana dan menerbitkannya secara gratis: untuk dibaca daring, dicetak di rumah dari PDF berukuran kertas letter AS, atau diunduh sebagai EPUB untuk pembaca e-book.
 
 ## Hak dan sumber
@@ -273,7 +285,7 @@ Buku-buku di sini adalah teks domain publik di Amerika Serikat, tempat Foggy Pre
 
 Teks kami berasal dari transkripsi dan pindaian domain publik: terutama dari [Project Gutenberg](https://www.gutenberg.org), juga dari [Internet Archive](https://archive.org), [Wikisource](https://wikisource.org), [HathiTrust](https://www.hathitrust.org), dan [Google Books](https://books.google.com). Kami menata ulang setiap teks dengan tata letak kami sendiri dan tidak menambahkan apa pun selain judul halaman dan, untuk kumpulan karya, daftar isi singkat. Catatan setiap buku menyebutkan tanggal terbit aslinya dan, bila ada, penerjemahnya.
 
-Foggy Press adalah edisi bacaan gratis dan nonkomersial. Tidak ada iklan, tidak ada akun, dan tidak ada yang dijual.
+Foggy Press adalah edisi bacaan gratis dan nonkomersial. Tidak ada iklan dan tidak ada yang dijual, dan Anda tidak pernah memerlukan akun untuk membaca, mencetak, atau mengunduh buku.
 
 ## Koreksi dan permintaan penghapusan
 

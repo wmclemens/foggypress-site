@@ -263,8 +263,20 @@ Watu wengi wanauliza leo.
 Ingia ili uendelee kuuliza, au rudi kesho.
 Fungua ukurasa wa Uliza
 Hatukuweza kukagua kivinjari hiki. Tafadhali jaribu tena.
+Ingia ili uulize zaidi
+Omba pendekezo la kitabu, maelezo ya kitabu, au msaada wa kupata kifungu.
+Majibu huandikwa na AI kutoka kwa vitabu {n} vya Foggy Press pekee, na kila nukuu inaunganishwa na ukurasa ilikotoka ili uweze kuikagua.
+Kuhusu Uliza Foggy Press
+Omba kitabu cha umma ambacho bado hakipo Foggy Press.
+Jinsi maombi yanavyofanya kazi
+Tunakitafuta katika vyanzo vyetu vilivyoidhinishwa vya vitabu vya umma.
+Tukipata toleo tunaloweza kuchapisha, tunakiandaa na kukutumia barua pepe kikiwa kwenye tovuti, kwa kawaida ndani ya siku chache. Tusipoweza, tunakutumia barua pepe kukueleza kwa nini.
+Ingia ili vitabu, orodha na historia yako viwe kwenye kila kifaa.
+Jinsi kuingia kunavyofanya kazi
+Ingia ili vitabu ulivyohifadhi, orodha za kusoma, lebo na historia viwe kwenye kila kifaa.
+Mwonekano: hali ya giza na lugha
 
-@about 2654dd9aaf
+@about 351cb8b251
 Foggy Press hupanga upya vitabu vya umma kwa mtindo mmoja rahisi na kuvichapisha bure: kusoma mtandaoni, kuchapisha nyumbani kutoka kwenye PDF ya karatasi ya ukubwa wa letter ya Marekani, au kupakua kama EPUB kwa kisomaji cha kielektroniki.
 
 ## Haki na vyanzo
@@ -273,7 +285,7 @@ Vitabu vilivyo hapa ni maandishi ya umma nchini Marekani, ambako Foggy Press iko
 
 Maandishi yetu yanatoka kwenye unukuzi na picha za kurasa zilizo katika umma: hasa [Project Gutenberg](https://www.gutenberg.org), na pia [Internet Archive](https://archive.org), [Wikisource](https://wikisource.org), [HathiTrust](https://www.hathitrust.org) na [Google Books](https://books.google.com). Tunapanga upya kila maandishi kwa mpangilio wetu wenyewe na hatuongezi chochote isipokuwa vichwa vya kurasa na, kwa mikusanyiko, orodha fupi ya yaliyomo. Kumbukumbu ya kila kitabu inataja tarehe yake ya kwanza kuchapishwa na, inapokuwepo, mfasiri wake.
 
-Foggy Press ni toleo la kusoma la bure lisilo la kibiashara. Hakuna matangazo, hakuna akaunti na hakuna kinachouzwa.
+Foggy Press ni toleo la kusoma la bure lisilo la kibiashara. Hakuna matangazo wala kinachouzwa, na hauhitaji akaunti kamwe ili kusoma, kuchapisha au kupakua kitabu.
 
 ## Masahihisho na maombi ya kuondoa
 

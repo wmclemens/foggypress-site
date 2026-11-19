@@ -181,8 +181,18 @@
     var off = !canAsk() || blocked() || busy;
     return '<div class="composer"><form class="cbox" data-ask-form><textarea rows="1" maxlength="1000" placeholder="' + esc(!canAsk() ? T('Sign in to ask a question') : blocked() ? T('Back tomorrow') : ph) + '" aria-label="' + esc(T('Your question')) + '"' + (off && !busy ? ' disabled' : '') + '></textarea>' +
       '<button class="send" type="submit" aria-label="' + esc(T('Send')) + '"' + (off ? ' disabled' : '') + '>' + SEND + '</button></form>' +
-      '<div class="cmeta"><span data-ask-left>' + esc(canAsk() ? leftText() : T('Sign in to ask')) + '</span><span>' + esc(T('AI answers · quotes link to the text so you can check them')) + '</span></div>' +
-      (!signed && guests ? '<p class="cguest">' + esc(T('No account needed.')) + ' <a href="' + BASE + 'account/?next=ask">' + esc(T('Sign in to keep your chats and ask more each day.')) + '</a></p>' : '') + '</div>';
+      // less busy (19 Nov 2026): what Ask is and how answers work moved into the "?" beside the heading (helpHtml)
+      '<div class="cmeta"><span data-ask-left>' + esc(canAsk() ? leftText() : T('Sign in to ask')) + '</span>' +
+      (!signed && guests ? '<a href="' + BASE + 'account/?next=ask">' + esc(T('Sign in to ask more')) + ' →</a>' : '') + '</div></div>';
+  }
+  // the "?" beside "Ask Foggy Press": what Ask does, where answers come from, and (for guests) why sign in
+  function helpHtml() {
+    if (!window.fpHelp) return '';
+    var n = Object.keys(cat).length.toLocaleString(window.fpLang ? window.fpLang() : undefined);
+    var ps = [esc(T('Ask for a book recommendation, an explanation of a book, or help finding a passage.')),
+      esc(T('Answers are written by AI from the {n} books on Foggy Press only, and every quote links to the page it came from so you can check it.', {n: n}))];
+    if (!signed && guests) ps.push(esc(T('No account needed.')) + ' <a href="' + BASE + 'account/?next=ask">' + esc(T('Sign in to keep your chats and ask more each day.')) + '</a>');
+    return window.fpHelp(home ? 'ask-home' : 'ask', T('About Ask Foggy Press'), ps);
   }
   function gateHtml() {
     return '<div class="gate"><h2>' + esc(T('Sign in to ask')) + '</h2><p>' + esc(T('Asking is free. Signing in keeps it fair: everyone gets {n} questions a day.', {n: 20})) + '</p>' +
@@ -199,12 +209,11 @@
   function drawPage() {
     if (home) return drawHome();
     var past = location.hash === '#past';
-    var head = '<div class="ask-h"><h1>' + esc(T('Ask Foggy Press')) + '</h1>' + (signed ? '<div class="who">' +
+    var head = '<div class="ask-h"><h1>' + esc(T('Ask Foggy Press')) + helpHtml() + '</h1>' + (signed ? '<div class="who">' +
       (past ? '<a href="#">' + esc(T('Back to the chat')) + '</a>' : '<a href="#past">' + esc(T('Past chats')) + '</a>') +
       '<button type="button" class="linkish" data-ask-new>' + esc(T('New chat')) + '</button></div>' : '') + '</div>';
     if (past && signed) { page.innerHTML = head + '<div id="past"><p class="sub">' + esc(T('Loading…')) + '</p></div>'; drawPast(); return; }
-    var lede = '<p class="lede">' + esc(T('Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.', {n: Object.keys(cat).length})) + '</p>';
-    page.innerHTML = head + (msgs.length ? '' : lede + startersHtml()) + (canAsk() ? '' : gateHtml()) +
+    page.innerHTML = head + (msgs.length ? '' : startersHtml()) + (canAsk() ? '' : gateHtml()) +
       '<div class="convo" aria-live="polite">' + convoHtml() + '</div>' + noticeHtml() + composerHtml(T('Ask about a book, an author or a subject, or get recommendations'));
     acc.star(page);
     wireComposer(page);
@@ -213,9 +222,8 @@
   function drawHome() {
     var links = (signed ? '<a href="' + BASE + 'ask/#past">' + esc(T('Past chats')) + '</a>' : '') +
       (msgs.length ? '<button type="button" class="linkish" data-ask-new>' + esc(T('New chat')) + '</button>' : '<a href="' + BASE + 'ask/">' + esc(T('Open the Ask page')) + ' →</a>');
-    page.innerHTML = '<div class="sec-h"><h2>' + esc(T('Ask Foggy Press')) + '</h2><div class="who">' + links + '</div></div>' +
-      // no starter questions here (Will, 17 Nov 2026: they took up a lot of space); the Ask page keeps them
-      (msgs.length ? '' : '<p class="lede">' + esc(T('Ask for a book recommendation, an explanation of a book, or help finding a passage. Answers come only from the {n} books on Foggy Press, and every quote links to the page it came from.', {n: Object.keys(cat).length.toLocaleString(window.fpLang ? window.fpLang() : undefined)})) + '</p>') +
+    // no starter questions here (Will, 17 Nov 2026: they took up a lot of space); the Ask page keeps them
+    page.innerHTML = '<div class="sec-h"><h2>' + esc(T('Ask Foggy Press')) + helpHtml() + '</h2><div class="who">' + links + '</div></div>' +
       (canAsk() ? '' : gateHtml()) + '<div class="convo" aria-live="polite">' + convoHtml() + '</div>' + noticeHtml() + composerHtml(T('Ask about a book, an author or a subject, or get recommendations'));
     acc.star(page);
     wireComposer(page);

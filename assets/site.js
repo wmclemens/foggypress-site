@@ -13,6 +13,53 @@ document.addEventListener('click', function (e) {
   if (!lang && !th) return;
   var u = new URL(a.href); u.searchParams.set('fp', lang + '.' + th); a.href = u.toString();
 }, true);
+// "?" help buttons (.qm): a tap or click opens the short note beside them (.qpop), again closes it; Esc, the ×
+// or a tap anywhere else closes it too. The notes may be drawn later by other scripts, so this listens on the page.
+// Also closes the read pages' "Aa" menu (details.rb-menu) on a tap outside it.
+(function () {
+  function closeAll(except) {
+    document.querySelectorAll('.qm[aria-expanded="true"]').forEach(function (b) {
+      if (b === except) return;
+      b.setAttribute('aria-expanded', 'false');
+      var p = document.getElementById(b.getAttribute('aria-controls')); if (p) p.hidden = true;
+    });
+  }
+  function fit(p) {   // keep the note on screen
+    p.style.left = ''; p.style.right = '';
+    var r = p.getBoundingClientRect(), w = document.documentElement.clientWidth;
+    if (r.right > w - 8) p.style.left = (parseFloat(getComputedStyle(p).left) - (r.right - (w - 8))) + 'px';
+    r = p.getBoundingClientRect();
+    if (r.left < 8) p.style.left = (parseFloat(getComputedStyle(p).left) + (8 - r.left)) + 'px';
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target, b = t.closest && t.closest('.qm');
+    if (b) {
+      e.preventDefault();
+      var p = document.getElementById(b.getAttribute('aria-controls')), open = b.getAttribute('aria-expanded') !== 'true';
+      closeAll(b);
+      b.setAttribute('aria-expanded', String(open));
+      if (p) { p.hidden = !open; if (open) { fit(p); if (window.fpEvent) fpEvent('help: ' + b.getAttribute('aria-controls')); } }
+      return;
+    }
+    if (t.closest && t.closest('.qx')) { closeAll(); return; }
+    if (!(t.closest && t.closest('.qpop'))) closeAll();
+    document.querySelectorAll('details.rb-menu[open]').forEach(function (d) { if (!d.contains(t)) d.open = false; });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var b = document.querySelector('.qm[aria-expanded="true"]');
+    closeAll(); if (b) b.focus();
+    document.querySelectorAll('details.rb-menu[open]').forEach(function (d) { d.open = false; });
+  });
+})();
+// help note markup for pages drawn by script: fpHelp('ask', 'About Ask Foggy Press', ['First paragraph', ...]) (paragraphs are HTML)
+window.fpHelp = function (id, label, paras) {
+  var T = window.fpT || function (s) { return s; };
+  var e = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); };
+  return '<span class="qwrap"><button type="button" class="qm" aria-expanded="false" aria-controls="help-' + id + '" aria-label="' + e(label) + '">?</button>' +
+    '<span class="qpop" id="help-' + id + '" role="note" hidden><button type="button" class="qx" aria-label="' + e(T('Close')) + '">×</button>' +
+    paras.map(function (p) { return '<span>' + p + '</span>'; }).join('') + '</span></span>';
+};
 (function () {
   var T = window.fpT || function (s, v) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return v && v[k] != null ? v[k] : m; }); };
   var root = document.documentElement;
