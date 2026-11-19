@@ -53293,5 +53293,1111 @@
       "Memoir",
       "Comedy & Satire"
     ]
+  },
+  {
+    "id": "the-variation-of-animals-and-plants-under-domestication",
+    "author_last": "Darwin",
+    "author_first": "Charles",
+    "title": "The Variation of Animals and Plants Under Domestication",
+    "translator": "",
+    "original_date": "1868",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 24923,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/darwin-charles/the-variation-of-animals-and-plants-under-domestication",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/darwin-charles/the-variation-of-animals-and-plants-under-domestication/output/Darwin%2C%20Charles%3A%20The%20Variation%20of%20Animals%20and%20Plants%20Under%20Domestication.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "a-budget-of-paradoxes",
+    "author_last": "De Morgan",
+    "author_first": "Augustus",
+    "title": "A Budget of Paradoxes",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 23100,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/de-morgan-augustus/a-budget-of-paradoxes",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/de-morgan-augustus/a-budget-of-paradoxes/output/De%20Morgan%2C%20Augustus%3A%20A%20Budget%20of%20Paradoxes.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Comedy & Satire",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-traditional-games-of-england-scotland-and-ireland",
+    "author_last": "Gomme",
+    "author_first": "Alice Bertha",
+    "title": "The Traditional Games of England, Scotland, and Ireland",
+    "translator": "",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41727,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gomme-alice-bertha/the-traditional-games-of-england-scotland-and-ireland",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gomme-alice-bertha/the-traditional-games-of-england-scotland-and-ireland/output/Gomme%2C%20Alice%20Bertha%3A%20The%20Traditional%20Games%20of%20England%2C%20Scotland%2C%20and%20Ireland.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Victorian",
+      "Women Writers",
+      "Children's"
+    ]
+  },
+  {
+    "id": "the-portrait-of-a-lady",
+    "author_last": "James",
+    "author_first": "Henry",
+    "title": "The Portrait of a Lady",
+    "translator": "",
+    "original_date": "1881",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2833,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-henry/the-portrait-of-a-lady",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-henry/the-portrait-of-a-lady/output/James%2C%20Henry%3A%20The%20Portrait%20of%20a%20Lady.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "American",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "the-principles-of-psychology",
+    "author_last": "James",
+    "author_first": "William",
+    "title": "The Principles of Psychology",
+    "translator": "",
+    "original_date": "1890",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57628,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-william/the-principles-of-psychology",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-william/the-principles-of-psychology/output/James%2C%20William%3A%20The%20Principles%20of%20Psychology.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Philosophy",
+      "American"
+    ]
+  },
+  {
+    "id": "a-system-of-logic",
+    "author_last": "Mill",
+    "author_first": "John Stuart",
+    "title": "A System of Logic",
+    "translator": "",
+    "original_date": "1843",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 35421,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mill-john-stuart/a-system-of-logic",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mill-john-stuart/a-system-of-logic/output/Mill%2C%20John%20Stuart%3A%20A%20System%20of%20Logic.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Philosophy",
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "thoughts-out-of-season",
+    "author_last": "Nietzsche",
+    "author_first": "Friedrich Wilhelm",
+    "title": "Thoughts Out of Season",
+    "translator": "Anthony M. Ludovici",
+    "original_date": "1873",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5652,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/nietzsche-friedrich-wilhelm/thoughts-out-of-season",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/nietzsche-friedrich-wilhelm/thoughts-out-of-season/output/Nietzsche%2C%20Friedrich%20Wilhelm%3A%20Thoughts%20Out%20of%20Season.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Philosophy",
+      "Essays",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-metamorphoses-of-ovid",
+    "author_last": "Ovid",
+    "author_first": "",
+    "title": "The Metamorphoses of Ovid",
+    "translator": "Henry T. Riley",
+    "original_date": "8",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21765,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ovid/the-metamorphoses-of-ovid",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ovid/the-metamorphoses-of-ovid/output/Ovid%3A%20The%20Metamorphoses%20of%20Ovid.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Fantasy & Fairy Tales",
+      "Poetry",
+      "Ancient World",
+      "Classics",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-natural-history-of-pliny",
+    "author_last": "Pliny",
+    "author_first": "",
+    "title": "The Natural History of Pliny",
+    "translator": "John Bostock, Henry T. Riley",
+    "original_date": "77",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57493,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/pliny/the-natural-history-of-pliny",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/pliny/the-natural-history-of-pliny/output/Pliny%3A%20The%20Natural%20History%20of%20Pliny.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Ancient World",
+      "Science",
+      "Classics",
+      "Translated"
+    ]
+  },
+  {
+    "id": "life-of-napoleon-bonaparte",
+    "author_last": "Scott",
+    "author_first": "Walter",
+    "title": "Life of Napoleon Bonaparte",
+    "translator": "",
+    "original_date": "1827",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 48837,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/scott-walter/life-of-napoleon-bonaparte",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/scott-walter/life-of-napoleon-bonaparte/output/Scott%2C%20Walter%3A%20Life%20of%20Napoleon%20Bonaparte.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "French"
+    ]
+  },
+  {
+    "id": "more-letters-of-charles-darwin",
+    "author_last": "Darwin",
+    "author_first": "Charles",
+    "title": "More Letters of Charles Darwin",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2739,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/darwin-charles/more-letters-of-charles-darwin",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/darwin-charles/more-letters-of-charles-darwin/output/Darwin%2C%20Charles%3A%20More%20Letters%20of%20Charles%20Darwin.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "History",
+      "Science",
+      "Memoir",
+      "British"
+    ]
+  },
+  {
+    "id": "the-principles-of-chemistry",
+    "author_last": "Mendeleyev",
+    "author_first": "Dmitry Ivanovich",
+    "title": "The Principles of Chemistry",
+    "translator": "George Kamensky",
+    "original_date": "1891",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 51326,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mendeleyev-dmitry-ivanovich/the-principles-of-chemistry",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mendeleyev-dmitry-ivanovich/the-principles-of-chemistry/output/Mendeleyev%2C%20Dmitry%20Ivanovich%3A%20The%20Principles%20of%20Chemistry.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Russian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-tribes-and-castes-of-the-central-provinces-of-india",
+    "author_last": "Russell",
+    "author_first": "R. V.",
+    "title": "The Tribes and Castes of the Central Provinces of India",
+    "translator": "",
+    "original_date": "1916",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 20583,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/russell-r-v/the-tribes-and-castes-of-the-central-provinces-of-india",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/russell-r-v/the-tribes-and-castes-of-the-central-provinces-of-india/output/Russell%2C%20R.%20V.%3A%20The%20Tribes%20and%20Castes%20of%20the%20Central%20Provinces%20of%20India.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "the-poems-of-jonathan-swift",
+    "author_last": "Swift",
+    "author_first": "Jonathan",
+    "title": "The Poems of Jonathan Swift",
+    "translator": "",
+    "original_date": "1735",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 13621,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/swift-jonathan/the-poems-of-jonathan-swift",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/swift-jonathan/the-poems-of-jonathan-swift/output/Swift%2C%20Jonathan%3A%20The%20Poems%20of%20Jonathan%20Swift.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "British",
+      "Irish",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "abeokuta-and-the-camaroons-mountains",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "Abeokuta and the Camaroons Mountains",
+    "translator": "",
+    "original_date": "1863",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 79409,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/abeokuta-and-the-camaroons-mountains",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/abeokuta-and-the-camaroons-mountains/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20Abeokuta%20and%20the%20Camaroons%20Mountains.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "personal-narrative-of-a-pilgrimage-to-al-madinah-meccah",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "Personal Narrative of a Pilgrimage to Al-Madinah & Meccah",
+    "translator": "",
+    "original_date": "1855",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 4657,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/personal-narrative-of-a-pilgrimage-to-al-madinah-meccah",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/personal-narrative-of-a-pilgrimage-to-al-madinah-meccah/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20Personal%20Narrative%20of%20a%20Pilgrimage%20to%20Al-Madinah%20%26%20Meccah.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "Religion",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-life-of-charlotte-bronte",
+    "author_last": "Gaskell",
+    "author_first": "Elizabeth Cleghorn",
+    "title": "The Life of Charlotte Brontë",
+    "translator": "",
+    "original_date": "1857",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 1700,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gaskell-elizabeth-cleghorn/the-life-of-charlotte-bronte",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gaskell-elizabeth-cleghorn/the-life-of-charlotte-bronte/output/Gaskell%2C%20Elizabeth%20Cleghorn%3A%20The%20Life%20of%20Charlotte%20Bront%C3%AB.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Memoir",
+      "Victorian",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "wilhelm-meister-s-apprenticeship-and-travels",
+    "author_last": "Goethe",
+    "author_first": "Johann Wolfgang von",
+    "title": "Wilhelm Meister's Apprenticeship and Travels",
+    "translator": "Thomas Carlyle",
+    "original_date": "1796",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 36483,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/goethe-johann-wolfgang-von/wilhelm-meister-s-apprenticeship-and-travels",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/goethe-johann-wolfgang-von/wilhelm-meister-s-apprenticeship-and-travels/output/Goethe%2C%20Johann%20Wolfgang%20von%3A%20Wilhelm%20Meister%27s%20Apprenticeship%20and%20Travels.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "German",
+      "Coming of Age",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-eugenic-marriage",
+    "author_last": "Hague",
+    "author_first": "W. Grant",
+    "title": "The Eugenic Marriage",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21418,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hague-w-grant/the-eugenic-marriage",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hague-w-grant/the-eugenic-marriage/output/Hague%2C%20W.%20Grant%3A%20The%20Eugenic%20Marriage.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "the-marble-faun",
+    "author_last": "Hawthorne",
+    "author_first": "Nathaniel",
+    "title": "The Marble Faun",
+    "translator": "",
+    "original_date": "1860",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2181,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hawthorne-nathaniel/the-marble-faun",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hawthorne-nathaniel/the-marble-faun/output/Hawthorne%2C%20Nathaniel%3A%20The%20Marble%20Faun.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Italian"
+    ]
+  },
+  {
+    "id": "the-bostonians",
+    "author_last": "James",
+    "author_first": "Henry",
+    "title": "The Bostonians",
+    "translator": "",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 19717,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-henry/the-bostonians",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-henry/the-bostonians/output/James%2C%20Henry%3A%20The%20Bostonians.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Politics & Society",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "the-letters-of-henry-james",
+    "author_last": "James",
+    "author_first": "Henry",
+    "title": "The Letters of Henry James",
+    "translator": "",
+    "original_date": "1920",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 38035,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-henry/the-letters-of-henry-james",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-henry/the-letters-of-henry-james/output/James%2C%20Henry%3A%20The%20Letters%20of%20Henry%20James.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "American",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "the-irish-guards-in-the-great-war",
+    "author_last": "Kipling",
+    "author_first": "Rudyard",
+    "title": "The Irish Guards in the Great War",
+    "translator": "",
+    "original_date": "1923",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 64638,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kipling-rudyard/the-irish-guards-in-the-great-war",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kipling-rudyard/the-irish-guards-in-the-great-war/output/Kipling%2C%20Rudyard%3A%20The%20Irish%20Guards%20in%20the%20Great%20War.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Irish"
+    ]
+  },
+  {
+    "id": "myth-ritual-and-religion",
+    "author_last": "Lang",
+    "author_first": "Andrew",
+    "title": "Myth, Ritual and Religion",
+    "translator": "",
+    "original_date": "1887",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2832,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lang-andrew/myth-ritual-and-religion",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lang-andrew/myth-ritual-and-religion/output/Lang%2C%20Andrew%3A%20Myth%2C%20Ritual%20and%20Religion.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Religion",
+      "History",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "a-history-of-the-inquisition-of-spain",
+    "author_last": "Lea",
+    "author_first": "Henry Charles",
+    "title": "A History of the Inquisition of Spain",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 43296,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lea-henry-charles/a-history-of-the-inquisition-of-spain",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lea-henry-charles/a-history-of-the-inquisition-of-spain/output/Lea%2C%20Henry%20Charles%3A%20A%20History%20of%20the%20Inquisition%20of%20Spain.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "American",
+      "Spanish"
+    ]
+  },
+  {
+    "id": "the-history-of-rome",
+    "author_last": "Livy",
+    "author_first": "",
+    "title": "The History of Rome",
+    "translator": "D. Spillan",
+    "original_date": "c. 10 BC",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 19725,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/livy/the-history-of-rome",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/livy/the-history-of-rome/output/Livy%3A%20The%20History%20of%20Rome.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Ancient World",
+      "Classics",
+      "Translated"
+    ]
+  },
+  {
+    "id": "mardi-and-a-voyage-thither",
+    "author_last": "Melville",
+    "author_first": "Herman",
+    "title": "Mardi, and a Voyage Thither",
+    "translator": "",
+    "original_date": "1849",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 13720,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/melville-herman/mardi-and-a-voyage-thither",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/melville-herman/mardi-and-a-voyage-thither/output/Melville%2C%20Herman%3A%20Mardi%2C%20and%20a%20Voyage%20Thither.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Adventure",
+      "Novels",
+      "American",
+      "Sea & Ships"
+    ]
+  },
+  {
+    "id": "the-letters-of-robert-louis-stevenson",
+    "author_last": "Stevenson",
+    "author_first": "Robert Louis",
+    "title": "The Letters of Robert Louis Stevenson",
+    "translator": "",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 622,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/stevenson-robert-louis/the-letters-of-robert-louis-stevenson",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/stevenson-robert-louis/the-letters-of-robert-louis-stevenson/output/Stevenson%2C%20Robert%20Louis%3A%20The%20Letters%20of%20Robert%20Louis%20Stevenson.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "British",
+      "Memoir",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "personal-recollections-of-joan-of-arc",
+    "author_last": "Twain",
+    "author_first": "Mark",
+    "title": "Personal Recollections of Joan of Arc",
+    "translator": "",
+    "original_date": "1896",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2874,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/twain-mark/personal-recollections-of-joan-of-arc",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/twain-mark/personal-recollections-of-joan-of-arc/output/Twain%2C%20Mark%3A%20Personal%20Recollections%20of%20Joan%20of%20Arc.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "History",
+      "French"
+    ]
+  },
+  {
+    "id": "the-early-short-fiction-of-edith-wharton",
+    "author_last": "Wharton",
+    "author_first": "Edith",
+    "title": "The Early Short Fiction of Edith Wharton",
+    "translator": "",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 295,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/wharton-edith/the-early-short-fiction-of-edith-wharton",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/wharton-edith/the-early-short-fiction-of-edith-wharton/output/Wharton%2C%20Edith%3A%20The%20Early%20Short%20Fiction%20of%20Edith%20Wharton.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-life-of-john-marshall",
+    "author_last": "Beveridge",
+    "author_first": "Albert J.",
+    "title": "The Life of John Marshall",
+    "translator": "",
+    "original_date": "1916",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 40533,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/beveridge-albert-j/the-life-of-john-marshall",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/beveridge-albert-j/the-life-of-john-marshall/output/Beveridge%2C%20Albert%20J.%3A%20The%20Life%20of%20John%20Marshall.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "the-land-of-midian-revisited",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "The Land of Midian (Revisited)",
+    "translator": "",
+    "original_date": "1879",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 7111,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/the-land-of-midian-revisited",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/the-land-of-midian-revisited/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20The%20Land%20of%20Midian%20%28Revisited%29.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Adventure",
+      "Travel",
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "to-the-gold-coast-for-gold",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir and Verney Lovett Cameron",
+    "title": "To The Gold Coast for Gold",
+    "translator": "",
+    "original_date": "1883",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 8821,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/to-the-gold-coast-for-gold",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/to-the-gold-coast-for-gold/output/Burton%2C%20Richard%20Francis%2C%20Sir%20and%20Verney%20Lovett%20Cameron%3A%20To%20The%20Gold%20Coast%20for%20Gold.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "two-trips-to-gorilla-land-and-the-cataracts-of-the-congo",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "Two Trips to Gorilla Land and the Cataracts of the Congo",
+    "translator": "",
+    "original_date": "1876",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5760,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/two-trips-to-gorilla-land-and-the-cataracts-of-the-congo",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/two-trips-to-gorilla-land-and-the-cataracts-of-the-congo/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20Two%20Trips%20to%20Gorilla%20Land%20and%20the%20Cataracts%20of%20the%20Congo.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "ultima-thule",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "Ultima Thule",
+    "translator": "",
+    "original_date": "1875",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 59584,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/ultima-thule",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/ultima-thule/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20Ultima%20Thule.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "zanzibar-city-island-and-coast",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "Zanzibar; City, Island, and Coast",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 69270,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/zanzibar-city-island-and-coast",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/zanzibar-city-island-and-coast/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20Zanzibar%3B%20City%2C%20Island%2C%20and%20Coast.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-correspondence-of-thomas-carlyle-and-ralph-waldo-emerson-1834-1872",
+    "author_last": "Carlyle",
+    "author_first": "Thomas and Ralph Waldo Emerson",
+    "title": "The Correspondence of Thomas Carlyle and Ralph Waldo Emerson, 1834-1872",
+    "translator": "",
+    "original_date": "1883",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 13583,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/carlyle-thomas/the-correspondence-of-thomas-carlyle-and-ralph-waldo-emerson-1834-1872",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/carlyle-thomas/the-correspondence-of-thomas-carlyle-and-ralph-waldo-emerson-1834-1872/output/Carlyle%2C%20Thomas%20and%20Ralph%20Waldo%20Emerson%3A%20The%20Correspondence%20of%20Thomas%20Carlyle%20and%20Ralph%20Waldo%20Emerson%2C%201834-1872.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "British",
+      "American",
+      "Memoir",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "a-monograph-on-the-sub-class-cirripedia",
+    "author_last": "Darwin",
+    "author_first": "Charles",
+    "title": "A Monograph on the Sub-class Cirripedia",
+    "translator": "",
+    "original_date": "1851",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 31558,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/darwin-charles/a-monograph-on-the-sub-class-cirripedia",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/darwin-charles/a-monograph-on-the-sub-class-cirripedia/output/Darwin%2C%20Charles%3A%20A%20Monograph%20on%20the%20Sub-class%20Cirripedia.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "collected-papers",
+    "author_last": "Freud",
+    "author_first": "Sigmund",
+    "title": "Collected Papers",
+    "translator": "Joan Riviere",
+    "original_date": "1924",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 79856,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/freud-sigmund/collected-papers",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/freud-sigmund/collected-papers/output/Freud%2C%20Sigmund%3A%20Collected%20Papers.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "love-letters-of-nathaniel-hawthorne",
+    "author_last": "Hawthorne",
+    "author_first": "Nathaniel",
+    "title": "Love Letters of Nathaniel Hawthorne",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41309,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hawthorne-nathaniel/love-letters-of-nathaniel-hawthorne",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hawthorne-nathaniel/love-letters-of-nathaniel-hawthorne/output/Hawthorne%2C%20Nathaniel%3A%20Love%20Letters%20of%20Nathaniel%20Hawthorne.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "American",
+      "Memoir",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "passages-from-the-american-notebooks",
+    "author_last": "Hawthorne",
+    "author_first": "Nathaniel",
+    "title": "Passages from the American Notebooks",
+    "translator": "",
+    "original_date": "1868",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 8088,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hawthorne-nathaniel/passages-from-the-american-notebooks",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hawthorne-nathaniel/passages-from-the-american-notebooks/output/Hawthorne%2C%20Nathaniel%3A%20Passages%20from%20the%20American%20Notebooks.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Memoir",
+      "Essays"
+    ]
+  },
+  {
+    "id": "a-search-for-a-secret",
+    "author_last": "Henty",
+    "author_first": "G. A.",
+    "title": "A Search For A Secret",
+    "translator": "",
+    "original_date": "1867",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 35012,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/henty-g-a/a-search-for-a-secret",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/henty-g-a/a-search-for-a-secret/output/Henty%2C%20G.%20A.%3A%20A%20Search%20For%20A%20Secret.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Mystery & Detection",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "all-but-lost",
+    "author_last": "Henty",
+    "author_first": "G. A.",
+    "title": "All But Lost",
+    "translator": "",
+    "original_date": "1869",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 54091,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/henty-g-a/all-but-lost",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/henty-g-a/all-but-lost/output/Henty%2C%20G.%20A.%3A%20All%20But%20Lost.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "History",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-wings-of-the-dove",
+    "author_last": "James",
+    "author_first": "Henry",
+    "title": "The Wings of the Dove",
+    "translator": "",
+    "original_date": "1902",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 29452,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/james-henry/the-wings-of-the-dove",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/james-henry/the-wings-of-the-dove/output/James%2C%20Henry%3A%20The%20Wings%20of%20the%20Dove.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "American",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "adela-cathcart",
+    "author_last": "MacDonald",
+    "author_first": "George",
+    "title": "Adela Cathcart",
+    "translator": "",
+    "original_date": "1864",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 8892,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/macdonald-george/adela-cathcart",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/macdonald-george/adela-cathcart/output/MacDonald%2C%20George%3A%20Adela%20Cathcart.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Victorian",
+      "Fantasy & Fairy Tales"
+    ]
+  },
+  {
+    "id": "anne-of-geierstein",
+    "author_last": "Scott",
+    "author_first": "Walter",
+    "title": "Anne of Geierstein",
+    "translator": "",
+    "original_date": "1829",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 43678,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/scott-walter/anne-of-geierstein",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/scott-walter/anne-of-geierstein/output/Scott%2C%20Walter%3A%20Anne%20of%20Geierstein.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Adventure",
+      "British",
+      "Novels",
+      "History"
+    ]
+  },
+  {
+    "id": "lives-of-the-most-eminent-literary-and-scientific-men-of-france",
+    "author_last": "Shelley",
+    "author_first": "Mary Wollstonecraft",
+    "title": "Lives of the Most Eminent Literary and Scientific Men of France",
+    "translator": "",
+    "original_date": "1838",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 65317,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/shelley-mary-wollstonecraft/lives-of-the-most-eminent-literary-and-scientific-men-of-france",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/shelley-mary-wollstonecraft/lives-of-the-most-eminent-literary-and-scientific-men-of-france/output/Shelley%2C%20Mary%20Wollstonecraft%3A%20Lives%20of%20the%20Most%20Eminent%20Literary%20and%20Scientific%20Men%20of%20France.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "French",
+      "History",
+      "British",
+      "Women Writers",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "lodore",
+    "author_last": "Shelley",
+    "author_first": "Mary Wollstonecraft",
+    "title": "Lodore",
+    "translator": "",
+    "original_date": "1835",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 64555,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/shelley-mary-wollstonecraft/lodore",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/shelley-mary-wollstonecraft/lodore/output/Shelley%2C%20Mary%20Wollstonecraft%3A%20Lodore.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Women Writers",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "north-america",
+    "author_last": "Trollope",
+    "author_first": "Anthony",
+    "title": "North America",
+    "translator": "",
+    "original_date": "1862",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 1865,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/trollope-anthony/north-america",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/trollope-anthony/north-america/output/Trollope%2C%20Anthony%3A%20North%20America.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "American",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "life-of-edwin-forrest-the-american-tragedian",
+    "author_last": "Alger",
+    "author_first": "William Rounseville and Horatio, Jr. Alger",
+    "title": "Life of Edwin Forrest, the American Tragedian",
+    "translator": "",
+    "original_date": "1877",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 61348,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/alger-william-rounseville/life-of-edwin-forrest-the-american-tragedian",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/alger-william-rounseville/life-of-edwin-forrest-the-american-tragedian/output/Alger%2C%20William%20Rounseville%20and%20Horatio%2C%20Jr.%20Alger%3A%20Life%20of%20Edwin%20Forrest%2C%20the%20American%20Tragedian.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "American",
+      "Memoir"
+    ]
+  },
+  {
+    "id": "a-mission-to-gelele-king-of-dahome",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "A Mission to Gelele, King of Dahome",
+    "translator": "",
+    "original_date": "1864",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 78570,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/a-mission-to-gelele-king-of-dahome",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/a-mission-to-gelele-king-of-dahome/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20A%20Mission%20to%20Gelele%2C%20King%20of%20Dahome.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-lake-regions-of-central-africa",
+    "author_last": "Burton",
+    "author_first": "Richard Francis, Sir",
+    "title": "The Lake Regions of Central Africa",
+    "translator": "",
+    "original_date": "1860",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 66812,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-richard-francis-sir/the-lake-regions-of-central-africa",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-richard-francis-sir/the-lake-regions-of-central-africa/output/Burton%2C%20Richard%20Francis%2C%20Sir%3A%20The%20Lake%20Regions%20of%20Central%20Africa.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-war-of-women",
+    "author_last": "Dumas",
+    "author_first": "Alexandre",
+    "title": "The War of Women",
+    "translator": "",
+    "original_date": "1845",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 53124,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dumas-alexandre/the-war-of-women",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dumas-alexandre/the-war-of-women/output/Dumas%2C%20Alexandre%3A%20The%20War%20of%20Women.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "French",
+      "Translated",
+      "History"
+    ]
+  },
+  {
+    "id": "dorothy-s-double",
+    "author_last": "Henty",
+    "author_first": "G. A.",
+    "title": "Dorothy's Double",
+    "translator": "",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 36103,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/henty-g-a/dorothy-s-double",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/henty-g-a/dorothy-s-double/output/Henty%2C%20G.%20A.%3A%20Dorothy%27s%20Double.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Mystery & Detection",
+      "Novels",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "hans-of-iceland",
+    "author_last": "Hugo",
+    "author_first": "Victor",
+    "title": "Hans of Iceland",
+    "translator": "",
+    "original_date": "1823",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 65214,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hugo-victor/hans-of-iceland",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hugo-victor/hans-of-iceland/output/Hugo%2C%20Victor%3A%20Hans%20of%20Iceland.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Love & Marriage",
+      "Novels",
+      "French",
+      "Translated",
+      "Gothic & Horror"
+    ]
+  },
+  {
+    "id": "the-five-nations",
+    "author_last": "Kipling",
+    "author_first": "Rudyard",
+    "title": "The Five Nations",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 60260,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kipling-rudyard/the-five-nations",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kipling-rudyard/the-five-nations/output/Kipling%2C%20Rudyard%3A%20The%20Five%20Nations.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "British"
+    ]
+  },
+  {
+    "id": "the-poetical-works-of-george-macdonald",
+    "author_last": "MacDonald",
+    "author_first": "George",
+    "title": "The Poetical Works of George MacDonald",
+    "translator": "",
+    "original_date": "1893",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 9543,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/macdonald-george/the-poetical-works-of-george-macdonald",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/macdonald-george/the-poetical-works-of-george-macdonald/output/MacDonald%2C%20George%3A%20The%20Poetical%20Works%20of%20George%20MacDonald.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "eminent-literary-and-scientific-men-of-italy-spain-and-portugal",
+    "author_last": "Montgomery",
+    "author_first": "James and Mary Wollstonecraft Shelley",
+    "title": "Eminent Literary and Scientific Men of Italy, Spain, and Portugal",
+    "translator": "",
+    "original_date": "1835",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 65030,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/montgomery-james/eminent-literary-and-scientific-men-of-italy-spain-and-portugal",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/montgomery-james/eminent-literary-and-scientific-men-of-italy-spain-and-portugal/output/Montgomery%2C%20James%20and%20Mary%20Wollstonecraft%20Shelley%3A%20Eminent%20Literary%20and%20Scientific%20Men%20of%20Italy%2C%20Spain%2C%20and%20Portugal.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Women Writers",
+      "Italian",
+      "Spanish"
+    ]
+  },
+  {
+    "id": "rambles-in-germany-and-italy-in-1840-1842-and-1843",
+    "author_last": "Shelley",
+    "author_first": "Mary Wollstonecraft",
+    "title": "Rambles in Germany and Italy in 1840, 1842, and 1843",
+    "translator": "",
+    "original_date": "1844",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 74280,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/shelley-mary-wollstonecraft/rambles-in-germany-and-italy-in-1840-1842-and-1843",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/shelley-mary-wollstonecraft/rambles-in-germany-and-italy-in-1840-1842-and-1843/output/Shelley%2C%20Mary%20Wollstonecraft%3A%20Rambles%20in%20Germany%20and%20Italy%20in%201840%2C%201842%2C%20and%201843.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "Travel",
+      "British",
+      "Women Writers",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "valperga",
+    "author_last": "Shelley",
+    "author_first": "Mary Wollstonecraft",
+    "title": "Valperga",
+    "translator": "",
+    "original_date": "1823",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 63337,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/shelley-mary-wollstonecraft/valperga",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/shelley-mary-wollstonecraft/valperga/output/Shelley%2C%20Mary%20Wollstonecraft%3A%20Valperga.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "Women Writers",
+      "Italian",
+      "History"
+    ]
+  },
+  {
+    "id": "south-africa",
+    "author_last": "Trollope",
+    "author_first": "Anthony",
+    "title": "South Africa",
+    "translator": "",
+    "original_date": "1878",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 66342,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/trollope-anthony/south-africa",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/trollope-anthony/south-africa/output/Trollope%2C%20Anthony%3A%20South%20Africa.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Travel",
+      "History",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-life-of-cicero",
+    "author_last": "Trollope",
+    "author_first": "Anthony",
+    "title": "The Life of Cicero",
+    "translator": "",
+    "original_date": "1880",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 28676,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/trollope-anthony/the-life-of-cicero",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/trollope-anthony/the-life-of-cicero/output/Trollope%2C%20Anthony%3A%20The%20Life%20of%20Cicero.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Ancient World",
+      "British",
+      "Victorian"
+    ]
   }
 ]
