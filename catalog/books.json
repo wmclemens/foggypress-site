@@ -51828,5 +51828,483 @@
       "Politics & Society",
       "American"
     ]
+  },
+  {
+    "id": "elements-of-agricultural-chemistry",
+    "author_last": "Anderson",
+    "author_first": "Thomas",
+    "title": "Elements of Agricultural Chemistry",
+    "translator": "",
+    "original_date": "1860",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 24931,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anderson-thomas/elements-of-agricultural-chemistry",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anderson-thomas/elements-of-agricultural-chemistry/output/Anderson%2C%20Thomas%3A%20Elements%20of%20Agricultural%20Chemistry.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "operas-every-child-should-know-descriptions-of-the-text-and-music-of-s",
+    "author_last": "Bacon",
+    "author_first": "Mary Schell Hoke",
+    "title": "Operas Every Child Should Know Descriptions of the Text and Music of Some of the Most Famous Masterpieces",
+    "translator": "",
+    "original_date": "1904",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 28711,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/bacon-mary-schell-hoke/operas-every-child-should-know-descriptions-of-the-text-and-music-of-s",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/bacon-mary-schell-hoke/operas-every-child-should-know-descriptions-of-the-text-and-music-of-s/output/Bacon%2C%20Mary%20Schell%20Hoke%3A%20Operas%20Every%20Child%20Should%20Know%20Descriptions%20of%20the%20Text%20and%20Music%20of%20Some%20of%20the%20Most%20Famous%20Masterpieces.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "American",
+      "Children's"
+    ]
+  },
+  {
+    "id": "advice-to-a-young-man-upon-first-going-to-oxford-in-ten-letters-from-a",
+    "author_last": "Berens",
+    "author_first": "Edward",
+    "title": "Advice to a Young Man upon First Going to Oxford In Ten Letters, From an Uncle to His Nephew",
+    "translator": "",
+    "original_date": "1832",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 20932,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/berens-edward/advice-to-a-young-man-upon-first-going-to-oxford-in-ten-letters-from-a",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/berens-edward/advice-to-a-young-man-upon-first-going-to-oxford-in-ten-letters-from-a/output/Berens%2C%20Edward%3A%20Advice%20to%20a%20Young%20Man%20upon%20First%20Going%20to%20Oxford%20In%20Ten%20Letters%2C%20From%20an%20Uncle%20to%20His%20Nephew.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-nicest-girl-in-the-school",
+    "author_last": "Brazil",
+    "author_first": "Angela",
+    "title": "The Nicest Girl in the School",
+    "translator": "",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 25003,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/brazil-angela/the-nicest-girl-in-the-school",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/brazil-angela/the-nicest-girl-in-the-school/output/Brazil%2C%20Angela%3A%20The%20Nicest%20Girl%20in%20the%20School.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Women Writers",
+      "Children's",
+      "Novels"
+    ]
+  },
+  {
+    "id": "the-physiology-of-taste",
+    "author_last": "Brillat-Savarin",
+    "author_first": "",
+    "title": "The Physiology of Taste",
+    "translator": "Fayette Robinson",
+    "original_date": "1825",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5434,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/brillat-savarin/the-physiology-of-taste",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/brillat-savarin/the-physiology-of-taste/output/Brillat-Savarin%3A%20The%20Physiology%20of%20Taste.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "French",
+      "Essays",
+      "Translated"
+    ]
+  },
+  {
+    "id": "business-english",
+    "author_last": "Buhlig",
+    "author_first": "Rose",
+    "title": "Business English",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 38046,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/buhlig-rose/business-english",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/buhlig-rose/business-english/output/Buhlig%2C%20Rose%3A%20Business%20English.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "the-baby-s-bouquet",
+    "author_last": "Crane",
+    "author_first": "Walter",
+    "title": "The Baby's Bouquet",
+    "translator": "",
+    "original_date": "1878",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 25432,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/crane-walter/the-baby-s-bouquet",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/crane-walter/the-baby-s-bouquet/output/Crane%2C%20Walter%3A%20The%20Baby%27s%20Bouquet.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "British",
+      "Children's",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "les-bijoux-indiscrets-or-the-indiscreet-toys",
+    "author_last": "Diderot",
+    "author_first": "Denis",
+    "title": "Les Bijoux Indiscrets, Or, The Indiscreet Toys",
+    "translator": "",
+    "original_date": "1748",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 54672,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/diderot-denis/les-bijoux-indiscrets-or-the-indiscreet-toys",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/diderot-denis/les-bijoux-indiscrets-or-the-indiscreet-toys/output/Diderot%2C%20Denis%3A%20Les%20Bijoux%20Indiscrets%2C%20Or%2C%20The%20Indiscreet%20Toys.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "French",
+      "Novels",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "the-golden-age-cook-book",
+    "author_last": "Dwight",
+    "author_first": "Henrietta Latham",
+    "title": "The Golden Age Cook Book",
+    "translator": "",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 26209,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dwight-henrietta-latham/the-golden-age-cook-book",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dwight-henrietta-latham/the-golden-age-cook-book/output/Dwight%2C%20Henrietta%20Latham%3A%20The%20Golden%20Age%20Cook%20Book.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "the-sacred-wood",
+    "author_last": "Eliot",
+    "author_first": "T. S.",
+    "title": "The Sacred Wood",
+    "translator": "",
+    "original_date": "1920",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57795,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/eliot-t-s/the-sacred-wood",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/eliot-t-s/the-sacred-wood/output/Eliot%2C%20T.%20S.%3A%20The%20Sacred%20Wood.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Essays"
+    ]
+  },
+  {
+    "id": "food-and-flavor",
+    "author_last": "Finck",
+    "author_first": "Henry T.",
+    "title": "Food and Flavor",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 61719,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/finck-henry-t/food-and-flavor",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/finck-henry-t/food-and-flavor/output/Finck%2C%20Henry%20T.%3A%20Food%20and%20Flavor.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "essentials-in-conducting",
+    "author_last": "Gehrkens",
+    "author_first": "Karl Wilson",
+    "title": "Essentials in Conducting",
+    "translator": "",
+    "original_date": "1919",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 22392,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/gehrkens-karl-wilson/essentials-in-conducting",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/gehrkens-karl-wilson/essentials-in-conducting/output/Gehrkens%2C%20Karl%20Wilson%3A%20Essentials%20in%20Conducting.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-complete-plays-of-gilbert-and-sullivan",
+    "author_last": "Gilbert",
+    "author_first": "W. S., and Arthur Sullivan",
+    "title": "The Complete Plays of Gilbert and Sullivan",
+    "translator": "",
+    "original_date": "1875",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 808,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/sullivan-arthur/the-complete-plays-of-gilbert-and-sullivan",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/sullivan-arthur/the-complete-plays-of-gilbert-and-sullivan/output/Gilbert%2C%20W.%20S.%2C%20and%20Arthur%20Sullivan%3A%20The%20Complete%20Plays%20of%20Gilbert%20and%20Sullivan.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "British",
+      "Drama",
+      "Comedy & Satire"
+    ]
+  },
+  {
+    "id": "under-the-greenwood-tree",
+    "author_last": "Hardy",
+    "author_first": "Thomas",
+    "title": "Under the Greenwood Tree",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 2662,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hardy-thomas/under-the-greenwood-tree",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hardy-thomas/under-the-greenwood-tree/output/Hardy%2C%20Thomas%3A%20Under%20the%20Greenwood%20Tree.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "British",
+      "Novels",
+      "Love & Marriage"
+    ]
+  },
+  {
+    "id": "the-craft-of-fiction",
+    "author_last": "Lubbock",
+    "author_first": "Percy",
+    "title": "The Craft of Fiction",
+    "translator": "",
+    "original_date": "1921",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 18961,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lubbock-percy/the-craft-of-fiction",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lubbock-percy/the-craft-of-fiction/output/Lubbock%2C%20Percy%3A%20The%20Craft%20of%20Fiction.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Essays"
+    ]
+  },
+  {
+    "id": "man-and-nature",
+    "author_last": "Marsh",
+    "author_first": "George P.",
+    "title": "Man and Nature",
+    "translator": "",
+    "original_date": "1864",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 37957,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/marsh-george-p/man-and-nature",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/marsh-george-p/man-and-nature/output/Marsh%2C%20George%20P.%3A%20Man%20and%20Nature.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science"
+    ]
+  },
+  {
+    "id": "exercises-in-knitting",
+    "author_last": "Mee",
+    "author_first": "Cornelia",
+    "title": "Exercises in Knitting",
+    "translator": "",
+    "original_date": "1846",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21032,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mee-cornelia/exercises-in-knitting",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mee-cornelia/exercises-in-knitting/output/Mee%2C%20Cornelia%3A%20Exercises%20in%20Knitting.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "merck-s-1899-manual-of-the-materia-medica",
+    "author_last": "Merck & Co.",
+    "author_first": "",
+    "title": "Merck's 1899 Manual of the Materia Medica",
+    "translator": "",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41697,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/merck-co/merck-s-1899-manual-of-the-materia-medica",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/merck-co/merck-s-1899-manual-of-the-materia-medica/output/Merck%20%26%20Co.%3A%20Merck%27s%201899%20Manual%20of%20the%20Materia%20Medica.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science"
+    ]
+  },
+  {
+    "id": "mayfair-belgravia-and-bayswater",
+    "author_last": "Mitton",
+    "author_first": "G. E.",
+    "title": "Mayfair, Belgravia, and Bayswater",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21218,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mitton-g-e/mayfair-belgravia-and-bayswater",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mitton-g-e/mayfair-belgravia-and-bayswater/output/Mitton%2C%20G.%20E.%3A%20Mayfair%2C%20Belgravia%2C%20and%20Bayswater.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "History",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "spontaneous-activity-in-education",
+    "author_last": "Montessori",
+    "author_first": "Maria",
+    "title": "Spontaneous Activity in Education",
+    "translator": "",
+    "original_date": "1917",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 24727,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/montessori-maria/spontaneous-activity-in-education",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/montessori-maria/spontaneous-activity-in-education/output/Montessori%2C%20Maria%3A%20Spontaneous%20Activity%20in%20Education.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Italian",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "japanese-homes-and-their-surroundings",
+    "author_last": "Morse",
+    "author_first": "Edward Sylvester",
+    "title": "Japanese Homes and Their Surroundings",
+    "translator": "",
+    "original_date": "1886",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 52868,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/morse-edward-sylvester/japanese-homes-and-their-surroundings",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/morse-edward-sylvester/japanese-homes-and-their-surroundings/output/Morse%2C%20Edward%20Sylvester%3A%20Japanese%20Homes%20and%20Their%20Surroundings.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "the-school-of-recreation-1684-edition-or-the-gentlemans-tutor-to-those",
+    "author_last": "R. H.",
+    "author_first": "",
+    "title": "The School of Recreation (1684 Edition) Or, The Gentlemans Tutor, to Those Most Ingenious Exercises of Hunting, Racing, Hawking, Riding, Cock-fighting, Fowling, Fishing",
+    "translator": "",
+    "original_date": "1684",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 23776,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/r-h/the-school-of-recreation-1684-edition-or-the-gentlemans-tutor-to-those",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/r-h/the-school-of-recreation-1684-edition-or-the-gentlemans-tutor-to-those/output/R.%20H.%3A%20The%20School%20of%20Recreation%20%281684%20Edition%29%20Or%2C%20The%20Gentlemans%20Tutor%2C%20to%20Those%20Most%20Ingenious%20Exercises%20of%20Hunting%2C%20Racing%2C%20Hawking%2C%20Riding%2C%20Cock-fighting%2C%20Fowling%2C%20Fishing.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "the-virginia-housewife",
+    "author_last": "Randolph",
+    "author_first": "Mary",
+    "title": "The Virginia Housewife",
+    "translator": "",
+    "original_date": "1824",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 12519,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/randolph-mary/the-virginia-housewife",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/randolph-mary/the-virginia-housewife/output/Randolph%2C%20Mary%3A%20The%20Virginia%20Housewife.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "st-john-s-college-cambridge",
+    "author_last": "Scott",
+    "author_first": "Robert Forsyth",
+    "title": "St. John's College, Cambridge",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 27320,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/scott-robert-forsyth/st-john-s-college-cambridge",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/scott-robert-forsyth/st-john-s-college-cambridge/output/Scott%2C%20Robert%20Forsyth%3A%20St.%20John%27s%20College%2C%20Cambridge.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "self-knowledge-and-guide-to-sex-instruction",
+    "author_last": "Shannon",
+    "author_first": "Thomas W.",
+    "title": "Self Knowledge and Guide to Sex Instruction",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 47947,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/shannon-thomas-w/self-knowledge-and-guide-to-sex-instruction",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/shannon-thomas-w/self-knowledge-and-guide-to-sex-instruction/output/Shannon%2C%20Thomas%20W.%3A%20Self%20Knowledge%20and%20Guide%20to%20Sex%20Instruction.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "the-university-of-michigan",
+    "author_last": "Shaw",
+    "author_first": "Wilfred Byron",
+    "title": "The University of Michigan",
+    "translator": "",
+    "original_date": "1920",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21532,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/shaw-wilfred-byron/the-university-of-michigan",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/shaw-wilfred-byron/the-university-of-michigan/output/Shaw%2C%20Wilfred%20Byron%3A%20The%20University%20of%20Michigan.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "shop-management",
+    "author_last": "Taylor",
+    "author_first": "Frederick Winslow",
+    "title": "Shop Management",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 6464,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/taylor-frederick-winslow/shop-management",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/taylor-frederick-winslow/shop-management/output/Taylor%2C%20Frederick%20Winslow%3A%20Shop%20Management.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Economics"
+    ]
+  },
+  {
+    "id": "military-architecture-in-england-during-the-middle-ages",
+    "author_last": "Thompson",
+    "author_first": "A. Hamilton",
+    "title": "Military Architecture in England During the Middle Ages",
+    "translator": "",
+    "original_date": "1912",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 60518,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/thompson-a-hamilton/military-architecture-in-england-during-the-middle-ages",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/thompson-a-hamilton/military-architecture-in-england-during-the-middle-ages/output/Thompson%2C%20A.%20Hamilton%3A%20Military%20Architecture%20in%20England%20During%20the%20Middle%20Ages.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "History",
+      "Medieval"
+    ]
+  },
+  {
+    "id": "the-science-of-fingerprints",
+    "author_last": "United States. Federal Bureau of Investigation",
+    "author_first": "",
+    "title": "The Science of Fingerprints",
+    "translator": "",
+    "original_date": "1979",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 19022,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/united-states-federal-bureau-of-investigation/the-science-of-fingerprints",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/united-states-federal-bureau-of-investigation/the-science-of-fingerprints/output/United%20States.%20Federal%20Bureau%20of%20Investigation%3A%20The%20Science%20of%20Fingerprints.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "American"
+    ]
   }
 ]
