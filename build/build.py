@@ -407,6 +407,16 @@ class Site:
         return (f'<a class="{cls}" href="{esc(self.epub_url(b))}" download rel="nofollow" data-goatcounter-click="epub-{esc(b["id"])}" '
                 f'data-goatcounter-title="{esc(b["title"])}" title="For e-readers: Kindle, Apple Books, Kobo" data-t-attr="title">EPUB</a>')
 
+    def kindle_link(self, b, cls):
+        """one-off Kindle (AZW3) test downloads (20 Nov 2026): a book gets a Kindle link only when
+        kindle/<id>.azw3 is in this repo; the file is staged beside the EPUBs on R2"""
+        if not (ROOT / 'kindle' / f"{b['id']}.azw3").exists():
+            return ''
+        name = f"{urllib.parse.quote(b['id'])}.azw3"
+        url = f'{self.pdf_base}/kindle/{name}' if self.pdf_base else f'/kindle/{name}'
+        return (f'<a class="{cls}" href="{esc(url)}" download rel="nofollow" data-goatcounter-click="kindle-{esc(b["id"])}" '
+                f'data-goatcounter-title="{esc(b["title"])}" title="For Kindle: open this page in the Kindle browser and tap the link" data-t-attr="title">Kindle</a>')
+
     def recs(self, books, sortable=False):
         """book rows; sortable adds the keys the tag pages' sort buttons use (assets/site.js)"""
         out = []
@@ -417,7 +427,7 @@ class Site:
                    f'data-goatcounter-title="{esc(b["title"])}" data-t>Print this book</a>')
             if b.get('_html'):
                 main = esc(self.read_url(b))
-                acts = f'<a class="act" href="{main}" data-t>Read online</a>{pdf}{self.epub_link(b, "act")}'
+                acts = f'<a class="act" href="{main}" data-t>Read online</a>{pdf}{self.epub_link(b, "act")}{self.kindle_link(b, "act")}'
             else:
                 main = esc(self.pdf_url(b))
                 acts = pdf
@@ -487,7 +497,7 @@ class Site:
 <div class="readtop">
 <nav class="readbar" aria-label="Foggy Press">
   <a class="rb-home" href="/">Foggy Press</a>
-  <span class="rb-acts">{'<button class="rb-ask" id="rbask" type="button" aria-expanded="false" aria-controls="askdrawer" hidden data-t>Ask about this book</button>' if self.ask and self.accounts else ''}<a class="rb-pdf" href="{pdf}" {click} data-t>Print this book</a>{self.epub_link(b, 'rb-pdf')}<details class="rb-menu"><summary aria-label="Display: dark mode and language" data-t-attr="aria-label">Aa</summary><div class="rb-pop"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div></details></span>
+  <span class="rb-acts">{'<button class="rb-ask" id="rbask" type="button" aria-expanded="false" aria-controls="askdrawer" hidden data-t>Ask about this book</button>' if self.ask and self.accounts else ''}<a class="rb-pdf" href="{pdf}" {click} data-t>Print this book</a>{self.epub_link(b, 'rb-pdf')}{self.kindle_link(b, 'rb-pdf')}<details class="rb-menu"><summary aria-label="Display: dark mode and language" data-t-attr="aria-label">Aa</summary><div class="rb-pop"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div></details></span>
 </nav>
 <div class="bsearch" role="search">
   <div class="in">
@@ -827,6 +837,9 @@ if __name__ == '__main__':
         site.prepare()
         site.stage_pdfs(a.stage_pdfs)
         ne = site.stage_epubs(Path(a.stage_pdfs) / 'epub')
+        for k in sorted((ROOT / 'kindle').glob('*.azw3')):      # one-off Kindle test files
+            (Path(a.stage_pdfs) / 'kindle').mkdir(parents=True, exist_ok=True)
+            shutil.copy2(k, Path(a.stage_pdfs) / 'kindle' / k.name)
         if site.pdf_base:
             # files.foggypress.com: crawlers may read the read-online pages but not fetch the downloads,
             # which Cloudflare refuses to bots anyway (build/cloudflare_rules.py)
