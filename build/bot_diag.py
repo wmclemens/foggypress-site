@@ -22,7 +22,7 @@ for host in ('files.foggypress.com', 'foggypress.com'):
     for r in rows:
         d = r['dimensions']; ua = d.get('userAgent') or ''
         if is_bot(ua) and not named(ua):
-            k = (ua, d.get('edgeResponseStatus'), BOT_UA.findall(ua), d.get('clientCountryName'))
+            k = (ua, d.get('edgeResponseStatus'), tuple(BOT_UA.findall(ua)), d.get('clientCountryName'))
             agg[k] = agg.get(k, 0) + r['count']
     for k, n in sorted(agg.items(), key=lambda kv: -kv[1])[:25]:
         print(n, '|', k[0], '| status', k[1], 'matched', k[2], '|', k[3])
