@@ -23386,24 +23386,6 @@
     ]
   },
   {
-    "id": "the-sonnets",
-    "author_last": "Shakespeare",
-    "author_first": "William",
-    "title": "The Sonnets",
-    "translator": "",
-    "original_date": "1609",
-    "foggy_press_date": "2026-11-16",
-    "gutenberg": 1105,
-    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/shakespeare-william/the-sonnets",
-    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/shakespeare-william/the-sonnets/output/Shakespeare%2C%20William%3A%20The%20Sonnets.%20Foggy%20Press%2C%202026.pdf",
-    "tags": [
-      "Poetry",
-      "British",
-      "Love & Marriage",
-      "Short Reads"
-    ]
-  },
-  {
     "id": "the-taming-of-the-shrew",
     "author_last": "Shakespeare",
     "author_first": "William",
@@ -23454,23 +23436,6 @@
       "Drama",
       "British",
       "Ancient World",
-      "Short Reads"
-    ]
-  },
-  {
-    "id": "the-tragedy-of-macbeth",
-    "author_last": "Shakespeare",
-    "author_first": "William",
-    "title": "The Tragedy of Macbeth",
-    "translator": "",
-    "original_date": "1606",
-    "foggy_press_date": "2026-11-16",
-    "gutenberg": 1129,
-    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/shakespeare-william/the-tragedy-of-macbeth",
-    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/shakespeare-william/the-tragedy-of-macbeth/output/Shakespeare%2C%20William%3A%20The%20Tragedy%20of%20Macbeth.%20Foggy%20Press%2C%202026.pdf",
-    "tags": [
-      "Drama",
-      "British",
       "Short Reads"
     ]
   },
