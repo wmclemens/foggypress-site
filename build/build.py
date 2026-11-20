@@ -337,7 +337,9 @@ class Site:
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/style.css">
 {self.account_head()}
-<script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
+<script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}
+/* e-ink readers (the Kindle browser): class "kindle" turns on the Kindle layer in style.css */
+try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('(monochrome)').matches||mm('(update: slow)').matches)))document.documentElement.className+=' kindle'}}catch(e){{}}</script>
 </head>
 <body>
 <div class="wrap shell">
@@ -491,7 +493,9 @@ class Site:
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="stylesheet" href="/assets/book.css">
 {self.account_head()}
-<script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
+<script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}
+/* e-ink readers (the Kindle browser): class "kindle" turns on the Kindle layer in style.css */
+try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('(monochrome)').matches||mm('(update: slow)').matches)))document.documentElement.className+=' kindle'}}catch(e){{}}</script>
 </head>
 <body class="reading" data-book="{esc(b['id'])}">
 <div class="readtop">
@@ -677,6 +681,9 @@ class Site:
     def copy_assets(self):
         for d in ('assets', 'admin'):
             shutil.copytree(ROOT / d, self.out / d, dirs_exist_ok=True)
+        # foggypress.com/check/: lists what a browser can do (made for the Kindle's e-ink browser; short to type)
+        (self.out / 'check').mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / 'assets' / 'kindle-check.html', self.out / 'check' / 'index.html')
         # stamp the admin page's script and styles with the build time, so browsers fetch the new ones after each build
         v = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d%H%M')
         ai = self.out / 'admin' / 'index.html'

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Browser check · Foggy Press</title>
+<style>
+body{font-family:Georgia,serif;font-size:18px;line-height:1.5;margin:0;padding:20px 28px;color:#000;background:#fff}
+h1{font-size:26px;margin:0 0 8px}
+p{margin:0 0 14px}
+table{border-collapse:collapse;width:100%}
+td{border-bottom:1px solid #999;padding:8px 6px;vertical-align:top}
+td.k{width:42%;font-weight:bold}
+.ua{font-family:monospace;font-size:15px;word-break:break-all}
+</style></head>
+<body>
+<h1>Browser check</h1>
+<p>This page lists what this browser can do, so the site can be made to work well on it. Please photograph the screen, or copy the lines into a message.</p>
+<table id="t"><tr><td class="k">JavaScript</td><td>Off, or failed to run</td></tr></table>
+<script>
+(function () {
+  var rows = [];
+  function add(k, v) { rows.push([k, v]); }
+  function mq(q) { try { return window.matchMedia && window.matchMedia(q).matches ? 'yes' : 'no'; } catch (e) { return 'error'; } }
+  function css(p, v) {
+    try { if (window.CSS && CSS.supports) return CSS.supports(p, v) ? 'yes' : 'no'; } catch (e) {}
+    var d = document.createElement('div'); d.style.cssText = p + ':' + v; return d.style.length ? 'yes' : 'no';
+  }
+  add('JavaScript', 'On');
+  add('Browser (user agent)', '<span class="ua">' + String(navigator.userAgent).replace(/</g, '&lt;') + '</span>');
+  add('Page width × height (CSS pixels)', (window.innerWidth || document.documentElement.clientWidth) + ' × ' + (window.innerHeight || document.documentElement.clientHeight));
+  add('Screen', screen.width + ' × ' + screen.height + ', pixel ratio ' + (window.devicePixelRatio || 1));
+  add('Grey screen (monochrome)', mq('(monochrome)') + ' / colour: ' + mq('(color)'));
+  add('Slow screen (update: slow)', mq('(update: slow)'));
+  add('Hover / fine pointer', mq('(hover: hover)') + ' / ' + mq('(pointer: fine)'));
+  add('Site sees a Kindle', /Kindle/i.test(navigator.userAgent) || mq('(monochrome)') === 'yes' || mq('(update: slow)') === 'yes' ? 'yes' : 'no');
+  var g = 'no';
+  try {
+    var t = document.createElement('div');
+    t.style.cssText = 'display:flex;flex-direction:column;row-gap:1px;position:absolute;visibility:hidden';
+    t.appendChild(document.createElement('div')); t.appendChild(document.createElement('div'));
+    document.body.appendChild(t); g = t.scrollHeight === 1 ? 'yes' : 'no'; t.parentNode.removeChild(t);
+  } catch (e) { g = 'error'; }
+  add('CSS flexbox gap', g);
+  add('CSS flexbox / grid', css('display', 'flex') + ' / ' + css('display', 'grid'));
+  add('CSS variables / calc() / max()', css('color', 'var(--x)') + ' / ' + css('width', 'calc(1px + 1px)') + ' / ' + css('width', 'max(1px, 2px)'));
+  add('CSS position: sticky', css('position', 'sticky'));
+  add('Fold-out sections (details)', 'open' in document.createElement('details') ? 'yes' : 'no');
+  add('fetch / Promise', (window.fetch ? 'yes' : 'no') + ' / ' + (window.Promise ? 'yes' : 'no'));
+  var ls = 'no'; try { localStorage.setItem('fp-x', '1'); localStorage.removeItem('fp-x'); ls = 'yes'; } catch (e) {}
+  add('Saved settings (localStorage)', ls);
+  var es = 'no'; try { es = new Function('let a = {b: 1}; return a?.b ?? 0')() === 1 ? 'yes' : 'no'; } catch (e) {}
+  add('Newer JavaScript (2020)', es);
+  var h = '';
+  for (var i = 0; i < rows.length; i++) h += '<tr><td class="k">' + rows[i][0] + '</td><td>' + rows[i][1] + '</td></tr>';
+  document.getElementById('t').innerHTML = h;
+})();
+</script>
+<p style="margin-top:20px"><a href="/">Back to Foggy Press</a></p>
+</body></html>
