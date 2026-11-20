@@ -177,3 +177,71 @@ window.fpHelp = function (id, label, paras) {
       .then(function () { btn.disabled = false; });
   });
 })();
+
+// Flexbox "gap" for browsers too old to have it (the Kindle's among them): without it, rows of links such as
+// "Print this book · EPUB · Kindle" run together. Where gap is missing, this gives the items margins instead.
+(function () {
+  try {
+    var t = document.createElement('div');
+    t.style.cssText = 'display:flex;flex-direction:column;row-gap:1px;position:absolute;visibility:hidden';
+    t.appendChild(document.createElement('div')); t.appendChild(document.createElement('div'));
+    document.body.appendChild(t);
+    var has = t.scrollHeight === 1;
+    t.parentNode.removeChild(t);
+    if (has) return;
+  } catch (e) { return; }
+  document.documentElement.className += ' nofg';
+  var sels = [];
+  try {
+    var walk = function (rules) {
+      for (var i = 0; i < rules.length; i++) {
+        var r = rules[i];
+        if (r.cssRules && !r.selectorText) { walk(r.cssRules); continue; }
+        if (r.style && (r.style.columnGap || r.style.rowGap || r.style.getPropertyValue('gap'))) sels.push(r.selectorText);
+      }
+    };
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      try { walk(document.styleSheets[s].cssRules || []); } catch (e) {}
+    }
+  } catch (e) {}
+  if (!sels.length) return;
+  var px = function (v) { var n = parseFloat(v); return isNaN(n) ? 0 : n; };
+  function fix(root) {
+    var els = [];
+    for (var i = 0; i < sels.length; i++) {
+      try { var l = root.querySelectorAll(sels[i]); for (var j = 0; j < l.length; j++) els.push(l[j]); } catch (e) {}
+    }
+    for (var k = 0; k < els.length; k++) {
+      var el = els[k];
+      if (el._fg) continue;
+      var cs = getComputedStyle(el);
+      if (cs.display.indexOf('flex') < 0) continue;
+      var cg = px(cs.columnGap), rg = px(cs.rowGap);
+      if (!cg && !rg) continue;
+      el._fg = 1;
+      var col = cs.flexDirection.indexOf('column') === 0, wrap = cs.flexWrap !== 'nowrap';
+      var kids = [];
+      for (var c = 0; c < el.children.length; c++) {
+        var kc = getComputedStyle(el.children[c]);
+        if (kc.display !== 'none' && kc.position !== 'absolute' && kc.position !== 'fixed') kids.push(el.children[c]);
+      }
+      for (var n = 0; n < kids.length; n++) {
+        var kcs = getComputedStyle(kids[n]);
+        if (col) { if (n < kids.length - 1 && rg && !px(kcs.marginBottom)) kids[n].style.marginBottom = rg + 'px'; }
+        else {
+          if (n < kids.length - 1 && cg && !px(kcs.marginRight)) kids[n].style.marginRight = cg + 'px';
+          if (wrap && rg && !px(kcs.marginBottom)) kids[n].style.marginBottom = rg + 'px';
+        }
+      }
+    }
+  }
+  fix(document);
+  // parts drawn later by scripts (search results, Ask answers, sign-in boxes)
+  if (window.MutationObserver) {
+    var due = 0;
+    new MutationObserver(function () {
+      if (due) return;
+      due = setTimeout(function () { due = 0; fix(document); }, 300);
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+})();

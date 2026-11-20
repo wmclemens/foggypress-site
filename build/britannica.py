@@ -256,7 +256,9 @@ def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
 <link rel="stylesheet" href="/assets/book.css">
 <link rel="stylesheet" href="/assets/britannica.css">
 {site.account_head()}
-<script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
+<script>try{{var t=localStorage.getItem('fp-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}
+/* e-ink readers (the Kindle browser): class "kindle" turns on the Kindle layer in style.css */
+try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('(monochrome)').matches||mm('(update: slow)').matches)))document.documentElement.className+=' kindle'}}catch(e){{}}</script>
 </head>
 <body class="reading eb-page" data-article="{esc(a['slug'])}" data-title="{esc(a['title'])}">
 <div class="readtop">

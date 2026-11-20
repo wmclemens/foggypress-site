@@ -15,7 +15,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  padding-left:16px;padding-right:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -46,7 +46,8 @@ p{margin:0}
   background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
   background-position:right .75rem center,right .5rem center;background-size:4px 4px;background-repeat:no-repeat}
 [dir="rtl"] .langpick select{padding:.2rem .7rem .2rem 1.5rem;background-position:left .5rem center,left .75rem center}
-.langpick select:hover,.langpick select:focus-visible{color:var(--ink);border-color:var(--accent)}
+.langpick select:hover{color:var(--ink);border-color:var(--accent)}
+.langpick select:focus-visible{color:var(--ink);border-color:var(--accent)}
 .readbar .langpick select{max-width:8.5rem}
 .readbar .rb-home{white-space:nowrap}
 @media (max-width:560px){.readbar .rb-acts{gap:.35rem .7rem;flex-wrap:wrap;justify-content:flex-end}.readbar .rb-acts>*{white-space:nowrap}.readbar .langpick select{max-width:6.5rem}}
@@ -82,7 +83,7 @@ main{grid-area:main;min-width:0}
 .ft .top{display:flex;justify-content:space-between;gap:1rem}
 .ft .top .i{color:var(--accent)}
 .ft .top .c{color:var(--faint);text-align:right}
-.ft h3{font-size:clamp(1.6rem,2.6vw,2.1rem);font-weight:500;letter-spacing:-.035em}
+.ft h3{font-size:1.6rem;font-size:clamp(1.6rem,2.6vw,2.1rem);font-weight:500;letter-spacing:-.035em}
 .ft ul{list-style:none;margin:0;padding:.85rem 0 0;border-top:1px solid var(--line);display:grid;gap:.2rem;font-size:.82rem;color:var(--muted)}
 .ft ul li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ft .fmore{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.04em}
@@ -108,7 +109,7 @@ main{grid-area:main;min-width:0}
 
 /* page heads, lists */
 .ph{display:grid;gap:.6rem;padding-bottom:1.25rem;border-bottom:1px solid var(--ink);margin-bottom:.25rem}
-.ph h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;letter-spacing:-.04em}
+.ph h1{font-size:2rem;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:500;letter-spacing:-.04em}
 .ph .sub{color:var(--muted);max-width:40rem}
 .crumb{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
 .crumb a:hover{color:var(--accent)}
@@ -133,7 +134,7 @@ main{grid-area:main;min-width:0}
 /* read-online pages (/read/<id>/): the book's own styles are in book.css */
 body.reading{padding:0}
 .readbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:1rem;
-  padding:.7rem max(16px,env(safe-area-inset-right,0px)) .7rem max(16px,env(safe-area-inset-left,0px));
+  padding:.7rem 16px;padding:.7rem max(16px,env(safe-area-inset-right,0px)) .7rem max(16px,env(safe-area-inset-left,0px));
   background:var(--bg);border-bottom:1px solid var(--line);font-family:var(--sans)}
 .readbar .rb-home{font-weight:600;letter-spacing:-.02em}
 .readbar .rb-acts{display:flex;gap:1.1rem;align-items:center}
@@ -248,7 +249,7 @@ mark{background:var(--hit);color:var(--hit-ink);border-radius:2px;padding:0 .05e
 .bsearch .nav button:disabled{opacity:.35;cursor:default}
 .bsearch .lst{border:0;background:none;font-family:var(--mono);font-size:.72rem;color:var(--accent);padding:0;white-space:nowrap}
 .bsearch .lst:disabled{color:var(--muted);opacity:.5;cursor:default}
-.hits{max-width:36rem;margin:0 auto;padding:0 18px .8rem;max-height:min(50vh,22rem);overflow-y:auto}
+.hits{max-width:36rem;margin:0 auto;padding:0 18px .8rem;max-height:22rem;max-height:min(50vh,22rem);overflow-y:auto}
 .hits ol{list-style:none;margin:0;padding:0}
 .hits li a{display:grid;gap:.1rem;padding:.55rem 0;border-top:1px solid var(--line);font-size:.86rem;line-height:1.4;color:inherit;text-decoration:none}
 .hits li a:hover .s{color:var(--ink)}
@@ -283,7 +284,7 @@ mark{background:var(--hit);color:var(--hit-ink);border-radius:2px;padding:0 .05e
 .addnew.big input{font-size:.95rem;padding:.5rem .65rem}
 .sm{font-size:.78rem}
 .toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,1rem);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:40;
-  background:var(--ink);color:var(--bg);padding:.6rem 1rem;border-radius:8px;font-size:.88rem;max-width:min(32rem,calc(100vw - 32px))}
+  background:var(--ink);color:var(--bg);padding:.6rem 1rem;border-radius:8px;font-size:.88rem;max-width:calc(100vw - 32px);max-width:min(32rem,calc(100vw - 32px))}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 /* Continue reading: a signed-in reader's last books, in the left rail (assets/account.js) */
 .railhist nav a.rh{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem;align-items:center}
@@ -358,7 +359,7 @@ ol.listitems{counter-reset:li}
 }
 .ask{max-width:44rem;display:grid;gap:1.75rem}
 .ask-h{display:flex;justify-content:space-between;align-items:end;gap:.5rem 1rem;flex-wrap:wrap;padding-bottom:.75rem;border-bottom:1px solid var(--ink)}
-.ask-h h1{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:500;letter-spacing:-.03em}
+.ask-h h1{font-size:1.6rem;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:500;letter-spacing:-.03em}
 .ask-h .who{display:flex;gap:1.1rem;align-items:center;font-size:.88rem}
 .ask-h .who a{color:var(--accent)}
 .ask-h .who a:hover{text-decoration:underline;text-underline-offset:3px}
@@ -387,7 +388,7 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
 @keyframes fpblink{0%,80%,100%{opacity:.25}40%{opacity:1}}
 @media (prefers-reduced-motion:reduce){.typing i{animation:none;opacity:.6}}
-.composer{position:sticky;bottom:0;background:var(--bg);padding:.75rem 0 calc(.9rem + env(safe-area-inset-bottom,0px));display:grid;gap:.45rem}
+.composer{position:sticky;bottom:0;background:var(--bg);padding:.75rem 0 .9rem;padding:.75rem 0 calc(.9rem + env(safe-area-inset-bottom,0px));display:grid;gap:.45rem}
 .cbox{display:flex;align-items:flex-end;gap:.5rem;border:1px solid var(--line-2);background:var(--surface);border-radius:14px;padding:.45rem .45rem .45rem .9rem}
 .cbox:focus-within{border-color:var(--accent)}
 .cbox textarea{flex:1;min-width:0;border:0;background:none;resize:none;font:inherit;font-size:16px;color:var(--ink);line-height:1.45;padding:.35rem 0;outline:none;max-height:9rem}
@@ -415,8 +416,8 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 /* the drawer on read pages */
 .rb-ask{border:1px solid var(--accent);color:var(--accent);background:none;border-radius:999px;padding:.2rem .75rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;white-space:nowrap}
 .rb-ask[aria-expanded="true"]{background:var(--accent);color:var(--on-accent)}
-.drawer{position:fixed;z-index:15;top:0;right:0;bottom:0;width:min(25rem,100%);background:var(--surface);border-left:1px solid var(--line-2);display:grid;grid-template-rows:auto minmax(0,1fr) auto;font-family:var(--sans);box-shadow:-12px 0 32px rgba(0,0,0,.08)}
-.drawer .dh{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1rem;padding-top:max(.8rem,env(safe-area-inset-top,0px));border-bottom:1px solid var(--line)}
+.drawer{position:fixed;z-index:15;top:0;right:0;bottom:0;width:100%;max-width:25rem;width:min(25rem,100%);background:var(--surface);border-left:1px solid var(--line-2);display:grid;grid-template-rows:auto minmax(0,1fr) auto;font-family:var(--sans);box-shadow:-12px 0 32px rgba(0,0,0,.08)}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1rem;padding-top:.8rem;padding-top:max(.8rem,env(safe-area-inset-top,0px));border-bottom:1px solid var(--line)}
 .drawer .dh b{font-weight:500}
 .drawer .dh span{display:block;color:var(--muted);font-size:.8rem}
 .drawer .dacts{display:flex !important;align-items:center;gap:.75rem}
@@ -428,7 +429,7 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 .drawer .ans .cards .rec{grid-template-columns:minmax(0,1fr);grid-template-areas:"main" "m" "acts";gap:.3rem}
 .drawer .ans .cards .rec .m{text-align:left}
 .drawer .ans .cards .rec .acts{justify-content:flex-start;flex-wrap:wrap}
-.drawer .composer{padding:.6rem 1rem calc(.8rem + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line)}
+.drawer .composer{padding:.6rem 1rem .8rem;padding:.6rem 1rem calc(.8rem + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line)}
 .drawer .cbox{background:var(--bg)}
 .drawer .gate{padding:1rem}
 .dstart{display:flex;flex-wrap:wrap;gap:.4rem}
@@ -486,10 +487,10 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 .qwrap{position:relative;display:inline-block;vertical-align:middle;margin-inline-start:.45rem;line-height:1}
 .qm{display:inline-flex;align-items:center;justify-content:center;width:1.25rem;height:1.25rem;padding:0;border-radius:50%;
   border:1px solid var(--line-2);background:transparent;color:var(--muted);font:500 .7rem/1 var(--mono);letter-spacing:0;text-transform:none;position:relative;top:-.1em}
-.qm::before{content:"";position:absolute;inset:-.6rem}   /* a bigger target for fingers */
+.qm::before{content:"";position:absolute;top:-.6rem;right:-.6rem;bottom:-.6rem;left:-.6rem}   /* a bigger target for fingers */
 .qm:hover{border-color:var(--accent);color:var(--accent)}
 .qm[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.qpop{position:absolute;z-index:40;top:calc(100% + .55rem);left:-.75rem;width:min(20rem,calc(100vw - 32px));
+.qpop{position:absolute;z-index:40;top:calc(100% + .55rem);left:-.75rem;width:calc(100vw - 32px);max-width:20rem;width:min(20rem,calc(100vw - 32px));
   background:var(--surface);color:var(--ink);border:1px solid var(--line-2);border-radius:12px;box-shadow:0 10px 30px rgba(11,19,32,.14);
   padding:.85rem 2.2rem .9rem 1rem;font:400 .88rem/1.5 var(--sans);letter-spacing:0;text-transform:none;text-align:start;white-space:normal;text-wrap:wrap;display:grid;gap:.5rem}
 .qpop a{color:var(--accent)}
@@ -520,3 +521,33 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
   background:var(--surface);border:1px solid var(--line-2);border-radius:12px;box-shadow:0 10px 30px rgba(11,19,32,.14);padding:.85rem 1rem}
 [dir="rtl"] .rb-menu .rb-pop{right:auto;left:0}
 .rb-menu .rb-pop .langpick select{max-width:none}
+
+/* ---- Kindle layer ----
+   The e-ink Kindle browser is an old engine on a slow grey screen, tapped with a finger. The class "kindle" is set
+   on <html> by the head script when the browser says Kindle, or the screen reports itself as grey or slow
+   (media "monochrome" / "update: slow"), so none of this reaches phones or computers. Older browsers that lack
+   flexbox "gap" get margins instead from assets/site.js (class "nofg"). */
+.kindle body{font-size:17px;padding-left:28px;padding-right:28px}
+.kindle *,.kindle *::before,.kindle *::after{transition:none!important;animation:none!important}
+/* a scroll bar wide enough for a finger */
+.kindle ::-webkit-scrollbar{width:28px;height:28px}
+.kindle ::-webkit-scrollbar-track{background:#e6e6e6}
+.kindle ::-webkit-scrollbar-thumb{background:#555;border:5px solid #e6e6e6;border-radius:14px;min-height:60px}
+/* nothing pinned to the top: sticky bars ghost on e-ink and take a third of the screen */
+.kindle .rail,.kindle .readtop,.kindle .readbar{position:static}
+/* bigger, separated tap targets */
+.kindle .rail nav a{padding-top:.9rem;padding-bottom:.9rem;font-size:1.05rem}
+.kindle .rec .acts{flex-wrap:wrap;white-space:normal;justify-content:flex-start}
+.kindle .rec .act,.kindle .rec .acts .savebox{display:inline-block;padding:.6rem .95rem;margin:0 .6rem .6rem 0;border:1px solid #777;border-radius:999px;font-size:.85rem;color:#000}
+.kindle .readbar{flex-wrap:wrap;padding:.8rem 28px}
+.kindle .readbar .rb-acts{flex-wrap:wrap;justify-content:flex-start}
+.kindle .readbar .rb-pdf,.kindle .readbar .rb-menu summary{display:inline-block;padding:.6rem .95rem;margin:.3rem .6rem .3rem 0;border:1px solid #777;border-radius:999px;font-size:.85rem;color:#000}
+.kindle .chip,.kindle .seg button{padding:.55rem .95rem;font-size:.85rem}
+.kindle .bsearch .nav button{width:2.75rem;height:2.75rem;margin-left:.4rem}
+.kindle .bsearch .lst{padding:.6rem .8rem}
+.kindle .augrp summary{padding-top:1rem;padding-bottom:1rem}
+.kindle .qm{width:2rem;height:2rem}
+.kindle .langpick select{padding-top:.5rem;padding-bottom:.5rem;font-size:.8rem}
+.kindle .foot a{display:inline-block;padding:.4rem 0}
+/* grey text is hard to read on e-ink: darken it */
+.kindle{--muted:#333;--faint:#444;--line:#999;--line-2:#777;--accent:#000}
