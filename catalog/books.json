@@ -27063,7 +27063,7 @@
     "author_last": "Vatsyayana",
     "author_first": "",
     "title": "The Kama Sutra of Vatsyayana",
-    "translator": "Shivaram Parashuram Bhide, Richard Francis, Sir Burton, Bhagavanlal Indrajit",
+    "translator": "Shivaram Parashuram Bhide, Richard Francis Burton, Bhagavanlal Indrajit",
     "original_date": "c. 300",
     "foggy_press_date": "2026-11-16",
     "gutenberg": 27827,
@@ -59070,6 +59070,579 @@
       "Irish",
       "Politics & Society",
       "Short Reads"
+    ]
+  },
+  {
+    "id": "trials-of-war-criminals-before-the-nuernberg-military-tribunals-volume",
+    "author_last": "Anonymous",
+    "author_first": "",
+    "title": "Trials of War Criminals Before the Nuernberg Military Tribunals, Volumes 1–3",
+    "translator": "",
+    "original_date": "1949",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 54899,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/various/trials-of-war-criminals-before-the-nuernberg-military-tribunals-volume",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/various/trials-of-war-criminals-before-the-nuernberg-military-tribunals-volume/output/Anonymous%3A%20Trials%20of%20War%20Criminals%20Before%20the%20Nuernberg%20Military%20Tribunals%2C%20Volumes%201%E2%80%933.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "the-preaching-of-islam",
+    "author_last": "Arnold",
+    "author_first": "Thomas Walker",
+    "title": "The Preaching of Islam",
+    "translator": "",
+    "original_date": "1896",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 66960,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/arnold-thomas-walker-sir/the-preaching-of-islam",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/arnold-thomas-walker-sir/the-preaching-of-islam/output/Arnold%2C%20Thomas%20Walker%3A%20The%20Preaching%20of%20Islam.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "British"
+    ]
+  },
+  {
+    "id": "a-man-of-business",
+    "author_last": "Balzac",
+    "author_first": "Honoré de",
+    "title": "A Man of Business",
+    "translator": "Clara Bell",
+    "original_date": "1845",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 1813,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/balzac-honore-de/a-man-of-business",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/balzac-honore-de/a-man-of-business/output/Balzac%2C%20Honor%C3%A9%20de%3A%20A%20Man%20of%20Business.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "French",
+      "Stories",
+      "Translated",
+      "Comedy & Satire",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "archaic-england",
+    "author_last": "Bayley",
+    "author_first": "Harold",
+    "title": "Archaic England",
+    "translator": "",
+    "original_date": "1919",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41785,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/bayley-harold/archaic-england",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/bayley-harold/archaic-england/output/Bayley%2C%20Harold%3A%20Archaic%20England.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "the-dyeing-of-cotton-fabrics",
+    "author_last": "Beech",
+    "author_first": "Franklin",
+    "title": "The Dyeing of Cotton Fabrics",
+    "translator": "",
+    "original_date": "1901",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21224,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/beech-franklin/the-dyeing-of-cotton-fabrics",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/beech-franklin/the-dyeing-of-cotton-fabrics/output/Beech%2C%20Franklin%3A%20The%20Dyeing%20of%20Cotton%20Fabrics.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "beethoven-s-letters-1790-1826",
+    "author_last": "Beethoven",
+    "author_first": "Ludwig van",
+    "title": "Beethoven's Letters 1790-1826",
+    "translator": "Grace Wallace",
+    "original_date": "1866",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 13065,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/beethoven-ludwig-van/beethoven-s-letters-1790-1826",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/beethoven-ludwig-van/beethoven-s-letters-1790-1826/output/Beethoven%2C%20Ludwig%20van%3A%20Beethoven%27s%20Letters%201790-1826.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "Memoir",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-hidden-children",
+    "author_last": "Chambers",
+    "author_first": "Robert W.",
+    "title": "The Hidden Children",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 4984,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/chambers-robert-w/the-hidden-children",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/chambers-robert-w/the-hidden-children/output/Chambers%2C%20Robert%20W.%3A%20The%20Hidden%20Children.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Love & Marriage",
+      "American",
+      "Novels",
+      "History",
+      "Adventure"
+    ]
+  },
+  {
+    "id": "the-story-of-the-iliad",
+    "author_last": "Church",
+    "author_first": "Alfred John and Homer",
+    "title": "The Story of the Iliad",
+    "translator": "",
+    "original_date": "1891",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 74231,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/church-alfred-john/the-story-of-the-iliad",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/church-alfred-john/the-story-of-the-iliad/output/Church%2C%20Alfred%20John%20and%20Homer%3A%20The%20Story%20of%20the%20Iliad.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Ancient World",
+      "Classics",
+      "Epic",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "history-of-the-church-of-jesus-christ-of-latter-day-saints",
+    "author_last": "Church of Jesus Christ of Latter-day Saints",
+    "author_first": "",
+    "title": "History of the Church of Jesus Christ of Latter-Day Saints",
+    "translator": "",
+    "original_date": "1902",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 47091,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/church-of-jesus-christ-of-latter-day-saints/history-of-the-church-of-jesus-christ-of-latter-day-saints",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/church-of-jesus-christ-of-latter-day-saints/history-of-the-church-of-jesus-christ-of-latter-day-saints/output/Church%20of%20Jesus%20Christ%20of%20Latter-day%20Saints%3A%20History%20of%20the%20Church%20of%20Jesus%20Christ%20of%20Latter-Day%20Saints.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "American"
+    ]
+  },
+  {
+    "id": "the-letters-of-charles-dickens",
+    "author_last": "Dickens",
+    "author_first": "Charles",
+    "title": "The Letters of Charles Dickens",
+    "translator": "",
+    "original_date": "1880",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 25852,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dickens-charles/the-letters-of-charles-dickens",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dickens-charles/the-letters-of-charles-dickens/output/Dickens%2C%20Charles%3A%20The%20Letters%20of%20Charles%20Dickens.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "British",
+      "Memoir",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "history-of-indian-and-eastern-architecture",
+    "author_last": "Fergusson",
+    "author_first": "James",
+    "title": "History of Indian and Eastern Architecture",
+    "translator": "",
+    "original_date": "1876",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 61178,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/fergusson-james/history-of-indian-and-eastern-architecture",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/fergusson-james/history-of-indian-and-eastern-architecture/output/Fergusson%2C%20James%3A%20History%20of%20Indian%20and%20Eastern%20Architecture.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "History"
+    ]
+  },
+  {
+    "id": "the-reign-of-william-rufus-and-the-accession-of-henry-the-first",
+    "author_last": "Freeman",
+    "author_first": "Edward A.",
+    "title": "The Reign of William Rufus and the Accession of Henry the First",
+    "translator": "",
+    "original_date": "1882",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 67459,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/freeman-edward-a/the-reign-of-william-rufus-and-the-accession-of-henry-the-first",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/freeman-edward-a/the-reign-of-william-rufus-and-the-accession-of-henry-the-first/output/Freeman%2C%20Edward%20A.%3A%20The%20Reign%20of%20William%20Rufus%20and%20the%20Accession%20of%20Henry%20the%20First.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "inquiries-into-human-faculty-and-its-development",
+    "author_last": "Galton",
+    "author_first": "Francis",
+    "title": "Inquiries into Human Faculty and its Development",
+    "translator": "",
+    "original_date": "1883",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 11562,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/galton-francis/inquiries-into-human-faculty-and-its-development",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/galton-francis/inquiries-into-human-faculty-and-its-development/output/Galton%2C%20Francis%3A%20Inquiries%20into%20Human%20Faculty%20and%20its%20Development.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Science"
+    ]
+  },
+  {
+    "id": "iphigenia-in-tauris",
+    "author_last": "Goethe",
+    "author_first": "Johann Wolfgang von",
+    "title": "Iphigenia in Tauris",
+    "translator": "Anna Swanwick",
+    "original_date": "1787",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 15850,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/goethe-johann-wolfgang-von/iphigenia-in-tauris",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/goethe-johann-wolfgang-von/iphigenia-in-tauris/output/Goethe%2C%20Johann%20Wolfgang%20von%3A%20Iphigenia%20in%20Tauris.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "German",
+      "Translated",
+      "Ancient World",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "household-stories-by-the-brothers-grimm",
+    "author_last": "Grimm",
+    "author_first": "Jacob and Wilhelm Grimm",
+    "title": "Household Stories by the Brothers Grimm",
+    "translator": "Lucy Crane",
+    "original_date": "1882",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 19068,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/grimm-jacob/household-stories-by-the-brothers-grimm",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/grimm-jacob/household-stories-by-the-brothers-grimm/output/Grimm%2C%20Jacob%20and%20Wilhelm%20Grimm%3A%20Household%20Stories%20by%20the%20Brothers%20Grimm.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "Children's",
+      "Fantasy & Fairy Tales",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "audubon-the-naturalist",
+    "author_last": "Herrick",
+    "author_first": "Francis Hobart",
+    "title": "Audubon the Naturalist",
+    "translator": "",
+    "original_date": "1917",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 58984,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/herrick-francis-hobart/audubon-the-naturalist",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/herrick-francis-hobart/audubon-the-naturalist/output/Herrick%2C%20Francis%20Hobart%3A%20Audubon%20the%20Naturalist.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Science"
+    ]
+  },
+  {
+    "id": "poems-howells",
+    "author_last": "Howells",
+    "author_first": "William Dean",
+    "title": "Poems",
+    "translator": "",
+    "original_date": "1885",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 29993,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/howells-william-dean/poems",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/howells-william-dean/poems/output/Howells%2C%20William%20Dean%3A%20Poems.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "American",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-stately-homes-of-england",
+    "author_last": "Jewitt",
+    "author_first": "Llewellynn Frederick William and S. C. Hall",
+    "title": "The Stately Homes of England",
+    "translator": "",
+    "original_date": "1874",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 51173,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/jewitt-llewellynn-frederick-william/the-stately-homes-of-england",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/jewitt-llewellynn-frederick-william/the-stately-homes-of-england/output/Jewitt%2C%20Llewellynn%20Frederick%20William%20and%20S.%20C.%20Hall%3A%20The%20Stately%20Homes%20of%20England.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "History"
+    ]
+  },
+  {
+    "id": "st-paul-s-epistles-to-the-colossians-and-philemon-a-revised-text",
+    "author_last": "Lightfoot",
+    "author_first": "J. B.",
+    "title": "St. Paul's Epistles to the Colossians and Philemon A Revised Text",
+    "translator": "",
+    "original_date": "1875",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 50857,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/lightfoot-j-b/st-paul-s-epistles-to-the-colossians-and-philemon-a-revised-text",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/lightfoot-j-b/st-paul-s-epistles-to-the-colossians-and-philemon-a-revised-text/output/Lightfoot%2C%20J.%20B.%3A%20St.%20Paul%27s%20Epistles%20to%20the%20Colossians%20and%20Philemon%20A%20Revised%20Text.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "British"
+    ]
+  },
+  {
+    "id": "harvard-psychological-studies",
+    "author_last": "Münsterberg",
+    "author_first": "Hugo",
+    "title": "Harvard Psychological Studies",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 16266,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/harvard-psychological-studies",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/harvard-psychological-studies/output/M%C3%BCnsterberg%2C%20Hugo%3A%20Harvard%20Psychological%20Studies.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
+  },
+  {
+    "id": "the-stones-of-venice",
+    "author_last": "Ruskin",
+    "author_first": "John",
+    "title": "The Stones of Venice",
+    "translator": "",
+    "original_date": "1851",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 30754,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ruskin-john/the-stones-of-venice",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ruskin-john/the-stones-of-venice/output/Ruskin%2C%20John%3A%20The%20Stones%20of%20Venice.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Essays",
+      "British",
+      "Victorian",
+      "Italian"
+    ]
+  },
+  {
+    "id": "minstrelsy-of-the-scottish-border",
+    "author_last": "Scott",
+    "author_first": "Walter",
+    "title": "Minstrelsy of the Scottish Border",
+    "translator": "",
+    "original_date": "1802",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 12742,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/scott-walter/minstrelsy-of-the-scottish-border",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/scott-walter/minstrelsy-of-the-scottish-border/output/Scott%2C%20Walter%3A%20Minstrelsy%20of%20the%20Scottish%20Border.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Fantasy & Fairy Tales",
+      "History",
+      "British"
+    ]
+  },
+  {
+    "id": "waverley-or-tis-sixty-years-since",
+    "author_last": "Scott",
+    "author_first": "Walter",
+    "title": "Waverley; Or, 'Tis Sixty Years Since",
+    "translator": "",
+    "original_date": "1814",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5998,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/scott-walter/waverley-or-tis-sixty-years-since",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/scott-walter/waverley-or-tis-sixty-years-since/output/Scott%2C%20Walter%3A%20Waverley%3B%20Or%2C%20%27Tis%20Sixty%20Years%20Since.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "British",
+      "History",
+      "Adventure"
+    ]
+  },
+  {
+    "id": "malay-magic",
+    "author_last": "Skeat",
+    "author_first": "Walter William",
+    "title": "Malay Magic",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 47873,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/skeat-walter-william/malay-magic",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/skeat-walter-william/malay-magic/output/Skeat%2C%20Walter%20William%3A%20Malay%20Magic.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Religion"
+    ]
+  },
+  {
+    "id": "the-blue-book-of-chess",
+    "author_last": "Staunton",
+    "author_first": "Howard",
+    "title": "The Blue Book of Chess",
+    "translator": "",
+    "original_date": "1870",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 16377,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/staunton-howard/the-blue-book-of-chess",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/staunton-howard/the-blue-book-of-chess/output/Staunton%2C%20Howard%3A%20The%20Blue%20Book%20of%20Chess.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British"
+    ]
+  },
+  {
+    "id": "the-life-of-jesus-critically-examined-4th-ed",
+    "author_last": "Strauss",
+    "author_first": "David Friedrich",
+    "title": "The Life of Jesus Critically Examined (4th Ed.)",
+    "translator": "George Eliot",
+    "original_date": "1835",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 64037,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/strauss-david-friedrich/the-life-of-jesus-critically-examined-4th-ed",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/strauss-david-friedrich/the-life-of-jesus-critically-examined-4th-ed/output/Strauss%2C%20David%20Friedrich%3A%20The%20Life%20of%20Jesus%20Critically%20Examined%20%284th%20Ed.%29.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "bell-s-cathedrals-sweeting",
+    "author_last": "Sweeting",
+    "author_first": "W. D.",
+    "title": "Bell's Cathedrals",
+    "translator": "",
+    "original_date": "1901",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21003,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/sweeting-w-d/bell-s-cathedrals",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/sweeting-w-d/bell-s-cathedrals/output/Sweeting%2C%20W.%20D.%3A%20Bell%27s%20Cathedrals.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "History"
+    ]
+  },
+  {
+    "id": "fiue-hundred-pointes-of-good-husbandrie",
+    "author_last": "Tusser",
+    "author_first": "Thomas",
+    "title": "Fiue Hundred Pointes of Good Husbandrie",
+    "translator": "",
+    "original_date": "1573",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 51764,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/tusser-thomas/fiue-hundred-pointes-of-good-husbandrie",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/tusser-thomas/fiue-hundred-pointes-of-good-husbandrie/output/Tusser%2C%20Thomas%3A%20Fiue%20Hundred%20Pointes%20of%20Good%20Husbandrie.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Poetry"
+    ]
+  },
+  {
+    "id": "the-letters-of-queen-victoria",
+    "author_last": "Victoria",
+    "author_first": "",
+    "title": "The Letters of Queen Victoria",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 20023,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/victoria/the-letters-of-queen-victoria",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/victoria/the-letters-of-queen-victoria/output/Victoria%3A%20The%20Letters%20of%20Queen%20Victoria.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Memoir",
+      "British",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "an-abridgment-of-the-architecture-of-vitruvius",
+    "author_last": "Vitruvius Pollio",
+    "author_first": "",
+    "title": "An Abridgment of the Architecture of Vitruvius",
+    "translator": "",
+    "original_date": "1692",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 27877,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/vitruvius-pollio/an-abridgment-of-the-architecture-of-vitruvius",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/vitruvius-pollio/an-abridgment-of-the-architecture-of-vitruvius/output/Vitruvius%20Pollio%3A%20An%20Abridgment%20of%20the%20Architecture%20of%20Vitruvius.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Ancient World",
+      "Classics",
+      "Translated",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "text-book-of-biology-volume-1",
+    "author_last": "Wells",
+    "author_first": "H. G.",
+    "title": "Text Book of Biology, Volume 1",
+    "translator": "",
+    "original_date": "1893",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21781,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/wells-h-g/text-book-of-biology-volume-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/wells-h-g/text-book-of-biology-volume-1/output/Wells%2C%20H.%20G.%3A%20Text%20Book%20of%20Biology%2C%20Volume%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "the-philippines",
+    "author_last": "Worcester",
+    "author_first": "Dean C.",
+    "title": "The Philippines",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41918,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/worcester-dean-c/the-philippines",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/worcester-dean-c/the-philippines/output/Worcester%2C%20Dean%20C.%3A%20The%20Philippines.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American",
+      "Politics & Society"
+    ]
+  },
+  {
+    "id": "work",
+    "author_last": "Zola",
+    "author_first": "Émile",
+    "title": "Work",
+    "translator": "Ernest Alfred Vizetelly",
+    "original_date": "1901",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 55282,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/zola-emile/work",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/zola-emile/work/output/Zola%2C%20%C3%89mile%3A%20Work.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "French",
+      "Translated",
+      "Politics & Society"
     ]
   }
 ]
