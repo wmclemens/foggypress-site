@@ -98,6 +98,15 @@ def goatcounter(code, token):
     return out
 
 
+def bot_name(ua):
+    """A short name for a bot's browser name. Crawlers that pose as a browser start with "Mozilla/5.0" and give their
+    real name after "compatible;" (e.g. Meta's "meta-externalagent"), so that comes first; "Mozilla" itself means nothing."""
+    m = (re.search(r'compatible;\s*([A-Za-z][\w.-]*)', ua)
+         or re.search(r'([A-Za-z][\w.-]*(?:bot|crawler|spider|agent|fetcher)[\w.-]*)', ua, re.I)
+         or re.search(r'^((?!Mozilla/)[^/ ]+)', ua))
+    return m[1] if m else ('(no browser name)' if not ua else '(unnamed, posing as a browser)')
+
+
 def cloudflare(token, zone, host='files.foggypress.com'):
     end = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
     start = end - datetime.timedelta(days=CF_DAYS)
@@ -120,7 +129,7 @@ def cloudflare(token, zone, host='files.foggypress.com'):
             bots += n
             if r['dimensions'].get('edgeResponseStatus') == 403:
                 blocked += n  # refused by the bot rule (build/cloudflare_rules.py)
-            name = (re.search(r'([A-Za-z][\w.-]*(?:bot|crawler|spider)[\w.-]*)', ua, re.I) or re.search(r'^([^/ ]+)', ua) or [None, '(no browser name)'])[1]
+            name = bot_name(ua)
             agents[name] = agents.get(name, 0) + n
         else:
             people += n

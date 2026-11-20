@@ -27,6 +27,7 @@ Environment (all optional):
 import argparse, datetime, html, json, os, re, shutil, sys, urllib.parse, urllib.request
 from pathlib import Path
 
+import bots
 import britannica
 import epub
 import report
@@ -700,7 +701,7 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
                     self.read_redirect(b)
                 else:
                     self.reader(b)
-        (self.out / 'robots.txt').write_text('User-agent: *\nDisallow: /admin/\n')
+        (self.out / 'robots.txt').write_text(bots.robots_txt('User-agent: *\nDisallow: /admin/\n'))
         dom = os.environ.get('SITE_DOMAIN', '').strip()
         if dom:
             (self.out / 'CNAME').write_text(dom + '\n')
@@ -850,7 +851,7 @@ if __name__ == '__main__':
         if site.pdf_base:
             # files.foggypress.com: crawlers may read the read-online pages but not fetch the downloads,
             # which Cloudflare refuses to bots anyway (build/cloudflare_rules.py)
-            (Path(a.stage_pdfs) / 'robots.txt').write_text('User-agent: *\nDisallow: /*.pdf$\nDisallow: /epub/\nAllow: /\n')
+            (Path(a.stage_pdfs) / 'robots.txt').write_text(bots.robots_txt('User-agent: *\nDisallow: /*.pdf$\nDisallow: /epub/\nAllow: /\n'))
             site.stage_read(a.stage_pdfs)
             britannica.stage(site, a.stage_pdfs)
         print(f'Staged {len(site.live)} PDFs and {ne} EPUBs in {a.stage_pdfs}.')
