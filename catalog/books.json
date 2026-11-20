@@ -59892,5 +59892,141 @@
       "American",
       "Children's"
     ]
+  },
+  {
+    "id": "the-anatomy-of-melancholy",
+    "author_last": "Burton",
+    "author_first": "Robert",
+    "title": "The Anatomy of Melancholy",
+    "translator": "",
+    "original_date": "1621",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 10800,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burton-robert/the-anatomy-of-melancholy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burton-robert/the-anatomy-of-melancholy/output/Burton%2C%20Robert%3A%20The%20Anatomy%20of%20Melancholy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Science"
+    ]
+  },
+  {
+    "id": "the-animal-parasites-of-man",
+    "author_last": "Fantham",
+    "author_first": "Harold Benjamin and Max Braun and J. W. W. Stephens",
+    "title": "The Animal Parasites of Man",
+    "translator": "",
+    "original_date": "1916",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57713,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/fantham-harold-benjamin/the-animal-parasites-of-man",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/fantham-harold-benjamin/the-animal-parasites-of-man/output/Fantham%2C%20Harold%20Benjamin%20and%20Max%20Braun%20and%20J.%20W.%20W.%20Stephens%3A%20The%20Animal%20Parasites%20of%20Man.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Science"
+    ]
+  },
+  {
+    "id": "the-medals-of-creation-volumes-1-and-2-first-lessons-in-geology-and-th",
+    "author_last": "Mantell",
+    "author_first": "Gideon Algernon",
+    "title": "The Medals of Creation, Volumes 1 and 2 First Lessons in Geology and the Study of Organic Remains",
+    "translator": "",
+    "original_date": "1844",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 62891,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mantell-gideon-algernon/the-medals-of-creation-volumes-1-and-2-first-lessons-in-geology-and-th",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mantell-gideon-algernon/the-medals-of-creation-volumes-1-and-2-first-lessons-in-geology-and-th/output/Mantell%2C%20Gideon%20Algernon%3A%20The%20Medals%20of%20Creation%2C%20Volumes%201%20and%202%20First%20Lessons%20in%20Geology%20and%20the%20Study%20of%20Organic%20Remains.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "the-travels-of-marco-polo",
+    "author_last": "Polo",
+    "author_first": "Marco and Rusticiano da Pisa",
+    "title": "The Travels of Marco Polo",
+    "translator": "Henry Yule",
+    "original_date": "1298",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 10636,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/polo-marco/the-travels-of-marco-polo",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/polo-marco/the-travels-of-marco-polo/output/Polo%2C%20Marco%20and%20Rusticiano%20da%20Pisa%3A%20The%20Travels%20of%20Marco%20Polo.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Medieval",
+      "Travel",
+      "Italian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "history-of-woman-suffrage",
+    "author_last": "Stanton",
+    "author_first": "Elizabeth Cady",
+    "title": "History of Woman Suffrage",
+    "translator": "",
+    "original_date": "1881",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 28020,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/history-of-woman-suffrage",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/history-of-woman-suffrage/output/Stanton%2C%20Elizabeth%20Cady%3A%20History%20of%20Woman%20Suffrage.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Politics & Society",
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "manual-of-surgery",
+    "author_last": "Thomson",
+    "author_first": "Alexis and Alexander Miles",
+    "title": "Manual of Surgery",
+    "translator": "",
+    "original_date": "1921",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 28428,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/thomson-alexis/manual-of-surgery",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/thomson-alexis/manual-of-surgery/output/Thomson%2C%20Alexis%20and%20Alexander%20Miles%3A%20Manual%20of%20Surgery.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "annals-and-antiquities-of-rajasthan",
+    "author_last": "Tod",
+    "author_first": "James",
+    "title": "Annals and Antiquities of Rajasthan",
+    "translator": "",
+    "original_date": "1829",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 57375,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/tod-james/annals-and-antiquities-of-rajasthan",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/tod-james/annals-and-antiquities-of-rajasthan/output/Tod%2C%20James%3A%20Annals%20and%20Antiquities%20of%20Rajasthan.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Religion",
+      "British",
+      "Travel"
+    ]
+  },
+  {
+    "id": "nazi-conspiracy-and-aggression-volumes-14",
+    "author_last": "United States. Office of Chief of Counsel for the Prosecution of Axis Criminality",
+    "author_first": "",
+    "title": "Nazi Conspiracy and Aggression, Volumes 1–4",
+    "translator": "",
+    "original_date": "1946",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 55368,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/united-states-office-of-chief-of-counsel-for-the-prosecution-of-axis-criminality/nazi-conspiracy-and-aggression-volumes-14",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/united-states-office-of-chief-of-counsel-for-the-prosecution-of-axis-criminality/nazi-conspiracy-and-aggression-volumes-14/output/United%20States.%20Office%20of%20Chief%20of%20Counsel%20for%20the%20Prosecution%20of%20Axis%20Criminality%3A%20Nazi%20Conspiracy%20and%20Aggression%2C%20Volumes%201%E2%80%934.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Politics & Society",
+      "History",
+      "American"
+    ]
   }
 ]
