@@ -24,6 +24,35 @@ BUILD_CHECK_UA = 'FoggyPress-site-build/1.0'
 DOWNLOAD_PATHS = '(ends_with(lower(http.request.uri.path), ".pdf") or ends_with(lower(http.request.uri.path), ".epub"))'
 
 
+# Bots shut out of the whole site, not just the downloads: Will's per-bot blocklist.
+# Company name -> the names its crawlers give (robots.txt tokens, also matched anywhere in the browser name).
+# To block another bot, add a line here and merge: robots.txt (foggypress.com and files.foggypress.com) and the
+# Cloudflare rule (cloudflare_rules.py, ref fp_block_listed_bots) both follow this list.
+BLOCKED = {
+    'ElevenLabs': ['ElevenlabsCrawler', 'ElevenlabsBot'],   # https://elevenlabs.io/docs/bots (19 Nov 2026, Will)
+}
+
+
+def blocked_names():
+    return [n for names in BLOCKED.values() for n in names]
+
+
+def is_blocked(ua):
+    u = (ua or '').lower()
+    return any(n.lower() in u for n in blocked_names())
+
+
+def blocked_expression():
+    """Cloudflare rule test for a request from a blocklisted bot, on any foggypress.com host."""
+    return '(' + ' or '.join(f'lower(http.user_agent) contains "{n.lower()}"' for n in blocked_names()) + ')'
+
+
+def robots_txt(rest):
+    """robots.txt: a full "Disallow: /" for each blocklisted bot, then the rules for everyone else."""
+    out = ''.join(f'User-agent: {n}\nDisallow: /\n\n' for n in blocked_names())
+    return out + rest
+
+
 def is_bot(ua):
     return not ua or bool(BOT_UA.search(ua))
 
