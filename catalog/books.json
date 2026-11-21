@@ -60092,5 +60092,21 @@
       "Science",
       "American"
     ]
+  },
+  {
+    "id": "woman-s-institute-library-of-cookery",
+    "author_last": "Woman's Institute of Domestic Arts and Sciences",
+    "author_first": "",
+    "title": "Woman's Institute Library of Cookery",
+    "translator": "",
+    "original_date": "1918",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 9939,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/woman-s-institute-of-domestic-arts-and-sciences/woman-s-institute-library-of-cookery",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/woman-s-institute-of-domestic-arts-and-sciences/woman-s-institute-library-of-cookery/output/Woman%27s%20Institute%20of%20Domestic%20Arts%20and%20Sciences%3A%20Woman%27s%20Institute%20Library%20of%20Cookery.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science"
+    ]
   }
 ]
