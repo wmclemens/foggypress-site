@@ -60108,5 +60108,268 @@
       "American",
       "Science"
     ]
+  },
+  {
+    "id": "aesop-in-rhyme",
+    "author_last": "Aesop",
+    "author_first": "",
+    "title": "Aesop, in Rhyme",
+    "translator": "",
+    "original_date": "1852",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 21189,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/aesop/aesop-in-rhyme",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/aesop/aesop-in-rhyme/output/Aesop%3A%20Aesop%2C%20in%20Rhyme.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Fantasy & Fairy Tales",
+      "Ancient World",
+      "Children's",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "aunt-jane-s-nieces-in-society",
+    "author_last": "Baum",
+    "author_first": "L. Frank",
+    "title": "Aunt Jane's Nieces in Society",
+    "translator": "",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 10468,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/baum-l-frank/aunt-jane-s-nieces-in-society",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/baum-l-frank/aunt-jane-s-nieces-in-society/output/Baum%2C%20L.%20Frank%3A%20Aunt%20Jane%27s%20Nieces%20in%20Society.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Novels",
+      "American",
+      "Children's"
+    ]
+  },
+  {
+    "id": "the-art-of-decorating-dry-goods-windows-and-interiors",
+    "author_last": "Baum",
+    "author_first": "L. Frank",
+    "title": "The Art of Decorating Dry Goods Windows and Interiors",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 73606,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/baum-l-frank/the-art-of-decorating-dry-goods-windows-and-interiors",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/baum-l-frank/the-art-of-decorating-dry-goods-windows-and-interiors/output/Baum%2C%20L.%20Frank%3A%20The%20Art%20of%20Decorating%20Dry%20Goods%20Windows%20and%20Interiors.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "robert-louis-stevenson-reader",
+    "author_last": "Bryce",
+    "author_first": "Catherine T. and Robert Louis Stevenson",
+    "title": "Robert Louis Stevenson Reader",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 79196,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/bryce-catherine-t/robert-louis-stevenson-reader",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/bryce-catherine-t/robert-louis-stevenson-reader/output/Bryce%2C%20Catherine%20T.%20and%20Robert%20Louis%20Stevenson%3A%20Robert%20Louis%20Stevenson%20Reader.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Children's",
+      "Stories",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-loving-ballad-of-lord-bateman",
+    "author_last": "Dickens",
+    "author_first": "Charles and William Makepeace Thackeray",
+    "title": "The Loving Ballad of Lord Bateman",
+    "translator": "",
+    "original_date": "1839",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 15618,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dickens-charles/the-loving-ballad-of-lord-bateman",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dickens-charles/the-loving-ballad-of-lord-bateman/output/Dickens%2C%20Charles%20and%20William%20Makepeace%20Thackeray%3A%20The%20Loving%20Ballad%20of%20Lord%20Bateman.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Comedy & Satire",
+      "Fantasy & Fairy Tales",
+      "British",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-microscope-its-history-construction-and-application-15th-ed",
+    "author_last": "Hogg",
+    "author_first": "Jabez",
+    "title": "The Microscope. Its History, Construction, and Application 15th Ed",
+    "translator": "",
+    "original_date": "1898",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 61233,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hogg-jabez/the-microscope-its-history-construction-and-application-15th-ed",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hogg-jabez/the-microscope-its-history-construction-and-application-15th-ed/output/Hogg%2C%20Jabez%3A%20The%20Microscope.%20Its%20History%2C%20Construction%2C%20and%20Application%2015th%20Ed.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "the-master-builder",
+    "author_last": "Ibsen",
+    "author_first": "Henrik",
+    "title": "The Master Builder",
+    "translator": "William Archer, Edmund Gosse",
+    "original_date": "1892",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 4070,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ibsen-henrik/the-master-builder",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ibsen-henrik/the-master-builder/output/Ibsen%2C%20Henrik%3A%20The%20Master%20Builder.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "Translated"
+    ]
+  },
+  {
+    "id": "when-we-dead-awaken",
+    "author_last": "Ibsen",
+    "author_first": "Henrik",
+    "title": "When We Dead Awaken",
+    "translator": "William Archer",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 4782,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ibsen-henrik/when-we-dead-awaken",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ibsen-henrik/when-we-dead-awaken/output/Ibsen%2C%20Henrik%3A%20When%20We%20Dead%20Awaken.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-boy-s-playbook-of-science",
+    "author_last": "Pepper",
+    "author_first": "John Henry",
+    "title": "The Boy's Playbook of Science",
+    "translator": "",
+    "original_date": "1860",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 41839,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/pepper-john-henry/the-boy-s-playbook-of-science",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/pepper-john-henry/the-boy-s-playbook-of-science/output/Pepper%2C%20John%20Henry%3A%20The%20Boy%27s%20Playbook%20of%20Science.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Children's"
+    ]
+  },
+  {
+    "id": "the-story-of-a-fierce-bad-rabbit",
+    "author_last": "Potter",
+    "author_first": "Beatrix",
+    "title": "The Story of a Fierce Bad Rabbit",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 45265,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/potter-beatrix/the-story-of-a-fierce-bad-rabbit",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/potter-beatrix/the-story-of-a-fierce-bad-rabbit/output/Potter%2C%20Beatrix%3A%20The%20Story%20of%20a%20Fierce%20Bad%20Rabbit.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "British",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-story-of-miss-moppet",
+    "author_last": "Potter",
+    "author_first": "Beatrix",
+    "title": "The Story of Miss Moppet",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 14848,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/potter-beatrix/the-story-of-miss-moppet",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/potter-beatrix/the-story-of-miss-moppet/output/Potter%2C%20Beatrix%3A%20The%20Story%20of%20Miss%20Moppet.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "British",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-tale-of-ginger-and-pickles",
+    "author_last": "Potter",
+    "author_first": "Beatrix",
+    "title": "The Tale of Ginger and Pickles",
+    "translator": "",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 14877,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/potter-beatrix/the-tale-of-ginger-and-pickles",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/potter-beatrix/the-tale-of-ginger-and-pickles/output/Potter%2C%20Beatrix%3A%20The%20Tale%20of%20Ginger%20and%20Pickles.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Comedy & Satire",
+      "British",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-tale-of-samuel-whiskers",
+    "author_last": "Potter",
+    "author_first": "Beatrix",
+    "title": "The Tale of Samuel Whiskers",
+    "translator": "",
+    "original_date": "1908",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 15575,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/potter-beatrix/the-tale-of-samuel-whiskers",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/potter-beatrix/the-tale-of-samuel-whiskers/output/Potter%2C%20Beatrix%3A%20The%20Tale%20of%20Samuel%20Whiskers.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Comedy & Satire",
+      "Adventure",
+      "British",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "the-tale-of-tom-kitten",
+    "author_last": "Potter",
+    "author_first": "Beatrix",
+    "title": "The Tale of Tom Kitten",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 14837,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/potter-beatrix/the-tale-of-tom-kitten",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/potter-beatrix/the-tale-of-tom-kitten/output/Potter%2C%20Beatrix%3A%20The%20Tale%20of%20Tom%20Kitten.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Comedy & Satire",
+      "British",
+      "Women Writers",
+      "Short Reads"
+    ]
+  },
+  {
+    "id": "a-text-book-of-veterinary-anatomy",
+    "author_last": "Sisson",
+    "author_first": "Septimus",
+    "title": "A Text-book of Veterinary Anatomy",
+    "translator": "",
+    "original_date": "1910",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 75996,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/sisson-septimus/a-text-book-of-veterinary-anatomy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/sisson-septimus/a-text-book-of-veterinary-anatomy/output/Sisson%2C%20Septimus%3A%20A%20Text-book%20of%20Veterinary%20Anatomy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Science"
+    ]
   }
 ]
