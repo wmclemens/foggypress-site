@@ -60028,5 +60028,69 @@
       "History",
       "American"
     ]
+  },
+  {
+    "id": "boy-scouts-handbook-the-first-edition-1911",
+    "author_last": "Boy Scouts of America",
+    "author_first": "",
+    "title": "Boy Scouts Handbook The First Edition, 1911",
+    "translator": "",
+    "original_date": "1911",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 29558,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/boy-scouts-of-america/boy-scouts-handbook-the-first-edition-1911",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/boy-scouts-of-america/boy-scouts-handbook-the-first-edition-1911/output/Boy%20Scouts%20of%20America%3A%20Boy%20Scouts%20Handbook%20The%20First%20Edition%2C%201911.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Children's"
+    ]
+  },
+  {
+    "id": "an-introduction-to-entomology",
+    "author_last": "Kirby",
+    "author_first": "William and William Spence",
+    "title": "An Introduction to Entomology",
+    "translator": "",
+    "original_date": "1815",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 43578,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kirby-william/an-introduction-to-entomology",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kirby-william/an-introduction-to-entomology/output/Kirby%2C%20William%20and%20William%20Spence%3A%20An%20Introduction%20to%20Entomology.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "wild-animals-at-home",
+    "author_last": "Seton",
+    "author_first": "Ernest Thompson",
+    "title": "Wild Animals at Home",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 27887,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/seton-ernest-thompson/wild-animals-at-home",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/seton-ernest-thompson/wild-animals-at-home/output/Seton%2C%20Ernest%20Thompson%3A%20Wild%20Animals%20at%20Home.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American",
+      "Children's"
+    ]
+  },
+  {
+    "id": "foods-and-their-adulteration-origin-manufacture-and-composition-of-foo",
+    "author_last": "Wiley",
+    "author_first": "Harvey Washington",
+    "title": "Foods and Their Adulteration Origin, Manufacture, and Composition of Food Products",
+    "translator": "",
+    "original_date": "1907",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 66164,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/wiley-harvey-washington/foods-and-their-adulteration-origin-manufacture-and-composition-of-foo",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/wiley-harvey-washington/foods-and-their-adulteration-origin-manufacture-and-composition-of-foo/output/Wiley%2C%20Harvey%20Washington%3A%20Foods%20and%20Their%20Adulteration%20Origin%2C%20Manufacture%2C%20and%20Composition%20of%20Food%20Products.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "American"
+    ]
   }
 ]
