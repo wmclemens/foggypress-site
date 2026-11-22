@@ -275,6 +275,7 @@ Masuk untuk menyimpan buku, daftar, dan riwayat Anda di semua perangkat.
 Cara kerja masuk
 Masuk untuk menyimpan buku, daftar bacaan, tag, dan riwayat Anda di semua perangkat.
 Tampilan: mode gelap dan bahasa
+Riwayat bacaan
 
 @about 351cb8b251
 Foggy Press menata ulang buku-buku domain publik dalam satu gaya rumah yang sederhana dan menerbitkannya secara gratis: untuk dibaca daring, dicetak di rumah dari PDF berukuran kertas letter AS, atau diunduh sebagai EPUB untuk pembaca e-book.
