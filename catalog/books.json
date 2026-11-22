@@ -61961,5 +61961,53 @@
     "tags": [
       "American"
     ]
+  },
+  {
+    "id": "amusements-in-mathematics",
+    "author_last": "Dudeney",
+    "author_first": "Henry Ernest",
+    "title": "Amusements in Mathematics",
+    "translator": "",
+    "original_date": "1917",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 16713,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dudeney-henry-ernest/amusements-in-mathematics",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dudeney-henry-ernest/amusements-in-mathematics/output/Dudeney%2C%20Henry%20Ernest%3A%20Amusements%20in%20Mathematics.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Comedy & Satire",
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "foster-s-complete-hoyle",
+    "author_last": "Foster",
+    "author_first": "R. F.",
+    "title": "Foster's Complete Hoyle",
+    "translator": "",
+    "original_date": "1897",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 53881,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/foster-r-f/foster-s-complete-hoyle",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/foster-r-f/foster-s-complete-hoyle/output/Foster%2C%20R.%20F.%3A%20Foster%27s%20Complete%20Hoyle.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "dress-design",
+    "author_last": "Hughes",
+    "author_first": "Talbot",
+    "title": "Dress Design",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 34903,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hughes-talbot/dress-design",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hughes-talbot/dress-design/output/Hughes%2C%20Talbot%3A%20Dress%20Design.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "History"
+    ]
   }
 ]
