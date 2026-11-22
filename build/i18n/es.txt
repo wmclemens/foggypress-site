@@ -276,6 +276,7 @@ Cómo funciona el inicio de sesión
 Inicie sesión para tener sus libros guardados, listas de lectura, etiquetas e historial en todos sus dispositivos.
 Pantalla: modo oscuro e idioma
 Historial de lectura
+Para Kindle: descárgalo en el navegador web del Kindle o cópialo por USB
 
 @about 351cb8b251
 Foggy Press compone libros de dominio público en un estilo propio y sencillo y los publica gratis: para leer en línea, para imprimir en casa desde un PDF en papel carta de EE. UU. o para descargar como EPUB para un lector electrónico.

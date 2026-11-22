@@ -66,3 +66,5 @@
 @media (max-width:480px){.readbar .wide{display:none}}
 .eb-ocr{font-size:.9em;color:var(--muted);border-left:3px solid var(--rule,#ccc);padding:.4em .8em;margin:0 0 1.2em}
 .eb-ocr a{color:var(--accent)}
+.eb-dl{font-size:.8rem;color:var(--muted,#666);margin:.2rem 0 1rem}
+.eb-dl a{color:var(--accent)}

@@ -276,6 +276,7 @@ Como funciona o acesso
 Entre para ter seus livros salvos, listas de leitura, etiquetas e histórico em todos os seus aparelhos.
 Exibição: modo escuro e idioma
 Histórico de leitura
+Para Kindle: baixe no navegador web do Kindle ou copie por USB
 
 @about 351cb8b251
 A Foggy Press compõe livros de domínio público num estilo próprio e simples e os publica de graça: para ler on-line, imprimir em casa a partir de um PDF em papel carta americano ou baixar como EPUB para um leitor digital.
