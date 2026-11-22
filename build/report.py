@@ -74,7 +74,7 @@ def goatcounter(code, token):
         after = [str(x['path_id']) for x in hits] + (after or [])
     out['pages'] = sorted(pages.items(), key=lambda kv: -kv[1])[:40]
 
-    feat, searches, misses, downloads = {}, {}, {}, {'pdf': 0, 'epub': 0}
+    feat, searches, misses, downloads = {}, {}, {}, {'pdf': 0, 'epub': 0, 'kindle': 0}
     for path, n in events.items():
         if path.startswith('search-none: '):
             misses[path[13:]] = misses.get(path[13:], 0) + n
@@ -86,11 +86,14 @@ def goatcounter(code, token):
             downloads['pdf'] += n
         elif path.startswith('epub-'):
             downloads['epub'] += n
+        elif path.startswith('kindle-'):
+            downloads['kindle'] += n
         else:
             name = {'find-in-book': 'Find in this book'}.get(path, path[:1].upper() + path[1:])
             feat[name] = feat.get(name, 0) + n
     feat['PDF downloads'] = downloads['pdf']
     feat['EPUB downloads'] = downloads['epub']
+    feat['Kindle downloads'] = downloads['kindle']
     feat['Read-online page views'] = sum(n for p, n in pages.items() if p.startswith('/read/'))
     out['features'] = sorted(feat.items(), key=lambda kv: -kv[1])
     out['searches'] = sorted(searches.items(), key=lambda kv: -kv[1])[:30]

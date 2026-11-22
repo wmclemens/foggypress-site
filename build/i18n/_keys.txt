@@ -276,3 +276,4 @@ How sign-in works
 Sign in to keep your saved books, reading lists, tags and history on every device.
 Display: dark mode and language
 Reading history
+For Kindle: download it in the Kindle’s web browser, or copy it over USB

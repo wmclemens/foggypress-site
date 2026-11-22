@@ -21,7 +21,8 @@ BOT_UA = re.compile('|'.join(re.escape(t) for t in TERMS), re.I)
 BUILD_CHECK_UA = 'FoggyPress-site-build/1.0'
 
 # what the Cloudflare rule blocks: downloads only
-DOWNLOAD_PATHS = '(ends_with(lower(http.request.uri.path), ".pdf") or ends_with(lower(http.request.uri.path), ".epub"))'
+DOWNLOAD_PATHS = ('(ends_with(lower(http.request.uri.path), ".pdf") or ends_with(lower(http.request.uri.path), ".epub")'
+                  ' or ends_with(lower(http.request.uri.path), ".azw3"))')
 
 
 # Bots shut out of the whole site, not just the downloads: Will's per-bot blocklist.

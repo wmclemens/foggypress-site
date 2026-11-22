@@ -276,6 +276,7 @@ Comment fonctionne la connexion
 Connectez-vous pour retrouver vos livres gardés, listes de lecture, étiquettes et historique sur tous vos appareils.
 Affichage : mode sombre et langue
 Historique de lecture
+Pour Kindle : téléchargez-le dans le navigateur web du Kindle, ou copiez-le par USB
 
 @about 351cb8b251
 Foggy Press compose des livres du domaine public dans un style maison simple et les publie gratuitement : à lire en ligne, à imprimer chez soi à partir d’un PDF au format Lettre US, ou à télécharger en EPUB pour une liseuse.

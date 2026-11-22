@@ -233,6 +233,7 @@ class Site:
         repo = os.environ.get('GITHUB_REPOSITORY', '')
         self.base = '' if os.environ.get('SITE_DOMAIN', '').strip() or not repo else '/' + repo.split('/')[-1]
         self.pdf_base = os.environ.get('PDF_BASE', '').strip().rstrip('/')
+        self.load_kindle()
         # reader accounts (assets/account.js, supabase/schema.sql): on only when the Supabase project is set
         self.sb_url = os.environ.get('SUPABASE_URL', '').strip().rstrip('/')
         self.sb_key = os.environ.get('SUPABASE_ANON_KEY', '').strip()
@@ -410,15 +411,25 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
         return (f'<a class="{cls}" href="{esc(self.epub_url(b))}" download rel="nofollow" data-goatcounter-click="epub-{esc(b["id"])}" '
                 f'data-goatcounter-title="{esc(b["title"])}" title="For e-readers: Kindle, Apple Books, Kobo" data-t-attr="title">EPUB</a>')
 
+    def load_kindle(self):
+        """books with a Kindle file on R2 (build/kindle.py, kindle.sh); empty when the manifest is missing"""
+        self.kindle = set()
+        km = os.environ.get('KINDLE_MANIFEST', '').strip()
+        if km:
+            try:
+                books = json.loads(Path(km).read_text(encoding='utf-8')).get('books', {})
+                self.kindle = {i for i, e in books.items() if not e.get('failed')}
+            except (OSError, ValueError):
+                pass
+
     def kindle_link(self, b, cls):
-        """one-off Kindle (AZW3) test downloads (20 Nov 2026): a book gets a Kindle link only when
-        kindle/<id>.azw3 is in this repo; the file is staged beside the EPUBs on R2"""
-        if not (ROOT / 'kindle' / f"{b['id']}.azw3").exists():
+        """Kindle (AZW3) edition, made from the EPUB by kindle.py and kept on R2 under kindle/; a book gets the
+        link once its file is in the Kindle manifest (KINDLE_MANIFEST, written by the R2 step of the build)"""
+        if b['id'] not in self.kindle or not self.pdf_base:
             return ''
-        name = f"{urllib.parse.quote(b['id'])}.azw3"
-        url = f'{self.pdf_base}/kindle/{name}' if self.pdf_base else f'/kindle/{name}'
+        url = f"{self.pdf_base}/kindle/{urllib.parse.quote(b['id'])}.azw3"
         return (f'<a class="{cls}" href="{esc(url)}" download rel="nofollow" data-goatcounter-click="kindle-{esc(b["id"])}" '
-                f'data-goatcounter-title="{esc(b["title"])}" title="For Kindle: open this page in the Kindle browser and tap the link" data-t-attr="title">Kindle</a>')
+                f'data-goatcounter-title="{esc(b["title"])}" title="For Kindle: download it in the Kindle’s web browser, or copy it over USB" data-t-attr="title">Kindle</a>')
 
     def recs(self, books, sortable=False):
         """book rows; sortable adds the keys the tag pages' sort buttons use (assets/site.js)"""
@@ -516,7 +527,7 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
 </div>
 </div>
 {art}
-<footer class="readfoot mono"><a href="/">Foggy Press</a><span data-t>Public-domain books, free to read and print</span><span><a href="{pdf}" {click} data-t>Print this book (PDF)</a> · {self.epub_link(b, '')}</span></footer>
+<footer class="readfoot mono"><a href="/">Foggy Press</a><span data-t>Public-domain books, free to read and print</span><span><a href="{pdf}" {click} data-t>Print this book (PDF)</a> · {self.epub_link(b, '')}{' · ' + self.kindle_link(b, '') if self.kindle_link(b, '') else ''}</span></footer>
 <script src="/assets/i18n.js"></script>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/search.js" defer></script>
@@ -838,6 +849,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--files', required=True, help='checkout of foggy-press-files')
     ap.add_argument('--out', default=str(ROOT / '_site'))
+    ap.add_argument('--after-epubs', metavar='CMD', help='with --stage-pdfs: shell command to run once the EPUBs are staged')
     ap.add_argument('--stage-pdfs', metavar='DIR', help='only copy live PDFs to DIR/<id>.pdf (for the R2 upload) and stop')
     a = ap.parse_args()
     site = Site(a.files, a.out)
@@ -845,13 +857,15 @@ if __name__ == '__main__':
         site.prepare()
         site.stage_pdfs(a.stage_pdfs)
         ne = site.stage_epubs(Path(a.stage_pdfs) / 'epub')
-        for k in sorted((ROOT / 'kindle').glob('*.azw3')):      # one-off Kindle test files
-            (Path(a.stage_pdfs) / 'kindle').mkdir(parents=True, exist_ok=True)
-            shutil.copy2(k, Path(a.stage_pdfs) / 'kindle' / k.name)
+        if a.after_epubs:   # the Kindle files (build/kindle.sh), so the read pages below get their Kindle links
+            import subprocess
+            if subprocess.run(a.after_epubs, shell=True).returncode:
+                site.problems.append(f'--after-epubs command failed: {a.after_epubs}')
+            site.load_kindle()
         if site.pdf_base:
             # files.foggypress.com: crawlers may read the read-online pages but not fetch the downloads,
             # which Cloudflare refuses to bots anyway (build/cloudflare_rules.py)
-            (Path(a.stage_pdfs) / 'robots.txt').write_text(bots.robots_txt('User-agent: *\nDisallow: /*.pdf$\nDisallow: /epub/\nAllow: /\n'))
+            (Path(a.stage_pdfs) / 'robots.txt').write_text(bots.robots_txt('User-agent: *\nDisallow: /*.pdf$\nDisallow: /epub/\nDisallow: /kindle/\nAllow: /\n'))
             site.stage_read(a.stage_pdfs)
             britannica.stage(site, a.stage_pdfs)
         print(f'Staged {len(site.live)} PDFs and {ne} EPUBs in {a.stage_pdfs}.')
