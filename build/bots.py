@@ -30,6 +30,8 @@ DOWNLOAD_PATHS = '(ends_with(lower(http.request.uri.path), ".pdf") or ends_with(
 # Cloudflare rule (cloudflare_rules.py, ref fp_block_listed_bots) both follow this list.
 BLOCKED = {
     'ElevenLabs': ['ElevenlabsCrawler', 'ElevenlabsBot'],   # https://elevenlabs.io/docs/bots (19 Nov 2026, Will)
+    # Meta's AI-training crawler only; facebookexternalhit (link previews when someone shares a page) stays allowed
+    'Meta AI': ['meta-externalagent'],                       # https://developers.facebook.com/docs/sharing/webmasters/web-crawlers (21 Nov 2026, Will)
 }
 
 
