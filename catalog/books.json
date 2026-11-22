@@ -61895,5 +61895,71 @@
       "American",
       "Essays"
     ]
+  },
+  {
+    "id": "comic-tragedies",
+    "author_last": "Alcott",
+    "author_first": "Louisa May and Anna Bronson Alcott Pratt",
+    "title": "Comic Tragedies",
+    "translator": "",
+    "original_date": "1893",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 33986,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/alcott-louisa-may/comic-tragedies",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/alcott-louisa-may/comic-tragedies/output/Alcott%2C%20Louisa%20May%20and%20Anna%20Bronson%20Alcott%20Pratt%3A%20Comic%20Tragedies.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "American",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "dot-and-tot-of-merryland",
+    "author_last": "Baum",
+    "author_first": "L. Frank",
+    "title": "Dot and Tot of Merryland",
+    "translator": "",
+    "original_date": "1901",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 37976,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/baum-l-frank/dot-and-tot-of-merryland",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/baum-l-frank/dot-and-tot-of-merryland/output/Baum%2C%20L.%20Frank%3A%20Dot%20and%20Tot%20of%20Merryland.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Adventure",
+      "American",
+      "Fantasy & Fairy Tales"
+    ]
+  },
+  {
+    "id": "beeton-s-book-of-needlework",
+    "author_last": "Beeton",
+    "author_first": "Mrs.",
+    "title": "Beeton's Book of Needlework",
+    "translator": "",
+    "original_date": "1870",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 15147,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/beeton-mrs/beeton-s-book-of-needlework",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/beeton-mrs/beeton-s-book-of-needlework/output/Beeton%2C%20Mrs.%3A%20Beeton%27s%20Book%20of%20Needlework.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "British",
+      "Women Writers"
+    ]
+  },
+  {
+    "id": "self-instructor-in-the-art-of-hair-work-dressing-hair-making-curls-swi",
+    "author_last": "Campbell",
+    "author_first": "Mark",
+    "title": "Self-instructor in the Art of Hair Work, Dressing Hair, Making Curls, Switches, Braids, and Hair Jewelry of Every Description",
+    "translator": "",
+    "original_date": "1867",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 38658,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/campbell-mark/self-instructor-in-the-art-of-hair-work-dressing-hair-making-curls-swi",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/campbell-mark/self-instructor-in-the-art-of-hair-work-dressing-hair-making-curls-swi/output/Campbell%2C%20Mark%3A%20Self-instructor%20in%20the%20Art%20of%20Hair%20Work%2C%20Dressing%20Hair%2C%20Making%20Curls%2C%20Switches%2C%20Braids%2C%20and%20Hair%20Jewelry%20of%20Every%20Description.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
   }
 ]
