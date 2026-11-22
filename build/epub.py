@@ -171,11 +171,12 @@ def _page(title, body, lang):
             f'<body>{body}</body>\n</html>\n')
 
 
-def make_epub(html_path, dest, meta, picture=None):
+def make_epub(html_path, dest, meta, picture=None, text=None):
     """html_path: the web edition; dest: the .epub to write; meta: {id, title, author, date, lang, description};
-    picture(src_path, dst_path): writes a screen-size copy of a picture (build.web_picture)"""
+    picture(src_path, dst_path): writes a screen-size copy of a picture (build.web_picture);
+    text: the HTML itself, when it isn't html_path's own (pictures are still found relative to html_path)"""
     html_path = Path(html_path)
-    src = html_path.read_text(encoding='utf-8')
+    src = text if text is not None else html_path.read_text(encoding='utf-8')
     m = re.search(r'<article class="book".*</article>', src, re.S)
     if not m:
         return False

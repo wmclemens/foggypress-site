@@ -50,7 +50,7 @@ def work(epubs, old):
 
 def convert_one(src, dst):
     env = dict(os.environ, QT_QPA_PLATFORM='offscreen')
-    r = subprocess.run(['ebook-convert', str(src), str(dst)], capture_output=True, text=True, env=env, timeout=900)
+    r = subprocess.run(['ebook-convert', str(src), str(dst)], capture_output=True, text=True, env=env, timeout=2400)
     if r.returncode or not dst.exists() or dst.stat().st_size == 0:
         raise RuntimeError((r.stdout + r.stderr).strip().splitlines()[-1:] or ['no output'])
 

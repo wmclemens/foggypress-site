@@ -857,6 +857,7 @@ if __name__ == '__main__':
         site.prepare()
         site.stage_pdfs(a.stage_pdfs)
         ne = site.stage_epubs(Path(a.stage_pdfs) / 'epub')
+        britannica.stage_epubs(site, Path(a.stage_pdfs) / 'epub', Path(a.stage_pdfs) / 'britannica' / 'epub')
         if a.after_epubs:   # the Kindle files (build/kindle.sh), so the read pages below get their Kindle links
             import subprocess
             if subprocess.run(a.after_epubs, shell=True).returncode:
@@ -865,7 +866,7 @@ if __name__ == '__main__':
         if site.pdf_base:
             # files.foggypress.com: crawlers may read the read-online pages but not fetch the downloads,
             # which Cloudflare refuses to bots anyway (build/cloudflare_rules.py)
-            (Path(a.stage_pdfs) / 'robots.txt').write_text(bots.robots_txt('User-agent: *\nDisallow: /*.pdf$\nDisallow: /epub/\nDisallow: /kindle/\nAllow: /\n'))
+            (Path(a.stage_pdfs) / 'robots.txt').write_text(bots.robots_txt('User-agent: *\nDisallow: /*.pdf$\nDisallow: /epub/\nDisallow: /kindle/\nDisallow: /britannica/epub/\nAllow: /\n'))
             site.stage_read(a.stage_pdfs)
             britannica.stage(site, a.stage_pdfs)
         print(f'Staged {len(site.live)} PDFs and {ne} EPUBs in {a.stage_pdfs}.')

@@ -2,7 +2,7 @@
 
 Articles are made in foggy-press-files by pipeline/britannica/ and live under
 books/1911Britannica/volume-NN/output/html/ (articles/<slug>.html, img/, index.json).
-This module turns them into:
+This module turns them into (plus EPUB and Kindle downloads: stage_epubs() at the end):
 
   /britannica/                 the work's front page: about, find an article, the volumes
   /britannica/volume-N/        every article in volume N, A to Z
@@ -208,9 +208,17 @@ def volume_page(site, v):
     for k in order:
         parts.append(f'<div class="letter" id="g-{esc(k)}">{esc(k)}</div><ul class="eb-list">' + ''.join(li(a) for a in groups[k]) + '</ul>')
     first, last = (arts[0]['title'], arts[-1]['title']) if arts else ('', '')
+    dl = ''
+    if site.pdf_base:   # the whole volume as one e-book (stage_epubs; Kindle file by kindle.py once converted)
+        vid = vol_id(v['n'])
+        tt = f'data-goatcounter-title="Britannica volume {v["n"]}"'
+        kin = (f' · <a href="{esc(vol_kindle_url(site, v["n"]))}" download rel="nofollow" data-goatcounter-click="kindle-{vid}" {tt} '
+               f'title="For Kindle: download it in the Kindle’s web browser, or copy it over USB">Kindle</a>') if vid in site.kindle else ''
+        dl = (f'<p class="eb-dl mono">The whole volume as an e-book: <a href="{esc(vol_epub_url(site, v["n"]))}" download rel="nofollow" '
+              f'data-goatcounter-click="epub-{vid}" {tt} title="For e-readers: Kindle, Apple Books, Kobo">EPUB</a>{kin}</p>')
     body = f'''<link rel="stylesheet" href="/assets/britannica.css"><div class="ph"><span class="crumb"><a href="/">Home</a> / <a href="/britannica/">{esc(TITLE)}</a></span><h1>Volume {v["n"]}</h1>
 <p class="sub">{"The 1922 supplement. " if v["n"] in SUPPLEMENT else ""}{esc(first)} to {esc(last)} · {len(arts):,} articles, in the order they are printed. The number beside each is its page in the volume.</p></div>
-<nav class="eb-jump mono" aria-label="Jump to">{jump}</nav>{''.join(parts)}'''
+{dl}<nav class="eb-jump mono" aria-label="Jump to">{jump}</nav>{''.join(parts)}'''
     site.page(f'britannica/volume-{v["n"]}/index.html', f'Volume {v["n"]} · {vol_title(v)} · Foggy Press', body, 'britannica')
 
 
@@ -240,6 +248,11 @@ def article_page(site, out, v, a, art, prev_a, next_a, remote=False):
         src = f'<p class="eb-src mono">Text: read by machine from a <a href="{esc(a["source"])}">scan</a> of the 1922 printing, uncorrected.</p>'
     else:
         src = f'<p class="eb-src mono">Text: <a href="{esc(a["source"])}">Wikisource</a> transcription of the {year} printing.</p>'
+    epub_a = ''
+    if remote and site.pdf_base:   # this article as a small e-book (stage_epubs); a Kindle takes it through Send to Kindle
+        epub_a = (f'<a class="rb-pdf" href="{esc(art_epub_url(site, a["slug"]))}" download rel="nofollow" '
+                  f'data-goatcounter-click="epub-eb-{esc(a["slug"])}" data-goatcounter-title="{esc(a["title"])}" '
+                  f'title="This article as an e-book. For a Kindle, send it with Amazon’s Send to Kindle">EPUB</a>')
     ask_btn = ('<button class="rb-ask" id="rbask" type="button" aria-expanded="false" aria-controls="askdrawer" hidden>'
                'Ask about this article</button>') if site.ask else ''
     desc = f'{a["title"]}: the article from the {year} Encyclopædia Britannica, {pg.lower()}. Free to read and print.'
@@ -264,7 +277,7 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
 <div class="readtop">
 <nav class="readbar" aria-label="Foggy Press">
   <a class="rb-home" href="/">Foggy Press</a>
-  <span class="rb-acts">{ask_btn}<a class="rb-pdf" href="/britannica/">Britannica<span class="wide"> 1911</span></a><button class="rb-pdf rb-print" type="button" onclick="window.print()">Print<span class="wide"> this article</span></button><button class="theme" id="theme" type="button">Dark mode</button></span>
+  <span class="rb-acts">{ask_btn}<a class="rb-pdf" href="/britannica/">Britannica<span class="wide"> 1911</span></a>{epub_a}<button class="rb-pdf rb-print" type="button" onclick="window.print()">Print<span class="wide"> this article</span></button><button class="theme" id="theme" type="button">Dark mode</button></span>
 </nav>
 <div class="bsearch" role="search">
   <div class="in">
@@ -296,3 +309,106 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
     d = out / a['slug']
     d.mkdir(parents=True, exist_ok=True)
     (d / 'index.html').write_text(doc, encoding='utf-8')
+
+
+# ---- downloads (22 Nov 2026, Will's "option 2"): one EPUB + one Kindle file per volume, one EPUB per article.
+# The volume EPUBs are staged with the books' EPUBs (as epub/britannica-volume-N.epub), so build/kindle.py makes
+# their Kindle files like any book's; article EPUBs go to britannica/epub/<slug>.epub. No Kindle file per article:
+# Amazon's Send to Kindle takes an EPUB.
+
+def vol_id(n):
+    return f'britannica-volume-{n}'
+
+
+def vol_epub_url(site, n):
+    return f'{site.pdf_base}/epub/{vol_id(n)}.epub'
+
+
+def vol_kindle_url(site, n):
+    return f'{site.pdf_base}/kindle/{vol_id(n)}.azw3'
+
+
+def art_epub_url(site, slug):
+    return f'{site.pdf_base}/britannica/epub/{slug}.epub'
+
+
+def _article_html(v, a):
+    return (v['dir'] / 'articles' / f"{a['slug']}.html").read_text(encoding='utf-8')
+
+
+def _links(site, art, local=None, prefix=''):
+    """links that leave the article: another article is its page on the web (or, in a volume EPUB, its place
+    in the book when it is in the same volume); site links get the site's address; in-article ids get prefix"""
+    origin = site.site_origin() or 'https://foggypress.com'
+
+    def other(m):
+        slug, frag = m.group(1), m.group(2) or ''
+        if local is not None and slug in local:
+            return f'href="#a-{slug}"'
+        return f'href="{esc(art_url(site, slug))}"'
+    art = re.sub(r'href="\.\./([^"/#]+)/(#[^"]*)?"', other, art)
+    art = re.sub(r'href="/(?!/)', f'href="{origin}/', art)
+    if prefix:
+        art = re.sub(r'(\sid=")([^"]+)"', lambda m: f'{m.group(1)}{prefix}{m.group(2)}"', art)
+        art = re.sub(r'href="#(?!a-)([^"]+)"', lambda m: f'href="#{prefix}{m.group(1)}"', art)
+    return art
+
+
+def _body(art):
+    """the article's text without its <article> and <header> wrapper"""
+    art = re.sub(r'^\s*<article[^>]*>', '', art.strip())
+    art = re.sub(r'</article>\s*$', '', art)
+    return re.sub(r'<header class="book-head">.*?</header>', '', art, count=1, flags=re.S)
+
+
+def stage_epubs(site, book_epubs, art_epubs, vols=None):
+    """volume EPUBs into book_epubs/ (beside the books', so they get Kindle files), article EPUBs into
+    art_epubs/. Returns (volumes, articles) made. EPUBs are byte-identical when nothing changed."""
+    import epub
+    if not enabled(site) or not site.pdf_base:
+        return 0, 0
+    vols = vols if vols is not None else load(site.files)
+    book_epubs, art_epubs = Path(book_epubs), Path(art_epubs)
+    nv = na = 0
+    for v in vols:
+        T = vol_title(v)
+        year = '1922' if v['n'] in SUPPLEMENT else '1911'
+        anchor = v['dir'] / 'articles' / 'x.html'   # pictures are found relative to the articles folder
+        local = {a['slug'] for a in v['articles']}
+        secs = []
+        for a in v['articles']:
+            try:
+                art = _article_html(v, a)
+            except OSError:
+                continue
+            m = re.search(r'<p class="byline">(.*?)</p>', art, re.S)
+            # the article on its own
+            one = (f'<article class="book"><header class="book-head"><h1>{esc(a["title"])}</h1>'
+                   f'<p class="byline">{m.group(1) if m else esc(T)}</p></header>'
+                   f'<section><h2>{esc(a["title"])}</h2>{_body(_links(site, art))}</section></article>')
+            meta = {'id': f'eb-{a["slug"]}', 'title': f'{a["title"]} ({T})', 'author': a.get('author') or '',
+                    'date': '2026-11-22', 'lang': 'en',
+                    'description': f'The article “{a["title"]}” from the {year} Encyclopædia Britannica, volume {v["n"]}.'}
+            try:
+                if epub.make_epub(anchor, art_epubs / f'{a["slug"]}.epub', meta, None, text=one):
+                    na += 1
+            except Exception as e:
+                site.problems.append(f'britannica {a["slug"]}: EPUB not made ({e})')
+            # its chapter in the volume
+            by = f'<p class="eb-by"><i>{esc(a["author"])}</i></p>' if a.get('author') else ''
+            secs.append(f'<section id="a-{esc(a["slug"])}"><h2>{esc(a["title"])}</h2>'
+                        f'{_body(_links(site, art, local, a["slug"] + "-"))}{by}</section>')
+        arts = [a for a in v['articles'] if not a.get('front')]
+        span = f'{arts[0]["title"]} to {arts[-1]["title"]}' if arts else 'Index and contributors'
+        book = (f'<article class="book"><header class="book-head"><h1>{esc(T)}, Volume {v["n"]}</h1>'
+                f'<p class="byline">{esc(span)}</p></header>{"".join(secs)}</article>')
+        meta = {'id': vol_id(v['n']), 'title': f'{T}, Volume {v["n"]}', 'author': 'Encyclopædia Britannica',
+                'date': '2026-11-22', 'lang': 'en',
+                'description': f'Volume {v["n"]} of the {year} Encyclopædia Britannica: {span}, {len(arts):,} articles.'}
+        try:
+            if epub.make_epub(anchor, book_epubs / f'{vol_id(v["n"])}.epub', meta, None, text=book):
+                nv += 1
+        except Exception as e:
+            site.problems.append(f'britannica volume {v["n"]}: EPUB not made ({e})')
+    print(f'Britannica EPUBs: {nv} volumes, {na} articles.')
+    return nv, na
