@@ -275,3 +275,4 @@ Sign in to keep your books, lists and history on every device.
 How sign-in works
 Sign in to keep your saved books, reading lists, tags and history on every device.
 Display: dark mode and language
+Reading history

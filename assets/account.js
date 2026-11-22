@@ -352,21 +352,21 @@
     sb.rpc('record_reading', {p_book: k.slice(pdf ? 4 : 5), p_pdf: pdf, p_epub: !pdf}).then(function () {}, function () {});
   });
 
-  // ---------- Continue reading (left rail, signed-in readers only) ----------
+  // ---------- Reading history (left rail, signed-in readers only) ----------
   function continueRow() {
     var box = document.getElementById('railhist');
     if (!box) return;
     if (!signedIn()) { box.hidden = true; return; }
-    recent(5).then(function (rows) {
+    recent(3).then(function (rows) {
       return books().then(function (cat) {
         var items = rows.filter(function (r) { return cat[r.book_id]; }).map(function (r) {
           var b = cat[r.book_id], pct = Math.round(r.progress || 0);
           return '<a class="rh" href="' + esc(readLink(b, '?pos=' + (r.progress || 0))) + '" title="' + esc(b.t + (b.a ? ' · ' + b.a : '')) + '"><span class="rht"><span class="t">' + esc(b.t) + '</span>' +
             '<span class="pg" aria-hidden="true"><i style="width:' + Math.max(2, pct) + '%"></i></span></span><span class="mono">' + esc(T('{n}% read', {n: pct})) + '</span></a>';
         });
-        box.innerHTML = '<div class="eyebrow" style="margin-bottom:.6rem">' + esc(T('Continue reading')) + '</div><nav aria-label="' + esc(T('Continue reading')) + '">' +
-          (items.length ? items.join('') : '<p class="rhnone">' + esc(T('No reading history yet.')) + '</p>') +
-          '<a href="' + BASE + 'account/#history"><span>' + esc(T('History')) + '</span><span class="mono">→</span></a></nav>';
+        // the label is the link to the full history (My books > History); the rail shows only the last three books
+        box.innerHTML = '<a class="eyebrow rhlink" href="' + BASE + 'account/#history">' + esc(T('Reading history')) + ' →</a><nav aria-label="' + esc(T('Reading history')) + '">' +
+          (items.length ? items.join('') : '<p class="rhnone">' + esc(T('No reading history yet.')) + '</p>') + '</nav>';
         box.hidden = false;
       });
     }).catch(function () { box.hidden = true; });

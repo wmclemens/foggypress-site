@@ -259,7 +259,7 @@ mark{background:var(--hit);color:var(--hit-ink);border-radius:2px;padding:0 .05e
 .book mark.hit{scroll-margin-top:9rem;scroll-margin-bottom:3rem}
 .book mark.cur{background:var(--hit-cur);color:#1a1205;box-shadow:0 0 0 2px var(--hit-cur)}
 @media (max-width:480px){.bsearch .cnt{display:none}}
-/* reader accounts (assets/account.js): Save star and its menu, Continue reading, My books, reading lists */
+/* reader accounts (assets/account.js): Save star and its menu, Reading history, My books, reading lists */
 .savebox{display:inline-flex;align-items:center;gap:0}
 .savebox button{border:0;background:none;padding:0;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--accent)}
 .savebox .star{display:inline-flex;gap:.3rem;align-items:baseline}
@@ -286,7 +286,9 @@ mark{background:var(--hit);color:var(--hit-ink);border-radius:2px;padding:0 .05e
 .toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,1rem);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:40;
   background:var(--ink);color:var(--bg);padding:.6rem 1rem;border-radius:8px;font-size:.88rem;max-width:calc(100vw - 32px);max-width:min(32rem,calc(100vw - 32px))}
 .toast.on{opacity:1;transform:translate(-50%,0)}
-/* Continue reading: a signed-in reader's last books, in the left rail (assets/account.js) */
+/* Reading history: a signed-in reader's last three books, in the left rail (assets/account.js); the label links to the full history */
+.railhist .rhlink{display:block;margin-bottom:.6rem}
+.railhist .rhlink:hover{color:var(--accent)}
 .railhist nav a.rh{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem;align-items:center}
 .railhist .rht{display:grid;gap:.35rem;min-width:0}
 .railhist .rht .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

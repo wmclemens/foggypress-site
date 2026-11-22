@@ -275,6 +275,7 @@ Ingia ili vitabu, orodha na historia yako viwe kwenye kila kifaa.
 Jinsi kuingia kunavyofanya kazi
 Ingia ili vitabu ulivyohifadhi, orodha za kusoma, lebo na historia viwe kwenye kila kifaa.
 Mwonekano: hali ya giza na lugha
+Historia ya kusoma
 
 @about 351cb8b251
 Foggy Press hupanga upya vitabu vya umma kwa mtindo mmoja rahisi na kuvichapisha bure: kusoma mtandaoni, kuchapisha nyumbani kutoka kwenye PDF ya karatasi ya ukubwa wa letter ya Marekani, au kupakua kama EPUB kwa kisomaji cha kielektroniki.
