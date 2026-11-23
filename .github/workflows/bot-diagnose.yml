@@ -1,0 +1,22 @@
+name: Diagnose bot traffic (temporary)
+on:
+  push:
+    branches: [claude/project-thread-mnpphb]
+    paths: [build/bot_diagnose.py, .github/workflows/bot-diagnose.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Diagnose
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_WAF_TOKEN: ${{ secrets.CLOUDFLARE_WAF_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        run: python build/bot_diagnose.py
