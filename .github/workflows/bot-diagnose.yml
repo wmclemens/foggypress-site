@@ -1,8 +1,8 @@
-name: Diagnose bot traffic (temporary)
+name: Diagnose bot traffic
+
+# Run by hand (Actions > Diagnose bot traffic > Run workflow): prints, per day and per bot, what was asked of
+# files.foggypress.com and what Cloudflare answered, the rules on the zone, and live checks as a person and as bots.
 on:
-  push:
-    branches: [claude/project-thread-mnpphb]
-    paths: [build/bot_diagnose.py, .github/workflows/bot-diagnose.yml]
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,5 +19,4 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_WAF_TOKEN: ${{ secrets.CLOUDFLARE_WAF_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
-          ONLY_PROBE: "1"
         run: python build/bot_diagnose.py

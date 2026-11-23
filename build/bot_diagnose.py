@@ -1,4 +1,6 @@
-"""One-off diagnosis of bot traffic on files.foggypress.com (Cloudflare analytics + rules). Prints markdown."""
+"""Diagnosis of bot traffic on files.foggypress.com (Cloudflare analytics + rules), run by hand from
+.github/workflows/bot-diagnose.yml. Prints markdown to the log and the run summary. Analytics counts are Cloudflare's
+sampled estimates, and busy days hit the 10,000-row cap, so treat them as proportions, not exact totals."""
 import datetime, json, os, re, sys, urllib.request, urllib.error
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bots
