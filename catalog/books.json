@@ -62383,5 +62383,38 @@
       "German",
       "Translated"
     ]
+  },
+  {
+    "id": "pompeii-its-life-and-art",
+    "author_last": "Mau",
+    "author_first": "August",
+    "title": "Pompeii, Its Life and Art",
+    "translator": "Francis W. Kelsey",
+    "original_date": "1899",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 42715,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mau-august/pompeii-its-life-and-art",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mau-august/pompeii-its-life-and-art/output/Mau%2C%20August%3A%20Pompeii%2C%20Its%20Life%20and%20Art.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "German",
+      "Ancient World",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-roswell-report",
+    "author_last": "McAndrew",
+    "author_first": "James",
+    "title": "The Roswell Report",
+    "translator": "",
+    "original_date": "1997",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 63659,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/mcandrew-james/the-roswell-report",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/mcandrew-james/the-roswell-report/output/McAndrew%2C%20James%3A%20The%20Roswell%20Report.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
   }
 ]
