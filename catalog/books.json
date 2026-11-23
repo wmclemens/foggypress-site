@@ -62199,5 +62199,72 @@
       "British",
       "Victorian"
     ]
+  },
+  {
+    "id": "on-the-magnet-magnetick-bodies-also-and-on-the-great-magnet-the-earth",
+    "author_last": "Anonymous",
+    "author_first": "",
+    "title": "On the Magnet, Magnetick Bodies Also, and on the Great Magnet the Earth a New Physiology, Demonstrated by Many Arguments & Experiments",
+    "translator": "Silvanus P. Thompson",
+    "original_date": "1600",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 33810,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/anonymous/on-the-magnet-magnetick-bodies-also-and-on-the-great-magnet-the-earth",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/anonymous/on-the-magnet-magnetick-bodies-also-and-on-the-great-magnet-the-earth/output/Anonymous%3A%20On%20the%20Magnet%2C%20Magnetick%20Bodies%20Also%2C%20and%20on%20the%20Great%20Magnet%20the%20Earth%20a%20New%20Physiology%2C%20Demonstrated%20by%20Many%20Arguments%20%26%20Experiments.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Translated"
+    ]
+  },
+  {
+    "id": "vautrin-a-drama-in-five-acts",
+    "author_last": "Balzac",
+    "author_first": "Honoré de",
+    "title": "Vautrin: A Drama in Five Acts",
+    "translator": "",
+    "original_date": "1840",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 6861,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/balzac-honore-de/vautrin-a-drama-in-five-acts",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/balzac-honore-de/vautrin-a-drama-in-five-acts/output/Balzac%2C%20Honor%C3%A9%20de%3A%20Vautrin%3A%20A%20Drama%20in%20Five%20Acts.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Drama",
+      "French",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-choctaw-freedmen-and-the-story-of-oak-hill-industrial-academy",
+    "author_last": "Flickinger",
+    "author_first": "Robert Elliott",
+    "title": "The Choctaw Freedmen and the Story of Oak Hill Industrial Academy",
+    "translator": "",
+    "original_date": "1914",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 23321,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/flickinger-robert-elliott/the-choctaw-freedmen-and-the-story-of-oak-hill-industrial-academy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/flickinger-robert-elliott/the-choctaw-freedmen-and-the-story-of-oak-hill-industrial-academy/output/Flickinger%2C%20Robert%20Elliott%3A%20The%20Choctaw%20Freedmen%20and%20the%20Story%20of%20Oak%20Hill%20Industrial%20Academy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "American"
+    ]
+  },
+  {
+    "id": "the-works-of-the-highly-experienced-and-famous-chymist-john-rudolph-gl",
+    "author_last": "Glauber",
+    "author_first": "Johann Rudolf",
+    "title": "The Works of the Highly Experienced and Famous Chymist, John Rudolph Glauber",
+    "translator": "Christopher Packe",
+    "original_date": "1689",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 74240,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/glauber-johann-rudolf/the-works-of-the-highly-experienced-and-famous-chymist-john-rudolph-gl",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/glauber-johann-rudolf/the-works-of-the-highly-experienced-and-famous-chymist-john-rudolph-gl/output/Glauber%2C%20Johann%20Rudolf%3A%20The%20Works%20of%20the%20Highly%20Experienced%20and%20Famous%20Chymist%2C%20John%20Rudolph%20Glauber.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "German",
+      "Translated"
+    ]
   }
 ]
