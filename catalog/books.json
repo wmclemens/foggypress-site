@@ -62125,5 +62125,79 @@
       "Comedy & Satire",
       "American"
     ]
+  },
+  {
+    "id": "the-surprising-adventures-of-the-magical-monarch-of-mo-and-his-people",
+    "author_last": "Baum",
+    "author_first": "L. Frank",
+    "title": "The Surprising Adventures of the Magical Monarch of Mo and His People",
+    "translator": "",
+    "original_date": "1903",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 16259,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/baum-l-frank/the-surprising-adventures-of-the-magical-monarch-of-mo-and-his-people",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/baum-l-frank/the-surprising-adventures-of-the-magical-monarch-of-mo-and-his-people/output/Baum%2C%20L.%20Frank%3A%20The%20Surprising%20Adventures%20of%20the%20Magical%20Monarch%20of%20Mo%20and%20His%20People.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Comedy & Satire",
+      "Novels",
+      "American",
+      "Fantasy & Fairy Tales"
+    ]
+  },
+  {
+    "id": "a-wonder-book-for-girls-boys",
+    "author_last": "Hawthorne",
+    "author_first": "Nathaniel",
+    "title": "A Wonder Book for Girls & Boys",
+    "translator": "",
+    "original_date": "1851",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 32242,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/hawthorne-nathaniel/a-wonder-book-for-girls-boys",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/hawthorne-nathaniel/a-wonder-book-for-girls-boys/output/Hawthorne%2C%20Nathaniel%3A%20A%20Wonder%20Book%20for%20Girls%20%26%20Boys.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Children's",
+      "Fantasy & Fairy Tales",
+      "American",
+      "Ancient World"
+    ]
+  },
+  {
+    "id": "christmas-day",
+    "author_last": "Irving",
+    "author_first": "Washington",
+    "title": "Christmas Day",
+    "translator": "",
+    "original_date": "1820",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 52361,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/irving-washington/christmas-day",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/irving-washington/christmas-day/output/Irving%2C%20Washington%3A%20Christmas%20Day.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "British",
+      "American",
+      "Short Reads",
+      "Essays"
+    ]
+  },
+  {
+    "id": "the-golden-lion-of-granpere",
+    "author_last": "Trollope",
+    "author_first": "Anthony",
+    "title": "The Golden Lion of Granpere",
+    "translator": "",
+    "original_date": "1872",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5202,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/trollope-anthony/the-golden-lion-of-granpere",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/trollope-anthony/the-golden-lion-of-granpere/output/Trollope%2C%20Anthony%3A%20The%20Golden%20Lion%20of%20Granpere.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Love & Marriage",
+      "Novels",
+      "British",
+      "Victorian"
+    ]
   }
 ]
