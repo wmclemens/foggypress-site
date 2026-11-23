@@ -62301,5 +62301,87 @@
       "Classics",
       "Translated"
     ]
+  },
+  {
+    "id": "latin-for-beginners",
+    "author_last": "D'Ooge",
+    "author_first": "Benjamin L.",
+    "title": "Latin for Beginners",
+    "translator": "",
+    "original_date": "1909",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 18251,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/d-ooge-benjamin-l/latin-for-beginners",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/d-ooge-benjamin-l/latin-for-beginners/output/D%27Ooge%2C%20Benjamin%20L.%3A%20Latin%20for%20Beginners.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "one-thousand-ways-to-make-a-living",
+    "author_last": "Dunphy",
+    "author_first": "Harold Morse",
+    "title": "One Thousand Ways to Make a Living",
+    "translator": "",
+    "original_date": "1900",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 62231,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/dunphy-harold-morse/one-thousand-ways-to-make-a-living",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/dunphy-harold-morse/one-thousand-ways-to-make-a-living/output/Dunphy%2C%20Harold%20Morse%3A%20One%20Thousand%20Ways%20to%20Make%20a%20Living.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "johann-sebastian-bach",
+    "author_last": "Forkel",
+    "author_first": "Johann Nikolaus",
+    "title": "Johann Sebastian Bach",
+    "translator": "Charles Sanford Terry",
+    "original_date": "1802",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 35041,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/forkel-johann-nikolaus/johann-sebastian-bach",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/forkel-johann-nikolaus/johann-sebastian-bach/output/Forkel%2C%20Johann%20Nikolaus%3A%20Johann%20Sebastian%20Bach.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Music",
+      "German",
+      "Translated"
+    ]
+  },
+  {
+    "id": "the-notebooks-of-leonardo-da-vinci-complete",
+    "author_last": "Leonardo da Vinci",
+    "author_first": "",
+    "title": "The Notebooks of Leonardo Da Vinci — Complete",
+    "translator": "Jean Paul Richter",
+    "original_date": "1883",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 5000,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/leonardo-da-vinci/the-notebooks-of-leonardo-da-vinci-complete",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/leonardo-da-vinci/the-notebooks-of-leonardo-da-vinci-complete/output/Leonardo%20da%20Vinci%3A%20The%20Notebooks%20of%20Leonardo%20Da%20Vinci%20%E2%80%94%20Complete.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Essays",
+      "Science",
+      "Italian",
+      "Translated"
+    ]
+  },
+  {
+    "id": "principles-of-political-economy",
+    "author_last": "Roscher",
+    "author_first": "Wilhelm",
+    "title": "Principles of Political Economy",
+    "translator": "John J. Lalor",
+    "original_date": "1878",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 27698,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/roscher-wilhelm/principles-of-political-economy",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/roscher-wilhelm/principles-of-political-economy/output/Roscher%2C%20Wilhelm%3A%20Principles%20of%20Political%20Economy.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Economics",
+      "German",
+      "Translated"
+    ]
   }
 ]
