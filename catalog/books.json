@@ -62266,5 +62266,40 @@
       "German",
       "Translated"
     ]
+  },
+  {
+    "id": "the-illustrated-tarzan-book-no-1",
+    "author_last": "Burroughs",
+    "author_first": "Edgar Rice",
+    "title": "The Illustrated Tarzan Book No. 1",
+    "translator": "",
+    "original_date": "1929",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 75817,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/burroughs-edgar-rice/the-illustrated-tarzan-book-no-1",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/burroughs-edgar-rice/the-illustrated-tarzan-book-no-1/output/Burroughs%2C%20Edgar%20Rice%3A%20The%20Illustrated%20Tarzan%20Book%20No.%201.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Adventure",
+      "Novels",
+      "American"
+    ]
+  },
+  {
+    "id": "the-carmina-of-caius-valerius-catullus",
+    "author_last": "Catullus",
+    "author_first": "Gaius Valerius",
+    "title": "The Carmina of Caius Valerius Catullus",
+    "translator": "Richard Francis Burton, Leonard C. Smithers",
+    "original_date": "1894",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 20732,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/catullus-gaius-valerius/the-carmina-of-caius-valerius-catullus",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/catullus-gaius-valerius/the-carmina-of-caius-valerius-catullus/output/Catullus%2C%20Gaius%20Valerius%3A%20The%20Carmina%20of%20Caius%20Valerius%20Catullus.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "Ancient World",
+      "Classics",
+      "Translated"
+    ]
   }
 ]
