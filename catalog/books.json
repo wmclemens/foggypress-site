@@ -62009,5 +62009,72 @@
       "British",
       "History"
     ]
+  },
+  {
+    "id": "the-principles-of-science",
+    "author_last": "Jevons",
+    "author_first": "William Stanley",
+    "title": "The Principles of Science",
+    "translator": "",
+    "original_date": "1874",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 74864,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/jevons-william-stanley/the-principles-of-science",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/jevons-william-stanley/the-principles-of-science/output/Jevons%2C%20William%20Stanley%3A%20The%20Principles%20of%20Science.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British",
+      "Philosophy"
+    ]
+  },
+  {
+    "id": "the-way-to-geometry",
+    "author_last": "Ramus",
+    "author_first": "Petrus",
+    "title": "The Way To Geometry",
+    "translator": "William Bedwell",
+    "original_date": "1636",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 26752,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/ramus-petrus/the-way-to-geometry",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/ramus-petrus/the-way-to-geometry/output/Ramus%2C%20Petrus%3A%20The%20Way%20To%20Geometry.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "Translated"
+    ]
+  },
+  {
+    "id": "on-growth-and-form",
+    "author_last": "Thompson",
+    "author_first": "D'Arcy Wentworth",
+    "title": "On Growth and Form",
+    "translator": "",
+    "original_date": "1917",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 55264,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/thompson-d-arcy-wentworth/on-growth-and-form",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/thompson-d-arcy-wentworth/on-growth-and-form/output/Thompson%2C%20D%27Arcy%20Wentworth%3A%20On%20Growth%20and%20Form.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Science",
+      "British"
+    ]
+  },
+  {
+    "id": "lives-of-the-most-eminent-painters-sculptors-and-architects",
+    "author_last": "Vasari",
+    "author_first": "Giorgio",
+    "title": "Lives of the Most Eminent Painters Sculptors and Architects",
+    "translator": "Gaston du C. De Vere",
+    "original_date": "1550",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 25326,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/vasari-giorgio/lives-of-the-most-eminent-painters-sculptors-and-architects",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/vasari-giorgio/lives-of-the-most-eminent-painters-sculptors-and-architects/output/Vasari%2C%20Giorgio%3A%20Lives%20of%20the%20Most%20Eminent%20Painters%20Sculptors%20and%20Architects.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "History",
+      "Italian",
+      "Translated",
+      "Memoir"
+    ]
   }
 ]
