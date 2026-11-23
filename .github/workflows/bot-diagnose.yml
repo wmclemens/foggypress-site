@@ -1,0 +1,22 @@
+name: Diagnose bot traffic
+
+# Run by hand (Actions > Diagnose bot traffic > Run workflow): prints, per day and per bot, what was asked of
+# files.foggypress.com and what Cloudflare answered, the rules on the zone, and live checks as a person and as bots.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Diagnose
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_WAF_TOKEN: ${{ secrets.CLOUDFLARE_WAF_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        run: python build/bot_diagnose.py

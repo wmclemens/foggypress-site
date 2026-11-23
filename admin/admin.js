@@ -441,10 +441,15 @@
     h += '<div class="rp-grid">';
     if (c) {
       var tot = (c.people + c.bots) || 1;
-      h += '<section class="rp-card"><h2>files.foggypress.com requests: people and bots' + help('Bots are requests whose browser name says crawler, bot, script and the like.</span><span>Bots may read the read-online pages here, but PDF and EPUB downloads refuse them (Cloudflare rule from build/cloudflare_rules.py).') + '</h2><p class="note">' + esc(c.host) + ', last 7 days, from Cloudflare.</p>' +
+      h += '<section class="rp-card"><h2>files.foggypress.com requests: people and bots' + help('Bots are requests whose browser name says crawler, bot, script and the like.</span><span>Most bot requests are for read-online pages and Britannica articles, which any bot may read. PDF, EPUB and Kindle downloads refuse bots, and blocklisted bots (ElevenLabs, Meta AI) are refused everything (Cloudflare rules from build/cloudflare_rules.py). People excludes scanners asking for files that never existed.') + '</h2><p class="note">' + esc(c.host) + ', last 7 days, from Cloudflare.</p>' +
         '<div class="split"><span style="width:' + Math.round(c.people / tot * 100) + '%"></span></div>' +
         '<table class="rk"><tbody><tr><td class="rk-n">People</td><td class="num">' + num(c.people) + ' (' + Math.round(c.people / tot * 100) + '%)</td></tr><tr><td class="rk-n">Bots</td><td class="num">' + num(c.bots) + ' (' + Math.round(c.bots / tot * 100) + '%)</td></tr>' +
-        (c.blocked != null ? '<tr><td class="rk-n">Bot requests refused</td><td class="num">' + num(c.blocked) + '</td></tr>' : '') + '</tbody></table></section>' +
+        (c.blocked != null ? '<tr><td class="rk-n">Bot requests refused</td><td class="num">' + num(c.blocked) + '</td></tr>' : '') +
+        (c.blocked_listed != null ? '<tr><td class="rk-n">… of them from blocklisted bots</td><td class="num">' + num(c.blocked_listed) + '</td></tr>' : '') +
+        (c.probes != null ? '<tr><td class="rk-n">Scanners probing for missing files</td><td class="num">' + num(c.probes) + '</td></tr>' : '') +
+        (c.downloads ? '<tr><td class="rk-n">Downloads by people</td><td class="num">' + num(c.downloads.people) + '</td></tr>' +
+          '<tr><td class="rk-n">Bot downloads refused</td><td class="num">' + num(c.downloads.bots_refused) + '</td></tr>' +
+          '<tr><td class="rk-n">Bot downloads let through</td><td class="num">' + num(c.downloads.bots_served) + '</td></tr>' : '') + '</tbody></table></section>' +
         ranked('Busiest bots', c.bot_agents) + ranked('People’s countries (downloads)', c.countries);
     } else {
       h += '<section class="rp-card"><h2>PDF and EPUB requests: people and bots' + help('Pages on GitHub keep no visit logs, so bots can only be counted for the PDFs and EPUBs, which Cloudflare serves. To turn this on: in Cloudflare, My Profile → API Tokens → Create token → “Read analytics and logs” template, limited to the foggypress.com zone. Add it to the foggypress-site repository as the secret <span class="mono">CLOUDFLARE_API_TOKEN</span>, and the zone ID (on the foggypress.com Overview page) as <span class="mono">CLOUDFLARE_ZONE_ID</span>.', 'How to connect it') + '</h2><p class="note">Not connected yet.</p></section>';
