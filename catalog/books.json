@@ -62076,5 +62076,54 @@
       "Translated",
       "Memoir"
     ]
+  },
+  {
+    "id": "an-advanced-english-grammar",
+    "author_last": "Kittredge",
+    "author_first": "George Lyman and Frank Edgar Farley",
+    "title": "An Advanced English Grammar",
+    "translator": "",
+    "original_date": "1913",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 45814,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/kittredge-george-lyman/an-advanced-english-grammar",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/kittredge-george-lyman/an-advanced-english-grammar/output/Kittredge%2C%20George%20Lyman%20and%20Frank%20Edgar%20Farley%3A%20An%20Advanced%20English%20Grammar.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "American"
+    ]
+  },
+  {
+    "id": "battle-pieces-and-aspects-of-the-war",
+    "author_last": "Melville",
+    "author_first": "Herman",
+    "title": "Battle-Pieces and Aspects of the War",
+    "translator": "",
+    "original_date": "1866",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 12384,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/melville-herman/battle-pieces-and-aspects-of-the-war",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/melville-herman/battle-pieces-and-aspects-of-the-war/output/Melville%2C%20Herman%3A%20Battle-Pieces%20and%20Aspects%20of%20the%20War.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Poetry",
+      "American",
+      "History"
+    ]
+  },
+  {
+    "id": "the-30-000-bequest-and-other-stories",
+    "author_last": "Twain",
+    "author_first": "Mark",
+    "title": "The $30,000 Bequest, and Other Stories",
+    "translator": "",
+    "original_date": "1906",
+    "foggy_press_date": "2026-11-18",
+    "gutenberg": 142,
+    "github_dir": "https://github.com/wmclemens/foggy-press-library/tree/main/books/twain-mark/the-30-000-bequest-and-other-stories",
+    "github_pdf": "https://github.com/wmclemens/foggy-press-library/blob/main/books/twain-mark/the-30-000-bequest-and-other-stories/output/Twain%2C%20Mark%3A%20The%20%2430%2C000%20Bequest%2C%20and%20Other%20Stories.%20Foggy%20Press%2C%202026.pdf",
+    "tags": [
+      "Stories",
+      "Comedy & Satire",
+      "American"
+    ]
   }
 ]
