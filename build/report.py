@@ -28,7 +28,7 @@ import sys
 import urllib.parse
 import urllib.request
 
-from bots import is_bot
+from bots import is_bot, is_blocked
 
 DAYS = 30
 CF_DAYS = 7
@@ -124,23 +124,54 @@ def cloudflare(token, zone, host='files.foggypress.com'):
     if d.get('errors'):
         raise RuntimeError('; '.join(e.get('message', '') for e in d['errors']))
     rows = d['data']['viewer']['zones'][0]['ua']
-    people = bots = blocked = 0
+    people = bots = blocked = probes = listed = 0
     agents, countries = {}, {}
     for r in rows:
         n, ua = int(r['count']), r['dimensions'].get('userAgent') or ''
+        status = r['dimensions'].get('edgeResponseStatus')
         if not ua or is_bot(ua):
             bots += n
-            if r['dimensions'].get('edgeResponseStatus') == 403:
-                blocked += n  # refused by the bot rule (build/cloudflare_rules.py)
+            if status == 403:
+                blocked += n  # refused by a bot rule (build/cloudflare_rules.py)
+                if is_blocked(ua):
+                    listed += n
             name = bot_name(ua)
             agents[name] = agents.get(name, 0) + n
+        elif status == 404:
+            probes += n  # browser-named requests for files that never existed (.env, .git/config...): scanners, not readers
         else:
             people += n
             c = r['dimensions'].get('clientCountryName') or '?'
             countries[c] = countries.get(c, 0) + n
-    return {'host': host, 'start': start.strftime('%Y-%m-%d'), 'end': end.strftime('%Y-%m-%d'), 'people': people, 'bots': bots, 'blocked': blocked,
-            'bot_agents': sorted(agents.items(), key=lambda kv: -kv[1])[:15],
-            'countries': sorted(countries.items(), key=lambda kv: -kv[1])[:15]}
+    out = {'host': host, 'start': start.strftime('%Y-%m-%d'), 'end': end.strftime('%Y-%m-%d'), 'people': people, 'bots': bots, 'blocked': blocked,
+           'blocked_listed': listed, 'probes': probes,
+           'bot_agents': sorted(agents.items(), key=lambda kv: -kv[1])[:15],
+           'countries': sorted(countries.items(), key=lambda kv: -kv[1])[:15]}
+    # downloads only (.pdf, .epub, .azw3): how many bot requests were refused and how many got through
+    q2 = '''query($zone: String!, $start: Time!, $end: Time!, $host: String!) {
+      viewer { zones(filter: {zoneTag: $zone}) {
+        dl: httpRequestsAdaptiveGroups(limit: 2000, filter: {datetime_geq: $start, datetime_lt: $end, clientRequestHTTPHost: $host,
+            OR: [{clientRequestPath_like: "%.pdf"}, {clientRequestPath_like: "%.epub"}, {clientRequestPath_like: "%.azw3"}]}) {
+          count dimensions { userAgent edgeResponseStatus } }
+      } } }'''
+    try:
+        body = json.dumps({'query': q2, 'variables': {'zone': zone, 'start': start.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                                       'end': end.strftime('%Y-%m-%dT%H:%M:%SZ'), 'host': host}}).encode()
+        d = _get('https://api.cloudflare.com/client/v4/graphql', {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}, body)
+        if d.get('errors'):
+            raise RuntimeError('; '.join(e.get('message', '') for e in d['errors']))
+        dl = {'people': 0, 'bots_refused': 0, 'bots_served': 0}
+        for r in d['data']['viewer']['zones'][0]['dl']:
+            n, ua, st = int(r['count']), r['dimensions'].get('userAgent') or '', r['dimensions'].get('edgeResponseStatus')
+            bot = not ua or is_bot(ua)
+            if bot and st == 403:
+                dl['bots_refused'] += n
+            elif st in (200, 206, 304):
+                dl['bots_served' if bot else 'people'] += n
+        out['downloads'] = dl
+    except Exception as e:
+        print('warning: report: Cloudflare downloads:', e, file=sys.stderr)
+    return out
 
 
 def supabase_totals(url, key):

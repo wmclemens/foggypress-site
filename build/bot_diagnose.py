@@ -227,7 +227,22 @@ def section_live():
             p(f'- {host}/robots.txt: {e}')
 
 
-for f in (section_rules, section_live, section_daily, section_fw, section_people):
+def section_ua_probe():
+    p('\n## 6. Which plain browser names are refused on files.foggypress.com, and by what')
+    for ua in ('Python-urllib/3.12', 'python-requests/2.32.3', 'curl/8.5.0', 'Mozilla/5.0 Chrome/131', ''):
+        for path in ('/robots.txt', '/read/'):
+            try:
+                req = urllib.request.Request(f'https://{HOST}{path}', headers={'User-Agent': ua} if ua else {})
+                if not ua: req.remove_header('User-agent')
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    p(f'- {ua or "(none)"} {path}: {r.status}')
+            except urllib.error.HTTPError as e:
+                body = e.read(3000).decode('utf-8', 'replace')
+                m = re.search(r'<title>([^<]*)', body)
+                p(f'- {ua or "(none)"} {path}: {e.code} cf-mitigated={e.headers.get("cf-mitigated")} title={m[1] if m else body[:80]!r}')
+
+
+for f in (section_ua_probe, section_rules) if os.environ.get('ONLY_PROBE') else (section_ua_probe, section_rules, section_live, section_daily, section_fw, section_people):
     try:
         f()
     except Exception as ex:
