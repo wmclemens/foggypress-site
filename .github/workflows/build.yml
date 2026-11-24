@@ -94,6 +94,7 @@ jobs:
           SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
           TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
           ASK_ON: ${{ vars.ASK_ON }}   # "1" once the ask function is deployed (supabase/README.md)
+          REAL_BOOKS_ON: ${{ vars.REAL_BOOKS_ON }}   # "1" once schema.sql has My Real Books (supabase/README.md)
           KINDLE_MINUTES: ${{ inputs.kindle_minutes || '25' }}
           KINDLE_MANIFEST: kindle-manifest.json   # written by build/kindle.sh
         run: |
@@ -140,6 +141,7 @@ jobs:
           SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
           TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
           ASK_ON: ${{ vars.ASK_ON }}   # "1" once the ask function is deployed (supabase/README.md)
+          REAL_BOOKS_ON: ${{ vars.REAL_BOOKS_ON }}   # "1" once schema.sql has My Real Books (supabase/README.md)
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'foggypress.com' }}
           KINDLE_MANIFEST: kindle-manifest.json   # books with a Kindle file (R2 step above); missing = no Kindle links
           WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY || '560bbd06-0bf6-47ce-b04d-f68df6a5ff16' }}

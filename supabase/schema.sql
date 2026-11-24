@@ -488,3 +488,152 @@ create or replace function public.site_totals() returns json language sql securi
 $$;
 revoke all on function public.site_totals from public;
 grant execute on function public.site_totals to anon, authenticated;
+
+-- ---------- My Real Books: a reader's own catalogue of the paper books they own (23 Nov 2026) ----------
+-- The reader photographs each book's title page (and the back of it) in the page's own camera view; the scan function
+-- (supabase/functions/scan) reads the pages with Claude and returns the details. The photos are never stored: they go
+-- from the phone to the function to the model and are dropped. Only the details the reader saves are kept, here.
+create table if not exists public.real_books (
+  id             uuid primary key default gen_random_uuid(),
+  user_id        uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  title          text not null check (char_length(btrim(title)) between 1 and 500),
+  subtitle       text not null default '' check (char_length(subtitle) <= 500),
+  author_last    text not null default '' check (char_length(author_last) <= 200),   -- "Reeves" (the first author)
+  author_first   text not null default '' check (char_length(author_first) <= 200),  -- "William Pember"
+  other_authors  text not null default '' check (char_length(other_authors) <= 500), -- more authors, as printed
+  contributors   text not null default '' check (char_length(contributors) <= 1000),-- "edited by …; translated by …"
+  publisher      text not null default '' check (char_length(publisher) <= 500),
+  place          text not null default '' check (char_length(place) <= 300),
+  year           integer check (year between 1000 and 2200),                         -- the year the book was printed
+  edition        text not null default '' check (char_length(edition) <= 300),
+  volume         text not null default '' check (char_length(volume) <= 100),        -- "Vol. I", or "2 volumes" for a set
+  isbn           text not null default '' check (char_length(isbn) <= 40),
+  language       text not null default '' check (char_length(language) <= 60),
+  subjects       text[] not null default '{}' check (cardinality(subjects) <= 30),    -- Library of Congress subject headings
+  lc_call        text not null default '' check (char_length(lc_call) <= 100),
+  dewey          text not null default '' check (char_length(dewey) <= 60),
+  tags           text[] not null default '{}' check (cardinality(tags) <= 50),
+  year_read      text not null default '' check (year_read = '' or year_read = 'read' or year_read ~ '^(19|20)[0-9]{2}$'),
+  notes          text not null default '' check (char_length(notes) <= 5000),
+  custom         jsonb not null default '{}'::jsonb check (jsonb_typeof(custom) = 'object' and pg_column_size(custom) <= 20000),
+  catalog_id     text not null default '' check (char_length(catalog_id) <= 120),    -- the same work on Foggy Press, if any
+  source         text not null default 'typed' check (source in ('photo', 'typed')),
+  needs_review   boolean not null default false,
+  created_at     timestamptz not null default now(),
+  updated_at     timestamptz not null default now()
+);
+create index if not exists real_books_user on public.real_books (user_id, author_last, author_first);
+
+-- the names of the reader's own fields ("Purchase price", "Signed"), so every book shows them
+create table if not exists public.real_book_fields (
+  user_id  uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  name     text not null check (char_length(btrim(name)) between 1 and 60),
+  position integer not null default 0,
+  primary key (user_id, name)
+);
+
+do $$
+declare t text;
+begin
+  foreach t in array array['real_books', 'real_book_fields'] loop
+    execute format('alter table public.%I enable row level security', t);
+    execute format('drop policy if exists own_rows on public.%I', t);
+    execute format('create policy own_rows on public.%I for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid())', t);
+    execute format('revoke all on public.%I from anon', t);
+    execute format('grant select, insert, update, delete on public.%I to authenticated', t);
+  end loop;
+end $$;
+drop trigger if exists fp_limit on public.real_books;
+create trigger fp_limit before insert on public.real_books for each row execute function public.fp_limit('20000');
+drop trigger if exists fp_limit on public.real_book_fields;
+create trigger fp_limit before insert on public.real_book_fields for each row execute function public.fp_limit('40');
+create or replace function public.fp_touch_real_book() returns trigger language plpgsql as $$
+begin new.updated_at := now(); return new; end $$;
+drop trigger if exists fp_touch on public.real_books;
+create trigger fp_touch before update on public.real_books for each row execute function public.fp_touch_real_book();
+
+-- one row per scan (one book's photos read by the model): for the daily and per-minute limits and the monthly cap.
+-- Holds no words and no pictures, only counts.
+create table if not exists public.scan_usage (
+  id            bigint generated always as identity primary key,
+  user_id       uuid references auth.users (id) on delete set null,
+  scanned_at    timestamptz not null default now(),
+  local_day     date not null,
+  pages         integer not null default 1,
+  input_tokens  integer not null default 0,
+  output_tokens integer not null default 0,
+  cost_usd      numeric(10, 6) not null default 0,
+  unlimited     boolean not null default false     -- an account in scan_config.unlimited_emails: not in the monthly cap
+);
+create index if not exists scan_usage_user_day on public.scan_usage (user_id, local_day);
+create index if not exists scan_usage_time on public.scan_usage (scanned_at);
+
+-- the settings, one row: change them in Supabase's Table Editor (table scan_config)
+create table if not exists public.scan_config (
+  id               boolean primary key default true check (id),
+  enabled          boolean not null default true,
+  daily_limit      integer not null default 300 check (daily_limit >= 0),      -- books scanned per reader per day
+  minute_limit     integer not null default 20 check (minute_limit >= 0),      -- and per minute
+  monthly_cap_usd  numeric(10, 2) not null default 25 check (monthly_cap_usd >= 0),
+  unlimited_emails text[] not null default '{}'                                -- accounts with no limits (the site owner)
+);
+insert into public.scan_config (id) values (true) on conflict do nothing;
+alter table public.scan_usage enable row level security;
+alter table public.scan_config enable row level security;
+revoke all on public.scan_usage from anon, authenticated;
+revoke all on public.scan_config from anon, authenticated;
+
+-- scans left today (the camera page shows it when few are left)
+create or replace function public.scan_status(p_tz text default 'UTC') returns json language sql security definer set search_path = public, auth stable as $$
+  select json_build_object(
+    'limit', c.daily_limit,
+    'unlimited', u.unl,
+    'left', case when u.unl then null else greatest(0, c.daily_limit - (select count(*) from scan_usage where user_id = auth.uid() and local_day = fp_local_day(p_tz))) end,
+    'open', c.enabled and (u.unl or (select coalesce(sum(cost_usd), 0) from scan_usage where not unlimited and scanned_at >= date_trunc('month', now())) < c.monthly_cap_usd))
+  from scan_config c,
+       lateral (select exists (select 1 from auth.users where id = auth.uid() and lower(email) = any (select lower(e) from unnest(c.unlimited_emails) e)) as unl) u;
+$$;
+revoke all on function public.scan_status from public, anon;
+grant execute on function public.scan_status to authenticated;
+
+-- called by the scan function before it reads a book's photos: counts the scan, or says why it can't
+create or replace function public.scan_begin(p_user uuid, p_tz text, p_pages integer default 1) returns json language plpgsql security definer set search_path = public, auth as $$
+declare c scan_config; used integer; recent integer; spent numeric; d date := fp_local_day(p_tz); new_id bigint; unl boolean;
+begin
+  perform pg_advisory_xact_lock(hashtext('fp-scan:' || p_user::text));
+  select * into c from scan_config;
+  select exists (select 1 from auth.users where id = p_user and lower(email) = any (select lower(e) from unnest(c.unlimited_emails) e)) into unl;
+  if not c.enabled then
+    return json_build_object('ok', false, 'why', 'paused', 'limit', c.daily_limit, 'left', 0);
+  end if;
+  if not unl then
+    select coalesce(sum(cost_usd), 0) into spent from scan_usage where not unlimited and scanned_at >= date_trunc('month', now());
+    if spent >= c.monthly_cap_usd then
+      return json_build_object('ok', false, 'why', 'paused', 'limit', c.daily_limit, 'left', 0);
+    end if;
+    select count(*) into recent from scan_usage where user_id = p_user and scanned_at > now() - interval '1 minute';
+    if recent >= c.minute_limit then
+      return json_build_object('ok', false, 'why', 'minute', 'limit', c.daily_limit, 'left', 0);
+    end if;
+    select count(*) into used from scan_usage where user_id = p_user and local_day = d;
+    if used >= c.daily_limit then
+      return json_build_object('ok', false, 'why', 'limit', 'limit', c.daily_limit, 'left', 0);
+    end if;
+  end if;
+  insert into scan_usage (user_id, local_day, pages, unlimited) values (p_user, d, greatest(1, least(coalesce(p_pages, 1), 10)), unl) returning id into new_id;
+  return json_build_object('ok', true, 'usage_id', new_id, 'limit', c.daily_limit, 'unlimited', unl,
+                           'left', case when unl then null else c.daily_limit - coalesce(used, 0) - 1 end);
+end $$;
+create or replace function public.scan_finish(p_id bigint, p_in integer, p_out integer, p_cost numeric) returns void language sql security definer set search_path = public as $$
+  update scan_usage set input_tokens = p_in, output_tokens = p_out, cost_usd = p_cost where id = p_id;
+$$;
+revoke all on function public.scan_begin from public, anon, authenticated;
+revoke all on function public.scan_finish from public, anon, authenticated;
+do $$ begin
+  if exists (select 1 from pg_roles where rolname = 'service_role') then
+    grant execute on function public.scan_begin to service_role;
+    grant execute on function public.scan_finish to service_role;
+    grant select, delete on public.scan_usage to service_role;
+    grant select on public.scan_config to service_role;
+  end if;
+end $$;

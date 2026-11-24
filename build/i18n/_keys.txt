@@ -277,3 +277,97 @@ Sign in to keep your saved books, reading lists, tags and history on every devic
 Display: dark mode and language
 Reading history
 For Kindle: download it in the Kindle’s web browser, or copy it over USB
+Read
+Check
+On Foggy Press
+My Real Books
+How My Real Books works
+Photograph a book’s title page, and the back of it, and we fill in the details. You check them and add your own notes.
+The camera opens in this page. Photos aren’t saved to your phone or kept by us: once a book is read, they are gone.
+Your list is private to your account. Download it any time as a spreadsheet.
+{n} read
+Scan books
+Type one in
+Download as a spreadsheet
+A list of the books you own, made by photographing their title pages.
+No books yet. Press “Scan books” and point your phone at a book’s title page.
+Find in my books
+Show
+1 book to check: we read it from photos, so please look it over.
+{n} books to check: we read them from photos, so please look them over.
+Show them
+They’re all right
+“{title}” {a} and {b} look like one set.
+Make them one record
+No books match.
+No author
+1 author
+Not read
+Add a book
+We read this from your photos. Fix anything that’s wrong, then press Save.
+Fields we weren’t sure about are marked.
+Year read
+Tags (separate with commas)
+Notes
+Add your own field
+e.g. Purchase price, Signed, Where bought
+Add
+It appears on all your books.
+Library of Congress subjects
+Not the same book
+Cancel
+Delete this book
+Saved.
+The link will be removed when you save.
+Deleted.
+Added
+Done
+Photos
+Take a photo of this page
+Next book
+Scanning is paused for now. You can still type books in.
+{n} scans left today.
+The camera is blocked for this site. Allow it in your browser’s settings, or choose photos instead.
+No camera here. Choose photos of the pages instead.
+Photograph the title page. Then the back of it, if it has the date or publisher.
+Page {n} of this book. Add another page, or press Next book.
+That’s 4 pages. Press Next book.
+1 book is still being read. It will appear here in a moment.
+{n} books are still being read. They will appear here in a moment.
+The camera isn’t ready yet.
+Too dark to read. Turn on a light, or move closer to a window.
+Photograph a page first.
+1 book added
+{n} books added
+This book
+Reading…
+Didn’t work
+Remove this photo
+Try again
+Retake
+No title page found. Retake it?
+Inscribed: {text}
+Sign in to start your list
+All books
+To check
+Year
+Subtitle
+Other authors
+Editors, translators, illustrators
+Publisher
+Place
+Edition
+Volume
+ISBN
+Tags
+Author’s first names
+Author’s last name
+Library of Congress number
+Dewey number
+That’s all the scans for today. Please come back tomorrow.
+Slow down a little: wait a minute, then try again.
+Please sign in again.
+Too busy just now. Try again in a minute.
+That photo is too large.
+That isn’t a photo.
+No connection. Try again when you’re back online.

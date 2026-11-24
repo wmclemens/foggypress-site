@@ -277,6 +277,100 @@ Connectez-vous pour retrouver vos livres gardés, listes de lecture, étiquettes
 Affichage : mode sombre et langue
 Historique de lecture
 Pour Kindle : téléchargez-le dans le navigateur web du Kindle, ou copiez-le par USB
+Lu
+À vérifier
+Sur Foggy Press
+Mes vrais livres
+Comment fonctionne Mes vrais livres
+Photographiez la page de titre d’un livre, et son verso, et nous remplissons les détails. Vous les vérifiez et ajoutez vos notes.
+L’appareil photo s’ouvre dans cette page. Les photos ne sont ni enregistrées sur votre téléphone ni conservées par nous : une fois le livre lu, elles disparaissent.
+Votre liste est privée, dans votre compte. Téléchargez-la quand vous voulez sous forme de tableur.
+{n} lus
+Scanner des livres
+En saisir un
+Télécharger en tableur
+Une liste des livres que vous possédez, faite en photographiant leur page de titre.
+Aucun livre pour l’instant. Appuyez sur « Scanner des livres » et visez la page de titre d’un livre.
+Chercher dans mes livres
+Afficher
+1 livre à vérifier : nous l’avons lu sur des photos, merci d’y jeter un œil.
+{n} livres à vérifier : nous les avons lus sur des photos, merci d’y jeter un œil.
+Les afficher
+Tout est bon
+« {title} » {a} et {b} semblent former un seul ensemble.
+En faire une seule fiche
+Aucun livre ne correspond.
+Sans auteur
+1 auteur
+Pas lu
+Ajouter un livre
+Nous avons lu ceci sur vos photos. Corrigez ce qui est faux, puis appuyez sur Enregistrer.
+Les champs dont nous n’étions pas sûrs sont signalés.
+Année de lecture
+Étiquettes (séparées par des virgules)
+Notes
+Ajouter votre propre champ
+p. ex. Prix d’achat, Signé, Où acheté
+Ajouter
+Il apparaît sur tous vos livres.
+Sujets de la Bibliothèque du Congrès
+Pas le même livre
+Annuler
+Supprimer ce livre
+Enregistré.
+Le lien sera retiré à l’enregistrement.
+Supprimé.
+Ajouté
+Terminé
+Photos
+Photographier cette page
+Livre suivant
+Le scan est en pause pour l’instant. Vous pouvez toujours saisir des livres.
+Il reste {n} scans aujourd’hui.
+L’appareil photo est bloqué pour ce site. Autorisez-le dans les réglages du navigateur, ou choisissez des photos.
+Pas d’appareil photo ici. Choisissez plutôt des photos des pages.
+Photographiez la page de titre. Puis son verso, s’il porte la date ou l’éditeur.
+Page {n} de ce livre. Ajoutez une page, ou appuyez sur Livre suivant.
+Cela fait 4 pages. Appuyez sur Livre suivant.
+1 livre est encore en cours de lecture. Il apparaîtra ici dans un instant.
+{n} livres sont encore en cours de lecture. Ils apparaîtront ici dans un instant.
+L’appareil photo n’est pas encore prêt.
+Trop sombre pour lire. Allumez une lampe ou approchez-vous d’une fenêtre.
+Photographiez d’abord une page.
+1 livre ajouté
+{n} livres ajoutés
+Ce livre
+Lecture…
+Échec
+Retirer cette photo
+Réessayer
+Reprendre
+Pas de page de titre trouvée. La reprendre ?
+Dédicace : {text}
+Connectez-vous pour commencer votre liste
+Tous les livres
+À vérifier
+Année
+Sous-titre
+Autres auteurs
+Éditeurs, traducteurs, illustrateurs
+Éditeur
+Lieu
+Édition
+Volume
+ISBN
+Étiquettes
+Prénoms de l’auteur
+Nom de l’auteur
+Cote de la Bibliothèque du Congrès
+Indice Dewey
+C’est tout pour aujourd’hui. Revenez demain, s’il vous plaît.
+Doucement : attendez une minute, puis réessayez.
+Veuillez vous reconnecter.
+Trop occupé pour l’instant. Réessayez dans une minute.
+Cette photo est trop grande.
+Ce n’est pas une photo.
+Pas de connexion. Réessayez une fois en ligne.
 
 @about 351cb8b251
 Foggy Press compose des livres du domaine public dans un style maison simple et les publie gratuitement : à lire en ligne, à imprimer chez soi à partir d’un PDF au format Lettre US, ou à télécharger en EPUB pour une liseuse.
