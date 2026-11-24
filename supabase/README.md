@@ -68,6 +68,26 @@ A question usually costs a fraction of a cent, so the default cap covers a few t
 **Another model.** Supabase → Edge Functions → ask → Secrets: `ASK_MODEL` (a Claude model id) with `ASK_PRICE_IN` and
 `ASK_PRICE_OUT` (its dollars per million input and output tokens, so the cap stays right).
 
+## My Real Books (optional, after Ask is set up)
+
+Readers photograph the title pages of paper books they own and keep a private list of them (/real-books/, linked at
+the bottom of the left menu). The page opens the camera itself; each book's photos go to the `scan` Edge Function
+(`functions/scan/`), which reads them with Claude and returns the details. **Photos are never stored**: they live in
+the page's memory, go to the function in the request, are read and dropped.
+
+1. **Run `schema.sql` again** in the SQL Editor (it adds `real_books`, `real_book_fields`, `scan_usage`, `scan_config`).
+2. **Deploy:** the "Deploy Ask Foggy Press" workflow deploys `scan` too, with the same `ANTHROPIC_API_KEY`; it runs
+   when `functions/` changes on main, or run it by hand.
+3. **Turn it on:** add the repository variable `REAL_BOOKS_ON` = `1`. The next build adds the page and the menu link.
+4. **No limit for you:** Table Editor → `scan_config` → `unlimited_emails`: add the email you sign in with, e.g.
+   `{you@example.com}`. Those accounts skip the daily limits, and their scans don't count toward the monthly cap.
+   (Kept out of this public repository on purpose.)
+
+**Limits.** `scan_config`: `daily_limit` (books per reader per day, default 300), `minute_limit` (default 20),
+`monthly_cap_usd` (default $25; scanning pauses until the 1st when reached, typing books in still works) and
+`enabled`. A book costs well under a cent. **Another model:** function secrets `SCAN_MODEL`, `SCAN_PRICE_IN`,
+`SCAN_PRICE_OUT`, as for Ask.
+
 ## Tests
 
 `tests/fake_supabase.sql` makes a plain PostgreSQL 16 database look enough like Supabase (roles, `auth.users`,
@@ -80,6 +100,7 @@ psql -d fp_test -f supabase/tests/fake_supabase.sql -f supabase/schema.sql
 psql -d fp_test -f supabase/tests/isolation.sql
 psql -d fp_test -f supabase/tests/ask.sql
 psql -d fp_test -f supabase/tests/ask_guests.sql
+psql -d fp_test -f supabase/tests/real_books.sql
 ```
 
 The ask function's tests use a built copy of the site (served at `SITE`) and a stand-in for the Claude API:
@@ -87,4 +108,5 @@ The ask function's tests use a built copy of the site (served at `SITE`) and a s
 ```sh
 python build/build.py --files files --out _site && (cd _site && python -m http.server 8766 &)
 deno test --allow-net --allow-env --allow-read supabase/functions/ask/ask_test.ts
+deno test supabase/functions/scan/scan_test.ts   # needs nothing else
 ```

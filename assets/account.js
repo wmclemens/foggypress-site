@@ -17,10 +17,10 @@
   var DOMAIN = /(^|\.)foggypress\.com$/.test(location.hostname) ? '; domain=foggypress.com' : '';
   var SECURE = location.protocol === 'https:' ? '; secure' : '';
   var MAX_LOCAL_FAVS = 200, MAX_LOCAL_RECENT = 20;
-  // signed in from Ask or Request a book: go back there, keeping that page's own ?title=… (only these two pages)
+  // signed in from Ask, Request a book or My Real Books: go back there, keeping that page's own ?title=… (only these pages)
   var NEXT = (function () {
     var p = new URLSearchParams(location.search), n = p.get('next');
-    if (n !== 'ask' && n !== 'request') return '';
+    if (n !== 'ask' && n !== 'request' && n !== 'real-books') return '';
     p.delete('next'); p.delete('code');
     return n + '/' + (String(p) ? '?' + String(p) : '');
   })();
@@ -352,21 +352,21 @@
     sb.rpc('record_reading', {p_book: k.slice(pdf ? 4 : 5), p_pdf: pdf, p_epub: !pdf}).then(function () {}, function () {});
   });
 
-  // ---------- Continue reading (left rail, signed-in readers only) ----------
+  // ---------- Reading history (left rail, signed-in readers only) ----------
   function continueRow() {
     var box = document.getElementById('railhist');
     if (!box) return;
     if (!signedIn()) { box.hidden = true; return; }
-    recent(5).then(function (rows) {
+    recent(3).then(function (rows) {
       return books().then(function (cat) {
         var items = rows.filter(function (r) { return cat[r.book_id]; }).map(function (r) {
           var b = cat[r.book_id], pct = Math.round(r.progress || 0);
           return '<a class="rh" href="' + esc(readLink(b, '?pos=' + (r.progress || 0))) + '" title="' + esc(b.t + (b.a ? ' · ' + b.a : '')) + '"><span class="rht"><span class="t">' + esc(b.t) + '</span>' +
             '<span class="pg" aria-hidden="true"><i style="width:' + Math.max(2, pct) + '%"></i></span></span><span class="mono">' + esc(T('{n}% read', {n: pct})) + '</span></a>';
         });
-        box.innerHTML = '<div class="eyebrow" style="margin-bottom:.6rem">' + esc(T('Continue reading')) + '</div><nav aria-label="' + esc(T('Continue reading')) + '">' +
-          (items.length ? items.join('') : '<p class="rhnone">' + esc(T('No reading history yet.')) + '</p>') +
-          '<a href="' + BASE + 'account/#history"><span>' + esc(T('History')) + '</span><span class="mono">→</span></a></nav>';
+        // the label is the link to the full history (My books > History); the rail shows only the last three books
+        box.innerHTML = '<a class="eyebrow rhlink" href="' + BASE + 'account/#history">' + esc(T('Reading history')) + ' →</a><nav aria-label="' + esc(T('Reading history')) + '">' +
+          (items.length ? items.join('') : '<p class="rhnone">' + esc(T('No reading history yet.')) + '</p>') + '</nav>';
         box.hidden = false;
       });
     }).catch(function () { box.hidden = true; });
@@ -480,8 +480,8 @@
     document.getElementById('export').addEventListener('click', function () {
       // chats exist once Ask is set up; without its tables they come back empty
       var opt = function (t) { return sb.from(t).select('*').then(function (x) { return x.error ? [] : x.data; }); };
-      Promise.all(['profiles', 'favorites', 'labels', 'label_books', 'lists', 'list_items', 'history'].map(function (t) { return q(sb.from(t).select('*')); }).concat([opt('chats'), opt('chat_messages'), opt('book_requests')])).then(function (r) {
-        var data = {email: user.email, account_created: user.created_at, exported: new Date().toISOString(), profile: r[0][0] || null, favorites: r[1], tags: r[2], tagged_books: r[3], lists: r[4], list_books: r[5], history: r[6], chats: r[7], chat_messages: r[8], book_requests: r[9]};
+      Promise.all(['profiles', 'favorites', 'labels', 'label_books', 'lists', 'list_items', 'history'].map(function (t) { return q(sb.from(t).select('*')); }).concat([opt('chats'), opt('chat_messages'), opt('book_requests'), opt('real_books'), opt('real_book_fields')])).then(function (r) {
+        var data = {email: user.email, account_created: user.created_at, exported: new Date().toISOString(), profile: r[0][0] || null, favorites: r[1], tags: r[2], tagged_books: r[3], lists: r[4], list_books: r[5], history: r[6], chats: r[7], chat_messages: r[8], book_requests: r[9], my_real_books: r[10], my_real_books_fields: r[11]};
         var a = document.createElement('a');
         a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'}));
         a.download = 'foggy-press-my-data.json'; document.body.appendChild(a); a.click(); a.remove();

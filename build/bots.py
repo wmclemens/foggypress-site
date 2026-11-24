@@ -13,7 +13,11 @@ import re
 TERMS = ['bot', 'crawl', 'spider', 'slurp', 'fetch', 'scrape', 'curl', 'wget', 'python', 'java/', 'go-http', 'okhttp',
          'headless', 'httpclient', 'libwww', 'axios', 'node-fetch', 'monitor', 'preview', 'facebookexternalhit',
          'bingpreview', 'semrush', 'ahrefs', 'mj12', 'petal', 'yandex', 'baidu', 'bytespider', 'archiver', 'scrapy',
-         'aiohttp', 'httpx', 'deno/', 'undici', 'phantomjs', 'puppeteer', 'playwright', 'selenium']
+         'aiohttp', 'httpx', 'deno/', 'undici', 'phantomjs', 'puppeteer', 'playwright', 'selenium',
+         # AI agents and crawlers whose names have none of the words above (23 Nov 2026: Tencent's Hunyuan was
+         # being counted as a person)
+         'hunyuan', 'chatgpt-user', 'perplexity', 'claude-user', 'claude-web', 'anthropic-ai', 'cohere-ai', 'omgili',
+         'img2dataset', 'meta-external', 'meta-webindexer', 'elevenlabs']
 
 BOT_UA = re.compile('|'.join(re.escape(t) for t in TERMS), re.I)
 
@@ -21,7 +25,8 @@ BOT_UA = re.compile('|'.join(re.escape(t) for t in TERMS), re.I)
 BUILD_CHECK_UA = 'FoggyPress-site-build/1.0'
 
 # what the Cloudflare rule blocks: downloads only
-DOWNLOAD_PATHS = '(ends_with(lower(http.request.uri.path), ".pdf") or ends_with(lower(http.request.uri.path), ".epub"))'
+DOWNLOAD_PATHS = ('(ends_with(lower(http.request.uri.path), ".pdf") or ends_with(lower(http.request.uri.path), ".epub")'
+                  ' or ends_with(lower(http.request.uri.path), ".azw3"))')
 
 
 # Bots shut out of the whole site, not just the downloads: Will's per-bot blocklist.
@@ -30,23 +35,38 @@ DOWNLOAD_PATHS = '(ends_with(lower(http.request.uri.path), ".pdf") or ends_with(
 # Cloudflare rule (cloudflare_rules.py, ref fp_block_listed_bots) both follow this list.
 BLOCKED = {
     'ElevenLabs': ['ElevenlabsCrawler', 'ElevenlabsBot'],   # https://elevenlabs.io/docs/bots (19 Nov 2026, Will)
-    # Meta's AI-training crawler only; facebookexternalhit (link previews when someone shares a page) stays allowed
-    'Meta AI': ['meta-externalagent'],                       # https://developers.facebook.com/docs/sharing/webmasters/web-crawlers (21 Nov 2026, Will)
+    # Meta's AI crawlers: training (externalagent), fetching for Meta AI answers (externalfetcher) and Meta's AI search
+    # index (webindexer, first seen here 23 Nov 2026). facebookexternalhit (the preview card when someone shares a
+    # page on Facebook or WhatsApp) stays allowed.
+    'Meta AI': ['meta-externalagent', 'meta-externalfetcher', 'meta-webindexer'],  # https://developers.facebook.com/docs/sharing/webmasters/web-crawlers (21 and 23 Nov 2026, Will)
 }
+
+# What the Cloudflare rule looks for in the browser name, besides the names above: any version or variant
+# of a company's crawler (e.g. a future "ElevenLabs-Fetcher").
+BLOCKED_MATCH = ['elevenlabs', 'meta-external', 'meta-webindexer']
 
 
 def blocked_names():
     return [n for names in BLOCKED.values() for n in names]
 
 
+def _blocked_terms():
+    """The shortest set of lowercase pieces that catches every blocklisted name (no piece inside another)."""
+    terms = set(n.lower() for n in blocked_names()) | set(BLOCKED_MATCH)
+    return sorted(t for t in terms if not any(o != t and o in t for o in terms))
+
+
 def is_blocked(ua):
     u = (ua or '').lower()
-    return any(n.lower() in u for n in blocked_names())
+    return any(t in u for t in _blocked_terms())
 
 
 def blocked_expression():
-    """Cloudflare rule test for a request from a blocklisted bot, on any foggypress.com host."""
-    return '(' + ' or '.join(f'lower(http.user_agent) contains "{n.lower()}"' for n in blocked_names()) + ')'
+    """Cloudflare rule test for a request from a blocklisted bot, on any foggypress.com host.
+    robots.txt stays readable: a crawler refused robots.txt is entitled (RFC 9309) to treat the site as open,
+    and a well-behaved one that can read "Disallow: /" stops asking."""
+    names = ' or '.join(f'lower(http.user_agent) contains "{t}"' for t in _blocked_terms())
+    return f'(({names}) and http.request.uri.path ne "/robots.txt")'
 
 
 def robots_txt(rest):

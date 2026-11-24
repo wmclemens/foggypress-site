@@ -6,6 +6,10 @@ on:
   schedule:
     - cron: "17 6 * * *"   # daily: picks up fixed PDFs and fresh download counts
   workflow_dispatch:        # "Run workflow" button in the Actions tab
+    inputs:
+      kindle_minutes:
+        description: "Minutes to spend making Kindle files this run (the rest wait for the next build)"
+        default: "25"
   repository_dispatch:
     types: [files-updated]  # optional ping from foggy-press-files
 
@@ -72,7 +76,7 @@ jobs:
 
       - run: pip install pypdf markdown pillow
 
-      # PDFs, EPUBs and the read-online pages go to Cloudflare R2 (served at
+      # PDFs, EPUBs, Kindle files and the read-online pages go to Cloudflare R2 (served at
       # files.foggypress.com) once the three R2 secrets exist; until then this is skipped
       # and the site keeps its own copies.
       - name: Upload PDFs, EPUBs and read-online pages to Cloudflare R2
@@ -90,16 +94,24 @@ jobs:
           SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
           TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
           ASK_ON: ${{ vars.ASK_ON }}   # "1" once the ask function is deployed (supabase/README.md)
+          REAL_BOOKS_ON: ${{ vars.REAL_BOOKS_ON }}   # "1" once schema.sql has My Real Books (supabase/README.md)
+          KINDLE_MINUTES: ${{ inputs.kindle_minutes || '25' }}
+          KINDLE_MANIFEST: kindle-manifest.json   # written by build/kindle.sh
         run: |
-          python build/build.py --files files --stage-pdfs _pdfs
           curl -fsSL https://rclone.org/install.sh | sudo bash > /dev/null
           export RCLONE_CONFIG_R2_TYPE=s3 RCLONE_CONFIG_R2_PROVIDER=Cloudflare \
                  RCLONE_CONFIG_R2_ACCESS_KEY_ID="$R2_ACCESS_KEY_ID" \
                  RCLONE_CONFIG_R2_SECRET_ACCESS_KEY="$R2_SECRET_ACCESS_KEY" \
                  RCLONE_CONFIG_R2_ENDPOINT="https://$R2_ACCOUNT_ID.r2.cloudflarestorage.com" \
                  RCLONE_CONFIG_R2_NO_CHECK_BUCKET=true
+          # Kindle files are made from the staged EPUBs (build/kindle.sh) before the read pages are staged
+          python build/build.py --files files --stage-pdfs _pdfs --after-epubs "bash build/kindle.sh _pdfs/epub"
           # --checksum: upload only new or changed PDFs; sync also removes PDFs of books taken off the site
-          rclone sync _pdfs "r2:$R2_BUCKET" --checksum --transfers 16 --stats-one-line -v
+          # Kindle (AZW3) files, made from the EPUBs by build/kindle.py: only new or changed books are converted
+          # (about 2 s a book), within a time budget; the rest wait for the next build. They live in R2 under kindle/
+          # with kindle/manifest.json, which the Build step reads to decide which books get a Kindle link.
+          # --exclude kindle/**: the Kindle files are managed above, not staged in _pdfs
+          rclone sync _pdfs "r2:$R2_BUCKET" --checksum --transfers 16 --stats-one-line -v --exclude "kindle/**"
           # search on foggypress.com reads passages from the read pages here, so allow that origin
           printf '%s' '<CORSConfiguration><CORSRule><AllowedOrigin>https://foggypress.com</AllowedOrigin><AllowedOrigin>https://www.foggypress.com</AllowedOrigin><AllowedMethod>GET</AllowedMethod><AllowedMethod>HEAD</AllowedMethod><AllowedHeader>*</AllowedHeader><MaxAgeSeconds>86400</MaxAgeSeconds></CORSRule></CORSConfiguration>' > cors.xml
           curl -sS --fail-with-body --aws-sigv4 "aws:amz:auto:s3" --user "$R2_ACCESS_KEY_ID:$R2_SECRET_ACCESS_KEY" -X PUT \
@@ -129,7 +141,9 @@ jobs:
           SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
           TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
           ASK_ON: ${{ vars.ASK_ON }}   # "1" once the ask function is deployed (supabase/README.md)
+          REAL_BOOKS_ON: ${{ vars.REAL_BOOKS_ON }}   # "1" once schema.sql has My Real Books (supabase/README.md)
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'foggypress.com' }}
+          KINDLE_MANIFEST: kindle-manifest.json   # books with a Kindle file (R2 step above); missing = no Kindle links
           WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY || '560bbd06-0bf6-47ce-b04d-f68df6a5ff16' }}
         run: python build/build.py --files files --out _site
 

@@ -8,8 +8,8 @@
 The rules, both kept beside any rules Will adds himself in the dashboard (they are found again by their "ref"):
   1. Custom rule: block a request for a .pdf or .epub on files.foggypress.com when it comes from a bot
      (bots.py: Cloudflare's known bots, no browser name, or a browser name such as "Amazonbot" or "python").
-  2. Custom rule: block every request, on every foggypress.com host, from a bot on the blocklist (bots.BLOCKED,
-     e.g. ElevenLabs). Those bots are also told to stay out in robots.txt.
+  2. Custom rule: block every request, on every foggypress.com host that Cloudflare serves, from a bot on the
+     blocklist (bots.BLOCKED: ElevenLabs, Meta AI), except /robots.txt, which tells them to stay out.
   3. Rate limit (best effort; the Free plan allows one): one address asking for more than 30 PDFs or EPUBs
      in 10 seconds is refused for 10 seconds. A person clicking never comes close.
 Read-online pages, Britannica articles and the rest of the site are not touched: any crawler may read them.
@@ -163,6 +163,8 @@ def check(strict=False):
         if read:
             want(f'Read-online page, as {name} (blocklisted)', read[1], f'Mozilla/5.0 (compatible; {name}/1.0)', refused)
         rows.append(f"| {HOST}/robots.txt tells {name} to stay out | | {'yes' if name in robots else 'not yet (next site build)'} |")
+        want(f'robots.txt, as {name} (it must be able to read that it is not welcome)', f'https://{HOST}/robots.txt',
+             f'Mozilla/5.0 (compatible; {name}/1.0)', ok)
 
     sb, key = os.environ.get('SUPABASE_URL', '').strip().rstrip('/'), os.environ.get('SUPABASE_ANON_KEY', '').strip()
     if sb and key:

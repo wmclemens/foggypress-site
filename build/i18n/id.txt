@@ -275,6 +275,102 @@ Masuk untuk menyimpan buku, daftar, dan riwayat Anda di semua perangkat.
 Cara kerja masuk
 Masuk untuk menyimpan buku, daftar bacaan, tag, dan riwayat Anda di semua perangkat.
 Tampilan: mode gelap dan bahasa
+Riwayat bacaan
+Untuk Kindle: unduh di peramban web Kindle, atau salin lewat USB
+Sudah dibaca
+Periksa
+Ada di Foggy Press
+Buku Asliku
+Cara kerja Buku Asliku
+Foto halaman judul buku beserta baliknya, lalu kami isi detailnya. Anda memeriksanya dan menambah catatan sendiri.
+Kamera terbuka di halaman ini. Foto tidak disimpan di ponsel Anda dan tidak kami simpan: setelah buku terbaca, foto dihapus.
+Daftar Anda hanya untuk akun Anda. Unduh sebagai spreadsheet kapan saja.
+{n} sudah dibaca
+Pindai buku
+Ketik manual
+Unduh sebagai spreadsheet
+Daftar buku milik Anda, dibuat dengan memotret halaman judulnya.
+Belum ada buku. Tekan “Pindai buku” dan arahkan ponsel ke halaman judul buku.
+Cari di bukuku
+Tampilkan
+1 buku perlu diperiksa: kami membacanya dari foto, jadi mohon dicek.
+{n} buku perlu diperiksa: kami membacanya dari foto, jadi mohon dicek.
+Lihat semuanya
+Semuanya benar
+“{title}” {a} dan {b} tampaknya satu set.
+Jadikan satu catatan
+Tidak ada buku yang cocok.
+Tanpa pengarang
+1 pengarang
+Belum dibaca
+Tambah buku
+Kami membaca ini dari foto Anda. Perbaiki yang salah, lalu tekan Simpan.
+Kolom yang kami ragukan diberi tanda.
+Tahun dibaca
+Tag (pisahkan dengan koma)
+Catatan
+Tambah kolom sendiri
+mis. Harga beli, Bertanda tangan, Tempat beli
+Tambah
+Kolom ini muncul di semua buku Anda.
+Subjek Library of Congress
+Bukan buku yang sama
+Batal
+Hapus buku ini
+Tersimpan.
+Tautan akan dihapus saat Anda menyimpan.
+Terhapus.
+Ditambahkan
+Selesai
+Foto
+Foto halaman ini
+Buku berikutnya
+Pemindaian dihentikan sementara. Anda masih bisa mengetik buku.
+Sisa {n} pindaian hari ini.
+Kamera diblokir untuk situs ini. Izinkan di pengaturan browser, atau pilih foto saja.
+Tidak ada kamera. Pilih foto halaman saja.
+Foto halaman judul. Lalu baliknya, jika ada tahun atau penerbit.
+Halaman {n} buku ini. Tambah halaman lagi, atau tekan Buku berikutnya.
+Sudah 4 halaman. Tekan Buku berikutnya.
+1 buku masih dibaca. Sebentar lagi muncul di sini.
+{n} buku masih dibaca. Sebentar lagi muncul di sini.
+Kamera belum siap.
+Terlalu gelap. Nyalakan lampu atau mendekat ke jendela.
+Foto satu halaman dulu.
+1 buku ditambahkan
+{n} buku ditambahkan
+Buku ini
+Membaca…
+Gagal
+Hapus foto ini
+Coba lagi
+Foto ulang
+Halaman judul tidak ditemukan. Foto ulang?
+Tulisan tangan: {text}
+Masuk untuk memulai daftar Anda
+Semua buku
+Perlu diperiksa
+Tahun
+Subjudul
+Pengarang lain
+Editor, penerjemah, ilustrator
+Penerbit
+Tempat
+Edisi
+Jilid
+ISBN
+Tag
+Nama depan pengarang
+Nama belakang pengarang
+Nomor Library of Congress
+Nomor Dewey
+Jatah pindaian hari ini habis. Silakan kembali besok.
+Pelan-pelan: tunggu semenit, lalu coba lagi.
+Silakan masuk lagi.
+Sedang sibuk. Coba lagi semenit lagi.
+Foto itu terlalu besar.
+Itu bukan foto.
+Tidak ada koneksi. Coba lagi saat sudah online.
 
 @about 351cb8b251
 Foggy Press menata ulang buku-buku domain publik dalam satu gaya rumah yang sederhana dan menerbitkannya secara gratis: untuk dibaca daring, dicetak di rumah dari PDF berukuran kertas letter AS, atau diunduh sebagai EPUB untuk pembaca e-book.

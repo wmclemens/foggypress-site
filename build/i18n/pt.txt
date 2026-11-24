@@ -275,6 +275,102 @@ Entre para ter seus livros, listas e histórico em todos os seus aparelhos.
 Como funciona o acesso
 Entre para ter seus livros salvos, listas de leitura, etiquetas e histórico em todos os seus aparelhos.
 Exibição: modo escuro e idioma
+Histórico de leitura
+Para Kindle: baixe no navegador web do Kindle ou copie por USB
+Lido
+Verificar
+No Foggy Press
+Meus livros reais
+Como funciona Meus livros reais
+Fotografe a folha de rosto de um livro, e o verso dela, e nós preenchemos os dados. Você confere e acrescenta suas notas.
+A câmera abre nesta página. As fotos não ficam no seu celular nem conosco: depois que o livro é lido, elas somem.
+Sua lista é particular, na sua conta. Baixe-a quando quiser como planilha.
+{n} lidos
+Escanear livros
+Digitar um
+Baixar como planilha
+Uma lista dos livros que você tem, feita fotografando suas folhas de rosto.
+Nenhum livro ainda. Toque em “Escanear livros” e aponte o celular para a folha de rosto de um livro.
+Procurar nos meus livros
+Mostrar
+1 livro para conferir: lemos a partir de fotos, então dê uma olhada.
+{n} livros para conferir: lemos a partir de fotos, então dê uma olhada.
+Mostrar
+Estão certos
+“{title}” {a} e {b} parecem um só conjunto.
+Juntar num registro
+Nenhum livro corresponde.
+Sem autor
+1 autor
+Não lido
+Adicionar um livro
+Lemos isto das suas fotos. Corrija o que estiver errado e toque em Salvar.
+Os campos de que não tínhamos certeza estão marcados.
+Ano de leitura
+Etiquetas (separadas por vírgulas)
+Notas
+Adicionar um campo seu
+ex.: Preço pago, Autografado, Onde comprei
+Adicionar
+Aparece em todos os seus livros.
+Assuntos da Biblioteca do Congresso
+Não é o mesmo livro
+Cancelar
+Excluir este livro
+Salvo.
+O link será removido quando você salvar.
+Excluído.
+Adicionado
+Concluir
+Fotos
+Fotografar esta página
+Próximo livro
+O escaneamento está pausado por enquanto. Você ainda pode digitar livros.
+Restam {n} escaneamentos hoje.
+A câmera está bloqueada para este site. Permita-a nas configurações do navegador ou escolha fotos.
+Não há câmera aqui. Escolha fotos das páginas.
+Fotografe a folha de rosto. Depois o verso, se tiver a data ou a editora.
+Página {n} deste livro. Adicione outra página ou toque em Próximo livro.
+São 4 páginas. Toque em Próximo livro.
+1 livro ainda está sendo lido. Ele aparecerá aqui em instantes.
+{n} livros ainda estão sendo lidos. Eles aparecerão aqui em instantes.
+A câmera ainda não está pronta.
+Escuro demais para ler. Acenda uma luz ou chegue perto de uma janela.
+Fotografe uma página primeiro.
+1 livro adicionado
+{n} livros adicionados
+Este livro
+Lendo…
+Não deu certo
+Remover esta foto
+Tentar de novo
+Refazer
+Folha de rosto não encontrada. Refazer?
+Dedicatória: {text}
+Entre para começar sua lista
+Todos os livros
+Para conferir
+Ano
+Subtítulo
+Outros autores
+Organizadores, tradutores, ilustradores
+Editora
+Local
+Edição
+Volume
+ISBN
+Etiquetas
+Prenomes do autor
+Sobrenome do autor
+Número da Biblioteca do Congresso
+Número Dewey
+Por hoje é só. Volte amanhã, por favor.
+Mais devagar: espere um minuto e tente de novo.
+Entre novamente, por favor.
+Ocupado demais agora. Tente em um minuto.
+Essa foto é grande demais.
+Isso não é uma foto.
+Sem conexão. Tente quando estiver on-line de novo.
 
 @about 351cb8b251
 A Foggy Press compõe livros de domínio público num estilo próprio e simples e os publica de graça: para ler on-line, imprimir em casa a partir de um PDF em papel carta americano ou baixar como EPUB para um leitor digital.

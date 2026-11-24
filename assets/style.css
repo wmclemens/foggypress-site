@@ -259,7 +259,7 @@ mark{background:var(--hit);color:var(--hit-ink);border-radius:2px;padding:0 .05e
 .book mark.hit{scroll-margin-top:9rem;scroll-margin-bottom:3rem}
 .book mark.cur{background:var(--hit-cur);color:#1a1205;box-shadow:0 0 0 2px var(--hit-cur)}
 @media (max-width:480px){.bsearch .cnt{display:none}}
-/* reader accounts (assets/account.js): Save star and its menu, Continue reading, My books, reading lists */
+/* reader accounts (assets/account.js): Save star and its menu, Reading history, My books, reading lists */
 .savebox{display:inline-flex;align-items:center;gap:0}
 .savebox button{border:0;background:none;padding:0;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--accent)}
 .savebox .star{display:inline-flex;gap:.3rem;align-items:baseline}
@@ -286,7 +286,9 @@ mark{background:var(--hit);color:var(--hit-ink);border-radius:2px;padding:0 .05e
 .toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,1rem);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:40;
   background:var(--ink);color:var(--bg);padding:.6rem 1rem;border-radius:8px;font-size:.88rem;max-width:calc(100vw - 32px);max-width:min(32rem,calc(100vw - 32px))}
 .toast.on{opacity:1;transform:translate(-50%,0)}
-/* Continue reading: a signed-in reader's last books, in the left rail (assets/account.js) */
+/* Reading history: a signed-in reader's last three books, in the left rail (assets/account.js); the label links to the full history */
+.railhist .rhlink{display:block;margin-bottom:.6rem}
+.railhist .rhlink:hover{color:var(--accent)}
 .railhist nav a.rh{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem;align-items:center}
 .railhist .rht{display:grid;gap:.35rem;min-width:0}
 .railhist .rht .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -551,3 +553,79 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 .kindle .foot a{display:inline-block;padding:.4rem 0}
 /* grey text is hard to read on e-ink: darken it */
 .kindle{--muted:#333;--faint:#444;--line:#999;--line-2:#777;--accent:#000}
+
+/* ---------- My Real Books (assets/realbooks.js) ---------- */
+.rbbar{display:flex;flex-wrap:wrap;margin:0 0 1.25rem}
+.rbbar .btn{margin:0 .5rem .5rem 0}
+.rbempty{color:var(--muted);padding:1rem 0}
+.rbcheck{border:1px solid var(--warn);background:var(--warn-soft);border-radius:12px;padding:.9rem 1rem;margin:0 0 1.25rem}
+.rbcheck p{margin:0 0 .5rem}
+.rbcheck p:last-child{margin-bottom:0}
+.rbcheck .btn{margin-right:.5rem}
+.rbtools{display:flex;flex-wrap:wrap;align-items:center;margin:0 0 .75rem}
+.rbtools input,.rbtools select{font:inherit;font-size:.9rem;color:var(--ink);background:var(--surface);border:1px solid var(--line-2);border-radius:999px;padding:.45rem .9rem;margin:0 .5rem .5rem 0}
+.rbtools input{flex:1 1 14rem;min-width:0}
+.rbrows{list-style:none;margin:0;padding:0}
+.augrp > .rbrows{padding-left:1rem;padding-bottom:.5rem}
+.rbrow{display:grid;grid-template-columns:minmax(0,1fr) 3.5rem 4rem auto;align-items:baseline;column-gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--line)}
+.rbrow:last-child{border-bottom:0}
+.rbmain{all:unset;cursor:pointer;display:grid;min-width:0}
+.rbmain:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rbmain .t{font-weight:500;letter-spacing:-.01em}
+.rbmain:hover .t{color:var(--accent)}
+.rbmain .v,.rbmain .st,.rbmain .a{color:var(--muted);font-weight:400}
+.rbmain .st,.rbmain .a{font-size:.9rem}
+.rbmain .pub{color:var(--faint);font-size:.8rem}
+.rbrow .yr,.rbrow .rd{color:var(--faint);font-size:.75rem;text-align:right}
+.rbrow .fp{text-align:right;white-space:nowrap}
+.rbrow .act{color:var(--accent);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+.rbrow .flag{color:var(--warn);font-size:.7rem;border:1px solid var(--warn);border-radius:999px;padding:.1rem .5rem;margin-left:.5rem}
+.rbrow.check .rbmain .t::after{content:" ·";color:var(--warn)}
+@media (max-width:640px){
+  .rbrow{grid-template-columns:minmax(0,1fr) auto;row-gap:.2rem}
+  .rbrow .rd{display:none}
+  .rbrow .fp{grid-column:1 / -1;text-align:left}
+  .rbrow .flag{margin:0 .5rem 0 0}
+}
+.rbform{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1rem;max-width:44rem}
+.rbform .wide,.rbform .cf-row,.rbform .formnote{grid-column:1 / -1}
+.rbform input,.rbform select,.rbform textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line-2);border-radius:8px;padding:.5rem .65rem;width:100%;box-sizing:border-box}
+.rbform .unsure input{border-color:var(--warn);background:var(--warn-soft)}
+.rbform .unsure label::after{content:" · check";color:var(--warn);text-transform:none}
+.rbform .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rbform .row{display:flex}
+.rbform .row input{flex:1;margin-right:.5rem}
+.rbform .subj{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.88rem}
+.rbform .cf-row .btn{margin:0 .5rem .5rem 0}
+@media (max-width:640px){.rbform{grid-template-columns:minmax(0,1fr)}}
+/* the camera, full screen over the page */
+html.rbcam-on,html.rbcam-on body{overflow:hidden}
+.rbcam{position:fixed;inset:0;z-index:60;background:#000;color:#fff;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.rbcam-top{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem}
+.rbcam-count{font-size:.75rem;color:#cfd6df}
+.rbcam-done{border:1px solid #fff;background:none;color:#fff;border-radius:999px;padding:.4rem 1rem;font:inherit;font-weight:500}
+.rbcam-view{position:relative;flex:1;min-height:0;overflow:hidden}
+.rbcam video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rbcam-frame{position:absolute;left:12%;right:12%;top:8%;bottom:8%;border:2px solid rgba(255,255,255,.55);border-radius:6px;pointer-events:none}
+.rbcam.nocam .rbcam-frame,.rbcam.nocam video{display:none}
+.rbcam-msg{position:absolute;left:1rem;right:1rem;bottom:.75rem;margin:0;text-align:center;font-size:.9rem;text-shadow:0 1px 3px #000}
+.rbcam.nocam .rbcam-msg{top:40%;bottom:auto}
+.rbcam.flash .rbcam-view::after{content:"";position:absolute;inset:0;background:#fff;opacity:.6}
+.rbcam-tray{display:flex;overflow-x:auto;padding:.5rem 1rem;min-height:5.2rem;background:#0b0f14}
+.rbcam-tray .tb{flex:none;display:flex;flex-direction:column;margin-right:.75rem;max-width:11rem;border:1px solid #2b3440;border-radius:8px;padding:.35rem}
+.rbcam-tray .tb.st-shooting{border-color:#fff}
+.rbcam-tray .tb.st-done{border-color:#3d8b5a}
+.rbcam-tray .tb.st-error{border-color:#e0884f}
+.rbcam-tray .pics{display:flex;position:relative}
+.rbcam-tray img{height:3rem;width:auto;margin-right:.25rem;border-radius:3px}
+.rbcam-tray .x{border:0;background:#000a;color:#fff;border-radius:999px;width:1.3rem;height:1.3rem;margin:-.4rem .2rem 0 -1.4rem;align-self:flex-start;font-size:.8rem;line-height:1}
+.rbcam-tray .lab{font-size:.7rem;color:#cfd6df;margin-top:.25rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rbcam-tray .acts button{border:0;background:none;color:#8fd3e6;font:inherit;font-size:.72rem;padding:.2rem .4rem .2rem 0;text-decoration:underline}
+.rbcam-ctl{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.25rem 1rem}
+.rbcam-shutter{width:4.4rem;height:4.4rem;border-radius:50%;border:4px solid #fff;background:#fff;box-shadow:inset 0 0 0 3px #000}
+.rbcam-shutter:active{transform:scale(.94)}
+.rbcam.nocam .rbcam-shutter{visibility:hidden}
+.rbcam-next{border:1px solid #fff;background:#fff;color:#000;border-radius:999px;padding:.55rem 1rem;font:inherit;font-weight:600;min-width:6.5rem}
+.rbcam-file{position:relative;min-width:6.5rem;font-size:.85rem;color:#cfd6df;text-decoration:underline;cursor:pointer}
+.rbcam-file input{position:absolute;inset:0;opacity:0;width:100%}
+.rbcam.nocam .rbcam-file{color:#fff;font-weight:600}

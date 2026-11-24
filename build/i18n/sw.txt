@@ -275,6 +275,102 @@ Ingia ili vitabu, orodha na historia yako viwe kwenye kila kifaa.
 Jinsi kuingia kunavyofanya kazi
 Ingia ili vitabu ulivyohifadhi, orodha za kusoma, lebo na historia viwe kwenye kila kifaa.
 Mwonekano: hali ya giza na lugha
+Historia ya kusoma
+Kwa Kindle: ipakue kwenye kivinjari cha wavuti cha Kindle, au inakili kupitia USB
+Nimesoma
+Kagua
+Kipo Foggy Press
+Vitabu Vyangu Halisi
+Jinsi Vitabu Vyangu Halisi inavyofanya kazi
+Piga picha ukurasa wa kichwa cha kitabu, na upande wake wa nyuma, nasi tutajaza maelezo. Wewe utayakagua na kuongeza maelezo yako.
+Kamera inafunguka ndani ya ukurasa huu. Picha hazihifadhiwi kwenye simu yako wala kwetu: kitabu kikishasomwa, zinafutwa.
+Orodha yako ni ya akaunti yako peke yako. Ipakue kama jedwali wakati wowote.
+{n} vimesomwa
+Skani vitabu
+Andika kimoja
+Pakua kama jedwali
+Orodha ya vitabu ulivyo navyo, iliyotengenezwa kwa kupiga picha kurasa za kichwa.
+Bado hakuna vitabu. Bonyeza “Skani vitabu” na elekeza simu yako kwenye ukurasa wa kichwa wa kitabu.
+Tafuta katika vitabu vyangu
+Onyesha
+Kitabu 1 cha kukagua: tulikisoma kutoka picha, tafadhali kiangalie.
+Vitabu {n} vya kukagua: tulivisoma kutoka picha, tafadhali viangalie.
+Vionyeshe
+Viko sawa
+“{title}” {a} na {b} vinaonekana kuwa seti moja.
+Viunganishe kuwa rekodi moja
+Hakuna vitabu vinavyolingana.
+Hakuna mwandishi
+Mwandishi 1
+Sijasoma
+Ongeza kitabu
+Tulisoma haya kutoka picha zako. Rekebisha chochote kisicho sahihi, kisha bonyeza Hifadhi.
+Sehemu tusizokuwa na uhakika nazo zimewekewa alama.
+Mwaka niliposoma
+Lebo (tenganisha kwa koma)
+Maelezo
+Ongeza sehemu yako mwenyewe
+k.m. Bei ya kununua, Imesainiwa, Mahali nilipokinunua
+Ongeza
+Itaonekana kwenye vitabu vyako vyote.
+Mada za Maktaba ya Congress
+Si kitabu hicho hicho
+Ghairi
+Futa kitabu hiki
+Imehifadhiwa.
+Kiungo kitaondolewa ukihifadhi.
+Imefutwa.
+Kiliongezwa
+Imekamilika
+Picha
+Piga picha ukurasa huu
+Kitabu kinachofuata
+Kuskani kumesimamishwa kwa sasa. Bado unaweza kuandika vitabu.
+Skani {n} zimebaki leo.
+Kamera imezuiwa kwa tovuti hii. Iruhusu katika mipangilio ya kivinjari, au chagua picha badala yake.
+Hakuna kamera hapa. Chagua picha za kurasa badala yake.
+Piga picha ukurasa wa kichwa. Kisha upande wake wa nyuma, ikiwa una tarehe au mchapishaji.
+Ukurasa {n} wa kitabu hiki. Ongeza ukurasa mwingine, au bonyeza Kitabu kinachofuata.
+Hizo ni kurasa 4. Bonyeza Kitabu kinachofuata.
+Kitabu 1 bado kinasomwa. Kitaonekana hapa baada ya muda mfupi.
+Vitabu {n} bado vinasomwa. Vitaonekana hapa baada ya muda mfupi.
+Kamera bado haiko tayari.
+Ni giza mno kusoma. Washa taa, au sogea karibu na dirisha.
+Piga picha ukurasa kwanza.
+Kitabu 1 kimeongezwa
+Vitabu {n} vimeongezwa
+Kitabu hiki
+Inasoma…
+Haikufanikiwa
+Ondoa picha hii
+Jaribu tena
+Piga tena
+Ukurasa wa kichwa haukupatikana. Upige tena?
+Maandishi ya mkono: {text}
+Ingia ili kuanza orodha yako
+Vitabu vyote
+Vya kukagua
+Mwaka
+Kichwa kidogo
+Waandishi wengine
+Wahariri, wafasiri, wachoraji
+Mchapishaji
+Mahali
+Toleo
+Juzuu
+ISBN
+Lebo
+Majina ya kwanza ya mwandishi
+Jina la ukoo la mwandishi
+Namba ya Maktaba ya Congress
+Namba ya Dewey
+Skani za leo zimekwisha. Tafadhali rudi kesho.
+Punguza kasi kidogo: subiri dakika moja, kisha jaribu tena.
+Tafadhali ingia tena.
+Kuna shughuli nyingi sasa. Jaribu tena baada ya dakika moja.
+Picha hiyo ni kubwa mno.
+Hiyo si picha.
+Hakuna mtandao. Jaribu tena ukirudi mtandaoni.
 
 @about 351cb8b251
 Foggy Press hupanga upya vitabu vya umma kwa mtindo mmoja rahisi na kuvichapisha bure: kusoma mtandaoni, kuchapisha nyumbani kutoka kwenye PDF ya karatasi ya ukubwa wa letter ya Marekani, au kupakua kama EPUB kwa kisomaji cha kielektroniki.
