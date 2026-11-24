@@ -198,6 +198,9 @@
       f('id', 'Web address', 'text', isNew ? 'Used in links: /read/<id>/ and the PDF file name <id>.pdf. Filled from the title.' : 'Changing this breaks old links and resets the book’s download count.') +
       f('github_dir', 'GitHub directory link', 'url', '', true) +
       f('github_pdf', 'GitHub PDF link', 'url', 'Admin only. Visitors get the site’s own copy of this PDF.', true) +
+      f('lcc', 'Library of Congress class', 'text', 'One code, such as PS, QK or F850.5 (catalog/lcc.json has the names). A book without one stays off the site, unless its Gutenberg number below fills it.') +
+      f('gutenberg', 'Gutenberg number', 'text', 'Optional. The ebook number the book was made from: the build fills the LC class and subjects from Gutenberg when they are empty.') +
+      '<div class="fld full"><label for="f-lc_subjects">Library of Congress subjects</label><textarea id="f-lc_subjects" rows="4">' + esc((b.lc_subjects || []).join('\n')) + '</textarea><span class="hint">One heading per line, levels joined by “ -- ”, as LC writes them: Whaling -- Fiction</span></div>' +
       '<div class="fld full"><label for="tagin">Tags' + help('Checked against the tag file as you type. “Create new tag” adds it to the tag file when you save.') + '</label><div class="picker" id="picker"><span class="chips" id="tagchips"></span>' +
       '<input id="tagin" type="text" placeholder="Type to add a tag" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sugg"><div class="sugg" id="sugg" hidden></div></div></div>' +
       '</div>' +
@@ -246,7 +249,9 @@
 
     $('#save').onclick = function () {
       var rec = {};
-      ['id', 'author_last', 'author_first', 'title', 'translator', 'original_date', 'foggy_press_date', 'github_dir', 'github_pdf'].forEach(function (k) { rec[k] = $('#f-' + k).value.trim(); });
+      ['id', 'author_last', 'author_first', 'title', 'translator', 'original_date', 'foggy_press_date', 'github_dir', 'github_pdf', 'lcc', 'gutenberg'].forEach(function (k) { rec[k] = $('#f-' + k).value.trim(); });
+      rec.lc_subjects = $('#f-lc_subjects').value.split('\n').map(function (x) { return x.trim(); }).filter(Boolean);
+      if (!rec.gutenberg) delete rec.gutenberg;
       rec.id = slugify(rec.id || rec.title);
       rec.tags = draft.slice().sort(function (x, y) { return cmp(x, y); });
       var note = $('#savenote');

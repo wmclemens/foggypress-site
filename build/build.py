@@ -30,6 +30,7 @@ from pathlib import Path
 import bots
 import britannica
 import epub
+import lc
 import report
 import search_index
 
@@ -318,8 +319,138 @@ class Site:
                     self.problems.append(f"{b['id']}: PDF not found ({rel})")
             d = b.get('foggy_press_date') or ''
             if d and d <= self.today and b['_mb'] is not None:
-                self.live.append(b)
+                if self.lc_ready(b):
+                    self.live.append(b)
+                else:
+                    self.problems.append(f"{b['id']}: no Library of Congress class, so it stays off the site (add \"lcc\" and \"lc_subjects\" to its record, or run build/lc.py refresh)")
         self.by_tag = {t['name']: [b for b in self.live if t['name'] in b.get('tags', [])] for t in self.tags}
+        self.prepare_lc()
+
+    # ---- Library of Congress classes, subclasses and subjects (build/lc.py, catalog/lcc.json) ----
+    def lc_ready(self, b):
+        """True when the book has an LC class; a Gutenberg book without one is filled from Gutenberg's catalog
+        when the build has it (LC_PG_CATALOG, downloaded by build.yml)"""
+        if lc.subclass(b.get('lcc')):
+            return True
+        if not hasattr(self, '_pg'):
+            path = os.environ.get('LC_PG_CATALOG', '').strip()
+            try:
+                self._pg = lc.load_pg(path) if path else {}
+            except OSError:
+                self._pg = {}
+        gid = b.get('gutenberg') or (lc.readme_gutenberg(b['_src'].parent.parent / 'README.md') if b.get('_src') else '')
+        g = lc.from_gutenberg(self._pg, gid)
+        if not g:
+            return False
+        b.update(g)
+        b['gutenberg'] = gid
+        self.problems.append(f"{b['id']}: LC class {g['lcc']} taken from Gutenberg #{gid}; run build/lc.py refresh --apply to save it in the catalog")
+        return True
+
+    def prepare_lc(self):
+        """tiles (main classes) -> subclasses -> books, and the subject pages"""
+        self.lc_tiles = {}
+        for b in self.live:
+            key = lc.subclass(b.get('lcc'))
+            b['_lcsub'] = key
+            tile = lc.class_name(key)
+            t = self.lc_tiles.setdefault(tile, {'name': tile, 'slug': slugify(tile), 'subs': {}, 'books': []})
+            t['subs'].setdefault(key, []).append(b)
+            t['books'].append(b)
+        counts = {}
+        for b in self.live:
+            hs = []
+            for h in b.get('lc_subjects') or []:
+                for lv in lc.levels(h):
+                    if lv not in hs:
+                        hs.append(lv)
+            b['_lcsubj'] = hs
+            for h in hs:
+                counts[h] = counts.get(h, 0) + 1
+        self.subjects = {}
+        used = set()
+        for h in sorted((h for h, n in counts.items() if n >= lc.SUBJECT_MIN), key=nat):
+            sl = slugify(h) or 'subject'
+            while sl in used:
+                sl += '-x'
+            used.add(sl)
+            self.subjects[h] = {'name': h, 'slug': sl, 'books': [b for b in self.live if h in b['_lcsubj']]}
+
+    def sub_url(self, key):
+        t = self.lc_tiles[lc.class_name(key)]
+        return f"/class/{t['slug']}/" if len(t['subs']) <= 2 else f"/class/{t['slug']}/{key.lower()}/"
+
+    def lc_line(self, b):
+        """the book's subclass and subject pages, as one line of links"""
+        key = b.get('_lcsub')
+        if not key:
+            return ''
+        links = [f'<a href="{self.sub_url(key)}">{esc(lc.SUBCLASSES[key]["name"])}</a>']
+        top = [h for h in (b.get('lc_subjects') or [])]
+        shown = []
+        for h in top:  # each heading at its deepest level that has a page
+            page = next((lv for lv in reversed(lc.levels(h)) if lv in self.subjects), None)
+            if page and page not in shown:
+                shown.append(page)
+        links += [f'<a href="/subject/{self.subjects[h]["slug"]}/">{esc(h.replace(" -- ", " › "))}</a>' for h in shown]
+        return '<p class="lcline mono"><span data-t>Library of Congress</span>: ' + ' · '.join(links) + '</p>'
+
+    def tile(self, name, href, n, dl):
+        return (f'<a class="ct" href="{href}" data-name="{esc(name.lower())}" data-dl="{dl}"><span class="nm">{esc(name)}</span>'
+                f'<span class="row mono">{tn("{n} title" if n == 1 else "{n} titles", n)}</span></a>')
+
+    def tile_grid(self, tiles, label='collections'):
+        return (f'''<section class="sec"><div class="sec-h"><h2 data-t>Subclasses</h2><div class="sortbar"><span class="eyebrow" data-t>Sort by</span><div class="seg" role="group" aria-label="Sort collections" data-t-attr="aria-label"><button type="button" data-sort="tag" aria-pressed="true" data-t>Name</button><button type="button" data-sort="popular" aria-pressed="false" data-t>Popular</button></div></div></div>
+<div class="grid" id="colls" data-page="{COLLECTIONS_PER_PAGE}">{''.join(tiles)}</div>
+<div class="morebar"><span class="mono" id="shown">{len(tiles)} {label}</span><button class="btn ghost sm" id="more" type="button" hidden data-t>More collections</button></div></section>''')
+
+    def lc_pages(self):
+        bysort = lambda bs: sorted(bs, key=lambda b: (nat(b['author_last']), title_key(b['title'])))
+        dl = lambda bs: sum(b['_downloads'] for b in bs)
+        crumb = '<span class="crumb"><a href="/" data-t>Home</a> / <a href="/classes/" data-t>Library of Congress classes</a>'
+        for t in self.lc_tiles.values():
+            n = len(t['books'])
+            head = f'''<div class="ph">{crumb}</span><h1>{esc(t['name'])}</h1><p class="sub">{tn('{n} book' if n == 1 else '{n} books', n)}</p></div>'''
+            if len(t['subs']) <= 2:   # too few subclasses for a tile step: straight to the list, by subclass
+                parts = []
+                for key, bs in sorted(t['subs'].items(), key=lambda kv: nat(lc.SUBCLASSES[kv[0]]['name'])):
+                    parts.append((f'<h2 class="eyebrow lcsub">{esc(lc.SUBCLASSES[key]["name"])}</h2>' if len(t['subs']) > 1 else '') + self.recs(bysort(bs), sortable=True))
+                self.page(f"class/{t['slug']}/index.html", f"{t['name']} · Foggy Press", head + (self.book_sortbar() if n > 1 else '') + ''.join(parts), '')
+                continue
+            tiles = [self.tile(lc.SUBCLASSES[k]['name'], f"/class/{t['slug']}/{k.lower()}/", len(bs), dl(bs)) for k, bs in t['subs'].items()]
+            allx = f'<p class="allbooks"><a class="allc" href="/class/{t["slug"]}/all/">{tn("All {n} books in one list →", n)}</a></p>'
+            self.page(f"class/{t['slug']}/index.html", f"{t['name']} · Foggy Press", head + self.tile_grid(tiles, 'subclasses') + allx, '')
+            self.page(f"class/{t['slug']}/all/index.html", f"{t['name']}: all books · Foggy Press",
+                      f'''<div class="ph">{crumb} / <a href="/class/{t['slug']}/">{esc(t['name'])}</a></span><h1>{esc(t['name'])}</h1><p class="sub">{tn('{n} books', n)}</p></div>{self.book_sortbar()}{self.recs(bysort(t['books']), sortable=True)}''', '')
+            for k, bs in t['subs'].items():
+                m = len(bs)
+                self.page(f"class/{t['slug']}/{k.lower()}/index.html", f"{lc.SUBCLASSES[k]['name']} · Foggy Press",
+                          f'''<div class="ph">{crumb} / <a href="/class/{t['slug']}/">{esc(t['name'])}</a></span><h1>{esc(lc.SUBCLASSES[k]['name'])}</h1><p class="sub">{tn('{n} book' if m == 1 else '{n} books', m)}</p></div>{self.book_sortbar() if m > 1 else ''}{self.recs(bysort(bs), sortable=True)}''', '')
+        # every class and its subclasses on one page
+        secs = []
+        for t in sorted(self.lc_tiles.values(), key=lambda t: nat(t['name'])):
+            links = ''.join(f'<a href="{self.sub_url(k)}"><span>{esc(lc.SUBCLASSES[k]["name"])}</span><span class="mono">{len(bs)}</span></a>'
+                            for k, bs in sorted(t['subs'].items(), key=lambda kv: nat(lc.SUBCLASSES[kv[0]]['name'])))
+            secs.append(f'<section class="tagsec"><h2 class="eyebrow"><a href="/class/{t["slug"]}/">{esc(t["name"])}</a> · {len(t["books"])}</h2><div class="taglist">{links}</div></section>')
+        self.page('classes/index.html', 'Library of Congress classes · Foggy Press',
+                  f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>Library of Congress classes</h1><p class="sub"><span data-t>Every book sits in one subclass of the Library of Congress Classification.</span> <a href="/subjects/" data-t>Subjects A to Z →</a></p></div>{''.join(secs)}''', 'classes')
+        # subjects
+        parts, cur = [], None
+        for h, sj in self.subjects.items():
+            letter = h[0].upper()
+            if letter != cur:
+                if cur is not None:
+                    parts.append('</div>')
+                parts.append(f'<div class="letter">{esc(letter)}</div><div class="taglist">')
+                cur = letter
+            parts.append(f'<a href="/subject/{sj["slug"]}/"><span>{esc(h.replace(" -- ", " › "))}</span><span class="mono">{len(sj["books"])}</span></a>')
+            m = len(sj['books'])
+            self.page(f'subject/{sj["slug"]}/index.html', f'{h} · Foggy Press',
+                      f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <a href="/subjects/" data-t>Subjects</a></span><h1>{esc(h.replace(" -- ", " › "))}</h1><p class="sub">{tn('{n} books', m)} · <span data-t>Library of Congress subject</span></p></div>{self.book_sortbar()}{self.recs(bysort(sj['books']), sortable=True)}''', '')
+        if cur is not None:
+            parts.append('</div>')
+        self.page('subjects/index.html', 'Subjects · Foggy Press',
+                  f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <a href="/classes/" data-t>Library of Congress classes</a></span><h1 data-t>Subjects</h1><p class="sub">{tn('Library of Congress subject headings shared by at least {m} books: {n} subjects.', len(self.subjects), m=lc.SUBJECT_MIN)}</p></div>{''.join(parts)}''', 'classes')
 
     def tag_dl(self, name):
         return sum(b['_downloads'] for b in self.by_tag[name])
@@ -330,6 +461,7 @@ class Site:
         if self.gc_code:
             gc = f'<script data-goatcounter="https://{esc(self.gc_code)}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
         nav = [('authors', 'By author', len(self.live)), ('titles', 'By title', len(self.live)),
+               ('classes', 'By subject', len(getattr(self, 'lc_tiles', {}))),
                ('tags', 'By tag', sum(1 for t in self.tags if self.by_tag[t['name']]))]
         navhtml = ''.join(f'<a href="/{h}/"{" aria-current=page" if current == h else ""}><span data-t>{l}</span><span class="mono">{n}</span></a>' for h, l, n in nav)
         doc = f'''<!doctype html>
@@ -480,6 +612,8 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
         art = m.group(0)
         if b.get('_desc'):
             art = art.replace('</header>', f'<p class="desc">{esc(b["_desc"])}</p></header>', 1)
+        if self.lc_line(b):
+            art = art.replace('</header>', self.lc_line(b) + '</header>', 1)
         dest = Path(root or self.out) / 'read' / b['id']
         dest.mkdir(parents=True, exist_ok=True)
 
@@ -574,9 +708,13 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
             more = tn('More: all {n} titles →', n) if n > 3 else '<span data-t>Open collection →</span>'
             fhtml.append(f'''<a class="ft" href="/tag/{t['slug']}/"><div class="top"><span class="mono i">{i+1:02d}</span><span class="mono c">{tn('{n} title' if n == 1 else '{n} titles', n)}</span></div>
 <h3>{esc(t['name'])}</h3><ul>{''.join(f'<li>{esc(b["title"])}</li>' for b in bs[:3])}</ul><span class="fmore">{more}</span></a>''')
+        # the main collections: the Library of Congress classes (prepare_lc), then any tag set to level 2 in the tag file
         alltags = sorted([t for t in self.tags if t['_level'] == 2 and self.by_tag[t['name']]], key=lambda t: nat(t['name']))
         nall = len([t for t in self.tags if self.by_tag[t['name']]])
-        tiles = ''.join(f'''<a class="ct" href="/tag/{t['slug']}/" data-name="{esc(t['name'].lower())}" data-dl="{self.tag_dl(t['name'])}"><span class="nm">{esc(t['name'])}</span><span class="row mono">{tn('{n} title' if len(self.by_tag[t['name']]) == 1 else '{n} titles', len(self.by_tag[t['name']]))}</span></a>''' for t in alltags)
+        tl = [self.tile(t['name'], f"/class/{t['slug']}/", len(t['books']), sum(b['_downloads'] for b in t['books'])) for t in self.lc_tiles.values()]
+        tl += [self.tile(t['name'], f"/tag/{t['slug']}/", len(self.by_tag[t['name']]), self.tag_dl(t['name'])) for t in alltags]
+        tiles = ''.join(tl)
+        alltags = tl
         featsec = f'''<section class="sec"><div class="sec-h"><h2 data-t>Featured collections</h2><span class="eyebrow">{tn('{n} books · free PDFs', len(self.live))}</span></div><div class="feat">{''.join(fhtml)}</div></section>''' if feat else ''
         # Ask Foggy Press at the top (assets/ask.js draws it); a signed-in reader's history is in the left rail
         ask = ('<section class="sec homeask" id="ask" data-home><div class="sec-h"><h2 data-t>Ask Foggy Press</h2></div>'
@@ -585,7 +723,7 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
 <section class="sec"><div class="sec-h"><h2 data-t>Collections</h2>
 <div class="sortbar"><span class="eyebrow" data-t>Sort by</span><div class="seg" role="group" aria-label="Sort collections" data-t-attr="aria-label"><button type="button" data-sort="tag" aria-pressed="true" data-t>Tag</button><button type="button" data-sort="popular" aria-pressed="false" data-t>Popular</button></div></div></div>
 <div class="grid" id="colls" data-page="{COLLECTIONS_PER_PAGE}">{tiles}</div>
-<div class="morebar"><span class="mono" id="shown">{len(alltags)} collections</span><button class="btn ghost sm" id="more" type="button" hidden data-t>More collections</button><a class="allc" href="/tags/">{tn('All {n} collections →', nall)}</a></div>
+<div class="morebar"><span class="mono" id="shown">{len(alltags)} collections</span><button class="btn ghost sm" id="more" type="button" hidden data-t>More collections</button><a class="allc" href="/classes/" data-t>All subclasses and subjects →</a><a class="allc" href="/tags/">{tn('All {n} collections →', nall)}</a></div>
 </section>'''
         self.page('index.html', 'Foggy Press · Printable Books', body, 'home')
 
@@ -622,7 +760,7 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
         for lv in sorted({t['_level'] for t in ts}):
             links = ''.join(f'<a href="/tag/{t["slug"]}/"><span>{esc(t["name"])}</span><span class="mono">{len(self.by_tag[t["name"]])}</span></a>' for t in ts if t['_level'] == lv)
             groups.append(f'<section class="tagsec"><h2 class="eyebrow">{tn('Level {n} collections', lv, level_name(lv)) if lv > 3 else f'<span data-t>{esc(level_name(lv))}</span>'}</h2><div class="taglist">{links}</div></section>')
-        self.page('tags/index.html', 'By tag · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By tag</h1><p class="sub">{tn('Every tag is a collection. {n} tags.', len(ts))}</p></div>{''.join(groups)}''', 'tags')
+        self.page('tags/index.html', 'By tag · Foggy Press', f'''<div class="ph"><span class="crumb"><a href="/" data-t>Home</a> / <span data-t>List</span></span><h1 data-t>By tag</h1><p class="sub">{tn('Every tag is a collection. {n} tags.', len(ts))} <a href="/classes/" data-t>Library of Congress classes →</a> <a href="/subjects/" data-t>Subjects A to Z →</a></p></div>{''.join(groups)}''', 'tags')
         for t in ts:
             bs = sorted(self.by_tag[t['name']], key=lambda b: (nat(b['author_last']), title_key(b['title'])))
             n = len(bs)
@@ -856,7 +994,7 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
         self.out.mkdir(parents=True)
         self.prepare()
         self.copy_assets()
-        self.home(); self.lists(); self.about(); self.account_pages(); self.ask_page(); self.real_books_page(); self.not_found(); self.search(); self.translations()
+        self.home(); self.lists(); self.lc_pages(); self.about(); self.account_pages(); self.ask_page(); self.real_books_page(); self.not_found(); self.search(); self.translations()
         britannica.build(self)
         self.admin_data()
         print(f'Built {len(self.live)} live books of {len(self.books)} records, {len(self.tags)} tags.')

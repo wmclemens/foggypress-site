@@ -1,87 +1,87 @@
 [
   {
     "name": "Adventure",
-    "featured": false
+    "level": 3
   },
   {
     "name": "American",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Ancient World",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Black Voices",
-    "featured": false
+    "level": 3
   },
   {
     "name": "British",
-    "featured": false
+    "level": 3
   },
   {
     "name": "California",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Canadian",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Children's",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Chinese",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Classics",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Comedy & Satire",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Coming of Age",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Drama",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Economics",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Epic",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Essays",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Fantasy & Fairy Tales",
-    "featured": false
+    "level": 3
   },
   {
     "name": "French",
-    "featured": false
+    "level": 3
   },
   {
     "name": "German",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Gothic & Horror",
-    "featured": false
+    "level": 3
   },
   {
     "name": "H.H. Bancroft",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Harvard Humanities 10",
@@ -89,47 +89,47 @@
   },
   {
     "name": "History",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Irish",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Italian",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Love & Marriage",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Medieval",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Memoir",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Music",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Mystery & Detection",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Novels",
-    "level": 2
+    "level": 3
   },
   {
     "name": "Philosophy",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Poetry",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Politics & Society",
@@ -137,19 +137,19 @@
   },
   {
     "name": "Religion",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Russian",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Science",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Science Fiction",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Sea & Ships",
@@ -157,30 +157,30 @@
   },
   {
     "name": "Short Reads",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Spanish",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Stories",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Translated",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Travel",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Victorian",
-    "featured": false
+    "level": 3
   },
   {
     "name": "Women Writers",
-    "featured": false
+    "level": 3
   }
 ]
