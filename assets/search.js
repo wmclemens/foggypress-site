@@ -327,13 +327,59 @@
       });
     }
 
+    // A book's read page, as text. The read pages live on files.foggypress.com (R2), another origin, so a plain
+    // fetch needs R2's CORS rule, which has not taken (the build's PUT of it is refused). When that fetch fails,
+    // ask relay.html on files.foggypress.com, in a hidden frame, to fetch the page there (same origin, no CORS
+    // needed) and hand it back by postMessage. Once the direct fetch has failed, later books go to the relay.
+    var corsOff = false, relay = null;
+    function pageText(url) {
+      var origin = new URL(url, location.href).origin;
+      var direct = function () { return fetch(url).then(function (x) { if (!x.ok) throw new Error(x.status); return x.text(); }); };
+      if (origin === location.origin) return direct();
+      if (corsOff) return relayText(origin, url);
+      return direct().catch(function () { corsOff = true; return relayText(origin, url); });
+    }
+    function relayText(origin, url) {
+      if (!relay) {
+        relay = new Promise(function (ready, fail) {
+          var f = document.createElement('iframe'), waiting = {}, n = 0;
+          var t = setTimeout(function () { fail(new Error('relay did not load')); }, 20000);
+          window.addEventListener('message', function (e) {
+            if (e.origin !== origin || e.source !== f.contentWindow || !e.data) return;
+            if (e.data.fp === 'ready') {
+              clearTimeout(t);
+              ready(function (u) {
+                return new Promise(function (ok, no) {
+                  var id = ++n;
+                  waiting[id] = [ok, no];
+                  f.contentWindow.postMessage({fp: 'get', id: id, url: u}, origin);
+                });
+              });
+            } else if (e.data.fp === 'got' && waiting[e.data.id]) {
+              var w = waiting[e.data.id];
+              delete waiting[e.data.id];
+              if (typeof e.data.text === 'string') w[0](e.data.text); else w[1](new Error(e.data.error || 'relay failed'));
+            }
+          });
+          f.hidden = true;
+          f.tabIndex = -1;
+          f.setAttribute('aria-hidden', 'true');
+          f.title = 'passages';
+          f.src = origin + '/relay.html';
+          document.body.appendChild(f);
+        });
+        relay.catch(function () { relay = null; });
+      }
+      return relay.then(function (get) { return get(url); });
+    }
+
     // up to three passages: the chapters with the most mentions, in reading order
     function passages(li, b, r, toks, q) {
       if (li.dataset.loaded) return;
       li.dataset.loaded = '1';
       var box = li.querySelector('.snips');
       var url = readUrl(b);
-      if (!pageCache[b.id]) pageCache[b.id] = fetch(url).then(function (x) { return x.text(); }).then(function (h) { return new DOMParser().parseFromString(h, 'text/html'); });
+      if (!pageCache[b.id]) pageCache[b.id] = pageText(url).then(function (h) { return new DOMParser().parseFromString(h, 'text/html'); });
       pageCache[b.id].then(function (doc) {
         var chs = Object.keys(r.chapters).map(Number).sort(function (x, y) { return r.chapters[y] - r.chapters[x] || x - y; }).slice(0, 3).sort(function (x, y) { return x - y; });
         var alt = toks.length === 1 ? '(?:' + variants(toks[0]).map(rxEsc).join('|') + ')' : toks.map(rxEsc).join('[^a-z0-9]+');
@@ -357,6 +403,7 @@
         }).join('') || '<span class="snip-wait mono">' + T('Open the book to see where it appears.') + '</span>';
       }).catch(function () {
         delete li.dataset.loaded;
+        delete pageCache[b.id];   // so closing and opening again really tries again
         box.innerHTML = '<span class="snip-wait mono">' + T('Couldn’t load the passages. Close and open again to retry.') + '</span>';
       });
     }
