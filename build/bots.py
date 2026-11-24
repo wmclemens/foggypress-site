@@ -39,11 +39,13 @@ BLOCKED = {
     # index (webindexer, first seen here 23 Nov 2026). facebookexternalhit (the preview card when someone shares a
     # page on Facebook or WhatsApp) stays allowed.
     'Meta AI': ['meta-externalagent', 'meta-externalfetcher', 'meta-webindexer'],  # https://developers.facebook.com/docs/sharing/webmasters/web-crawlers (21 and 23 Nov 2026, Will)
+    # OpenAI's training crawler only; OAI-SearchBot (ChatGPT search results) and ChatGPT-User stay allowed
+    'OpenAI training': ['GPTBot'],                           # https://platform.openai.com/docs/bots (24 Nov 2026, Will)
 }
 
 # What the Cloudflare rule looks for in the browser name, besides the names above: any version or variant
 # of a company's crawler (e.g. a future "ElevenLabs-Fetcher").
-BLOCKED_MATCH = ['elevenlabs', 'meta-external', 'meta-webindexer']
+BLOCKED_MATCH = ['elevenlabs', 'meta-external', 'meta-webindexer', 'gptbot']
 
 
 def blocked_names():
