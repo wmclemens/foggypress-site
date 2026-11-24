@@ -240,6 +240,8 @@ class Site:
         self.accounts = bool(self.sb_url and self.sb_key)
         # Ask Foggy Press (assets/ask.js, supabase/functions/ask): needs accounts, and ASK_ON once the function is deployed
         self.ask = self.accounts and os.environ.get('ASK_ON', '').strip().lower() in ('1', 'true', 'yes', 'on')
+        # My Real Books (assets/realbooks.js, supabase/functions/scan): needs accounts, and REAL_BOOKS_ON once schema.sql is run
+        self.real_books = self.accounts and os.environ.get('REAL_BOOKS_ON', '').strip().lower() in ('1', 'true', 'yes', 'on')
 
     def account_head(self):
         if not self.accounts:
@@ -248,6 +250,8 @@ class Site:
         meta = f'<meta name="fp-account" content="{esc(self.sb_url)}|{esc(self.sb_key)}|{esc(ts)}">'
         if self.ask:
             meta += f'<meta name="fp-ask" content="{esc(self.sb_url)}/functions/v1/ask">'
+        if self.real_books:
+            meta += f'<meta name="fp-scan" content="{esc(self.sb_url)}/functions/v1/scan">'
         return meta
 
     def reference_nav(self, current):
@@ -353,7 +357,7 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
     {self.ask_rail(current)}
     {'<div class="railhist" id="railhist" hidden></div>' if self.accounts else ''}
     <div><div class="eyebrow" style="margin-bottom:.6rem" data-t>List books</div><nav aria-label="Lists">{navhtml}</nav></div>
-    {self.reference_nav(current)}<nav aria-label="About">{f'<a href="/account/"{" aria-current=page" if current == "account" else ""}><span data-t>My books</span><span class="mono">→</span></a><a href="/request/"{" aria-current=page" if current == "request" else ""}><span data-t>Request a book</span><span class="mono">→</span></a>' if self.accounts else ''}<a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a></nav>
+    {self.reference_nav(current)}<nav aria-label="About">{f'<a href="/account/"{" aria-current=page" if current == "account" else ""}><span data-t>My books</span><span class="mono">→</span></a><a href="/request/"{" aria-current=page" if current == "request" else ""}><span data-t>Request a book</span><span class="mono">→</span></a>' if self.accounts else ''}<a href="/about/"{" aria-current=page" if current == 'about' else ""}><span data-t>About Foggy Press</span><span class="mono">→</span></a>{self.real_books_nav(current)}</nav>
     <div class="rail-end"><button class="theme" id="theme" type="button">Dark mode</button>{LANG_PICK}</div>
   </aside>
   <main>{body}</main>
@@ -364,6 +368,7 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
 {'<script src="/assets/search.js" defer></script>' if current == 'search' else ''}
 {self.account_script()}
 {'<script src="/assets/request.js" defer></script>' if current == 'request' else ''}
+{'<script src="/assets/realbooks.js" defer></script>' if current == 'realbooks' else ''}
 {gc}
 </body>
 </html>
@@ -679,6 +684,20 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
         self.page('privacy/index.html', 'Privacy · Foggy Press', f'<div class="ph"><span class="crumb"><a href="/" data-t>Home</a></span><h1 data-t>Privacy</h1></div><div class="prose" data-t-html="privacy">{body}</div>', 'privacy',
                   'What Foggy Press keeps about readers, and how to download or delete it.')
 
+    def real_books_nav(self, current):
+        """'My Real Books' at the bottom of the left rail (Will, 23 Nov 2026)"""
+        if not self.real_books:
+            return ''
+        return f'<a href="/real-books/"{" aria-current=page" if current == "realbooks" else ""}><span data-t>My Real Books</span><span class="mono">→</span></a>'
+
+    def real_books_page(self):
+        """/real-books/: a reader's list of the paper books they own, made by photographing title pages (assets/realbooks.js)"""
+        if not self.real_books:
+            return
+        self.page('real-books/index.html', 'My Real Books · Foggy Press', '<div id="realbooks"><div class="ph"><h1 data-t>My Real Books</h1>'
+                  '<noscript><p class="sub" data-t>Accounts need JavaScript.</p></noscript></div></div>', 'realbooks',
+                  'Catalogue the books you own by photographing their title pages.')
+
     def ask_page(self):
         """/ask/: Ask Foggy Press, drawn by assets/ask.js"""
         if not self.ask:
@@ -837,7 +856,7 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
         self.out.mkdir(parents=True)
         self.prepare()
         self.copy_assets()
-        self.home(); self.lists(); self.about(); self.account_pages(); self.ask_page(); self.not_found(); self.search(); self.translations()
+        self.home(); self.lists(); self.about(); self.account_pages(); self.ask_page(); self.real_books_page(); self.not_found(); self.search(); self.translations()
         britannica.build(self)
         self.admin_data()
         print(f'Built {len(self.live)} live books of {len(self.books)} records, {len(self.tags)} tags.')

@@ -1,6 +1,7 @@
 name: Deploy Ask Foggy Press
 
-# Puts supabase/functions/ask on the Supabase project and gives it the Claude API key.
+# Puts supabase/functions/ask and supabase/functions/scan (My Real Books' scanner) on the Supabase project and gives
+# them the Claude API key.
 # Needs two repository secrets: SUPABASE_ACCESS_TOKEN (supabase.com, Account, Access Tokens) and ANTHROPIC_API_KEY,
 # and the SUPABASE_URL repository variable. Optional: TURNSTILE_SECRET_KEY (asking without an account). Without them it does nothing. See supabase/README.md.
 on:
@@ -40,6 +41,8 @@ jobs:
           fi
           # --no-verify-jwt: guests have no sign-in token; the function itself checks who is asking
           supabase functions deploy ask --yes --no-verify-jwt --project-ref "$ref"
+          # My Real Books' scanner: signed-in readers only; the function checks the token itself
+          supabase functions deploy scan --yes --no-verify-jwt --project-ref "$ref"
       - name: Skipped
         if: env.SUPABASE_ACCESS_TOKEN == '' || env.SUPABASE_URL == ''
         run: |
