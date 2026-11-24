@@ -1,0 +1,624 @@
+{
+  "_about": "Library of Congress Classification: main classes (home page tiles) and subclasses (one per book). From the LC Classification Outline, loc.gov/catdir/cpso/lcco. E and F share the name History of the Americas and one tile. Gutenberg gives E and F as numbers; build/lc.py maps them to the E-/F- keys below. Names here may be shortened or renamed; the codes are LC's.",
+  "classes": {
+    "A": "General Works",
+    "B": "Philosophy, Psychology, Religion",
+    "C": "Auxiliary Sciences of History",
+    "D": "World History",
+    "E": "History of the Americas",
+    "F": "History of the Americas",
+    "G": "Geography, Anthropology, Recreation",
+    "H": "Social Sciences",
+    "J": "Political Science",
+    "K": "Law",
+    "L": "Education",
+    "M": "Music",
+    "N": "Fine Arts",
+    "P": "Language and Literature",
+    "Q": "Science",
+    "R": "Medicine",
+    "S": "Agriculture",
+    "T": "Technology",
+    "U": "Military Science",
+    "V": "Naval Science",
+    "Z": "Bibliography and Library Science"
+  },
+  "subclasses": {
+    "AC": {
+      "name": "Collections, Series, Collected Works",
+      "class": "A"
+    },
+    "AG": {
+      "name": "Dictionaries and General Reference Works",
+      "class": "A"
+    },
+    "AZ": {
+      "name": "History of Scholarship and Learning",
+      "class": "A"
+    },
+    "B": {
+      "name": "Philosophy (General)",
+      "class": "B"
+    },
+    "BC": {
+      "name": "Logic",
+      "class": "B"
+    },
+    "BD": {
+      "name": "Speculative Philosophy",
+      "class": "B"
+    },
+    "BF": {
+      "name": "Psychology",
+      "class": "B"
+    },
+    "BH": {
+      "name": "Aesthetics",
+      "class": "B"
+    },
+    "BJ": {
+      "name": "Ethics",
+      "class": "B"
+    },
+    "BL": {
+      "name": "Religions, Mythology, Rationalism",
+      "class": "B"
+    },
+    "BP": {
+      "name": "Islam, Bahaism, Theosophy",
+      "class": "B"
+    },
+    "BQ": {
+      "name": "Buddhism",
+      "class": "B"
+    },
+    "BR": {
+      "name": "Christianity",
+      "class": "B"
+    },
+    "BS": {
+      "name": "The Bible",
+      "class": "B"
+    },
+    "BT": {
+      "name": "Doctrinal Theology",
+      "class": "B"
+    },
+    "BV": {
+      "name": "Practical Theology",
+      "class": "B"
+    },
+    "BX": {
+      "name": "Christian Denominations",
+      "class": "B"
+    },
+    "CB": {
+      "name": "History of Civilization",
+      "class": "C"
+    },
+    "CR": {
+      "name": "Heraldry",
+      "class": "C"
+    },
+    "CS": {
+      "name": "Genealogy",
+      "class": "C"
+    },
+    "CT": {
+      "name": "Biography",
+      "class": "C"
+    },
+    "D": {
+      "name": "History (General)",
+      "class": "D"
+    },
+    "DA": {
+      "name": "Great Britain",
+      "class": "D"
+    },
+    "DB": {
+      "name": "Austria, Hungary, Czechoslovakia",
+      "class": "D"
+    },
+    "DC": {
+      "name": "France",
+      "class": "D"
+    },
+    "DE": {
+      "name": "Greco-Roman World",
+      "class": "D"
+    },
+    "DF": {
+      "name": "Greece",
+      "class": "D"
+    },
+    "DG": {
+      "name": "Italy",
+      "class": "D"
+    },
+    "DK": {
+      "name": "Russia, Soviet Union, Poland",
+      "class": "D"
+    },
+    "DL": {
+      "name": "Northern Europe, Scandinavia",
+      "class": "D"
+    },
+    "DP": {
+      "name": "Spain, Portugal",
+      "class": "D"
+    },
+    "DQ": {
+      "name": "Switzerland",
+      "class": "D"
+    },
+    "DS": {
+      "name": "Asia",
+      "class": "D"
+    },
+    "DT": {
+      "name": "Africa",
+      "class": "D"
+    },
+    "DU": {
+      "name": "Oceania (South Seas)",
+      "class": "D"
+    },
+    "E-AM": {
+      "name": "America (General)",
+      "class": "E"
+    },
+    "E-US": {
+      "name": "United States",
+      "class": "E"
+    },
+    "F-US": {
+      "name": "United States Local History",
+      "class": "F"
+    },
+    "F-CA": {
+      "name": "Canada",
+      "class": "F"
+    },
+    "F-MX": {
+      "name": "Mexico",
+      "class": "F"
+    },
+    "F-LA": {
+      "name": "Latin America and the West Indies",
+      "class": "F"
+    },
+    "G": {
+      "name": "Geography, Voyages and Travels",
+      "class": "G"
+    },
+    "GF": {
+      "name": "Human Ecology",
+      "class": "G"
+    },
+    "GN": {
+      "name": "Anthropology",
+      "class": "G"
+    },
+    "GR": {
+      "name": "Folklore",
+      "class": "G"
+    },
+    "GT": {
+      "name": "Manners and Customs",
+      "class": "G"
+    },
+    "GV": {
+      "name": "Recreation, Leisure",
+      "class": "G"
+    },
+    "H": {
+      "name": "Social Sciences (General)",
+      "class": "H"
+    },
+    "HB": {
+      "name": "Economic Theory, Demography",
+      "class": "H"
+    },
+    "HC": {
+      "name": "Economic History and Conditions",
+      "class": "H"
+    },
+    "HD": {
+      "name": "Industries, Land Use, Labor",
+      "class": "H"
+    },
+    "HE": {
+      "name": "Transportation and Communications",
+      "class": "H"
+    },
+    "HF": {
+      "name": "Commerce",
+      "class": "H"
+    },
+    "HG": {
+      "name": "Finance",
+      "class": "H"
+    },
+    "HM": {
+      "name": "Sociology (General)",
+      "class": "H"
+    },
+    "HN": {
+      "name": "Social History and Conditions, Social Reform",
+      "class": "H"
+    },
+    "HQ": {
+      "name": "The Family, Marriage, Women",
+      "class": "H"
+    },
+    "HS": {
+      "name": "Societies: Secret, Benevolent, etc.",
+      "class": "H"
+    },
+    "HT": {
+      "name": "Communities, Classes, Races",
+      "class": "H"
+    },
+    "HV": {
+      "name": "Social Welfare, Criminology",
+      "class": "H"
+    },
+    "HX": {
+      "name": "Socialism, Communism, Anarchism",
+      "class": "H"
+    },
+    "J": {
+      "name": "General Legislative and Executive Papers",
+      "class": "J"
+    },
+    "JC": {
+      "name": "Political Theory",
+      "class": "J"
+    },
+    "JF": {
+      "name": "Political Institutions (General)",
+      "class": "J"
+    },
+    "JK": {
+      "name": "Political Institutions (United States)",
+      "class": "J"
+    },
+    "JN": {
+      "name": "Political Institutions (Europe)",
+      "class": "J"
+    },
+    "JS": {
+      "name": "Local Government",
+      "class": "J"
+    },
+    "JX": {
+      "name": "International Law and Relations",
+      "class": "J"
+    },
+    "K": {
+      "name": "Law (General)",
+      "class": "K"
+    },
+    "KD": {
+      "name": "Law of the United Kingdom and Ireland",
+      "class": "K"
+    },
+    "KF": {
+      "name": "Law of the United States",
+      "class": "K"
+    },
+    "KJ": {
+      "name": "Law of Europe",
+      "class": "K"
+    },
+    "KL": {
+      "name": "Law of the Ancient World and Asia",
+      "class": "K"
+    },
+    "KZ": {
+      "name": "Law of Nations",
+      "class": "K"
+    },
+    "L": {
+      "name": "Education (General)",
+      "class": "L"
+    },
+    "LA": {
+      "name": "History of Education",
+      "class": "L"
+    },
+    "LB": {
+      "name": "Theory and Practice of Education",
+      "class": "L"
+    },
+    "LC": {
+      "name": "Special Aspects of Education",
+      "class": "L"
+    },
+    "LD": {
+      "name": "Schools and Colleges: United States",
+      "class": "L"
+    },
+    "LF": {
+      "name": "Schools and Colleges: Europe",
+      "class": "L"
+    },
+    "LT": {
+      "name": "Textbooks",
+      "class": "L"
+    },
+    "M": {
+      "name": "Music",
+      "class": "M"
+    },
+    "ML": {
+      "name": "Literature on Music",
+      "class": "M"
+    },
+    "MT": {
+      "name": "Music Instruction and Study",
+      "class": "M"
+    },
+    "N": {
+      "name": "Visual Arts",
+      "class": "N"
+    },
+    "NA": {
+      "name": "Architecture",
+      "class": "N"
+    },
+    "NB": {
+      "name": "Sculpture",
+      "class": "N"
+    },
+    "NC": {
+      "name": "Drawing, Design, Illustration",
+      "class": "N"
+    },
+    "ND": {
+      "name": "Painting",
+      "class": "N"
+    },
+    "NE": {
+      "name": "Print Media",
+      "class": "N"
+    },
+    "NK": {
+      "name": "Decorative Arts",
+      "class": "N"
+    },
+    "P": {
+      "name": "Philology, Linguistics",
+      "class": "P"
+    },
+    "PA": {
+      "name": "Greek and Latin Literature",
+      "class": "P"
+    },
+    "PE": {
+      "name": "English Language",
+      "class": "P"
+    },
+    "PG": {
+      "name": "Slavic Literature (incl. Russian)",
+      "class": "P"
+    },
+    "PJ": {
+      "name": "Middle Eastern Languages and Literatures",
+      "class": "P"
+    },
+    "PK": {
+      "name": "Indo-Iranian Languages and Literatures",
+      "class": "P"
+    },
+    "PL": {
+      "name": "East Asian, African and Oceanian Literatures",
+      "class": "P"
+    },
+    "PN": {
+      "name": "Literature (General)",
+      "class": "P"
+    },
+    "PQ": {
+      "name": "French, Italian, Spanish and Portuguese Literature",
+      "class": "P"
+    },
+    "PR": {
+      "name": "English Literature",
+      "class": "P"
+    },
+    "PS": {
+      "name": "American Literature",
+      "class": "P"
+    },
+    "PT": {
+      "name": "German, Dutch and Scandinavian Literature",
+      "class": "P"
+    },
+    "PZ": {
+      "name": "Fiction and Juvenile Literature",
+      "class": "P"
+    },
+    "Q": {
+      "name": "Science (General)",
+      "class": "Q"
+    },
+    "QA": {
+      "name": "Mathematics",
+      "class": "Q"
+    },
+    "QB": {
+      "name": "Astronomy",
+      "class": "Q"
+    },
+    "QC": {
+      "name": "Physics",
+      "class": "Q"
+    },
+    "QD": {
+      "name": "Chemistry",
+      "class": "Q"
+    },
+    "QE": {
+      "name": "Geology",
+      "class": "Q"
+    },
+    "QH": {
+      "name": "Natural History, Biology",
+      "class": "Q"
+    },
+    "QK": {
+      "name": "Botany",
+      "class": "Q"
+    },
+    "QL": {
+      "name": "Zoology",
+      "class": "Q"
+    },
+    "QM": {
+      "name": "Human Anatomy",
+      "class": "Q"
+    },
+    "QP": {
+      "name": "Physiology",
+      "class": "Q"
+    },
+    "R": {
+      "name": "Medicine (General)",
+      "class": "R"
+    },
+    "RA": {
+      "name": "Public Health",
+      "class": "R"
+    },
+    "RC": {
+      "name": "Internal Medicine",
+      "class": "R"
+    },
+    "RD": {
+      "name": "Surgery",
+      "class": "R"
+    },
+    "RE": {
+      "name": "Ophthalmology",
+      "class": "R"
+    },
+    "RG": {
+      "name": "Gynecology and Obstetrics",
+      "class": "R"
+    },
+    "RJ": {
+      "name": "Pediatrics",
+      "class": "R"
+    },
+    "RM": {
+      "name": "Therapeutics, Pharmacology",
+      "class": "R"
+    },
+    "RS": {
+      "name": "Pharmacy",
+      "class": "R"
+    },
+    "RT": {
+      "name": "Nursing",
+      "class": "R"
+    },
+    "S": {
+      "name": "Agriculture (General)",
+      "class": "S"
+    },
+    "SB": {
+      "name": "Plant Culture, Gardening",
+      "class": "S"
+    },
+    "SF": {
+      "name": "Animal Culture",
+      "class": "S"
+    },
+    "SH": {
+      "name": "Fisheries, Angling",
+      "class": "S"
+    },
+    "SK": {
+      "name": "Hunting",
+      "class": "S"
+    },
+    "T": {
+      "name": "Technology (General)",
+      "class": "T"
+    },
+    "TA": {
+      "name": "Engineering (General), Civil Engineering",
+      "class": "T"
+    },
+    "TH": {
+      "name": "Building Construction",
+      "class": "T"
+    },
+    "TJ": {
+      "name": "Mechanical Engineering",
+      "class": "T"
+    },
+    "TK": {
+      "name": "Electrical Engineering",
+      "class": "T"
+    },
+    "TL": {
+      "name": "Motor Vehicles, Aeronautics",
+      "class": "T"
+    },
+    "TN": {
+      "name": "Mining, Metallurgy",
+      "class": "T"
+    },
+    "TP": {
+      "name": "Chemical Technology",
+      "class": "T"
+    },
+    "TR": {
+      "name": "Photography",
+      "class": "T"
+    },
+    "TS": {
+      "name": "Manufactures",
+      "class": "T"
+    },
+    "TT": {
+      "name": "Handicrafts, Arts and Crafts",
+      "class": "T"
+    },
+    "TX": {
+      "name": "Home Economics, Cooking",
+      "class": "T"
+    },
+    "U": {
+      "name": "Military Science (General)",
+      "class": "U"
+    },
+    "UA": {
+      "name": "Armies",
+      "class": "U"
+    },
+    "UD": {
+      "name": "Infantry",
+      "class": "U"
+    },
+    "UH": {
+      "name": "Other Military Services",
+      "class": "U"
+    },
+    "V": {
+      "name": "Naval Science (General)",
+      "class": "V"
+    },
+    "VM": {
+      "name": "Naval Architecture, Shipbuilding",
+      "class": "V"
+    },
+    "Z": {
+      "name": "Books, Libraries, Bibliography",
+      "class": "Z"
+    }
+  }
+}

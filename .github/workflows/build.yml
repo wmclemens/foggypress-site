@@ -76,6 +76,17 @@ jobs:
 
       - run: pip install pypdf markdown pillow
 
+      # Gutenberg's catalog, so a new Gutenberg book with no Library of Congress class in its record gets one
+      # (build/lc.py). If Gutenberg and its mirror are both down, such a book waits for the next build.
+      - name: Get Gutenberg's catalog for Library of Congress classes
+        continue-on-error: true
+        run: |
+          for u in https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv https://gutenberg.pglaf.org/cache/epub/feeds/pg_catalog.csv; do
+            if curl -fsSL --retry 2 -o "$RUNNER_TEMP/pg_catalog.csv" "$u"; then
+              echo "LC_PG_CATALOG=$RUNNER_TEMP/pg_catalog.csv" >> "$GITHUB_ENV"; break
+            fi
+          done
+
       # PDFs, EPUBs, Kindle files and the read-online pages go to Cloudflare R2 (served at
       # files.foggypress.com) once the three R2 secrets exist; until then this is skipped
       # and the site keeps its own copies.

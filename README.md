@@ -25,6 +25,16 @@ A search box sits at the top of the left nav (under the name on phones). It open
 
 The search runs in the browser with no server. Each build writes `search/books.json` (the books and their chapter lists) and `search/w/*.json` (every word of every web edition, split into small files by its first letters), so a search downloads only the few files its words need. Very common words such as "the" and "and" are not indexed. Every read-online page also has **Find in this book**, which works like find in a document: typing goes to the first match, Enter or ↓ to the next, Shift+Enter or ↑ back, and "All" lists every match by chapter.
 
+## Library of Congress classes and subjects
+
+Every book has one Library of Congress class code (`lcc` in its record: `PS`, `QK`, `F850.5`), its LC subject headings (`lc_subjects`), and, when it was made from Project Gutenberg, its ebook number (`gutenberg`). `catalog/lcc.json` names the 21 main classes and their subclasses; `build/lc.py` does the rest.
+
+- **Home page tiles** are the LC main classes that have books (E and F share one tile, History of the Americas). A class opens to its subclass tiles (straight to the book list when it has one or two subclasses), and a subclass opens to its books. `/classes/` lists every class and subclass.
+- **Subjects:** every heading, and each level of it ("Whaling", "Whaling -- Fiction"), shared by 3 or more live books gets a page under `/subject/`, listed A to Z at `/subjects/`. A book's read-online page links its subclass and subjects under its description.
+- **Our own tags** (Harvard Humanities 10, California, Novels...) work as before; they are listed on the By tag page. A tag set to level 2 in admin also gets a home page tile.
+- **New books:** a live book needs an LC class. A Gutenberg book without one gets it from Gutenberg's catalog during the build (the workflow downloads it), and the admin Problems list says so; a book with neither stays off the site until one is added in admin.
+- **Refresh against LC and Gutenberg:** `python build/lc.py refresh --catalog pg_catalog.csv` lists every record whose LC data now differs from Gutenberg's; `--apply` saves the class and subjects of records that have none. Changes to `catalog/lcc.json` (LC renames a subclass) take effect on the next build.
+
 ## Descriptions
 
 Each record shows a one-sentence description, also used at the top of its read-online page. It lives in the book's README in `foggy-press-files`, under `## Description`; edit it there and the site shows the new text after its next build (daily, or **Run workflow**).
