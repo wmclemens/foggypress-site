@@ -850,6 +850,8 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
     def copy_assets(self):
         for d in ('assets', 'admin'):
             shutil.copytree(ROOT / d, self.out / d, dirs_exist_ok=True)
+        # the LC class names, for My Real Books (assets/realbooks.js groups a reader's books by them)
+        shutil.copyfile(ROOT / 'catalog' / 'lcc.json', self.out / 'assets' / 'lcc.json')
         # foggypress.com/check/: lists what a browser can do (made for the Kindle's e-ink browser; short to type)
         (self.out / 'check').mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / 'assets' / 'kindle-check.html', self.out / 'check' / 'index.html')
