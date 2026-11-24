@@ -821,6 +821,30 @@ try{{var mm=window.matchMedia;if(/Kindle/i.test(navigator.userAgent)||(mm&&(mm('
                                                                # the admin Chat tab asks the ask function for its figures
                                                                'ask': f'{self.sb_url}/functions/v1/ask' if self.ask else '', 'ask_key': self.sb_key if self.ask else ''}, ensure_ascii=False))
 
+    def stage_relay(self, root):
+        """relay.html on files.foggypress.com: search on foggypress.com shows passages from the read pages, which
+        are here, on another origin. R2's CORS rule has not taken, so assets/search.js loads this page in a hidden
+        frame and asks it, by postMessage, to fetch a read page (same origin here, so no CORS) and send back its
+        text. It answers only the site's own origins, and only for pages under /read/."""
+        dom = os.environ.get('SITE_DOMAIN', '').strip() or 'foggypress.com'
+        dom = dom[4:] if dom.startswith('www.') else dom
+        origins = json.dumps([f'https://{dom}', f'https://www.{dom}'])
+        (Path(root) / 'relay.html').write_text(
+            '<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>Foggy Press</title>\n<script>\n'
+            f'var SITE = {origins};\n'
+            "addEventListener('message', function (e) {\n"
+            "  var d = e.data;\n"
+            "  if (SITE.indexOf(e.origin) < 0 || !d || d.fp !== 'get') return;\n"
+            "  function reply(m) { m.fp = 'got'; m.id = d.id; e.source.postMessage(m, e.origin); }\n"
+            "  var u;\n"
+            "  try { u = new URL(String(d.url), location.href); } catch (x) { return reply({error: 'bad address'}); }\n"
+            "  if (u.origin !== location.origin || u.pathname.indexOf('/read/') !== 0) return reply({error: 'not a read page'});\n"
+            "  fetch(u.href).then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })\n"
+            "    .then(function (t) { reply({text: t}); }, function (x) { reply({error: String(x)}); });\n"
+            "});\n"
+            "SITE.forEach(function (o) { try { parent.postMessage({fp: 'ready'}, o); } catch (x) {} });\n"
+            '</script>\n', encoding='utf-8')
+
     def stage_pdfs(self, dest):
         dest = Path(dest)
         dest.mkdir(parents=True, exist_ok=True)
@@ -887,6 +911,7 @@ if __name__ == '__main__':
             # which Cloudflare refuses to bots anyway (build/cloudflare_rules.py)
             (Path(a.stage_pdfs) / 'robots.txt').write_text(bots.robots_txt('User-agent: *\nDisallow: /*.pdf$\nDisallow: /epub/\nDisallow: /kindle/\nDisallow: /britannica/epub/\nAllow: /\n'))
             site.stage_read(a.stage_pdfs)
+            site.stage_relay(a.stage_pdfs)
             britannica.stage(site, a.stage_pdfs)
         print(f'Staged {len(site.live)} PDFs and {ne} EPUBs in {a.stage_pdfs}.')
         for p in site.problems:
