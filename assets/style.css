@@ -599,6 +599,8 @@ blockquote.qt{margin:0;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--ac
 .rbform .row{display:flex}
 .rbform .row input{flex:1;margin-right:.5rem}
 .rbform .subj{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.88rem}
+.rbform .subj .linkish{text-align:left}
+.rbform .lcclass{margin:0;color:var(--muted);font-size:.88rem}
 .rbform .cf-row .btn{margin:0 .5rem .5rem 0}
 @media (max-width:640px){.rbform{grid-template-columns:minmax(0,1fr)}}
 /* the camera, full screen over the page */

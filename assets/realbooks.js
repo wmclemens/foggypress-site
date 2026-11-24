@@ -6,6 +6,8 @@
 //    the reader confirms it later. Photos stay in this page's memory only: never in the camera roll, never stored.
 //  - Each book: notes, tags (starting from its Library of Congress subjects), year read, the reader's own fields,
 //    and a link to the same book on Foggy Press when there is one. CSV export.
+//  - Sort by Subject: the books grouped by Library of Congress class, then subclass (from the LC number, as on the site:
+//    assets/lcc.json is catalog/lcc.json). A subject heading in a book's record finds every book with it.
 // Turned on by <meta name="fp-scan" content="<function url>"> (build.py, REAL_BOOKS_ON) and needs assets/account.js.
 (function () {
   var box = document.getElementById('realbooks'), acc = window.fpAccount;
@@ -18,7 +20,7 @@
   var COLS = 'id,title,subtitle,author_last,author_first,other_authors,contributors,publisher,place,year,edition,volume,isbn,language,subjects,lc_call,dewey,tags,year_read,notes,custom,catalog_id,source,needs_review,created_at,updated_at';
   var LONG = 1600, QUALITY = 0.85, MAX_PAGES = 4;
 
-  var rows = null, fields = [], cat = {}, catIndex = null;
+  var rows = null, fields = [], cat = {}, catIndex = null, LCC = null;
   var view = {sort: 'author', dir: 1, q: '', show: 'all', edit: null, allOpen: false};
   var msg = '';
 
@@ -34,6 +36,22 @@
   function authorKey(r) { return fold(r.author_last) + '|' + fold(r.author_first); }
   function readLabel(v) { return v === 'read' ? T('Read') : v || ''; }
   function slug(s) { return fold(s).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'author'; }
+
+  // ---------- Library of Congress class of a book, from its LC number (same rules as build/lc.py) ----------
+  function lcSub(code) {
+    if (!LCC) return '';
+    var m = /^\s*([A-Z]+)\s*([\d.]*)/.exec(String(code || '').toUpperCase());
+    if (!m) return '';
+    var L = m[1], n = m[2] ? parseFloat(m[2]) : null;
+    if (L === 'E') return n != null && n < 151 ? 'E-AM' : 'E-US';
+    if (L === 'F') return n == null || n < 1000 ? 'F-US' : n < 1200 ? 'F-CA' : n < 1400 ? 'F-MX' : 'F-LA';
+    if (LCC.subclasses[L]) return L;
+    return LCC.subclasses[L[0]] ? L[0] : '';
+  }
+  function lcClass(key) { return key ? LCC.classes[LCC.subclasses[key]['class']] : ''; }
+  function loadLcc() {
+    return fetch(BASE + 'assets/lcc.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { LCC = j; }).catch(function () {});
+  }
 
   // ---------- the same book on Foggy Press: title and author's last name match, ignoring "The", case and accents ----------
   function catalogMatch(r) {
@@ -84,7 +102,11 @@
     title: function (a, b) { return nat(titleKey(a.title), titleKey(b.title)) || nat(a.volume, b.volume); },
     year: function (a, b) { return (a.year || 99999) - (b.year || 99999) || SORTS.author(a, b); },
     read: function (a, b) { return readRank(b) - readRank(a) || SORTS.author(a, b); },
-    added: function (a, b) { return a.created_at < b.created_at ? 1 : a.created_at > b.created_at ? -1 : 0; }
+    added: function (a, b) { return a.created_at < b.created_at ? 1 : a.created_at > b.created_at ? -1 : 0; },
+    subject: function (a, b) {
+      var ka = lcSub(a.lc_call), kb = lcSub(b.lc_call);
+      return (!ka - !kb) || nat(lcClass(ka), lcClass(kb)) || nat(ka ? LCC.subclasses[ka].name : '', kb ? LCC.subclasses[kb].name : '') || SORTS.author(a, b);
+    }
   };
   function readRank(r) { return r.year_read === 'read' ? 1 : r.year_read ? +r.year_read : 0; }
   function matches(r) {
@@ -133,7 +155,7 @@
       '<select id="rb-show" aria-label="' + esc(T('Show')) + '">' + [['all', 'All books'], ['review', 'To check'], ['read', 'Read'], ['unread', 'Not read'], ['fp', 'On Foggy Press']]
         .map(function (o) { return '<option value="' + o[0] + '"' + (view.show === o[0] ? ' selected' : '') + '>' + esc(T(o[1])) + '</option>'; }).join('') + '</select></div>' +
       '<div class="sortbar"><span class="eyebrow">' + esc(T('Sort by')) + '</span><div class="seg" role="group" aria-label="' + esc(T('Sort books')) + '">' +
-      [['author', 'Author'], ['title', 'Title'], ['year', 'Year'], ['read', 'Year read'], ['added', 'Added']].map(function (o) {
+      [['author', 'Author'], ['title', 'Title']].concat(LCC ? [['subject', 'Subject']] : []).concat([['year', 'Year'], ['read', 'Year read'], ['added', 'Added']]).map(function (o) {
         var on = view.sort === o[0];
         return '<button type="button" data-sort="' + o[0] + '" aria-pressed="' + on + '">' + esc(T(o[1])) + (on ? (view.dir > 0 ? ' ↑' : ' ↓') : '') + '</button>';
       }).join('') + '</div></div>';
@@ -166,6 +188,22 @@
       });
       body = '<div class="aubar"><span class="mono">' + esc(groups.length === 1 ? T('1 author') : T('{n} authors', {n: groups.length})) + '</span>' +
         '<button type="button" class="chip" id="rb-all">' + esc(T(view.allOpen ? 'Collapse all' : 'Expand all')) + '</button></div>' + parts.join('');
+    } else if (view.sort === 'subject') {
+      var sg = [], cls = null, out = [];
+      list.forEach(function (r) {
+        var k = lcSub(r.lc_call);
+        if (sg.length && sg[sg.length - 1].k === k) sg[sg.length - 1].rows.push(r); else sg.push({k: k, rows: [r]});
+      });
+      sg.forEach(function (g) {
+        var c = g.k ? lcClass(g.k) : T('No Library of Congress class');
+        if (c !== cls) { out.push('<div class="letter">' + esc(c) + '</div>'); cls = c; }
+        var open = view.allOpen || view.q || view.show !== 'all' || sg.length === 1;
+        out.push('<details class="augrp"' + (open ? ' open' : '') + '><summary><span class="n">' + esc(g.k ? LCC.subclasses[g.k].name : T('Add an LC number to place these')) + '</span>' +
+          '<span class="c mono">' + esc(g.rows.length === 1 ? T('{n} book', {n: 1}) : T('{n} books', {n: g.rows.length})) + '</span></summary>' +
+          '<ul class="rbrows">' + g.rows.map(function (r) { return rowHtml(r, true); }).join('') + '</ul></details>');
+      });
+      body = '<div class="aubar"><span class="mono">' + esc(T('{n} subclasses', {n: sg.filter(function (g) { return g.k; }).length})) + '</span>' +
+        '<button type="button" class="chip" id="rb-all">' + esc(T(view.allOpen ? 'Collapse all' : 'Expand all')) + '</button></div>' + out.join('');
     } else {
       body = '<ul class="rbrows flat">' + list.map(function (r) { return rowHtml(r, true); }).join('') + '</ul>';
     }
@@ -225,7 +263,8 @@
       custom +
       '<div class="fld wide addown"><label for="rf-newfield">' + esc(T('Add your own field')) + '</label><span class="row"><input id="rf-newfield" maxlength="60" placeholder="' + esc(T('e.g. Purchase price, Signed, Where bought')) + '">' +
       '<button type="button" class="btn ghost sm" id="rb-addfield">' + esc(T('Add')) + '</button></span><span class="formnote">' + esc(T('It appears on all your books.')) + '</span></div>' +
-      ((r.subjects || []).length ? '<div class="fld wide"><span class="lbl">' + esc(T('Library of Congress subjects')) + '</span><ul class="subj">' + r.subjects.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul></div>' : '') +
+      ((r.subjects || []).length ? '<div class="fld wide"><span class="lbl">' + esc(T('Library of Congress subjects')) + '</span><ul class="subj">' + r.subjects.map(function (s) { return '<li><button type="button" class="linkish" data-subj="' + esc(s) + '">' + esc(s.replace(/\s*--\s*/g, ' › ')) + '</button></li>'; }).join('') + '</ul></div>' : '') +
+      (lcSub(r.lc_call) ? '<div class="fld wide"><span class="lbl">' + esc(T('Library of Congress class')) + '</span><p class="lcclass">' + esc(lcClass(lcSub(r.lc_call)) + ' › ' + LCC.subclasses[lcSub(r.lc_call)].name) + '</p></div>' : '') +
       (link ? '<div class="fld wide"><span class="lbl">' + esc(T('On Foggy Press')) + '</span><span><a class="act" href="' + esc(link) + '">' + esc(cat[r.catalog_id].t) + '</a> <button type="button" class="linkish" id="rb-unlink">' + esc(T('Not the same book')) + '</button></span></div>' : '') +
       '<div class="cf-row"><button class="btn" type="submit">' + esc(T('Save')) + '</button> <button type="button" class="btn ghost" id="rb-cancel">' + esc(T('Cancel')) + '</button>' +
       (r.id ? ' <button type="button" class="btn ghost danger" id="rb-del">' + esc(T('Delete this book')) + '</button>' : '') + '</div>' +
@@ -477,6 +516,8 @@
     var t = e.target;
     var ed = t.closest('[data-edit]');
     if (ed) { view.edit = ed.dataset.edit; drawEdit(); return; }
+    var sj = t.closest('[data-subj]');
+    if (sj) { view.edit = null; view.q = sj.dataset.subj; view.show = 'all'; drawList(); window.scrollTo(0, 0); return; }
     var so = t.closest('[data-sort]');
     if (so) { var k = so.dataset.sort; view.dir = view.sort === k ? -view.dir : 1; view.sort = k; drawList(); return; }
     var jn = t.closest('[data-join]');
@@ -507,7 +548,7 @@
   }
   acc.ready().then(function () {
     if (!acc.signedIn()) { gate(); return; }
-    return Promise.all([acc.books().then(function (c) { cat = c; catIndex = null; }).catch(function () {}), load()]).then(function () {
+    return Promise.all([acc.books().then(function (c) { cat = c; catIndex = null; }).catch(function () {}), load(), loadLcc()]).then(function () {
       if (/[?&]scan=1/.test(location.search)) camOpen();
       drawList();
     });

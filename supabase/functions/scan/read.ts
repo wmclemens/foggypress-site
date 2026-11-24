@@ -27,7 +27,7 @@ const FIELDS = [...TEXT_FIELDS, 'year', 'subjects', 'tags'];
 const RULES = `You catalogue books from photos of their opening pages, for a reader's list of the books they own. The photos are of one book: usually its title page and the back of the title page (the copyright page), sometimes a half-title or another page. Read them and call record_books once.
 
 Rules
-- Use only what is printed or written on these pages. Never fill a field from what you know about the book. Leave a field empty ("" or null or []) when the pages don't show it.
+- Use only what is printed or written on these pages. Never fill a field from what you know about the book, except the Library of Congress class and subjects (below). Leave a field empty ("" or null or []) when the pages don't show it.
 - If the photos clearly show two or more different books (different titles or authors on two title pages), record each book separately and say which photos (counted from 0) belong to it. Two volumes of one work are separate books. Otherwise record one book with every photo in it.
 - If no photo shows a book's pages (a cover with no title page is fine, a photo of something else is not), set not_a_book to true and record no books.
 - title: the main title, in the book's own capitalization turned into normal title case (not ALL CAPS). subtitle: the rest of the title (e.g. "The Story of San Francisco Harbor", "A Novel", "Ao Tea Roa").
@@ -38,6 +38,7 @@ Rules
 - edition: the edition statement as printed, short ("First edition", "Fourth edition", "Revised and enlarged edition", "A Limited Edition", "With the author's latest additions"). volume: "Vol. I" etc. when the page says so.
 - isbn: as printed, with its hyphens. language: the book's language in English ("English", "French").
 - From the Library of Congress Cataloging-in-Publication block, if there is one: subjects = the numbered subject headings exactly as printed, with "--" for each dash (not "I. Title" or the person entries); lc_call = the call number (e.g. "PS3566.A559"); dewey = the Dewey number (e.g. "813.54").
+- If there is no Cataloging-in-Publication block, or it has no call number or no subject headings, fill what is missing from your own judgement of the book (this is the one exception to using only what is printed): lc_call = the Library of Congress class the book would be shelved under, as its letters and, if you are confident, the class number (e.g. "PS" for an American novel, "PR" for an English one, "QK" for botany, "F868" for a history of California, "E467" for a Civil War biography); subjects = up to 3 Library of Congress subject headings in LC's own form, with "--" between the parts ("California -- History -- To 1846", "Sea stories"). Then put "lc_call" and "subjects" in unsure, so the reader knows they were judged, not read.
 - tags: up to 6 short tags from the subject headings: the main heading of each, without dates or subdivisions ("Investments", "Risk management", "Japan", "Air pilots"). Empty when there are no subject headings.
 - inscription: any handwriting on the pages (an owner's name, a signature, a dedication), transcribed as well as you can ("B. B. Torrey"). Empty if none.
 - unsure: the names of any fields you filled but could not read with confidence (blurry, cut off, unusual type), e.g. ["year", "publisher"].`;
