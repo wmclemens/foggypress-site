@@ -80,9 +80,10 @@ jobs:
       # (build/lc.py). If Gutenberg and its mirror are both down, such a book waits for the next build.
       - name: Get Gutenberg's catalog for Library of Congress classes
         continue-on-error: true
+        timeout-minutes: 6   # Gutenberg can trickle for an hour; never hold the build for it
         run: |
           for u in https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv https://gutenberg.pglaf.org/cache/epub/feeds/pg_catalog.csv; do
-            if curl -fsSL --retry 2 -o "$RUNNER_TEMP/pg_catalog.csv" "$u"; then
+            if curl -fsSL --connect-timeout 20 --max-time 150 -o "$RUNNER_TEMP/pg_catalog.csv" "$u"; then
               echo "LC_PG_CATALOG=$RUNNER_TEMP/pg_catalog.csv" >> "$GITHUB_ENV"; break
             fi
           done
