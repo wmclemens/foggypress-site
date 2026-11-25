@@ -415,11 +415,30 @@
   function drawReports(r) {
     var g = r.goatcounter, c = r.cloudflare, f = {};
     ((g && g.features) || []).forEach(function (x) { f[x[0]] = x[1]; });
-    var tile = function (label, v, sub) { return '<div class="rp-tile"><span class="mono">' + esc(label) + '</span><b>' + (v == null ? '–' : typeof v === 'string' ? esc(v) : num(v)) + '</b>' + (sub ? '<span class="note">' + sub + '</span>' : '') + '</div>'; };
-    var h = tabs('reports') + '<div class="rp-head"><p class="note">' + (g ? 'Last 30 days (' + esc(fmtDay(g.start)) + ' to ' + esc(fmtDay(g.end)) + '). ' : '') + 'Updated with each site build, last ' + esc((r.built || '').replace('T', ' ')) + ' UTC.' + help('Counts come from GoatCounter, which leaves out known bots.') + '</p></div>';
+    var tile = function (label, v, sub, note) { return '<div class="rp-tile"><span class="mono">' + esc(label) + (note ? help(note, 'What ' + label + ' counts') : '') + '</span><b>' + (v == null ? '–' : typeof v === 'string' ? esc(v) : num(v)) + '</b>' + (sub ? '<span class="note">' + sub + '</span>' : '') + '</div>'; };
+    var N = {
+      "visitors": "Visits to foggypress.com pages in the last 30 days, from GoatCounter, bots left out.</span><span>Not the number of different people: one person counts once for each page they open in a visit (a visit lasts about 8 hours), and again when they come back another day. Think of it as page visits by people.",
+      "read": "Visits to the Read online pages (/read/…) in the last 30 days. Counted the same way as Visitors: once per person per book per visit. Britannica articles are not included.",
+      "pdf": "Clicks on “Print this book” on the site in the last 30 days, once per person per book per visit.</span><span>A PDF opened straight from a link elsewhere (a search engine, a bookmark) is not counted here. Cloudflare’s “Downloads by people” at the bottom counts those too, but it overcounts badly (see its “?”).",
+      "epub": "Clicks on the EPUB download link in the last 30 days, once per person per book per visit. Kindle downloads are counted the same way and listed under Feature use.",
+      "search": "Searches typed into the site’s search box in the last 30 days, each different search once per visit. The small line under it is how many found no book; those searches are listed in “Searches that found nothing”.",
+      "accounts": "Every reader account ever made (signed up with an email link), including yours.",
+      "new7": "Accounts made in the last 7 days.",
+      "active": "Accounts that signed in, or opened a book while signed in, in the last 30 days.",
+      "saved": "How many times readers have saved a book, added up over all accounts. One book saved by 3 readers counts 3.",
+      "lists": "Reading lists readers have made, across all accounts. The line under it is how many books are on those lists in total.",
+      "rqwait": "Requests from /request/ not handled yet: new, or being built now.",
+      "rqpub": "Requests that ended with the book published on the site (all time).",
+      "rqno": "Requests that couldn’t be done (all time): no public-domain source found, or the book isn’t allowed (still in copyright, for example).",
+      "askq": "Questions asked in Ask Foggy Press in the last 30 days, by guests and signed-in readers. Each question counts once, follow-ups included.",
+      "askp": "Different askers in the last 30 days: each signed-in account once, and each guest once per internet address. So a guest on two networks counts twice, and a household sharing one connection counts once.",
+      "askcost": "What Ask’s answers have cost in the Claude API since the 1st of this month (UTC). When it reaches the monthly cap, Ask pauses until next month.",
+      "chats": "Conversations saved in signed-in readers’ chat history (all time). Guest chats are not saved, so they aren’t here."
+      };
+    var h = tabs('reports') + '<div class="rp-head"><p class="note">' + (g ? 'Last 30 days (' + esc(fmtDay(g.start)) + ' to ' + esc(fmtDay(g.end)) + '). ' : '') + 'Updated with each site build, last ' + esc((r.built || '').replace('T', ' ')) + ' UTC.' + help('The top numbers, the chart and the lists below come from GoatCounter, a privacy-friendly counter on every page of the site. It leaves out known bots and never records who anyone is.</span><span>The Cloudflare box at the bottom counts something different (every file request over 7 days), so its numbers are much bigger and don’t match these.') + '</p></div>';
     if (r.missing && r.missing.length) h += '<div class="banner"><b>Not included this time</b><ul>' + r.missing.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul></div>';
     if (g) {
-      h += '<div class="rp-tiles">' + tile('Visitors', g.visitors) + tile('Read-online views', f['Read-online page views']) + tile('PDF downloads', f['PDF downloads']) + tile('EPUB downloads', f['EPUB downloads']) + tile('Searches', f['Searches'] || 0, f['Searches that found nothing'] ? num(f['Searches that found nothing']) + ' found nothing' : '') + '</div>';
+      h += '<div class="rp-tiles">' + tile('Visitors', g.visitors, '', N.visitors) + tile('Read-online views', f['Read-online page views'], '', N.read) + tile('PDF downloads', f['PDF downloads'], '', N.pdf) + tile('EPUB downloads', f['EPUB downloads'], '', N.epub) + tile('Searches', f['Searches'] || 0, f['Searches that found nothing'] ? num(f['Searches that found nothing']) + ' found nothing' : '', N.search) + '</div>';
       h += daily(g.daily);
       h += '<div class="rp-grid">' +
         ranked('Where visitors come from', g.toprefs, {note: '“(none)” is people who typed the address or used a bookmark.', label: function (s) { return s === '' ? '(none)' : s; }}) +
@@ -432,29 +451,39 @@
     var a = r.accounts;
     if (a) {
       var titleOf = function (id) { var b = data.books.find(function (x) { return x.id === id; }); return b ? b.title : id; };
-      h += '<h2 class="rp-sec">Reader accounts</h2><div class="rp-tiles">' + tile('Accounts', a.accounts) + tile('New in 7 days', a.new_7d) + tile('Active in 30 days', a.active_30d) + tile('Saved books', a.favorites) + tile('Reading lists', a.lists, num(a.list_items) + ' books on lists') + '</div>' +
+      h += '<h2 class="rp-sec">Reader accounts</h2><div class="rp-tiles">' + tile('Accounts', a.accounts, '', N.accounts) + tile('New in 7 days', a.new_7d, '', N.new7) + tile('Active in 30 days', a.active_30d, '', N.active) + tile('Saved books', a.favorites, '', N.saved) + tile('Reading lists', a.lists, num(a.list_items) + ' books on lists', N.lists) + '</div>' +
         '<div class="rp-grid">' + ranked('Most-saved books', (a.top_saved || []).map(function (x) { return [titleOf(x[0]), x[1]]; }), {max: 20, note: 'Totals only: who saved what is never shown here.'}) + '</div>';
       if (a.requests_waiting != null) {
-        h += '<h2 class="rp-sec">Book requests' + help('Readers ask on /request/. Each night the books repository picks up new requests, builds the ones it can from approved sources, and emails the reader. The list itself is in foggy-press-files, requests/queue.json.') + '</h2><div class="rp-tiles">' + tile('Waiting or being built', a.requests_waiting) + tile('Published', a.requests_published) + tile('Not possible', a.requests_declined) + '</div>';
+        h += '<h2 class="rp-sec">Book requests' + help('Readers ask on /request/. Each night the books repository picks up new requests, builds the ones it can from approved sources, and emails the reader. The list itself is in foggy-press-files, requests/queue.json.') + '</h2><div class="rp-tiles">' + tile('Waiting or being built', a.requests_waiting, '', N.rqwait) + tile('Published', a.requests_published, '', N.rqpub) + tile('Not possible', a.requests_declined, '', N.rqno) + '</div>';
       }
       if (a.ask_cap != null) {
         var cost = Number(a.ask_cost_month || 0), cap = Number(a.ask_cap || 0);
-        h += '<h2 class="rp-sec">Ask Foggy Press' + help('Change the daily limit or the monthly cap in Supabase: Table Editor → ask_config. Questions and answers are never shown here.') + '</h2><div class="rp-tiles">' + tile('Questions in 30 days', a.ask_30d) + tile('People asking, 30 days', a.ask_askers_30d) +
-          tile('Spent this month', '$' + cost.toFixed(2), 'of the $' + cap.toFixed(2) + ' monthly cap' + (cap && cost >= cap ? ': Ask is paused' : '')) + tile('Saved chats', a.chats) + '</div>';
+        h += '<h2 class="rp-sec">Ask Foggy Press' + help('Change the daily limit or the monthly cap in Supabase: Table Editor → ask_config. Questions and answers are never shown here.') + '</h2><div class="rp-tiles">' + tile('Questions in 30 days', a.ask_30d, '', N.askq) + tile('People asking, 30 days', a.ask_askers_30d, '', N.askp) +
+          tile('Spent this month', '$' + cost.toFixed(2), 'of the $' + cap.toFixed(2) + ' monthly cap' + (cap && cost >= cap ? ': Ask is paused' : ''), N.askcost) + tile('Saved chats', a.chats, '', N.chats) + '</div>';
       }
     }
     h += '<div class="rp-grid">';
     if (c) {
-      var tot = (c.people + c.bots) || 1;
-      h += '<section class="rp-card"><h2>files.foggypress.com requests: people and bots' + help('Bots are requests whose browser name says crawler, bot, script and the like.</span><span>Most bot requests are for read-online pages and Britannica articles, which any bot may read. PDF, EPUB and Kindle downloads refuse bots, and blocklisted bots (ElevenLabs, Meta AI) are refused everything (Cloudflare rules from build/cloudflare_rules.py). People excludes scanners asking for files that never existed.') + '</h2><p class="note">' + esc(c.host) + ', last 7 days, from Cloudflare.</p>' +
+      var tot = (c.people + c.bots) || 1, C = {
+        "People": "Requests to files.foggypress.com in the last 7 days whose browser name looks like a real browser. Not people: every file counts, so one reader opening a read-online book can make dozens of requests (the page, each picture), and a PDF viewer often fetches one PDF in many pieces. Bots that pretend to be a browser land here too. Use it for trends, not as a head count; Visitors at the top is closer to people.",
+        "Bots": "Requests in the last 7 days from anything that names itself a bot or crawler (or gives no browser name). Most are search engines and AI crawlers reading the read-online pages and Britannica articles.",
+        "refused": "Bot requests Cloudflare turned away (error 403): any bot asking for a PDF, EPUB or Kindle file, and, since 25 Nov, every request from a bot that isn’t on the allowlist (search engines, link previews and AI search assistants are let in) or is on the blocklist.",
+        "listed": "The part of the refused requests that came from bots on the site’s blocklist (build/bots.py), which are refused everything.",
+        "probes": "Requests for files that never existed (.env, .git/config, wp-admin…). These are hacking scanners looking for weak spots, not readers, so they are left out of People.",
+        "dlpeople": "Successful PDF, EPUB and Kindle file requests in the last 7 days from browser-named visitors. Much bigger than “PDF downloads” at the top because a browser’s PDF viewer fetches one file in many pieces, each counted, and links from outside the site count too.",
+        "dlref": "PDF, EPUB and Kindle requests from bots that were refused, as intended.",
+        "dlserved": "Bot requests for a PDF, EPUB or Kindle file that got through anyway. Should be 0 or close to it; a bigger number means a bot rule needs fixing."
+        };
+      var rk = function (label, note) { return '<td class="rk-n rk-h">' + esc(label) + help(note, 'What ' + label + ' counts') + '</td>'; };
+      h += '<section class="rp-card"><h2>files.foggypress.com requests: people and bots' + help('Bots are requests whose browser name says crawler, bot, script and the like.</span><span>Allowed bots (search engines, link previews, AI search assistants) may read the read-online pages and Britannica articles; every other bot, and anything on the blocklist, is refused everything. No bot may download a PDF, EPUB or Kindle file (Cloudflare rules from build/cloudflare_rules.py). Tap the “?” by each row for what it counts. People excludes scanners asking for files that never existed.') + '</h2><p class="note">' + esc(c.host) + ', last 7 days, from Cloudflare.</p>' +
         '<div class="split"><span style="width:' + Math.round(c.people / tot * 100) + '%"></span></div>' +
-        '<table class="rk"><tbody><tr><td class="rk-n">People</td><td class="num">' + num(c.people) + ' (' + Math.round(c.people / tot * 100) + '%)</td></tr><tr><td class="rk-n">Bots</td><td class="num">' + num(c.bots) + ' (' + Math.round(c.bots / tot * 100) + '%)</td></tr>' +
-        (c.blocked != null ? '<tr><td class="rk-n">Bot requests refused</td><td class="num">' + num(c.blocked) + '</td></tr>' : '') +
-        (c.blocked_listed != null ? '<tr><td class="rk-n">… of them from blocklisted bots</td><td class="num">' + num(c.blocked_listed) + '</td></tr>' : '') +
-        (c.probes != null ? '<tr><td class="rk-n">Scanners probing for missing files</td><td class="num">' + num(c.probes) + '</td></tr>' : '') +
-        (c.downloads ? '<tr><td class="rk-n">Downloads by people</td><td class="num">' + num(c.downloads.people) + '</td></tr>' +
-          '<tr><td class="rk-n">Bot downloads refused</td><td class="num">' + num(c.downloads.bots_refused) + '</td></tr>' +
-          '<tr><td class="rk-n">Bot downloads let through</td><td class="num">' + num(c.downloads.bots_served) + '</td></tr>' : '') + '</tbody></table></section>' +
+        '<table class="rk"><tbody><tr>' + rk('People', C.People) + '<td class="num">' + num(c.people) + ' (' + Math.round(c.people / tot * 100) + '%)</td></tr><tr>' + rk('Bots', C.Bots) + '<td class="num">' + num(c.bots) + ' (' + Math.round(c.bots / tot * 100) + '%)</td></tr>' +
+        (c.blocked != null ? '<tr>' + rk('Bot requests refused', C.refused) + '<td class="num">' + num(c.blocked) + '</td></tr>' : '') +
+        (c.blocked_listed != null ? '<tr>' + rk('… of them from blocklisted bots', C.listed) + '<td class="num">' + num(c.blocked_listed) + '</td></tr>' : '') +
+        (c.probes != null ? '<tr>' + rk('Scanners probing for missing files', C.probes) + '<td class="num">' + num(c.probes) + '</td></tr>' : '') +
+        (c.downloads ? '<tr>' + rk('Downloads by people', C.dlpeople) + '<td class="num">' + num(c.downloads.people) + '</td></tr>' +
+          '<tr>' + rk('Bot downloads refused', C.dlref) + '<td class="num">' + num(c.downloads.bots_refused) + '</td></tr>' +
+          '<tr>' + rk('Bot downloads let through', C.dlserved) + '<td class="num">' + num(c.downloads.bots_served) + '</td></tr>' : '') + '</tbody></table></section>' +
         ranked('Busiest bots', c.bot_agents) + ranked('People’s countries (downloads)', c.countries);
     } else {
       h += '<section class="rp-card"><h2>PDF and EPUB requests: people and bots' + help('Pages on GitHub keep no visit logs, so bots can only be counted for the PDFs and EPUBs, which Cloudflare serves. To turn this on: in Cloudflare, My Profile → API Tokens → Create token → “Read analytics and logs” template, limited to the foggypress.com zone. Add it to the foggypress-site repository as the secret <span class="mono">CLOUDFLARE_API_TOKEN</span>, and the zone ID (on the foggypress.com Overview page) as <span class="mono">CLOUDFLARE_ZONE_ID</span>.', 'How to connect it') + '</h2><p class="note">Not connected yet.</p></section>';
