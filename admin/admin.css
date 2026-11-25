@@ -98,3 +98,5 @@ table.rk .rk-b span{display:block;height:8px;border-radius:0 4px 4px 0;backgroun
 .rated-i .rnote{margin:.6rem 0 0 2rem;color:var(--bad);font-size:.9rem}
 .rated-i .rans{margin:.6rem 0 0 2rem;white-space:pre-wrap;font-size:.88rem;color:var(--muted);line-height:1.55;max-width:46rem}
 @media (max-width:560px){.rated-i summary{grid-template-columns:auto minmax(0,1fr)}.rated-i .rd{grid-column:2}}
+.rk-h{overflow:visible!important;white-space:normal!important}
+.rp-tile .mono .qwrap{margin-inline-start:.3rem}
