@@ -8,11 +8,14 @@
 The rules, both kept beside any rules Will adds himself in the dashboard (they are found again by their "ref"):
   1. Custom rule: block a request for a .pdf or .epub on files.foggypress.com when it comes from a bot
      (bots.py: Cloudflare's known bots, no browser name, or a browser name such as "Amazonbot" or "python").
-  2. Custom rule: block every request, on every foggypress.com host that Cloudflare serves, from a bot on the
-     blocklist (bots.BLOCKED: ElevenLabs, Meta AI), except /robots.txt, which tells them to stay out.
+  2. Custom rule (the allowlist, 25 Nov 2026): block every request, on every foggypress.com host that Cloudflare
+     serves, from a bot that isn't allowed in: anything on the blocklist (bots.BLOCKED), and any bot that isn't a
+     Cloudflare-verified bot in an allowed category (bots.ALLOWED_CATEGORIES: search engines, link previews, AI
+     search...). /robots.txt stays readable, since it tells them to stay out.
   3. Rate limit (best effort; the Free plan allows one): one address asking for more than 30 PDFs or EPUBs
      in 10 seconds is refused for 10 seconds. A person clicking never comes close.
-Read-online pages, Britannica articles and the rest of the site are not touched: any crawler may read them.
+People are never touched by rule 2: it only looks at requests that name themselves bots or that Cloudflare
+knows as bots.
 Download counts are unaffected, since GoatCounter counts the click on the page, not the file request.
 
 The check also confirms that Supabase sign-in demands the Turnstile bot check (SUPABASE_URL + SUPABASE_ANON_KEY):
@@ -36,10 +39,12 @@ SITE = os.environ.get('SITE_ORIGIN', 'https://foggypress.com')
 API = 'https://api.cloudflare.com/client/v4'
 BLOCK_REF = 'fp_block_bot_downloads'
 RATE_REF = 'fp_download_rate_limit'
-LIST_REF = 'fp_block_listed_bots'
+LIST_REF = 'fp_allowlist_bots'
+OLD_REFS = ('fp_block_listed_bots',)  # earlier rules this one replaces
 KEEP = ('id', 'ref', 'action', 'action_parameters', 'expression', 'description', 'enabled', 'logging', 'ratelimit')
 
 BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+GOOGLE_UA = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 BOT_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Amazonbot/0.1; +https://developer.amazon.com/support/amazonbot)'
 
 
@@ -64,12 +69,12 @@ def cf(method, path, token, body=None):
         raise CfError(f'{method} {path}: {msg}')
 
 
-def put_rule(token, zone, phase, rule):
-    """Add or replace our rule (found by its ref) in a phase, keeping every other rule as it is."""
+def put_rule(token, zone, phase, rule, drop=()):
+    """Add or replace our rule (found by its ref) in a phase, keeping every other rule as it is (except refs in drop)."""
     path = f'/zones/{zone}/rulesets/phases/{phase}/entrypoint'
     cur = cf('GET', path, token)
     old = (cur or {}).get('result', {}).get('rules') or []
-    others = [{k: r[k] for k in KEEP if k in r} for r in old if r.get('ref') != rule['ref']]
+    others = [{k: r[k] for k in KEEP if k in r} for r in old if r.get('ref') != rule['ref'] and r.get('ref') not in drop]
     cf('PUT', path, token, {'rules': [rule] + others})
     return len(others)
 
@@ -86,11 +91,21 @@ def apply():
         'ref': BLOCK_REF, 'action': 'block', 'enabled': True, 'expression': expr,
         'description': 'Foggy Press: bots may not download PDFs or EPUBs (foggypress-site build/cloudflare_rules.py)'})
     print(f'Custom rule set: bots blocked from PDF and EPUB downloads on {HOST} ({n} other custom rules kept).')
-    n = put_rule(token, zone, 'http_request_firewall_custom', {
-        'ref': LIST_REF, 'action': 'block', 'enabled': True, 'expression': bots.blocked_expression(),
-        'description': 'Foggy Press: blocklisted bots (' + ', '.join(bots.BLOCKED) + ') may not fetch anything '
-                       '(foggypress-site build/bots.py BLOCKED)'})
-    print(f'Custom rule set: blocklisted bots refused everywhere: {", ".join(bots.blocked_names())} ({n} other custom rules kept).')
+    desc = ('Foggy Press: only allowed bots (verified search engines, link previews, AI search) may fetch anything; '
+            'blocklisted: ' + ', '.join(bots.BLOCKED) + ' (foggypress-site build/bots.py)')
+    try:
+        n = put_rule(token, zone, 'http_request_firewall_custom', {
+            'ref': LIST_REF, 'action': 'block', 'enabled': True, 'expression': bots.allowlist_expression(),
+            'description': desc}, drop=OLD_REFS)
+        print(f'Custom rule set: bot allowlist (verified bots in {", ".join(bots.ALLOWED_CATEGORIES)}), '
+              f'blocklist {", ".join(bots.blocked_names())} ({n} other custom rules kept).')
+    except CfError as err:
+        # the plan may not offer the verified-bot category field: then let in every verified bot instead
+        n = put_rule(token, zone, 'http_request_firewall_custom', {
+            'ref': LIST_REF, 'action': 'block', 'enabled': True, 'expression': bots.allowlist_expression(False),
+            'description': desc}, drop=OLD_REFS)
+        print(f'::warning::Cloudflare refused the bot-category test ({err}); every Cloudflare-verified bot is let in '
+              f'instead, other bots refused ({n} other custom rules kept).')
     # the Free plan limits what a rate-limit rule may test, so try the narrowest form first
     for e in (f'(http.host eq "{HOST}" and {bots.DOWNLOAD_PATHS})', bots.DOWNLOAD_PATHS,
               '(http.request.uri.path contains ".pdf" or http.request.uri.path contains ".epub")'):
@@ -155,8 +170,11 @@ def check(strict=False):
         want('EPUB, as a person', epub[1], BROWSER_UA, ok)
         want('EPUB, as Amazonbot', epub[1], BOT_UA, refused)
     if read:
-        want('Read-online page, as Amazonbot', read[1], BOT_UA, ok)
         want('Read-online page, as a person', read[1], BROWSER_UA, ok)
+        # from GitHub's machines these are not the real crawlers, so Cloudflare refuses them
+        want('Read-online page, as a bot pretending to be Googlebot', read[1], GOOGLE_UA, refused)
+        want('Read-online page, as an unknown bot (RiverBot)', read[1], 'Mozilla/5.0 (compatible; RiverBot/1.0)', refused)
+        want('Read-online page, as a Python script', read[1], 'python-requests/2.32.3', refused)
     want('Home page, as Amazonbot', SITE + '/', BOT_UA, ok)
     robots = page(f'https://{HOST}/robots.txt')  # written by the site build, so it may lag a merge by a few minutes
     for name in bots.blocked_names():
@@ -165,6 +183,8 @@ def check(strict=False):
         rows.append(f"| {HOST}/robots.txt tells {name} to stay out | | {'yes' if name in robots else 'not yet (next site build)'} |")
         want(f'robots.txt, as {name} (it must be able to read that it is not welcome)', f'https://{HOST}/robots.txt',
              f'Mozilla/5.0 (compatible; {name}/1.0)', ok)
+    rows.append(f"| {HOST}/robots.txt tells unlisted crawlers to stay out | | "
+                f"{'yes' if robots.rstrip().endswith('User-agent: *' + chr(10) + 'Disallow: /') else 'not yet (next site build)'} |")
 
     sb, key = os.environ.get('SUPABASE_URL', '').strip().rstrip('/'), os.environ.get('SUPABASE_ANON_KEY', '').strip()
     if sb and key:
