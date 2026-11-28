@@ -75,7 +75,18 @@
     return Promise.all([
       q(sb().from('real_books').select(COLS).order('created_at', {ascending: false}).limit(20000)),
       q(sb().from('real_book_fields').select('name,position').order('position'))
-    ]).then(function (r) { rows = r[0]; fields = r[1].map(function (f) { return f.name; }); });
+    ]).then(function (r) { rows = r[0]; fields = r[1].map(function (f) { return f.name; }); return settle(); });
+  }
+  // books scanned before 28 Nov were all marked "to check": keep the mark only where the reading was in doubt
+  function settle() {
+    var ok = rows.filter(function (r) { return r.needs_review && r.source === 'photo' && !doubtful({title: r.title, unsure: (r.custom || {})._unsure}); });
+    if (!ok.length) return;
+    var parts = [];
+    for (var i = 0; i < ok.length; i += 100) parts.push(ok.slice(i, i + 100));
+    return Promise.all(parts.map(function (part) {
+      return q(sb().from('real_books').update({needs_review: false}).in('id', part.map(function (r) { return r.id; })))
+        .then(function () { part.forEach(function (r) { r.needs_review = false; }); });
+    })).catch(function (e) { console.warn('settle', e); });
   }
   function clean(d) {
     var out = {};
@@ -159,9 +170,9 @@
         var on = view.sort === o[0];
         return '<button type="button" data-sort="' + o[0] + '" aria-pressed="' + on + '">' + esc(T(o[1])) + (on ? (view.dir > 0 ? ' ↑' : ' ↓') : '') + '</button>';
       }).join('') + '</div></div>';
-    var note = review ? '<div class="rbcheck"><p>' + esc(review === 1 ? T('1 book to check: we read it from photos, so please look it over.') : T('{n} books to check: we read them from photos, so please look them over.', {n: review})) + '</p>' +
+    var note = review || pair.length ? '<div class="rbcheck">' + (review ? '<p>' + esc(review === 1 ? T('1 book to check: we read it from photos, so please look it over.') : T('{n} books to check: we read them from photos, so please look them over.', {n: review})) + '</p>' +
       '<p class="btns">' + (view.show !== 'review' ? '<button type="button" class="btn sm" id="rb-review">' + esc(T('Show them')) + '</button>' : '') +
-      '<button type="button" class="btn ghost sm" id="rb-okall">' + esc(T('They’re all right')) + '</button></p>' +
+      '<button type="button" class="btn ghost sm" id="rb-okall">' + esc(T('They’re all right')) + '</button></p>' : '') +
       pair.map(function (p) {
         return '<p class="rbpair">' + esc(T('“{title}” {a} and {b} look like one set.', {title: p[0].title, a: p[0].volume, b: p[1].volume})) +
           ' <button type="button" class="linkish" data-join="' + esc(p[0].id + ',' + p[1].id) + '">' + esc(T('Make them one record')) + '</button></p>';
@@ -211,10 +222,10 @@
     var qi = document.getElementById('rb-q');
     if (qi && view.focus) { qi.focus(); qi.setSelectionRange(qi.value.length, qi.value.length); view.focus = false; }
   }
-  // Vol. I and Vol. II of one work, both just scanned: offer to keep one record for the set
+  // Vol. I and Vol. II of one work, both scanned in the last day: offer to keep one record for the set
   function volumePairs() {
-    var out = [], seen = {};
-    rows.filter(function (r) { return r.needs_review && r.volume; }).forEach(function (r) {
+    var out = [], seen = {}, since = new Date(Date.now() - 864e5).toISOString();
+    rows.filter(function (r) { return r.volume && r.source === 'photo' && String(r.created_at) > since && !/^vols\./i.test(r.volume); }).forEach(function (r) {
       var k = titleKey(r.title) + '|' + fold(r.author_last);
       if (seen[k] && seen[k].volume !== r.volume) out.push([seen[k], r]); else if (!seen[k]) seen[k] = r;
     });
@@ -559,14 +570,22 @@
       return r.json().catch(function () { return {}; }).then(function (j) {
         if (!r.ok) throw Object.assign(new Error(T(WHY[j.error] || WHY.failed)), {stop: j.error === 'limit' || j.error === 'paused' || j.error === 'signin'});
         if (j.not_a_book || !j.books || !j.books.length) throw new Error(T('No title page found. Retake it?'));
-        return Promise.all(j.books.map(function (bk) { return insert(fromScan(bk)); })).then(function (saved) {
+        var split = j.books.length > 1;
+        return Promise.all(j.books.map(function (bk) { return insert(fromScan(bk, split)); })).then(function (saved) {
           if (window.fpEvent) window.fpEvent('real books scan');
           return {n: saved.length, title: saved[0].title};
         });
       });
     }, function (e) { if (e.stop) throw e; throw new Error(T(navigator.onLine === false ? 'No connection. Try again when you’re back online.' : WHY.failed)); });
   }
-  function fromScan(bk) {
+  // Ask the reader to check a book only when the reading is in doubt: no title, a printed field the model wasn't
+  // sure of, or one set of photos that turned out to hold more than one book. A class or subject the model judged
+  // (old books have no CIP block) doesn't count: it's marked in the form but isn't a misreading.
+  var JUDGED = ['lc_call', 'subjects', 'dewey', 'language'];
+  function doubtful(bk, split) {
+    return split || !bk.title || (bk.unsure || []).some(function (f) { return JUDGED.indexOf(f) < 0; });
+  }
+  function fromScan(bk, split) {
     var d = {};
     ['title', 'subtitle', 'author_last', 'author_first', 'other_authors', 'contributors', 'publisher', 'place', 'year', 'edition', 'volume', 'isbn', 'language', 'lc_call', 'dewey']
       .forEach(function (k) { d[k] = bk[k] == null ? '' : bk[k]; });
@@ -574,7 +593,7 @@
     d.notes = bk.inscription ? T('Inscribed: {text}', {text: bk.inscription}) : '';
     d.custom = bk.unsure && bk.unsure.length ? {_unsure: bk.unsure} : {};
     d.catalog_id = catalogMatch(d);
-    d.needs_review = true; d.source = 'photo';
+    d.needs_review = doubtful(bk, split); d.source = 'photo';
     return d;
   }
 
