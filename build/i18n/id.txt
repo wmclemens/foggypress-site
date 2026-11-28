@@ -371,6 +371,12 @@ Sedang sibuk. Coba lagi semenit lagi.
 Foto itu terlalu besar.
 Itu bukan foto.
 Tidak ada koneksi. Coba lagi saat sudah online.
+Buku {n}
+Buku {n} sedang dibaca. Sekarang buku berikutnya.
+1 buku gagal dipindai. Tekan Coba lagi atau Ulangi foto, atau Selesai sekali lagi untuk membiarkannya.
+{n} buku gagal dipindai. Tekan Coba lagi atau Ulangi foto, atau Selesai sekali lagi untuk membiarkannya.
+1 buku tidak dapat dibaca. Silakan pindai lagi.
+{n} buku tidak dapat dibaca. Silakan pindai lagi.
 
 @about 351cb8b251
 Foggy Press menata ulang buku-buku domain publik dalam satu gaya rumah yang sederhana dan menerbitkannya secara gratis: untuk dibaca daring, dicetak di rumah dari PDF berukuran kertas letter AS, atau diunduh sebagai EPUB untuk pembaca e-book.

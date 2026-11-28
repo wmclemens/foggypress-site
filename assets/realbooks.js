@@ -339,17 +339,17 @@
   function camOpen() {
     var o = document.createElement('div');
     o.className = 'rbcam'; o.setAttribute('role', 'dialog'); o.setAttribute('aria-modal', 'true'); o.setAttribute('aria-label', T('Scan books'));
-    o.innerHTML = '<div class="rbcam-top"><span class="rbcam-count mono" id="cam-count"></span><button type="button" class="rbcam-done" id="cam-done">' + esc(T('Done')) + '</button></div>' +
+    o.innerHTML = '<div class="rbcam-top"><span class="rbcam-count mono" id="cam-count"></span><span class="rbcam-book" id="cam-book"></span><button type="button" class="rbcam-done" id="cam-done">' + esc(T('Done')) + '</button></div>' +
       '<div class="rbcam-view"><video id="cam-video" playsinline muted autoplay></video><div class="rbcam-frame" aria-hidden="true"></div>' +
-      '<p class="rbcam-msg" id="cam-msg" role="status" aria-live="polite"></p><canvas id="cam-canvas" hidden></canvas></div>' +
+      '<p class="rbcam-banner" id="cam-banner" aria-hidden="true"></p><p class="rbcam-msg" id="cam-msg" role="status" aria-live="polite"></p><canvas id="cam-canvas" hidden></canvas></div>' +
       '<div class="rbcam-tray" id="cam-tray"></div>' +
       '<div class="rbcam-ctl"><label class="rbcam-file"><input type="file" accept="image/*" multiple id="cam-file"><span>' + esc(T('Photos')) + '</span></label>' +
       '<button type="button" class="rbcam-shutter" id="cam-shot" aria-label="' + esc(T('Take a photo of this page')) + '"></button>' +
       '<button type="button" class="rbcam-next" id="cam-next">' + esc(T('Next book')) + '</button></div>';
     document.body.appendChild(o);
     document.documentElement.classList.add('rbcam-on');
-    cam = {el: o, video: o.querySelector('video'), books: [{photos: [], state: 'shooting'}], cur: 0, busy: 0};
-    camHint();
+    cam = {el: o, video: o.querySelector('video'), books: [{photos: [], state: 'shooting', pending: 0, no: 1}], cur: 0, busy: 0, nos: 1};
+    drawTray(); camHint();
     o.querySelector('#cam-shot').addEventListener('click', shoot);
     o.querySelector('#cam-next').addEventListener('click', nextBook);
     o.querySelector('#cam-done').addEventListener('click', camClose);
@@ -363,11 +363,29 @@
       else if (s && s.left != null && s.left <= 20) say(T('{n} scans left today.', {n: s.left}));
     }).catch(function () {});
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { noCamera(); return; }
+    camStart();
+    document.addEventListener('visibilitychange', camWake);
+  }
+  function camStart() {
+    var c = cam;
+    if (!c || c.starting) return;
+    c.starting = true;
     navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: {ideal: 'environment'}, width: {ideal: 2560}, height: {ideal: 1920}}}).then(function (s) {
-      if (!cam) { s.getTracks().forEach(function (t) { t.stop(); }); return; }
-      cam.stream = s; cam.video.srcObject = s;
-      var p = cam.video.play(); if (p && p.catch) p.catch(function () {});
-    }).catch(function (e) { console.warn('camera', e); noCamera(e && e.name === 'NotAllowedError'); });
+      c.starting = false;
+      if (cam !== c) { s.getTracks().forEach(function (t) { t.stop(); }); return; }
+      if (c.stream) c.stream.getTracks().forEach(function (t) { t.stop(); });
+      c.stream = s; c.video.srcObject = s;
+      // phones stop the camera when the screen sleeps or another app takes it: start it again when that happens
+      s.getVideoTracks().forEach(function (t) { t.addEventListener('ended', function () { if (cam === c && c.stream === s && !document.hidden) camStart(); }); });
+      var p = c.video.play(); if (p && p.catch) p.catch(function () {});
+    }).catch(function (e) { c.starting = false; console.warn('camera', e); if (cam === c && !c.stream) noCamera(e && e.name === 'NotAllowedError'); });
+  }
+  // back from the lock screen or another app: the old picture is frozen or black, so get a fresh one
+  function camWake() {
+    if (!cam || document.hidden || cam.el.classList.contains('nocam')) return;
+    var t = cam.stream && cam.stream.getVideoTracks()[0];
+    if (!t || t.readyState === 'ended' || t.muted) camStart();
+    else { var p = cam.video.play(); if (p && p.catch) p.catch(function () {}); }
   }
   function noCamera(denied) {
     cam.el.classList.add('nocam');
@@ -376,14 +394,25 @@
   function tz() { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; } catch (e) { return 'UTC'; } }
   function say(s) { if (cam) cam.el.querySelector('#cam-msg').textContent = s || ''; }
   function camHint() {
-    var b = cam.books[cam.cur];
+    var b = cam.books[cam.cur], n = b.photos.length + b.pending;
+    cam.el.querySelector('#cam-book').textContent = T('Book {n}', {n: b.no});
+    cam.el.querySelector('#cam-next').classList.toggle('off', !n);
+    if (b.pending && !b.photos.length) return;
     say(!b.photos.length ? T('Photograph the title page. Then the back of it, if it has the date or publisher.') :
       b.photos.length < MAX_PAGES ? T('Page {n} of this book. Add another page, or press Next book.', {n: b.photos.length}) : T('That’s 4 pages. Press Next book.'));
   }
   function camClose() {
     if (!cam) return;
-    var c = cam, pending = c.books.some(function (b) { return b.state === 'shooting' && b.photos.length; });
+    var c = cam;
+    var bad = c.books.filter(function (b) { return b.state === 'error'; }).length;
+    if (bad && !c.warned) {
+      c.warned = true;
+      say(bad === 1 ? T('1 book didn’t scan. Press Try again or Retake, or Done again to leave it.') : T('{n} books didn’t scan. Press Try again or Retake, or Done again to leave them.', {n: bad}));
+      return;
+    }
+    var pending = c.books.some(function (b) { return b.state === 'shooting' && (b.photos.length || b.pending); });
     if (pending) nextBook();
+    document.removeEventListener('visibilitychange', camWake);
     if (c.stream) c.stream.getTracks().forEach(function (t) { t.stop(); });
     var waiting = c.books.filter(function (b) { return b.state === 'reading' || b.state === 'queued'; }).length;
     // books still being read finish in the background and appear in the list
@@ -394,10 +423,17 @@
     document.getElementById('rb-scan') && document.getElementById('rb-scan').focus();
   }
   // a frame from the camera, shrunk so its long side is at most LONG pixels: plenty to read type, small to send
-  function grab(src, w, h) {
+  function grab(src, w, h) { return encode(frame(src, w, h)); }
+  // copy the picture into a canvas: quick, so the photo is the page that was in view when the shutter was pressed
+  function frame(src, w, h) {
     var s = Math.min(1, LONG / Math.max(w, h)), cw = Math.round(w * s), ch = Math.round(h * s);
     var cv = document.createElement('canvas'); cv.width = cw; cv.height = ch;
-    var cx = cv.getContext('2d'); cx.drawImage(src, 0, 0, cw, ch);
+    cv.getContext('2d').drawImage(src, 0, 0, cw, ch);
+    return cv;
+  }
+  // make the JPEG to send and the little picture for the tray: the slow part
+  function encode(cv) {
+    var cw = cv.width, ch = cv.height;
     // too dark to read? (the average brightness of a small copy)
     var sm = document.createElement('canvas'); sm.width = 32; sm.height = Math.max(1, Math.round(32 * ch / cw));
     var sx = sm.getContext('2d'); sx.drawImage(cv, 0, 0, sm.width, sm.height);
@@ -409,17 +445,31 @@
     th.getContext('2d').drawImage(cv, 0, 0, th.width, th.height);
     return {data: data.split(',')[1], thumb: th.toDataURL('image/jpeg', 0.7), dark: dark};
   }
+  // The flash and buzz come first, the moment the shutter is pressed; the photo is made just after, so the screen
+  // never sits frozen. It belongs to the book that was current when the shutter was pressed, even if Next book is
+  // pressed before it is ready, and that book isn't sent until all its photos are made.
   function shoot() {
-    var v = cam && cam.video;
-    if (!v || !v.videoWidth) { say(T('The camera isn’t ready yet.')); return; }
-    var b = cam.books[cam.cur];
-    if (b.photos.length >= MAX_PAGES) { say(T('That’s 4 pages. Press Next book.')); return; }
-    var p = grab(v, v.videoWidth, v.videoHeight);
-    if (p.dark) { say(T('Too dark to read. Turn on a light, or move closer to a window.')); return; }
-    b.photos.push(p);
-    cam.el.classList.add('flash'); setTimeout(function () { cam && cam.el.classList.remove('flash'); }, 120);
+    var c = cam, v = c && c.video;
+    if (!v || !v.videoWidth || v.readyState < 2) { say(T('The camera isn’t ready yet.')); camWake(); return; }
+    var b = c.books[c.cur];
+    if (b.photos.length + b.pending >= MAX_PAGES) { say(T('That’s 4 pages. Press Next book.')); return; }
+    var cv = frame(v, v.videoWidth, v.videoHeight);
+    b.pending++;
+    c.el.classList.add('flash'); setTimeout(function () { c.el.classList.remove('flash'); }, 150);
     if (navigator.vibrate) navigator.vibrate(15);
-    drawTray(); camHint();
+    camHint();
+    setTimeout(function () {
+      var p = encode(cv);
+      b.pending--;
+      if (p.dark) {
+        if (cam === c) say(T('Too dark to read. Turn on a light, or move closer to a window.'));
+        // the book was already sent on with only this photo: take it back off the list
+        var at = c.books.indexOf(b);
+        if (b.state === 'queued' && !b.photos.length && !b.pending && at >= 0) { c.books.splice(at, 1); if (c.cur > at) c.cur--; }
+      } else b.photos.push(p);
+      if (cam === c) { drawTray(); camHint(); }
+      pump(c);
+    }, 30);
   }
   function addFiles(files) {
     var list = Array.prototype.slice.call(files || []).filter(function (f) { return /^image\//.test(f.type); });
@@ -437,10 +487,18 @@
   }
   function nextBook() {
     var b = cam.books[cam.cur];
-    if (!b.photos.length) { say(T('Photograph a page first.')); return; }
+    if (!b.photos.length && !b.pending) { say(T('Photograph a page first.')); return; }
     b.state = 'queued';
-    cam.books.push({photos: [], state: 'shooting'}); cam.cur = cam.books.length - 1;
+    cam.books.push({photos: [], state: 'shooting', pending: 0, no: ++cam.nos}); cam.cur = cam.books.length - 1;
+    if (navigator.vibrate) navigator.vibrate([10, 60, 10]);
+    banner(T('Book {n} is being read. Now the next book.', {n: b.no}));
     pump(cam); drawTray(); camHint();
+  }
+  // a big, short-lived note across the middle of the picture, so a press of Next book can't be missed
+  function banner(s) {
+    var el = cam.el.querySelector('#cam-banner');
+    el.textContent = s; el.classList.remove('show'); void el.offsetWidth; el.classList.add('show');
+    clearTimeout(cam.bannerT); cam.bannerT = setTimeout(function () { el.classList.remove('show'); }, 1600);
   }
   function drawTray() {
     if (!cam) return;
@@ -448,36 +506,45 @@
     var done = cam.books.filter(function (b) { return b.state === 'done'; }).reduce(function (n, b) { return n + (b.n || 1); }, 0);
     cam.el.querySelector('#cam-count').textContent = done ? (done === 1 ? T('1 book added') : T('{n} books added', {n: done})) : '';
     t.innerHTML = cam.books.map(function (b, i) {
-      if (!b.photos.length && b.state === 'shooting') return '';
+      if (!b.photos.length && !b.pending && b.state === 'shooting' && i !== cam.cur) return '';
       var st = {shooting: T('This book'), queued: T('Waiting'), reading: T('Reading…'), done: b.n > 1 ? T('{n} books', {n: b.n}) : (b.title || T('Added')), error: b.why || T('Didn’t work')}[b.state];
-      return '<div class="tb st-' + b.state + '"><span class="pics">' + b.photos.map(function (p, j) {
+      var pics = b.photos.map(function (p, j) {
         return '<img src="' + p.thumb + '" alt="">' + (b.state === 'shooting' ? '<button type="button" class="x" data-drop="' + i + ',' + j + '" aria-label="' + esc(T('Remove this photo')) + '">×</button>' : '');
-      }).join('') + '</span><span class="lab">' + esc(st) + '</span>' +
+      }).join('') + new Array(b.pending + 1).join('<span class="ph"></span>');
+      return '<div class="tb st-' + b.state + (i === cam.cur ? ' cur' : '') + '"><span class="pics">' + (pics || '<span class="ph empty"></span>') + '</span><span class="lab">' + esc(T('Book {n}', {n: b.no}) + ' · ' + st) + '</span>' +
         (b.state === 'error' ? '<span class="acts"><button type="button" data-retry="' + i + '">' + esc(T('Try again')) + '</button><button type="button" data-reshoot="' + i + '">' + esc(T('Retake')) + '</button></span>' : '') + '</div>';
     }).join('');
     t.scrollLeft = t.scrollWidth;
   }
   function trayClick(e) {
     var x = e.target.closest('[data-drop]'), r = e.target.closest('[data-retry]'), s = e.target.closest('[data-reshoot]');
-    if (x) { var ij = x.dataset.drop.split(','); cam.books[+ij[0]].photos.splice(+ij[1], 1); drawTray(); camHint(); }
+    if (x) { var ij = x.dataset.drop.split(','); cam.books[+ij[0]].photos.splice(+ij[1], 1); drawTray(); camHint(); return; }
     if (r) { cam.books[+r.dataset.retry].state = 'queued'; pump(cam); drawTray(); }
     if (s) {
       // shoot this book again: drop its photos and make it the current one
       var i = +s.dataset.reshoot, cur = cam.books[cam.cur];
       if (!cur.photos.length) cam.books.splice(cam.cur, 1);
-      var b = cam.books.splice(i, 1)[0]; b.photos = []; b.state = 'shooting'; b.why = '';
+      var b = cam.books.splice(i, 1)[0]; b.photos = []; b.state = 'shooting'; b.why = ''; b.pending = 0;
       cam.books.push(b); cam.cur = cam.books.length - 1; drawTray(); camHint();
     }
   }
   // send waiting books to the scan function, two at a time; each one read is saved straight away
   function pump(c) {
     while (c.busy < 2) {
-      var b = c.books.filter(function (x) { return x.state === 'queued'; })[0];
+      var b = c.books.filter(function (x) { return x.state === 'queued' && !x.pending; })[0];
       if (!b) return;
       c.busy++; b.state = 'reading';
       scan(b).then(function (b) { return function (res) { b.state = 'done'; b.n = res.n; b.title = res.title; b.photos.forEach(function (p) { p.data = null; }); }; }(b),
         function (b) { return function (e) { b.state = 'error'; b.why = e.message; if (e.stop) c.books.forEach(function (x) { if (x.state === 'queued') { x.state = 'error'; x.why = e.message; } }); }; }(b))
-        .then(function () { c.busy--; if (!c.closed) drawTray(); else if (!view.edit) drawList(); pump(c); });
+        .then(function (b) { return function () {
+          c.busy--;
+          if (!c.closed) drawTray();
+          else {
+            if (!view.edit) drawList();
+            if (b.state === 'error') { c.lost = (c.lost || 0) + 1; clearTimeout(c.lostT); c.lostT = setTimeout(function () { toast(c.lost === 1 ? T('1 book couldn’t be read. Please scan it again.') : T('{n} books couldn’t be read. Please scan them again.', {n: c.lost})); c.lost = 0; }, 800); }
+          }
+          pump(c);
+        }; }(b));
     }
   }
   var WHY = {limit: 'That’s all the scans for today. Please come back tomorrow.', minute: 'Slow down a little: wait a minute, then try again.',

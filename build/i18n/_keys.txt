@@ -371,3 +371,9 @@ Too busy just now. Try again in a minute.
 That photo is too large.
 That isn’t a photo.
 No connection. Try again when you’re back online.
+Book {n}
+Book {n} is being read. Now the next book.
+1 book didn’t scan. Press Try again or Retake, or Done again to leave it.
+{n} books didn’t scan. Press Try again or Retake, or Done again to leave them.
+1 book couldn’t be read. Please scan it again.
+{n} books couldn’t be read. Please scan them again.
