@@ -608,6 +608,15 @@ html.rbcam-on,html.rbcam-on body{overflow:hidden}
 .rbcam{position:fixed;inset:0;z-index:60;background:#000;color:#fff;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
 .rbcam-top{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem}
 .rbcam-count{font-size:.75rem;color:#cfd6df}
+.rbcam button,.rbcam label{touch-action:manipulation;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+.rbcam-book{font-weight:600;font-size:1rem}
+.rbcam-banner{position:absolute;left:8%;right:8%;top:40%;margin:0;padding:.8rem 1rem;border-radius:10px;background:rgba(0,0,0,.72);color:#fff;text-align:center;font-size:1.05rem;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s}
+.rbcam-banner.show{opacity:1;transition:none}
+.rbcam-next.off{opacity:.45}
+.rbcam-next:active,.rbcam-done:active{transform:scale(.95)}
+.rbcam-tray .tb.cur{border-color:#fff;border-style:dashed}
+.rbcam-tray .ph{display:inline-block;height:3rem;width:2.2rem;margin-right:.25rem;border-radius:3px;background:#2b3440}
+.rbcam-tray .ph.empty{background:none;border:1px dashed #56606c}
 .rbcam-done{border:1px solid #fff;background:none;color:#fff;border-radius:999px;padding:.4rem 1rem;font:inherit;font-weight:500}
 .rbcam-view{position:relative;flex:1;min-height:0;overflow:hidden}
 .rbcam video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}

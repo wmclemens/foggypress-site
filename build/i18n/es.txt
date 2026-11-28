@@ -371,6 +371,12 @@ Demasiado ocupado ahora. Inténtelo en un minuto.
 Esa foto es demasiado grande.
 Eso no es una foto.
 Sin conexión. Inténtelo cuando vuelva a estar en línea.
+Libro {n}
+Leyendo el libro {n}. Ahora el siguiente libro.
+1 libro no se escaneó. Pulse Reintentar o Repetir, o Listo otra vez para dejarlo.
+{n} libros no se escanearon. Pulse Reintentar o Repetir, o Listo otra vez para dejarlos.
+No se pudo leer 1 libro. Escanéelo de nuevo.
+No se pudieron leer {n} libros. Escanéelos de nuevo.
 
 @about 351cb8b251
 Foggy Press compone libros de dominio público en un estilo propio y sencillo y los publica gratis: para leer en línea, para imprimir en casa desde un PDF en papel carta de EE. UU. o para descargar como EPUB para un lector electrónico.

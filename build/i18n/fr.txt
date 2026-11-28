@@ -371,6 +371,12 @@ Trop occupé pour l’instant. Réessayez dans une minute.
 Cette photo est trop grande.
 Ce n’est pas une photo.
 Pas de connexion. Réessayez une fois en ligne.
+Livre {n}
+Lecture du livre {n}. Passez au livre suivant.
+1 livre n’a pas été scanné. Appuyez sur Réessayer ou Reprendre, ou de nouveau sur Terminé pour le laisser.
+{n} livres n’ont pas été scannés. Appuyez sur Réessayer ou Reprendre, ou de nouveau sur Terminé pour les laisser.
+1 livre n’a pas pu être lu. Scannez-le de nouveau.
+{n} livres n’ont pas pu être lus. Scannez-les de nouveau.
 
 @about 351cb8b251
 Foggy Press compose des livres du domaine public dans un style maison simple et les publie gratuitement : à lire en ligne, à imprimer chez soi à partir d’un PDF au format Lettre US, ou à télécharger en EPUB pour une liseuse.

@@ -371,6 +371,12 @@ Ocupado demais agora. Tente em um minuto.
 Essa foto é grande demais.
 Isso não é uma foto.
 Sem conexão. Tente quando estiver on-line de novo.
+Livro {n}
+Lendo o livro {n}. Agora o próximo livro.
+1 livro não foi digitalizado. Toque em Tentar de novo ou Refazer, ou em Concluir de novo para deixá-lo.
+{n} livros não foram digitalizados. Toque em Tentar de novo ou Refazer, ou em Concluir de novo para deixá-los.
+Não foi possível ler 1 livro. Digitalize-o de novo.
+Não foi possível ler {n} livros. Digitalize-os de novo.
 
 @about 351cb8b251
 A Foggy Press compõe livros de domínio público num estilo próprio e simples e os publica de graça: para ler on-line, imprimir em casa a partir de um PDF em papel carta americano ou baixar como EPUB para um leitor digital.
